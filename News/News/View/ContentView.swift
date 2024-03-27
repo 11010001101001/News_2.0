@@ -15,17 +15,27 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach($viewModel.newsArray) { $item in
-                    ZStack {
-                        NavigationLink {
-                            TopicDetail(article: item)
-                        } label: {
-                            Topic(article: item)
-                                .ignoresSafeArea()
+            ZStack {
+                ProgressView()
+
+                List {
+                    ForEach($viewModel.newsArray) { $item in
+                        ZStack {
+                            NavigationLink {
+                                TopicDetail(article: item)
+                            } label: {
+                                Topic(article: item)
+                                    .ignoresSafeArea()
+                            }
                         }
                     }
                 }
+                .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
+
+                ErrorView(
+                    title: $viewModel.failureReason.wrappedValue,
+                    action: { viewModel.loadNews() })
+                .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -39,6 +49,7 @@ struct ContentView: View {
             .navigationTitle("News")
 
         }
+//        .tint(.black)
         .onAppear {
             // commented while debugging
             viewModel.loadNews()
