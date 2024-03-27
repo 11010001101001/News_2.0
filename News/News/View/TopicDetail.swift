@@ -94,7 +94,7 @@ struct TopicDetail: View {
     }
 }
 
-struct KeyframeAnimationView: View {
+struct TestAnimationView: View {
 
     @State var rotating = false
 
@@ -145,5 +145,5 @@ struct KeyframeAnimationView: View {
 //                                  title: "Title",
 //                                  description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
 //                                  publishedAt: "Time"))
-    KeyframeAnimationView()
+    TestAnimationView()
 }
