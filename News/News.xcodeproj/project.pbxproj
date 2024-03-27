@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C433F51A2BB40C2C0088A7FC /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433F5192BB40C2C0088A7FC /* Categories.swift */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
+		C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Effects.swift */; };
 		C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */; };
 		C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */; };
 		C4BC8D0D2BB2FA3900A0AFC8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0C2BB2FA3900A0AFC8 /* Item.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		C433F5192BB40C2C0088A7FC /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
+		C49C849D2BB455CE00571CD4 /* View+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Effects.swift"; sourceTree = "<group>"; };
 		C4BC8D052BB2FA3900A0AFC8 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				C4BC8D562BB35EB200A0AFC8 /* CGFloat+Screen.swift */,
 				C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */,
 				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
+				C49C849D2BB455CE00571CD4 /* View+Effects.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4BC8D572BB35EB200A0AFC8 /* CGFloat+Screen.swift in Sources */,
+				C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */,
 				C4BC8D4F2BB348C600A0AFC8 /* String+Formats.swift in Sources */,
 				C4BC8D382BB3089900A0AFC8 /* CommonInfo.swift in Sources */,
 				C4BC8D422BB3167200A0AFC8 /* ViewModel.swift in Sources */,

@@ -42,38 +42,14 @@ struct TopicDetail: View {
                         .clipped()
                         .clipShape(.buttonBorder)
                         .shadow(color: Color(image.averageColor), radius: 60)
-                        .rotation3DEffect(
-                            Angle(degrees: rotating ? -10 : 10),
-                            axis: rotating ? randomCoordinates : randomCoordinates,
-                            anchor: .center,
-                            anchorZ: 0.5,
-                            perspective: rotating ? 1 : -1
-                        )
-                        .animation(.easeInOut(duration: 10).repeatForever(autoreverses: true),
-                                   value: rotating)
+                        .applyNice3DRotation(rotating: &rotating, coordinates: randomCoordinates)
                         .onAppear { rotating.toggle() }
-                        .scaleEffect(rotating ? 1 : 0)
-                        .animation(.smooth(duration: 1.2,
-                                           extraBounce: 0.6),
-                                   value: rotating)
                 } else if phase.error != nil {
                     ErrorView(
                         title: "Error loading image...",
                         action: nil)
-                    .rotation3DEffect(
-                        Angle(degrees: rotating ? -10 : 10),
-                        axis: rotating ? randomCoordinates : randomCoordinates,
-                        anchor: .center,
-                        anchorZ: 0.5,
-                        perspective: rotating ? 1 : -1
-                    )
-                    .animation(.easeInOut(duration: 10).repeatForever(autoreverses: true),
-                               value: rotating)
+                    .applyNice3DRotation(rotating: &rotating, coordinates: randomCoordinates)
                     .onAppear { rotating.toggle() }
-                    .scaleEffect(rotating ? 1 : 0)
-                    .animation(.smooth(duration: 1.2,
-                                       extraBounce: 0.6),
-                               value: rotating)
                 } else {
                     ProgressView()
                 }
@@ -121,20 +97,8 @@ struct TestAnimationView: View {
             .foregroundStyle(.blue)
             .frame(width: 100, height: 100)
             .shadow(color: .blue, radius: 60)
-            .rotation3DEffect(
-                Angle(degrees: rotating ? -10 : 10),
-                axis: rotating ? randomCoordinates : randomCoordinates,
-                anchor: .center,
-                anchorZ: 1,
-                perspective: rotating ? 1 : -1
-            )
-            .animation(.easeInOut(duration: 3).repeatForever(autoreverses: true),
-                       value: rotating)
+            .applyNice3DRotation(rotating: &rotating, coordinates: randomCoordinates)
             .onAppear { rotating.toggle() }
-            .scaleEffect(rotating ? 1 : 0)
-            .animation(.smooth(duration: 1.2,
-                               extraBounce: 0.6),
-                       value: rotating)
     }
 
 }
