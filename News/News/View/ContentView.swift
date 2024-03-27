@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftData
+//import SwiftData
 
 struct ContentView: View {
 //    @Environment(\.modelContext) private var modelContext
@@ -49,9 +49,7 @@ struct ContentView: View {
             .navigationTitle("News")
 
         }
-//        .tint(.black)
         .onAppear {
-            // commented while debugging
             viewModel.loadNews()
         }
     }
@@ -59,5 +57,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView(viewModel: ViewModel())
-        .modelContainer(for: Item.self, inMemory: true)
+//        .modelContainer(for: Item.self, inMemory: true)
 }

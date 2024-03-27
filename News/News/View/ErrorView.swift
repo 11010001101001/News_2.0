@@ -11,7 +11,7 @@ struct ErrorView: View {
     var title: String
     var action: Action
 
-    @State private var animating = false
+//    @State private var animating = false
 
     var body: some View {
         ZStack {
@@ -37,12 +37,12 @@ struct ErrorView: View {
                 CustomButton(title: "Reload", action: action)
             }
         }
-        .opacity(animating ? 1 : 0)
-        .scaleEffect(animating ? 1 : 0)
-        .animation(.bouncy(duration: 0.3,
-                           extraBounce: 0.2),
-                   value: animating)
-        .onAppear { animating = true }
+//        .opacity(animating ? 1 : 0)
+//        .scaleEffect(animating ? 1 : 0)
+//        .animation(.bouncy(duration: 0.3,
+//                           extraBounce: 0.2),
+//                   value: animating)
+//        .onAppear { animating = true }
     }
 }
 
