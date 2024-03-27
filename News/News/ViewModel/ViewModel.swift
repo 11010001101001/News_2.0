@@ -9,95 +9,92 @@ import Foundation
 import Combine
 import SwiftUI
 
-
 final class ViewModel: ObservableObject {
 
-    @Published var newsArray = [Articles]()
-//    = [Articles(source: Source(id: "New York Times", name: "New York Times"),
-//                                                     author: "Kate Middleton",
-//                                                     title: "Apple releases IOs 1000",
-//                                                     description: "So far so good. Another big update from world's biggest mobile company",
-//                                                     url: "www.apple.com",
-//                                                     urlToImage: "www.apple.com/image.png",
-//                                                     publishedAt: Date().description,
-//                                                     content: "Some content",
-//                                                     viewed: false)]
-    @Published var cancellables = Set<AnyCancellable>()
-//    @Published var errorPublisher = AnyPublisher<(() -> Void), Never>()
+    @Published private var cancellables = Set<AnyCancellable>()
 
-    private func newsPublisher(with keyWord: String? = nil, category: String? = nil) -> AnyPublisher<[Articles], any Error> {
+    @Published var newsArray = [Articles]()
+    @Published var loadingSucceed = false
+    @Published var loadingFailed = false
+    @Published var failureReason = ""
+    @Published var keyWord: String?
+    @Published var category: String?
+
+    private var newsPublisher: AnyPublisher<[Articles], ApiError> {
         var urlString: String {
-            let mode: Mode = keyWord == nil ? .category(category ?? "") : .keyword(keyWord ?? "")
+            let mode: Mode = keyWord == nil ? .category(category ?? Categories.technology.rawValue) : .keyword(keyWord ?? "")
             return getLinkWith(mode)
         }
-
-        guard let url = URL(string: urlString) else {
-            return Just([Articles]())
-                .setFailureType(to: Error.self)
+        if let url = URL(string: urlString) {
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .retry(3)
+                .tryMap { [weak self] data, response in
+                    let info = try JSONDecoder().decode(CommonInfo.self, from: data)
+                    try self?.handleResponse(response as? HTTPURLResponse)
+                    return info.articles ?? []
+                }
+                .mapError { error in
+                    VibrateManager.shared.impactOccured(.rigid)
+                    return ApiError.mappingError(msg: Errors.mappingError.rawValue)
+                }
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        } else {
+            VibrateManager.shared.impactOccured(.rigid)
+            return Fail(error: ApiError.invalidRequest(msg: Errors.invalidUrl.rawValue))
                 .eraseToAnyPublisher()
         }
-
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { [weak self] data, response in
-                let info = try JSONDecoder().decode(CommonInfo.self, from: data)
-                return info.articles ?? []
-//                self?.handleResponse(response as? HTTPURLResponse)
-            }
-//            .map { $0.data }
-//            .decode(type: CommonInfo.self, decoder: JSONDecoder())
-//            .map { $0.articles ?? [] }
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
     }
 
-//    private func handleResponse(_ response: HTTPURLResponse?) {
-//        guard let response else { return }
-//        VibrateManager.shared.impactOccured(.rigid)
-//        
-//        switch response.statusCode {
-//        case HttpStatusCodes.tooManyRequests.rawValue:
-//            view?.handleResponseFailure(with: Errors.tooManyRequests.rawValue)
-//        case HttpStatusCodes.internalServerError.rawValue:
-//            view?.handleResponseFailure(with: Errors.serverError.rawValue)
-//        case HttpStatusCodes.notFound.rawValue:
-//            view?.handleResponseFailure(with: Errors.unauthorized.rawValue)
-//        case HttpStatusCodes.badRequest.rawValue:
-//            view?.handleResponseFailure(with: Errors.badRequest.rawValue)
-//        case HttpStatusCodes.ok.rawValue:
-//            view?.handleResponseSuccess()
-//        default:
-//            break
-//        }
-//    }
+    private func handleResponse(_ response: HTTPURLResponse?) throws {
+        guard let response else {
+            throw ApiError.mappingError(msg: Errors.responseError.rawValue)
+        }
+        VibrateManager.shared.impactOccured(.rigid)
 
-    func loadNews() {
-        newsPublisher()
-            .sink { error in
-                print(error)
-            } receiveValue: { [weak self] articles in
-                self?.newsArray = articles
-            }
-            .store(in: &cancellables)
+        switch response.statusCode {
+        case HttpStatusCodes.tooManyRequests.rawValue:
+            throw ApiError.tooManyRequests(msg: Errors.tooManyRequests.rawValue)
+        case HttpStatusCodes.internalServerError.rawValue:
+            throw ApiError.internalServerError(msg: Errors.serverError.rawValue)
+        case HttpStatusCodes.notFound.rawValue:
+            throw ApiError.notFound(msg: Errors.unauthorized.rawValue)
+        case HttpStatusCodes.badRequest.rawValue:
+            throw ApiError.badRequest(msg: Errors.badRequest.rawValue)
+        default:
+            break
+        }
     }
 
-//    func handleError() {
-//        errorPublisher()
-//            .sink { error in
-//                print(error)
-//            } receiveValue: { [weak self] error in
-//                error
-//            }
-//
-//    }
-
-    //https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=100&apiKey=8f825354e7354c71829cfb4cb15c4893
     private func getLinkWith(_ mode: Mode) -> String {
         switch mode {
         case .keyword(let keyword):
-            return "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey.rawValue)"
+            "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey.rawValue)"
         case .category(let category):
-            return "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey.rawValue)"
+            "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey.rawValue)"
         }
+    }
+}
+
+// MARK: - Helpers
+
+extension ViewModel {
+    func loadNews() {
+        loadingSucceed = false
+        loadingFailed = false
+
+        newsPublisher
+            .sink { [weak self] error in
+                guard case .failure(let failure) = error else {
+                    return
+                }
+                self?.loadingFailed = true
+                self?.failureReason = failure.failureReason ?? failure.errorDescription ?? failure.localizedDescription
+            } receiveValue: { [weak self] articles in
+                self?.loadingSucceed = true
+                self?.newsArray = articles
+            }
+            .store(in: &cancellables)
     }
 }
 

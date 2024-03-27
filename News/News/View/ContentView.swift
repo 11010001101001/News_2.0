@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftData
+//import SwiftData
 
 struct ContentView: View {
 //    @Environment(\.modelContext) private var modelContext
@@ -15,17 +15,27 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach($viewModel.newsArray) { $item in
-                    ZStack {
-                        NavigationLink {
-                            TopicDetail(article: item)
-                        } label: {
-                            Topic(article: item)
-                                .ignoresSafeArea()
+            ZStack {
+                ProgressView()
+
+                List {
+                    ForEach($viewModel.newsArray) { $item in
+                        ZStack {
+                            NavigationLink {
+                                TopicDetail(article: item)
+                            } label: {
+                                Topic(article: item)
+                                    .ignoresSafeArea()
+                            }
                         }
                     }
                 }
+                .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
+
+                ErrorView(
+                    title: $viewModel.failureReason.wrappedValue,
+                    action: { viewModel.loadNews() })
+                .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
             }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -40,7 +50,6 @@ struct ContentView: View {
 
         }
         .onAppear {
-            // commented while debugging
             viewModel.loadNews()
         }
     }
@@ -48,5 +57,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView(viewModel: ViewModel())
-        .modelContainer(for: Item.self, inMemory: true)
+//        .modelContainer(for: Item.self, inMemory: true)
 }
