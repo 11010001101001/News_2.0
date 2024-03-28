@@ -43,10 +43,10 @@ extension ImageCellProvider {
                 .font(.system(size: 18, weight: .regular))
             Spacer()
         }
-        .frame(width: .infinity, height: 45)
+        .frame(height: 45)
         .contentShape(Rectangle())
         .onTapGesture {
-            VibrateManager.shared.impactOccured(.rigid)
+            VibrateManager.shared.impactOccured(.light)
             tapped?(id.lowercased())
         }
     }

@@ -51,6 +51,7 @@ struct TopicDetail: View, RandomProvider {
                     .padding(.bottom)
             }
         }
+        .navigationTitle("Details")
     }
 }
 

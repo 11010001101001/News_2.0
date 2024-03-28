@@ -25,6 +25,7 @@ struct Settings: View, ImageCellProvider {
                     }
                 }
             }
+            .navigationTitle("Settings")
         }
     }
 }

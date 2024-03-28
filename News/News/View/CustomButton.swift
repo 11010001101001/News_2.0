@@ -13,7 +13,7 @@ struct CustomButton: View {
 
     var body: some View {
         Button(action: {
-            VibrateManager.shared.impactOccured(.rigid)
+            VibrateManager.shared.impactOccured(.light)
             action?()
         }, label: {
             Text(title)
