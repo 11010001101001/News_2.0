@@ -18,12 +18,12 @@ extension ViewModel {
                     return
                 }
                 // playSound
-                VibrateManager.shared.impactOccured(.rigid)
+                VibrateManager.shared.vibrate(.error)
                 self?.loadingFailed = true
                 self?.failureReason = failure.failureReason ?? failure.errorDescription ?? failure.localizedDescription
             } receiveValue: { [weak self] articles in
                 // playSound
-                VibrateManager.shared.impactOccured(.soft)
+                VibrateManager.shared.vibrate(.success)
                 self?.loadingSucceed = true
                 self?.newsArray = articles
             }

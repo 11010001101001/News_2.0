@@ -46,7 +46,6 @@ extension ImageCellProvider {
         .frame(height: 45)
         .contentShape(Rectangle())
         .onTapGesture {
-            VibrateManager.shared.impactOccured(.light)
             tapped?(id.lowercased())
         }
     }

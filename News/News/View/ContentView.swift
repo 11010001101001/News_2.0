@@ -10,7 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var savedSettings: [SettingsModel]
+    @Query private var savedSettings: [SettingsModel]
 
     @ObservedObject var viewModel: ViewModel
 

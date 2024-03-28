@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 extension View {
-    func applyNice3DRotation(rotating: inout Bool, coordinates: (x: CGFloat, y: CGFloat, z: CGFloat)) -> some View {
+    func applyNice3DRotation(rotating: Bool, coordinates: (x: CGFloat, y: CGFloat, z: CGFloat)) -> some View {
         return self
             .rotation3DEffect(
                 Angle(degrees: rotating ? -10 : 10),

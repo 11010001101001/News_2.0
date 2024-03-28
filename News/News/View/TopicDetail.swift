@@ -26,13 +26,13 @@ struct TopicDetail: View, RandomProvider {
                         .clipped()
                         .clipShape(.buttonBorder)
                         .shadow(color: Color(image.averageColor), radius: 60)
-                        .applyNice3DRotation(rotating: &rotating, coordinates: randomCoordinates)
+                        .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
                         .onAppear { rotating.toggle() }
                 } else if phase.error != nil {
                     ErrorView(
                         title: "Error loading image...",
                         action: nil)
-                    .applyNice3DRotation(rotating: &rotating, coordinates: randomCoordinates)
+                    .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
                     .onAppear { rotating.toggle() }
                 } else {
                     ProgressView()
@@ -65,7 +65,7 @@ struct TestAnimationView: View, RandomProvider {
             .foregroundStyle(.blue)
             .frame(width: 100, height: 100)
             .shadow(color: .blue, radius: 60)
-            .applyNice3DRotation(rotating: &rotating, coordinates: randomCoordinates)
+            .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
             .onAppear { rotating.toggle() }
     }
 

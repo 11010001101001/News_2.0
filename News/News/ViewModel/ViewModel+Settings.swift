@@ -22,11 +22,19 @@ extension ViewModel {
     func applySettings(_ name: String) {
         switch name {
         case let name where Categories.allCases.contains(where: { $0.rawValue == name }):
-            guard name != category else { return }
+            guard name != category else {
+                VibrateManager.shared.vibrate(.warning)
+                return
+            }
+            VibrateManager.shared.impactOccured(.light)
             category = name
             loadNews()
         case let name where SoundThemes.allCases.contains(where: { $0.rawValue == name }):
-            guard name != soundTheme else { return }
+            guard name != soundTheme else {
+                VibrateManager.shared.vibrate(.warning)
+                return
+            }
+            VibrateManager.shared.impactOccured(.light)
             soundTheme = name
             // change sound theme in sound manager
         default:
