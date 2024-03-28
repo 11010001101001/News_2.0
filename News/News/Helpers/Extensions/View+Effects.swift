@@ -21,7 +21,7 @@ extension View {
             .animation(.easeInOut(duration: 10).repeatForever(autoreverses: true),
                        value: rotating)
             .scaleEffect(rotating ? 1 : 0)
-            .animation(.smooth(duration: 1.2,
+            .animation(.smooth(duration: 0.6,
                                extraBounce: 0.3),
                        value: rotating)
     }

@@ -18,6 +18,7 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 ProgressView()
+                    .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
 
                 List {
                     ForEach($viewModel.newsArray) { $item in
@@ -31,6 +32,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .listStyle(.plain)
                 .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
 
                 ErrorView(
@@ -53,15 +55,18 @@ struct ContentView: View {
 
         }
         .onAppear {
-            if savedSettings.isEmpty {
-                let defaultSettings = [SettingsModel(category: Categories.technology.rawValue, soundTheme: SoundThemes.starwars.rawValue)]
-                modelContext.insert(defaultSettings[0])
-                try? modelContext.save()
-                
-                viewModel.savedSettings = defaultSettings
-            } else {
-                viewModel.savedSettings = savedSettings
+            func loadSettings() {
+                if savedSettings.isEmpty {
+                    let defaultSettings = [SettingsModel(category: Categories.technology.rawValue, soundTheme: SoundThemes.starwars.rawValue)]
+                    modelContext.insert(defaultSettings[0])
+                    try? modelContext.save()
+
+                    viewModel.savedSettings = defaultSettings
+                } else {
+                    viewModel.savedSettings = savedSettings
+                }
             }
+            loadSettings()
             viewModel.loadNews()
         }
     }
