@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Topic: View {
-    var article: Articles
+    let article: Articles
 
     var body: some View {
         VStack(alignment: .leading,
