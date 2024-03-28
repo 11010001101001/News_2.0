@@ -7,12 +7,33 @@
 
 import SwiftUI
 
-struct Settings: View {
+struct Settings: View, ImageCellProvider {
+    var tapped: SettingsTappedAction?
+
     var body: some View {
-        Text("Settings")
+        VStack(alignment: .leading) {
+            List {
+                Section(header: Text(Categories.title)) {
+                    ForEach(Categories.allCases) { category in
+                        getImageCell(id: category.rawValue, tapped: tapped)
+                    }
+                }
+
+                Section(header: Text(SoundThemes.title)) {
+                    ForEach(SoundThemes.allCases) { category in
+                        getImageCell(id: category.rawValue, tapped: tapped)
+                    }
+                }
+            }
+            .listStyle(.plain)
+            .navigationTitle("Settings")
+        }
     }
 }
 
+
 #Preview {
-    Settings()
+    Settings { setting in
+        print("tapped \(setting)")
+    }
 }

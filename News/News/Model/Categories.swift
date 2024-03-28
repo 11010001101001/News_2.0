@@ -9,8 +9,7 @@ import Foundation
 
 enum Categories: String, CaseIterable, Identifiable {
     var id: Self { return self }
-    static var title: String { "Please choose news category" }
-    static var key: String { String(describing: self) }
+    static var title: String { String(describing: self) }
 
     case business
     case entertainment

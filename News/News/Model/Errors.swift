@@ -14,6 +14,7 @@ enum ApiError: LocalizedError {
     case notFound(msg: String)
     case badRequest(msg: String)
     case mappingError(msg: String)
+    case undefined(msg: String)
 }
 
 enum Errors: String {
@@ -26,4 +27,5 @@ enum Errors: String {
     case mappingError
     case invalidUrl
     case responseError
+    case undefinedError
 }

@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
-//import SwiftData
+import SwiftData
 
 struct ContentView: View {
-//    @Environment(\.modelContext) private var modelContext
-//    @Query private var items: [Item]
+    @Environment(\.modelContext) var modelContext
+    @Query private var savedSettings: [SettingsModel]
+
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         NavigationView {
             ZStack {
                 ProgressView()
+                    .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
 
                 List {
                     ForEach($viewModel.newsArray) { $item in
@@ -30,6 +32,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .listStyle(.plain)
                 .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
 
                 ErrorView(
@@ -40,7 +43,9 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {
-                        Settings()
+                        Settings { name in
+                            viewModel.applySettings(name)
+                        }
                     } label: {
                         Label("", systemImage: "gear")
                     }
@@ -50,6 +55,18 @@ struct ContentView: View {
 
         }
         .onAppear {
+            func loadSettings() {
+                if savedSettings.isEmpty {
+                    let defaultSettings = [SettingsModel(category: Categories.technology.rawValue, soundTheme: SoundThemes.starwars.rawValue)]
+                    modelContext.insert(defaultSettings[0])
+                    try? modelContext.save()
+
+                    viewModel.savedSettings = defaultSettings
+                } else {
+                    viewModel.savedSettings = savedSettings
+                }
+            }
+            loadSettings()
             viewModel.loadNews()
         }
     }
@@ -57,5 +74,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView(viewModel: ViewModel())
-//        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: SettingsModel.self, inMemory: true)
 }
