@@ -34,8 +34,7 @@ struct CustomButton: View {
         .clipShape(.capsule(style: .circular))
         .controlSize(.large)
         .opacity(action == nil ? .zero : 1.0)
-        .scaleEffect(tapped ? 0.93 : 1.0)
-        .animation(.bouncy(duration: 0.2), value: tapped)
+        .applyScaleEffect(state: tapped, start: 0.93, end: 1.0)
     }
 }
 

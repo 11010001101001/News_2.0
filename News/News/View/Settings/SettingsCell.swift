@@ -29,6 +29,9 @@ struct SettingsCell: View, ImageProvider {
             viewModel.applySettings(id.lowercased())
             needAnimate.toggle()
         }
+        .onAppear {
+            needAnimate.toggle()
+        }
         .symbolEffect(.bounce, value: needAnimate)
     }
 }
