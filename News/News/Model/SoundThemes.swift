@@ -11,6 +11,6 @@ enum SoundThemes: String, CaseIterable, Identifiable {
     var id: Self { return self }
     static var title: String { String(describing: self) }
 
-    case starwars = "Star wars"
-    case silentMode = "Silent mode"
+    case starwars = "star wars"
+    case silentMode = "silent mode"
 }
