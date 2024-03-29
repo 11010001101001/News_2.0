@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */; };
 		C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A522BB700B800DE9194 /* TopicsList.swift */; };
+		C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A582BB708A500DE9194 /* CheckMark.swift */; };
 		C433F51A2BB40C2C0088A7FC /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433F5192BB40C2C0088A7FC /* Categories.swift */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
 		C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Effects.swift */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		C4311A522BB700B800DE9194 /* TopicsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsList.swift; sourceTree = "<group>"; };
+		C4311A582BB708A500DE9194 /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
 		C433F5192BB40C2C0088A7FC /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
 		C49C849D2BB455CE00571CD4 /* View+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Effects.swift"; sourceTree = "<group>"; };
@@ -127,14 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C4311A542BB707E000DE9194 /* DTO */ = {
+		C4311A542BB707E000DE9194 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
 				C4BC8D372BB3089900A0AFC8 /* CommonInfo.swift */,
 				C4BC8D392BB308A500A0AFC8 /* Articles.swift */,
 				C4BC8D3B2BB308B600A0AFC8 /* Source.swift */,
 			);
-			path = DTO;
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 		C4311A552BB7080F00DE9194 /* Topics */ = {
@@ -154,6 +156,16 @@
 				C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		C4311A572BB7088500DE9194 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC8D522BB35C9900A0AFC8 /* ErrorView.swift */,
+				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
+				C4311A582BB708A500DE9194 /* CheckMark.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		C4BC8CFC2BB2FA3900A0AFC8 = {
@@ -219,8 +231,7 @@
 				C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */,
 				C4311A552BB7080F00DE9194 /* Topics */,
 				C4311A562BB7081900DE9194 /* Settings */,
-				C4BC8D522BB35C9900A0AFC8 /* ErrorView.swift */,
-				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
+				C4311A572BB7088500DE9194 /* Common */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,7 +249,7 @@
 		C4BC8D362BB3079200A0AFC8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4311A542BB707E000DE9194 /* DTO */,
+				C4311A542BB707E000DE9194 /* DTOs */,
 				C4BC8D432BB3180200A0AFC8 /* Mode.swift */,
 				C4BC8D452BB3181200A0AFC8 /* HttpStatusCodes.swift */,
 				C4BC8D472BB3186400A0AFC8 /* DeveloperInfo.swift */,
@@ -430,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4BC8D572BB35EB200A0AFC8 /* CGFloat+Screen.swift in Sources */,
+				C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */,
 				C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */,
 				C4BC8D4F2BB348C600A0AFC8 /* String+Formats.swift in Sources */,
 				C4BC8D382BB3089900A0AFC8 /* CommonInfo.swift in Sources */,

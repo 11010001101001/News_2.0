@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct SettingsCell: View, ImageProvider {
+    @ObservedObject var viewModel: ViewModel
+
     @State private var needAnimate = false
 
     let id: String
-    let tapped: SettingsTappedAction?
 
     var body: some View {
         HStack {
             getImage(for: id)
-            Text(id.capitalized)
+            Text(id.capitalizingFirstLetter())
                 .font(.system(size: 18, weight: .regular))
             Spacer()
+            CheckMark()
+                .opacity((viewModel.category == id || viewModel.soundTheme == id) ? 1.0 : .zero)
         }
         .frame(height: 45)
         .contentShape(Rectangle())
         .onTapGesture {
-            tapped?(id.lowercased())
+            viewModel.applySettings(id.lowercased())
             needAnimate.toggle()
         }
         .symbolEffect(.bounce, value: needAnimate)
@@ -31,5 +34,5 @@ struct SettingsCell: View, ImageProvider {
 }
 
 #Preview {
-    SettingsCell(id: Categories.business.rawValue, tapped: { _ in })
+    SettingsCell(viewModel: ViewModel(), id: Categories.business.rawValue)
 }

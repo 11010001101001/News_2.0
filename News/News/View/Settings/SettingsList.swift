@@ -16,17 +16,13 @@ struct SettingsList: View {
             List {
                 Section(header: Text(Categories.title)) {
                     ForEach(Categories.allCases) { category in
-                        SettingsCell(id: category.rawValue) { name in
-                            viewModel.applySettings(name)
-                        }
+                        SettingsCell(viewModel: viewModel, id: category.rawValue)
                     }
                 }
 
                 Section(header: Text(SoundThemes.title)) {
-                    ForEach(SoundThemes.allCases) { category in
-                        SettingsCell(id: category.rawValue) { name in
-                            viewModel.applySettings(name)
-                        }
+                    ForEach(SoundThemes.allCases) { theme in
+                        SettingsCell(viewModel: viewModel, id: theme.rawValue)
                     }
                 }
             }

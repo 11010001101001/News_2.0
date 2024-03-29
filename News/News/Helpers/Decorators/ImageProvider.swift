@@ -29,6 +29,8 @@ extension ImageProvider {
             "brain.filled.head.profile"
         case SoundThemes.starwars.rawValue:
             "star.circle.fill"
+        case SoundThemes.silentMode.rawValue:
+            "powersleep"
         default:
             "gear"
         }

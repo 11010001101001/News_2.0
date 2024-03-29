@@ -55,27 +55,10 @@ struct TopicDetail: View, RandomProvider {
     }
 }
 
-struct TestAnimationView: View, RandomProvider {
-
-    @State var rotating = false
-
-    var body: some View {
-        Image(systemName: "checkmark.circle.fill")
-            .resizable()
-            .foregroundStyle(.blue)
-            .frame(width: 30, height: 30)
-            .shadow(color: .blue, radius: 20)
-            .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
-            .onAppear { rotating.toggle() }
-    }
-
-}
-
 #Preview {
-//    TopicDetail(article: Articles(source: Source(id: UUID().uuidString,
-//                                                 name: "Source"),
-//                                  title: "Title",
-//                                  description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
-//                                  publishedAt: "Time"))
-    TestAnimationView()
+    TopicDetail(article: Articles(source: Source(id: UUID().uuidString,
+                                                 name: "Source"),
+                                  title: "Title",
+                                  description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
+                                  publishedAt: "Time"))
 }
