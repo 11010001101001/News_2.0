@@ -63,8 +63,8 @@ struct TestAnimationView: View, RandomProvider {
         Image(systemName: "checkmark.circle.fill")
             .resizable()
             .foregroundStyle(.blue)
-            .frame(width: 100, height: 100)
-            .shadow(color: .blue, radius: 60)
+            .frame(width: 30, height: 30)
+            .shadow(color: .blue, radius: 20)
             .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
             .onAppear { rotating.toggle() }
     }

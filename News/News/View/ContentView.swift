@@ -16,36 +16,11 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                ProgressView()
-                    .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
-
-                List {
-                    ForEach($viewModel.newsArray) { $item in
-                        ZStack {
-                            NavigationLink {
-                                TopicDetail(article: item)
-                            } label: {
-                                Topic(article: item)
-                                    .ignoresSafeArea()
-                            }
-                        }
-                    }
-                }
-                .listStyle(.plain)
-                .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
-
-                ErrorView(
-                    title: $viewModel.failureReason.wrappedValue,
-                    action: { viewModel.loadNews() })
-                .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
-            }
+            TopicsList(viewModel: viewModel)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {
-                        Settings { name in
-                            viewModel.applySettings(name)
-                        }
+                        SettingsList(viewModel: viewModel)
                     } label: {
                         Label("", systemImage: "gear")
                     }
@@ -55,19 +30,23 @@ struct ContentView: View {
 
         }
         .onAppear {
-            func loadSettings() {
-                if savedSettings.isEmpty {
-                    let defaultSettings = [SettingsModel(category: Categories.technology.rawValue, soundTheme: SoundThemes.starwars.rawValue)]
-                    modelContext.insert(defaultSettings[0])
-                    try? modelContext.save()
-
-                    viewModel.savedSettings = defaultSettings
-                } else {
-                    viewModel.savedSettings = savedSettings
-                }
-            }
             loadSettings()
             viewModel.loadNews()
+        }
+    }
+}
+
+// MARK: - Helpers
+extension ContentView {
+    private func loadSettings() {
+        if savedSettings.isEmpty {
+            let defaultSettings = [SettingsModel(category: Categories.technology.rawValue, soundTheme: SoundThemes.starwars.rawValue)]
+            modelContext.insert(defaultSettings[0])
+            try? modelContext.save()
+
+            viewModel.savedSettings = defaultSettings
+        } else {
+            viewModel.savedSettings = savedSettings
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Settings.swift
+//  SettingsList.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 26.03.2024.
@@ -7,21 +7,26 @@
 
 import SwiftUI
 
-struct Settings: View, ImageCellProvider {
-    var tapped: SettingsTappedAction?
+struct SettingsList: View {
+
+    @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         VStack(alignment: .leading) {
             List {
                 Section(header: Text(Categories.title)) {
                     ForEach(Categories.allCases) { category in
-                        getImageCell(id: category.rawValue, tapped: tapped)
+                        SettingsCell(id: category.rawValue) { name in
+                            viewModel.applySettings(name)
+                        }
                     }
                 }
 
                 Section(header: Text(SoundThemes.title)) {
                     ForEach(SoundThemes.allCases) { category in
-                        getImageCell(id: category.rawValue, tapped: tapped)
+                        SettingsCell(id: category.rawValue) { name in
+                            viewModel.applySettings(name)
+                        }
                     }
                 }
             }
@@ -33,7 +38,5 @@ struct Settings: View, ImageCellProvider {
 
 
 #Preview {
-    Settings { setting in
-        print("tapped \(setting)")
-    }
+    SettingsList(viewModel: ViewModel())
 }

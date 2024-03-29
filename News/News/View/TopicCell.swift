@@ -1,5 +1,5 @@
 //
-//  Topic.swift
+//  TopicCell.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 26.03.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Topic: View {
+struct TopicCell: View {
     let article: Articles
 
     var body: some View {
@@ -25,10 +25,10 @@ struct Topic: View {
 }
 
 #Preview {
-    Topic(article: Articles(source: Source(id: UUID().uuidString,
-                                           name: "Source"),
-                            title: "Title",
-                            publishedAt: makeTestDateString()))
+    TopicCell(article: Articles(source: Source(id: UUID().uuidString,
+                                               name: "Source"),
+                                title: "Title",
+                                publishedAt: makeTestDateString()))
 
 }
 
@@ -36,6 +36,5 @@ func makeTestDateString() -> String {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     dateFormatter.locale = Locale(identifier: "en_En")
-
     return dateFormatter.string(from: Date())
 }
