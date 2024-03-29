@@ -23,14 +23,14 @@ extension ViewModel {
         switch name {
         case let name where Categories.allCases.contains(where: { $0.rawValue == name }):
             guard name != category else {
-                VibrateManager.shared.vibrate(.warning)
+                VibrateManager.shared.vibrate(.error)
                 return
             }
             category = name
             loadNews()
         case let name where SoundThemes.allCases.contains(where: { $0.rawValue == name }):
             guard name != soundTheme else {
-                VibrateManager.shared.vibrate(.warning)
+                VibrateManager.shared.vibrate(.error)
                 return
             }
             soundTheme = name
