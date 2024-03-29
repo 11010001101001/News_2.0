@@ -127,6 +127,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4311A542BB707E000DE9194 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC8D372BB3089900A0AFC8 /* CommonInfo.swift */,
+				C4BC8D392BB308A500A0AFC8 /* Articles.swift */,
+				C4BC8D3B2BB308B600A0AFC8 /* Source.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		C4311A552BB7080F00DE9194 /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				C4311A522BB700B800DE9194 /* TopicsList.swift */,
+				C4BC8D502BB34D0E00A0AFC8 /* TopicCell.swift */,
+				C4BC8D3F2BB3162D00A0AFC8 /* TopicDetail.swift */,
+			);
+			path = Topics;
+			sourceTree = "<group>";
+		};
+		C4311A562BB7081900DE9194 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC8D3D2BB312BF00A0AFC8 /* SettingsList.swift */,
+				C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C4BC8CFC2BB2FA3900A0AFC8 = {
 			isa = PBXGroup;
 			children = (
@@ -188,11 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */,
-				C4311A522BB700B800DE9194 /* TopicsList.swift */,
-				C4BC8D502BB34D0E00A0AFC8 /* TopicCell.swift */,
-				C4BC8D3F2BB3162D00A0AFC8 /* TopicDetail.swift */,
-				C4BC8D3D2BB312BF00A0AFC8 /* SettingsList.swift */,
-				C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */,
+				C4311A552BB7080F00DE9194 /* Topics */,
+				C4311A562BB7081900DE9194 /* Settings */,
 				C4BC8D522BB35C9900A0AFC8 /* ErrorView.swift */,
 				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
 			);
@@ -212,9 +238,7 @@
 		C4BC8D362BB3079200A0AFC8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4BC8D372BB3089900A0AFC8 /* CommonInfo.swift */,
-				C4BC8D392BB308A500A0AFC8 /* Articles.swift */,
-				C4BC8D3B2BB308B600A0AFC8 /* Source.swift */,
+				C4311A542BB707E000DE9194 /* DTO */,
 				C4BC8D432BB3180200A0AFC8 /* Mode.swift */,
 				C4BC8D452BB3181200A0AFC8 /* HttpStatusCodes.swift */,
 				C4BC8D472BB3186400A0AFC8 /* DeveloperInfo.swift */,
