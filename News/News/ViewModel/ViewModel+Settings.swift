@@ -9,12 +9,12 @@ import Foundation
 
 extension ViewModel {
 
-    private var soundTheme: String {
+    private(set) var soundTheme: String {
         get { savedSettings?.first?.soundTheme ?? SoundThemes.starwars.rawValue }
         set { savedSettings?.first?.soundTheme = newValue }
     }
 
-    private var category: String {
+    private(set) var category: String {
         get { savedSettings?.first?.category ?? Categories.technology.rawValue }
         set { savedSettings?.first?.category = newValue }
     }
@@ -26,7 +26,6 @@ extension ViewModel {
                 VibrateManager.shared.vibrate(.warning)
                 return
             }
-            VibrateManager.shared.impactOccured(.light)
             category = name
             loadNews()
         case let name where SoundThemes.allCases.contains(where: { $0.rawValue == name }):
@@ -34,8 +33,8 @@ extension ViewModel {
                 VibrateManager.shared.vibrate(.warning)
                 return
             }
-            VibrateManager.shared.impactOccured(.light)
             soundTheme = name
+            VibrateManager.shared.vibrate(.success)
             // change sound theme in sound manager
         default:
             break

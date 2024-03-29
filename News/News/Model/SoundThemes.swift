@@ -9,7 +9,8 @@ import Foundation
 
 enum SoundThemes: String, CaseIterable, Identifiable {
     var id: Self { return self }
-    static var title: String { "Sounds" }
+    static var title: String { String(describing: self) }
 
-    case starwars
+    case starwars = "Star wars"
+    case silentMode = "Silent mode"
 }

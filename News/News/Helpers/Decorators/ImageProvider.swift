@@ -1,5 +1,5 @@
 //
-//  CellProvider.swift
+//  ImageProvider.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 28.03.2024.
@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-protocol ImageCellProvider {}
+protocol ImageProvider {}
 
-extension ImageCellProvider {
-    private func getImage(for settingName: String) -> some View {
+extension ImageProvider {
+    func getImage(for settingName: String) -> some View {
         let imageName = switch settingName {
         case Categories.technology.rawValue:
             "iphone.gen1.radiowaves.left.and.right"
@@ -29,24 +29,12 @@ extension ImageCellProvider {
             "brain.filled.head.profile"
         case SoundThemes.starwars.rawValue:
             "star.circle.fill"
+        case SoundThemes.silentMode.rawValue:
+            "powersleep"
         default:
             "gear"
         }
 
         return Image(systemName: imageName)
-    }
-
-    func getImageCell(id: String, tapped: SettingsTappedAction?) -> some View {
-        HStack {
-            getImage(for: id)
-            Text(id.capitalized)
-                .font(.system(size: 18, weight: .regular))
-            Spacer()
-        }
-        .frame(height: 45)
-        .contentShape(Rectangle())
-        .onTapGesture {
-            tapped?(id.lowercased())
-        }
     }
 }

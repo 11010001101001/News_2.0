@@ -20,4 +20,8 @@ extension String {
 
         return dateFormatter.string(from: date!)
     }
+
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
 }
