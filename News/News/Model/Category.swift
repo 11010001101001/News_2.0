@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Category.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 27.03.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Categories: String, CaseIterable, Identifiable {
+enum Category: String, CaseIterable, Identifiable {
     var id: Self { return self }
     static var title: String { String(describing: self) }
 

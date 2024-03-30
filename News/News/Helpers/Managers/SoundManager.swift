@@ -14,12 +14,8 @@ struct SoundManager {
 
     private var player = AVAudioPlayer()
 
-    private var randomJedySound: String {
-        Set(["jedy1", "jedy2"]).randomElement() ?? ""
-    }
-
     mutating private func playSound(soundFileName: String, soundTheme: String) {
-        let soundOn = soundTheme != SoundThemes.silentMode.rawValue
+        let soundOn = soundTheme != SoundTheme.silentMode.rawValue
 
         guard soundOn else { return }
 
@@ -30,6 +26,7 @@ struct SoundManager {
 
         do {
             player = try AVAudioPlayer(contentsOf: url)
+            player.prepareToPlay()
             player.play()
         } catch {
             fatalError("Error in playing sound...🙂")
@@ -38,15 +35,45 @@ struct SoundManager {
 }
 
 extension SoundManager {
+    private var starwarsRefresh: String {
+        Set(["starwars_refresh", "starwars_refresh1", "starwars_refresh2"]).randomElement() ?? ""
+    }
+}
+
+extension SoundManager {
     mutating func playRefresh(soundTheme: String) {
-        playSound(soundFileName: randomJedySound, soundTheme: soundTheme)
+        let name = switch soundTheme {
+        case SoundTheme.starwars.rawValue:
+            starwarsRefresh
+        case SoundTheme.cats.rawValue:
+            "cats_refresh"
+        default:
+            String.empty
+        }
+        playSound(soundFileName: name, soundTheme: soundTheme)
     }
 
     mutating func playLoaded(soundTheme: String) {
-        playSound(soundFileName: "loaded", soundTheme: soundTheme)
+        let name = switch soundTheme {
+        case SoundTheme.starwars.rawValue:
+            "starwars_loaded"
+        case SoundTheme.cats.rawValue:
+            "cats_loaded"
+        default:
+            String.empty
+        }
+        playSound(soundFileName: name, soundTheme: soundTheme)
     }
 
     mutating func playError(soundTheme: String) {
-        playSound(soundFileName: "error", soundTheme: soundTheme)
+        let name = switch soundTheme {
+        case SoundTheme.starwars.rawValue:
+            "starwars_error"
+        case SoundTheme.cats.rawValue:
+            "cats_error"
+        default:
+            String.empty
+        }
+        playSound(soundFileName: name, soundTheme: soundTheme)
     }
 }

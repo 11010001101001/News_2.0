@@ -12,6 +12,7 @@ struct TopicDetail: View, RandomProvider {
     let article: Articles
 
     @State var rotating = false
+    @State var scale = 0.85
 
     var body: some View {
         VStack {
@@ -49,6 +50,12 @@ struct TopicDetail: View, RandomProvider {
                 Spacer()
                 CustomButton(title: "More", action: {})
                     .padding(.bottom)
+            }
+            .scaleEffect(scale)
+            .onAppear {
+                withAnimation(.bouncy) {
+                    scale = 1.0
+                }
             }
         }
         .navigationTitle("Details")

@@ -13,24 +13,26 @@ protocol ImageProvider {}
 extension ImageProvider {
     func getImage(for settingName: String) -> some View {
         let imageName = switch settingName {
-        case Categories.technology.rawValue:
+        case Category.technology.rawValue:
             "iphone.gen1.radiowaves.left.and.right"
-        case Categories.sports.rawValue:
+        case Category.sports.rawValue:
             "figure.outdoor.cycle"
-        case Categories.science.rawValue:
+        case Category.science.rawValue:
             "atom"
-        case Categories.health.rawValue:
+        case Category.health.rawValue:
             "bolt.heart"
-        case Categories.general.rawValue:
+        case Category.general.rawValue:
             "list.clipboard"
-        case Categories.entertainment.rawValue:
+        case Category.entertainment.rawValue:
             "play"
-        case Categories.business.rawValue:
+        case Category.business.rawValue:
             "brain.filled.head.profile"
-        case SoundThemes.starwars.rawValue:
+        case SoundTheme.starwars.rawValue:
             "star.circle.fill"
-        case SoundThemes.silentMode.rawValue:
+        case SoundTheme.silentMode.rawValue:
             "powersleep"
+        case SoundTheme.cats.rawValue:
+            "cat.fill"
         default:
             "gear"
         }

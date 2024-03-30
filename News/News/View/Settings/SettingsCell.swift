@@ -37,5 +37,5 @@ struct SettingsCell: View, ImageProvider {
 }
 
 #Preview {
-    SettingsCell(viewModel: ViewModel(), id: Categories.business.rawValue)
+    SettingsCell(viewModel: ViewModel(), id: Category.business.rawValue)
 }
