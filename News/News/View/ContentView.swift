@@ -44,8 +44,8 @@ struct ContentView: View {
 extension ContentView {
     private func loadSettings() {
         if savedSettings.isEmpty {
-            let defaultSettings = [SettingsModel(category: Categories.business.rawValue,
-                                                 soundTheme: SoundThemes.silentMode.rawValue)]
+            let defaultSettings = [SettingsModel(category: Category.business.rawValue,
+                                                 soundTheme: SoundTheme.silentMode.rawValue)]
             modelContext.insert(defaultSettings[0])
             try? modelContext.save()
 

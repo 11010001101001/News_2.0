@@ -10,15 +10,20 @@
 		C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */; };
 		C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A522BB700B800DE9194 /* TopicsList.swift */; };
 		C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A582BB708A500DE9194 /* CheckMark.swift */; };
-		C433F51A2BB40C2C0088A7FC /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433F5192BB40C2C0088A7FC /* Categories.swift */; };
+		C433F51A2BB40C2C0088A7FC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433F5192BB40C2C0088A7FC /* Category.swift */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
 		C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Effects.swift */; };
 		C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A65E542BB76E0D002E3F39 /* SoundManager.swift */; };
-		C4A65E662BB78B90002E3F39 /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E642BB76F47002E3F39 /* error.mp3 */; };
-		C4A65E672BB78B90002E3F39 /* jedy1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E612BB76F47002E3F39 /* jedy1.mp3 */; };
-		C4A65E682BB78B90002E3F39 /* jedy2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E652BB76F47002E3F39 /* jedy2.mp3 */; };
-		C4A65E692BB78B90002E3F39 /* loaded.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E622BB76F47002E3F39 /* loaded.mp3 */; };
-		C4A65E6A2BB78B90002E3F39 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E632BB76F47002E3F39 /* notification.mp3 */; };
+		C4A65E672BB78B90002E3F39 /* starwars_refresh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E612BB76F47002E3F39 /* starwars_refresh.mp3 */; };
+		C4A65E682BB78B90002E3F39 /* starwars_refresh2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E652BB76F47002E3F39 /* starwars_refresh2.mp3 */; };
+		C4A65E772BB8A0A1002E3F39 /* starwars_error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E742BB8A059002E3F39 /* starwars_error.mp3 */; };
+		C4A65E792BB8A1CC002E3F39 /* starwars_notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E782BB8A1CC002E3F39 /* starwars_notification.mp3 */; };
+		C4A65E7B2BB8A1F2002E3F39 /* starwars_refresh1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E7A2BB8A1F2002E3F39 /* starwars_refresh1.mp3 */; };
+		C4A65E7D2BB8A202002E3F39 /* starwars_loaded.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E7C2BB8A202002E3F39 /* starwars_loaded.mp3 */; };
+		C4A65E882BB8A970002E3F39 /* cats_error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E872BB8A970002E3F39 /* cats_error.mp3 */; };
+		C4A65E8A2BB8A979002E3F39 /* cats_loaded.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E892BB8A979002E3F39 /* cats_loaded.mp3 */; };
+		C4A65E8C2BB8A97E002E3F39 /* cats_notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E8B2BB8A97E002E3F39 /* cats_notification.mp3 */; };
+		C4A65E8E2BB8A984002E3F39 /* cats_refresh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E8D2BB8A984002E3F39 /* cats_refresh.mp3 */; };
 		C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */; };
 		C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */; };
 		C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */; };
@@ -45,7 +50,7 @@
 		C4BC8D572BB35EB200A0AFC8 /* CGFloat+Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D562BB35EB200A0AFC8 /* CGFloat+Screen.swift */; };
 		C4BC8D592BB35FEE00A0AFC8 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */; };
 		C4F676DE2BB5656B002F3BCE /* RandomProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F676DD2BB5656B002F3BCE /* RandomProvider.swift */; };
-		C4F676E32BB570F5002F3BCE /* SoundThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F676E22BB570F5002F3BCE /* SoundThemes.swift */; };
+		C4F676E32BB570F5002F3BCE /* SoundTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F676E22BB570F5002F3BCE /* SoundTheme.swift */; };
 		C4F676EA2BB590EA002F3BCE /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F676E92BB590EA002F3BCE /* ImageProvider.swift */; };
 		C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F676EB2BB5A36A002F3BCE /* ViewModel+Loading.swift */; };
 		C4F676EE2BB5A3B2002F3BCE /* ViewModel+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F676ED2BB5A3B2002F3BCE /* ViewModel+Settings.swift */; };
@@ -72,15 +77,20 @@
 		C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		C4311A522BB700B800DE9194 /* TopicsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsList.swift; sourceTree = "<group>"; };
 		C4311A582BB708A500DE9194 /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
-		C433F5192BB40C2C0088A7FC /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		C433F5192BB40C2C0088A7FC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
 		C49C849D2BB455CE00571CD4 /* View+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Effects.swift"; sourceTree = "<group>"; };
 		C4A65E542BB76E0D002E3F39 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		C4A65E612BB76F47002E3F39 /* jedy1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jedy1.mp3; sourceTree = "<group>"; };
-		C4A65E622BB76F47002E3F39 /* loaded.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loaded.mp3; sourceTree = "<group>"; };
-		C4A65E632BB76F47002E3F39 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
-		C4A65E642BB76F47002E3F39 /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
-		C4A65E652BB76F47002E3F39 /* jedy2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jedy2.mp3; sourceTree = "<group>"; };
+		C4A65E612BB76F47002E3F39 /* starwars_refresh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_refresh.mp3; sourceTree = "<group>"; };
+		C4A65E652BB76F47002E3F39 /* starwars_refresh2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_refresh2.mp3; sourceTree = "<group>"; };
+		C4A65E742BB8A059002E3F39 /* starwars_error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_error.mp3; sourceTree = "<group>"; };
+		C4A65E782BB8A1CC002E3F39 /* starwars_notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_notification.mp3; sourceTree = "<group>"; };
+		C4A65E7A2BB8A1F2002E3F39 /* starwars_refresh1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_refresh1.mp3; sourceTree = "<group>"; };
+		C4A65E7C2BB8A202002E3F39 /* starwars_loaded.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_loaded.mp3; sourceTree = "<group>"; };
+		C4A65E872BB8A970002E3F39 /* cats_error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cats_error.mp3; sourceTree = "<group>"; };
+		C4A65E892BB8A979002E3F39 /* cats_loaded.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cats_loaded.mp3; sourceTree = "<group>"; };
+		C4A65E8B2BB8A97E002E3F39 /* cats_notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cats_notification.mp3; sourceTree = "<group>"; };
+		C4A65E8D2BB8A984002E3F39 /* cats_refresh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cats_refresh.mp3; sourceTree = "<group>"; };
 		C4BC8D052BB2FA3900A0AFC8 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,7 +120,7 @@
 		C4BC8D562BB35EB200A0AFC8 /* CGFloat+Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Screen.swift"; sourceTree = "<group>"; };
 		C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C4F676DD2BB5656B002F3BCE /* RandomProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomProvider.swift; sourceTree = "<group>"; };
-		C4F676E22BB570F5002F3BCE /* SoundThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundThemes.swift; sourceTree = "<group>"; };
+		C4F676E22BB570F5002F3BCE /* SoundTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTheme.swift; sourceTree = "<group>"; };
 		C4F676E92BB590EA002F3BCE /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		C4F676EB2BB5A36A002F3BCE /* ViewModel+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Loading.swift"; sourceTree = "<group>"; };
 		C4F676ED2BB5A3B2002F3BCE /* ViewModel+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Settings.swift"; sourceTree = "<group>"; };
@@ -183,13 +193,99 @@
 		C4A65E602BB76F47002E3F39 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				C4A65E642BB76F47002E3F39 /* error.mp3 */,
-				C4A65E612BB76F47002E3F39 /* jedy1.mp3 */,
-				C4A65E652BB76F47002E3F39 /* jedy2.mp3 */,
-				C4A65E622BB76F47002E3F39 /* loaded.mp3 */,
-				C4A65E632BB76F47002E3F39 /* notification.mp3 */,
+				C4A65E822BB8A93E002E3F39 /* Cats */,
+				C4A65E6B2BB89FA8002E3F39 /* StarWars */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		C4A65E6B2BB89FA8002E3F39 /* StarWars */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E6F2BB8A000002E3F39 /* Notification */,
+				C4A65E6E2BB89FE6002E3F39 /* Loaded */,
+				C4A65E6D2BB89FC5002E3F39 /* Error */,
+				C4A65E6C2BB89FB3002E3F39 /* Refresh */,
+			);
+			path = StarWars;
+			sourceTree = "<group>";
+		};
+		C4A65E6C2BB89FB3002E3F39 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E612BB76F47002E3F39 /* starwars_refresh.mp3 */,
+				C4A65E7A2BB8A1F2002E3F39 /* starwars_refresh1.mp3 */,
+				C4A65E652BB76F47002E3F39 /* starwars_refresh2.mp3 */,
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
+		C4A65E6D2BB89FC5002E3F39 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E742BB8A059002E3F39 /* starwars_error.mp3 */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		C4A65E6E2BB89FE6002E3F39 /* Loaded */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E7C2BB8A202002E3F39 /* starwars_loaded.mp3 */,
+			);
+			name = Loaded;
+			path = Refresh;
+			sourceTree = "<group>";
+		};
+		C4A65E6F2BB8A000002E3F39 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E782BB8A1CC002E3F39 /* starwars_notification.mp3 */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		C4A65E822BB8A93E002E3F39 /* Cats */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E862BB8A961002E3F39 /* Refresh */,
+				C4A65E852BB8A95D002E3F39 /* Error */,
+				C4A65E842BB8A957002E3F39 /* Loaded */,
+				C4A65E832BB8A950002E3F39 /* Notification */,
+			);
+			path = Cats;
+			sourceTree = "<group>";
+		};
+		C4A65E832BB8A950002E3F39 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E8B2BB8A97E002E3F39 /* cats_notification.mp3 */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		C4A65E842BB8A957002E3F39 /* Loaded */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E892BB8A979002E3F39 /* cats_loaded.mp3 */,
+			);
+			path = Loaded;
+			sourceTree = "<group>";
+		};
+		C4A65E852BB8A95D002E3F39 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E872BB8A970002E3F39 /* cats_error.mp3 */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		C4A65E862BB8A961002E3F39 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E8D2BB8A984002E3F39 /* cats_refresh.mp3 */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 		C4BC8CFC2BB2FA3900A0AFC8 = {
@@ -278,8 +374,8 @@
 				C4BC8D452BB3181200A0AFC8 /* HttpStatusCodes.swift */,
 				C4BC8D472BB3186400A0AFC8 /* DeveloperInfo.swift */,
 				C4BC8D4C2BB3443800A0AFC8 /* Errors.swift */,
-				C433F5192BB40C2C0088A7FC /* Categories.swift */,
-				C4F676E22BB570F5002F3BCE /* SoundThemes.swift */,
+				C433F5192BB40C2C0088A7FC /* Category.swift */,
+				C4F676E22BB570F5002F3BCE /* SoundTheme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,12 +536,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A65E662BB78B90002E3F39 /* error.mp3 in Resources */,
-				C4A65E672BB78B90002E3F39 /* jedy1.mp3 in Resources */,
-				C4A65E682BB78B90002E3F39 /* jedy2.mp3 in Resources */,
-				C4A65E692BB78B90002E3F39 /* loaded.mp3 in Resources */,
-				C4A65E6A2BB78B90002E3F39 /* notification.mp3 in Resources */,
+				C4A65E8C2BB8A97E002E3F39 /* cats_notification.mp3 in Resources */,
+				C4A65E7B2BB8A1F2002E3F39 /* starwars_refresh1.mp3 in Resources */,
+				C4A65E772BB8A0A1002E3F39 /* starwars_error.mp3 in Resources */,
+				C4A65E8E2BB8A984002E3F39 /* cats_refresh.mp3 in Resources */,
+				C4A65E792BB8A1CC002E3F39 /* starwars_notification.mp3 in Resources */,
+				C4A65E882BB8A970002E3F39 /* cats_error.mp3 in Resources */,
+				C4A65E672BB78B90002E3F39 /* starwars_refresh.mp3 in Resources */,
+				C4A65E7D2BB8A202002E3F39 /* starwars_loaded.mp3 in Resources */,
+				C4A65E682BB78B90002E3F39 /* starwars_refresh2.mp3 in Resources */,
 				C4BC8D122BB2FA3B00A0AFC8 /* Preview Assets.xcassets in Resources */,
+				C4A65E8A2BB8A979002E3F39 /* cats_loaded.mp3 in Resources */,
 				C4BC8D0F2BB2FA3B00A0AFC8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,11 +581,11 @@
 				C4BC8D4B2BB318B500A0AFC8 /* VibrateManager.swift in Sources */,
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
 				C4BC8D532BB35C9900A0AFC8 /* ErrorView.swift in Sources */,
-				C4F676E32BB570F5002F3BCE /* SoundThemes.swift in Sources */,
+				C4F676E32BB570F5002F3BCE /* SoundTheme.swift in Sources */,
 				C4BC8D3A2BB308A500A0AFC8 /* Articles.swift in Sources */,
 				C4F676DE2BB5656B002F3BCE /* RandomProvider.swift in Sources */,
 				C4BC8D512BB34D0E00A0AFC8 /* TopicCell.swift in Sources */,
-				C433F51A2BB40C2C0088A7FC /* Categories.swift in Sources */,
+				C433F51A2BB40C2C0088A7FC /* Category.swift in Sources */,
 				C4F676EA2BB590EA002F3BCE /* ImageProvider.swift in Sources */,
 				C4BC8D3C2BB308B600A0AFC8 /* Source.swift in Sources */,
 				C4F676EE2BB5A3B2002F3BCE /* ViewModel+Settings.swift in Sources */,

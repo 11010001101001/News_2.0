@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopicCell: View {
 
-    @State private var needAnimate = false
+    @State private var scale = 0.85
 
     let article: Articles
 
@@ -24,8 +24,15 @@ struct TopicCell: View {
             Text(article.source?.name ?? .empty)
                 .font(.subheadline)
         })
-        .applyScaleEffect(state: needAnimate, end: 0.9)
-        .onAppear { needAnimate.toggle() }
+        .scaleEffect(scale)
+        .onAppear {
+            withAnimation(.bouncy) {
+                scale = 1.0
+            }
+        }
+        .onDisappear {
+            scale = 0.85
+        }
     }
 }
 

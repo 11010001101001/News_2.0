@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomButton: View {
 
-    @State private var tapped = false
+    @State private var scale = 1.0
 
     let title: String
     let action: Action
@@ -19,10 +19,10 @@ struct CustomButton: View {
             VibrateManager.shared.impactOccured(.light)
             action?()
             withAnimation {
-                tapped.toggle()
+                scale = 0.85
             } completion: {
                 withAnimation {
-                    tapped.toggle()
+                    scale = 1.0
                 }
             }
         }, label: {
@@ -34,7 +34,7 @@ struct CustomButton: View {
         .clipShape(.capsule(style: .circular))
         .controlSize(.large)
         .opacity(action == nil ? .zero : 1.0)
-        .applyScaleEffect(state: tapped, start: 0.93, end: 1.0)
+        .scaleEffect(scale)
     }
 }
 
