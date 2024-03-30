@@ -23,7 +23,6 @@ final class ViewModel: ObservableObject {
 
     var newsPublisher: AnyPublisher<[Articles], ApiError> {
         var urlString: String {
-            let category = savedSettings?.first?.category ?? Categories.technology.rawValue
             let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)
             return switch mode {
             case .keyword(let keyword):

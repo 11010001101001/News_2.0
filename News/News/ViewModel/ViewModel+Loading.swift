@@ -14,18 +14,17 @@ extension ViewModel {
 
         newsPublisher
             .sink { [weak self] error in
-                guard case .failure(let failure) = error else {
-                    return
-                }
-                // playSound
+                guard let self, case .failure(let failure) = error else { return }
                 VibrateManager.shared.vibrate(.error)
-                self?.loadingFailed = true
-                self?.failureReason = failure.failureReason ?? failure.errorDescription ?? failure.localizedDescription
+                SoundManager.shared.playError(soundTheme: soundTheme)
+                loadingFailed = true
+                failureReason = failure.failureReason ?? failure.errorDescription ?? failure.localizedDescription
             } receiveValue: { [weak self] articles in
-                // playSound
+                guard let self else { return }
                 VibrateManager.shared.vibrate(.success)
-                self?.loadingSucceed = true
-                self?.newsArray = articles
+                SoundManager.shared.playLoaded(soundTheme: soundTheme)
+                loadingSucceed = true
+                newsArray = articles
             }
             .store(in: &cancellables)
     }

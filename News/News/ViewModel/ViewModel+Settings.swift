@@ -10,7 +10,7 @@ import Foundation
 extension ViewModel {
 
     private(set) var soundTheme: String {
-        get { savedSettings?.first?.soundTheme ?? SoundThemes.starwars.rawValue }
+        get { savedSettings?.first?.soundTheme ?? SoundThemes.silentMode.rawValue }
         set { savedSettings?.first?.soundTheme = newValue }
     }
 

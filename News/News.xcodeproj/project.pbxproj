@@ -13,6 +13,12 @@
 		C433F51A2BB40C2C0088A7FC /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433F5192BB40C2C0088A7FC /* Categories.swift */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
 		C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Effects.swift */; };
+		C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A65E542BB76E0D002E3F39 /* SoundManager.swift */; };
+		C4A65E662BB78B90002E3F39 /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E642BB76F47002E3F39 /* error.mp3 */; };
+		C4A65E672BB78B90002E3F39 /* jedy1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E612BB76F47002E3F39 /* jedy1.mp3 */; };
+		C4A65E682BB78B90002E3F39 /* jedy2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E652BB76F47002E3F39 /* jedy2.mp3 */; };
+		C4A65E692BB78B90002E3F39 /* loaded.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E622BB76F47002E3F39 /* loaded.mp3 */; };
+		C4A65E6A2BB78B90002E3F39 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E632BB76F47002E3F39 /* notification.mp3 */; };
 		C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */; };
 		C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */; };
 		C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */; };
@@ -69,6 +75,12 @@
 		C433F5192BB40C2C0088A7FC /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
 		C49C849D2BB455CE00571CD4 /* View+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Effects.swift"; sourceTree = "<group>"; };
+		C4A65E542BB76E0D002E3F39 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		C4A65E612BB76F47002E3F39 /* jedy1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jedy1.mp3; sourceTree = "<group>"; };
+		C4A65E622BB76F47002E3F39 /* loaded.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loaded.mp3; sourceTree = "<group>"; };
+		C4A65E632BB76F47002E3F39 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notification.mp3; sourceTree = "<group>"; };
+		C4A65E642BB76F47002E3F39 /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
+		C4A65E652BB76F47002E3F39 /* jedy2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jedy2.mp3; sourceTree = "<group>"; };
 		C4BC8D052BB2FA3900A0AFC8 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -168,6 +180,18 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		C4A65E602BB76F47002E3F39 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				C4A65E642BB76F47002E3F39 /* error.mp3 */,
+				C4A65E612BB76F47002E3F39 /* jedy1.mp3 */,
+				C4A65E652BB76F47002E3F39 /* jedy2.mp3 */,
+				C4A65E622BB76F47002E3F39 /* loaded.mp3 */,
+				C4A65E632BB76F47002E3F39 /* notification.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		C4BC8CFC2BB2FA3900A0AFC8 = {
 			isa = PBXGroup;
 			children = (
@@ -263,12 +287,13 @@
 		C4BC8D492BB318A500A0AFC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C4BC8D0E2BB2FA3B00A0AFC8 /* Assets.xcassets */,
+				C4A65E602BB76F47002E3F39 /* Sounds */,
 				C4F676DF2BB56B7A002F3BCE /* Schema */,
 				C4F676E02BB56B90002F3BCE /* Extensions */,
-				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
 				C4F676E12BB56CAB002F3BCE /* Managers */,
 				C4F676E42BB584F3002F3BCE /* Decorators */,
+				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
+				C4BC8D0E2BB2FA3B00A0AFC8 /* Assets.xcassets */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -297,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				C4BC8D4A2BB318B500A0AFC8 /* VibrateManager.swift */,
+				C4A65E542BB76E0D002E3F39 /* SoundManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -414,6 +440,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4A65E662BB78B90002E3F39 /* error.mp3 in Resources */,
+				C4A65E672BB78B90002E3F39 /* jedy1.mp3 in Resources */,
+				C4A65E682BB78B90002E3F39 /* jedy2.mp3 in Resources */,
+				C4A65E692BB78B90002E3F39 /* loaded.mp3 in Resources */,
+				C4A65E6A2BB78B90002E3F39 /* notification.mp3 in Resources */,
 				C4BC8D122BB2FA3B00A0AFC8 /* Preview Assets.xcassets in Resources */,
 				C4BC8D0F2BB2FA3B00A0AFC8 /* Assets.xcassets in Resources */,
 			);
@@ -457,6 +488,7 @@
 				C4F676EA2BB590EA002F3BCE /* ImageProvider.swift in Sources */,
 				C4BC8D3C2BB308B600A0AFC8 /* Source.swift in Sources */,
 				C4F676EE2BB5A3B2002F3BCE /* ViewModel+Settings.swift in Sources */,
+				C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */,
 				C4BC8D482BB3186400A0AFC8 /* DeveloperInfo.swift in Sources */,
 				C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */,
 				C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */,
