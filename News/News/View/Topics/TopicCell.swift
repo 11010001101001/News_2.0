@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TopicCell: View {
+
+    @State private var needAnimate = false
+
     let article: Articles
 
     var body: some View {
@@ -21,6 +24,8 @@ struct TopicCell: View {
             Text(article.source?.name ?? .empty)
                 .font(.subheadline)
         })
+        .applyScaleEffect(state: needAnimate, end: 0.9)
+        .onAppear { needAnimate.toggle() }
     }
 }
 

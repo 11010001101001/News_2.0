@@ -12,6 +12,7 @@ struct TopicDetail: View, RandomProvider {
     let article: Articles
 
     @State var rotating = false
+    @State var needAnimate = false
 
     var body: some View {
         VStack {
@@ -50,6 +51,8 @@ struct TopicDetail: View, RandomProvider {
                 CustomButton(title: "More", action: {})
                     .padding(.bottom)
             }
+            .applyScaleEffect(state: needAnimate, end: 0.9)
+            .onAppear { needAnimate.toggle() }
         }
         .navigationTitle("Details")
     }
