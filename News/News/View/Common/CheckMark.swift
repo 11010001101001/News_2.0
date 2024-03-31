@@ -17,7 +17,9 @@ struct CheckMark: View, RandomProvider {
             .foregroundStyle(.blue)
             .frame(width: 30, height: 30)
             .shadow(color: .blue, radius: 20)
-            .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
+            .applyNice3DRotation(rotating: rotating,
+                                 duration: 2,
+                                 coordinates: randomCoordinates)
             .onAppear { rotating.toggle() }
     }
 }
