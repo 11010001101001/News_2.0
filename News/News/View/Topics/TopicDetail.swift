@@ -36,7 +36,7 @@ struct TopicDetail: View, RandomProvider {
                     .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
                     .onAppear { rotating.toggle() }
                 } else {
-                    ProgressView()
+                    Loader()
                 }
             }
             .frame(height: 300)
