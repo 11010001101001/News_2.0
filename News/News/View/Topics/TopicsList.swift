@@ -12,7 +12,7 @@ struct TopicsList: View {
 
     var body: some View {
         ZStack {
-            ProgressView()
+            Loader()
                 .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
 
             List {
