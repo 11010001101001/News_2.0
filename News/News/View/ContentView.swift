@@ -15,7 +15,7 @@ struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             TopicsList(viewModel: viewModel)
                 .refreshable {
                     viewModel.playRefresh()

@@ -1,5 +1,5 @@
 //
-//  CGFloat+Screen.swift
+//  CGFloat+Extensions.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 26.03.2024.

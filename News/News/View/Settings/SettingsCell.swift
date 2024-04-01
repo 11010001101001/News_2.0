@@ -11,6 +11,7 @@ struct SettingsCell: View, ImageProvider {
     @ObservedObject var viewModel: ViewModel
 
     @State private var needAnimate = false
+    @State private var scale = 1.0
 
     let id: String
 
@@ -28,11 +29,19 @@ struct SettingsCell: View, ImageProvider {
         .onTapGesture {
             viewModel.applySettings(id.lowercased())
             needAnimate.toggle()
+            withAnimation {
+                scale = 0.95
+            } completion: {
+                withAnimation {
+                    scale = 1.0
+                }
+            }
         }
         .onAppear {
             needAnimate.toggle()
         }
         .symbolEffect(.bounce, value: needAnimate)
+        .scaleEffect(scale)
     }
 }
 

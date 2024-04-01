@@ -18,8 +18,12 @@ struct CheckMark: View, RandomProvider {
             .frame(width: 30, height: 30)
             .shadow(color: .blue, radius: 20)
             .applyNice3DRotation(rotating: rotating,
-                                 duration: 2,
+                                 duration: 1.5,
                                  coordinates: randomCoordinates)
             .onAppear { rotating.toggle() }
     }
+}
+
+#Preview {
+    CheckMark(rotating: false)
 }
