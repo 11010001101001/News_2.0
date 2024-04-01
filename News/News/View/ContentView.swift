@@ -18,7 +18,7 @@ struct ContentView: View {
         NavigationView {
             TopicsList(viewModel: viewModel)
                 .refreshable {
-                    SoundManager.shared.playRefresh(soundTheme: viewModel.soundTheme)
+                    viewModel.playRefresh()
                     viewModel.loadNews()
                 }
             .toolbar {

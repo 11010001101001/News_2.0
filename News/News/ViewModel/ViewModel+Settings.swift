@@ -35,7 +35,6 @@ extension ViewModel {
             }
             soundTheme = name
             VibrateManager.shared.vibrate(.success)
-            // change sound theme in sound manager
         default:
             break
         }

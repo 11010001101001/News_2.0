@@ -8,72 +8,49 @@
 import Foundation
 import AVKit
 import SwiftUI
+import Combine
 
-struct SoundManager {
-    static var shared = SoundManager()
-
+class SoundManager {
     private var player = AVAudioPlayer()
+    private var refreshCancellable: AnyCancellable?
+    private var loadedCancellable: AnyCancellable?
+    private var errorCancellable: AnyCancellable?
 
-    mutating private func playSound(soundFileName: String, soundTheme: String) {
-        let soundOn = soundTheme != SoundTheme.silentMode.rawValue
+    init(viewModel: ViewModel) {
+        player.prepareToPlay()
 
-        guard soundOn else { return }
+        func bind() {
+            refreshCancellable = viewModel.$refreshSound
+                .sink { [weak self] name in
+                    self?.playSound(soundFileName: name)
+                }
 
-        guard let urlPath = Bundle
-                .main
-                .path(forResource: soundFileName, ofType: "mp3") else { return }
+            loadedCancellable = viewModel.$loadedSound
+                .sink { [weak self] name in
+                    self?.playSound(soundFileName: name)
+                }
+
+            errorCancellable = viewModel.$errorSound
+                .sink { [weak self] name in
+                    self?.playSound(soundFileName: name)
+                }
+        }
+
+        bind()
+    }
+
+    func playSound(soundFileName: String) {
+        guard !soundFileName.isEmpty,
+              let urlPath = Bundle
+            .main
+            .path(forResource: soundFileName, ofType: "mp3") else { return }
         let url = URL(fileURLWithPath: urlPath)
 
         do {
             player = try AVAudioPlayer(contentsOf: url)
-            player.prepareToPlay()
             player.play()
         } catch {
             fatalError("Error in playing sound...🙂")
         }
-    }
-}
-
-extension SoundManager {
-    private var starwarsRefresh: String {
-        Set(["starwars_refresh", "starwars_refresh1", "starwars_refresh2"]).randomElement() ?? ""
-    }
-}
-
-extension SoundManager {
-    mutating func playRefresh(soundTheme: String) {
-        let name = switch soundTheme {
-        case SoundTheme.starwars.rawValue:
-            starwarsRefresh
-        case SoundTheme.cats.rawValue:
-            "cats_refresh"
-        default:
-            String.empty
-        }
-        playSound(soundFileName: name, soundTheme: soundTheme)
-    }
-
-    mutating func playLoaded(soundTheme: String) {
-        let name = switch soundTheme {
-        case SoundTheme.starwars.rawValue:
-            "starwars_loaded"
-        case SoundTheme.cats.rawValue:
-            "cats_loaded"
-        default:
-            String.empty
-        }
-        playSound(soundFileName: name, soundTheme: soundTheme)
-    }
-
-    mutating func playError(soundTheme: String) {
-        let name = switch soundTheme {
-        case SoundTheme.starwars.rawValue:
-            "starwars_error"
-        case SoundTheme.cats.rawValue:
-            "cats_error"
-        default:
-            String.empty
-        }
-        playSound(soundFileName: name, soundTheme: soundTheme)
     }
 }

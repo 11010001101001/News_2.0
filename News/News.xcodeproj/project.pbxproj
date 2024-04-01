@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C429E6DB2BB9A5750045AAA5 /* ViewModel+Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */; };
 		C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */; };
 		C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A522BB700B800DE9194 /* TopicsList.swift */; };
 		C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A582BB708A500DE9194 /* CheckMark.swift */; };
@@ -77,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Sound.swift"; sourceTree = "<group>"; };
 		C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		C4311A522BB700B800DE9194 /* TopicsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsList.swift; sourceTree = "<group>"; };
 		C4311A582BB708A500DE9194 /* CheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMark.swift; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 			children = (
 				C4BC8D412BB3167200A0AFC8 /* ViewModel.swift */,
 				C4F676EB2BB5A36A002F3BCE /* ViewModel+Loading.swift */,
+				C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */,
 				C4F676ED2BB5A3B2002F3BCE /* ViewModel+Settings.swift */,
 			);
 			path = ViewModel;
@@ -609,6 +612,7 @@
 				C4BC8D482BB3186400A0AFC8 /* DeveloperInfo.swift in Sources */,
 				C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */,
 				C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */,
+				C429E6DB2BB9A5750045AAA5 /* ViewModel+Sound.swift in Sources */,
 				C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */,
 				C4BC8D4D2BB3443800A0AFC8 /* Errors.swift in Sources */,
 				C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */,

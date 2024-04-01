@@ -12,46 +12,46 @@ import SwiftData
 
 final class ViewModel: ObservableObject {
 
-    @Published var newsArray = [Articles]()
-    @Published var loadingSucceed = false
-    @Published var loadingFailed = false
-    @Published var failureReason = String.empty
+    @Published var newsArray: [Articles]
+    @Published var loadingSucceed: Bool
+    @Published var loadingFailed: Bool
+    @Published var failureReason: String
     @Published var keyWord: String?
-    @Published var cancellables = Set<AnyCancellable>()
 
+    @Published var errorSound: String
+    @Published var refreshSound: String
+    @Published var loadedSound: String
+
+    @Published var cancellables: Set<AnyCancellable>
+
+    var soundManager: SoundManager?
     var savedSettings: [SettingsModel]?
 
-    var newsPublisher: AnyPublisher<[Articles], ApiError> {
-        var urlString: String {
-            let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)
-            return switch mode {
-            case .keyword(let keyword):
-                "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey.rawValue)"
-            case .category(let category):
-                "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey.rawValue)"
-            }
-        }
+    init(newsArray: [Articles] = [Articles](),
+         loadingSucceed: Bool = false,
+         loadingFailed: Bool = false,
+         failureReason: String = String.empty,
+         keyWord: String? = nil,
+         errorSound: String = String.empty,
+         refreshSound: String = String.empty,
+         loadedSound: String = String.empty,
+         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
+         savedSettings: [SettingsModel]? = nil) {
+        self.newsArray = newsArray
+        self.loadingSucceed = loadingSucceed
+        self.loadingFailed = loadingFailed
+        self.failureReason = failureReason
+        self.keyWord = keyWord
+        self.errorSound = errorSound
+        self.refreshSound = refreshSound
+        self.loadedSound = loadedSound
+        self.cancellables = cancellables
+        self.savedSettings = savedSettings
 
-        if let url = URL(string: urlString) {
-            return URLSession.shared.dataTaskPublisher(for: url)
-                .retry(3)
-                .tryMap { [weak self] data, response in
-                    let info = try JSONDecoder().decode(CommonInfo.self, from: data)
-                    try self?.handleResponse(response as? HTTPURLResponse)
-                    return info.articles ?? []
-                }
-                .mapError { error in
-                    ApiError.mappingError(msg: Errors.mappingError.rawValue)
-                }
-                .receive(on: RunLoop.main)
-                .eraseToAnyPublisher()
-        } else {
-            return Fail(error: ApiError.invalidRequest(msg: Errors.invalidUrl.rawValue))
-                .eraseToAnyPublisher()
-        }
+        soundManager = SoundManager(viewModel: self)
     }
-}
 
-private enum Constants {
-    static let newsCount = "100"
+    deinit {
+        soundManager = nil
+    }
 }

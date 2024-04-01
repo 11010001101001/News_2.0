@@ -34,9 +34,6 @@ struct TopicCell: View {
                 }
             }
         }
-//        .onDisappear {
-//            scale = 1.0
-//        }
     }
 }
 
