@@ -11,11 +11,20 @@ protocol RandomProvider { }
 
 extension RandomProvider {
     private var rotationCoordinates: [(x: CGFloat, y: CGFloat, z: CGFloat)] {
-        let random = CGFloat((-1...1).randomElement() ?? .zero)
+        var randomNumbers = [CGFloat]()
+
+        for i in stride(from: 0.0, to: 1.0, by: 0.1) {
+            randomNumbers.append(i)
+        }
+
+        let x = randomNumbers.randomElement() ?? .zero
+        let y = randomNumbers.randomElement() ?? .zero
+        let z = randomNumbers.randomElement() ?? .zero
+
         var coordinates = [(x: CGFloat, y: CGFloat, z: CGFloat)]()
 
         for _ in 0...10 {
-            coordinates.append((x: random, y: random, z: random))
+            coordinates.append((x: x, y: y, z: z))
         }
 
         return coordinates
