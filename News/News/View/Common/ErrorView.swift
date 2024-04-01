@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ErrorView: View {
+
     var title: String
     var action: Action
 

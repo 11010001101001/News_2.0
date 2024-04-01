@@ -6,8 +6,46 @@
 //
 
 import Foundation
+import Combine
+
+// MARK: - Publisher
 
 extension ViewModel {
+    var newsPublisher: AnyPublisher<[Articles], ApiError> {
+        var urlString: String {
+            let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)
+            return switch mode {
+            case .keyword(let keyword):
+                "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey.rawValue)"
+            case .category(let category):
+                "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey.rawValue)"
+            }
+        }
+
+        if let url = URL(string: urlString) {
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .retry(3)
+                .tryMap { [weak self] data, response in
+                    let info = try JSONDecoder().decode(CommonInfo.self, from: data)
+                    try self?.handleResponse(response as? HTTPURLResponse)
+                    return info.articles ?? []
+                }
+                .mapError { error in
+                    ApiError.mappingError(msg: Errors.mappingError.rawValue)
+                }
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        } else {
+            return Fail(error: ApiError.invalidRequest(msg: Errors.invalidUrl.rawValue))
+                .eraseToAnyPublisher()
+        }
+    }
+}
+
+// MARK: - Logic
+
+extension ViewModel {
+
     func loadNews() {
         loadingSucceed = false
         loadingFailed = false
@@ -15,14 +53,14 @@ extension ViewModel {
         newsPublisher
             .sink { [weak self] error in
                 guard let self, case .failure(let failure) = error else { return }
-                VibrateManager.shared.vibrate(.error)
-                SoundManager.shared.playError(soundTheme: soundTheme)
+                notificationOccurred(.error)
+                playError()
                 loadingFailed = true
                 failureReason = failure.failureReason ?? failure.errorDescription ?? failure.localizedDescription
             } receiveValue: { [weak self] articles in
                 guard let self else { return }
-                VibrateManager.shared.vibrate(.success)
-                SoundManager.shared.playLoaded(soundTheme: soundTheme)
+                notificationOccurred(.success)
+                playLoaded()
                 loadingSucceed = true
                 newsArray = articles
             }
@@ -47,4 +85,10 @@ extension ViewModel {
             break
         }
     }
+}
+
+// MARK: - Constants
+
+private enum Constants {
+    static let newsCount = "100"
 }
