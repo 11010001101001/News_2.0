@@ -22,9 +22,13 @@ final class ViewModel: ObservableObject {
     @Published var refreshSound: String
     @Published var loadedSound: String
 
+    @Published var feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle?
+    @Published var feedBackType: UINotificationFeedbackGenerator.FeedbackType?
+
     @Published var cancellables: Set<AnyCancellable>
 
     var soundManager: SoundManager?
+    var vibrateManager: VibrateManager?
     var savedSettings: [SettingsModel]?
 
     init(newsArray: [Articles] = [Articles](),
@@ -36,7 +40,10 @@ final class ViewModel: ObservableObject {
          refreshSound: String = String.empty,
          loadedSound: String = String.empty,
          cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
-         savedSettings: [SettingsModel]? = nil) {
+         savedSettings: [SettingsModel]? = nil,
+         feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle? = nil,
+         feedBackType: UINotificationFeedbackGenerator.FeedbackType? = nil)
+    {
         self.newsArray = newsArray
         self.loadingSucceed = loadingSucceed
         self.loadingFailed = loadingFailed
@@ -47,8 +54,11 @@ final class ViewModel: ObservableObject {
         self.loadedSound = loadedSound
         self.cancellables = cancellables
         self.savedSettings = savedSettings
+        self.feedbackStyle = feedbackStyle
+        self.feedBackType = feedBackType
 
         soundManager = SoundManager(viewModel: self)
+        vibrateManager = VibrateManager(viewModel: self)
     }
 
     deinit {

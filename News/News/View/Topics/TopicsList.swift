@@ -19,7 +19,9 @@ struct TopicsList: View {
                 ForEach($viewModel.newsArray) { $item in
                     ZStack {
                         NavigationLink {
-                            TopicDetail(article: item)
+                            TopicDetail(article: item, action: {
+                                viewModel.impactOccured(.light)
+                            })
                         } label: {
                             TopicCell(article: item)
                                 .ignoresSafeArea()
@@ -32,7 +34,10 @@ struct TopicsList: View {
 
             ErrorView(
                 title: $viewModel.failureReason.wrappedValue,
-                action: { viewModel.loadNews() })
+                action: {
+                    viewModel.impactOccured(.light)
+                    viewModel.loadNews()
+                })
             .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
         }
     }

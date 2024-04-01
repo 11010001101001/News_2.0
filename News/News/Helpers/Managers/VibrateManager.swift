@@ -7,17 +7,25 @@
 
 import Foundation
 import UIKit
+import Combine
 
 struct VibrateManager {
-    static let shared = VibrateManager()
+    private var impactCancellable: AnyCancellable?
+    private var notificationCancellable: AnyCancellable?
 
-    func impactOccured(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        UIImpactFeedbackGenerator().prepare()
-        UIImpactFeedbackGenerator(style: style).impactOccurred()
-    }
+    init(viewModel: ViewModel) {
+        impactCancellable = viewModel.$feedbackStyle
+            .sink { style in
+                guard let style else { return }
+                UIImpactFeedbackGenerator().prepare()
+                UIImpactFeedbackGenerator(style: style).impactOccurred()
+            }
 
-    func vibrate(_ feedBackType: UINotificationFeedbackGenerator.FeedbackType) {
-        UINotificationFeedbackGenerator().prepare()
-        UINotificationFeedbackGenerator().notificationOccurred(feedBackType)
+        notificationCancellable = viewModel.$feedBackType
+            .sink { type in
+                guard let type else { return }
+                UINotificationFeedbackGenerator().prepare()
+                UINotificationFeedbackGenerator().notificationOccurred(type)
+            }
     }
 }

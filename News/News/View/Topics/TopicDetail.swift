@@ -10,6 +10,7 @@ import SwiftUI
 struct TopicDetail: View, RandomProvider {
 
     let article: Articles
+    let action: Action
 
     @State var rotating = false
     @State var scale = 0.85
@@ -48,7 +49,7 @@ struct TopicDetail: View, RandomProvider {
                     .padding(.bottom)
                     .padding(.horizontal)
                 Spacer()
-                CustomButton(title: "More", action: {})
+                CustomButton(title: "More", action: action)
                     .padding(.bottom)
             }
             .scaleEffect(scale)
@@ -67,5 +68,8 @@ struct TopicDetail: View, RandomProvider {
                                                  name: "Source"),
                                   title: "Title",
                                   description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
-                                  publishedAt: "Time"))
+                                  publishedAt: "Time"),
+                action: {
+        print("tapped")
+    })
 }

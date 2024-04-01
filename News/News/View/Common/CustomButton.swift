@@ -16,7 +16,6 @@ struct CustomButton: View {
 
     var body: some View {
         Button(action: {
-            VibrateManager.shared.impactOccured(.light)
             action?()
             withAnimation {
                 scale = 0.85

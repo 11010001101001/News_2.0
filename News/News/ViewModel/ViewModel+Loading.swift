@@ -53,13 +53,13 @@ extension ViewModel {
         newsPublisher
             .sink { [weak self] error in
                 guard let self, case .failure(let failure) = error else { return }
-                VibrateManager.shared.vibrate(.error)
+                notificationOccurred(.error)
                 playError()
                 loadingFailed = true
                 failureReason = failure.failureReason ?? failure.errorDescription ?? failure.localizedDescription
             } receiveValue: { [weak self] articles in
                 guard let self else { return }
-                VibrateManager.shared.vibrate(.success)
+                notificationOccurred(.success)
                 playLoaded()
                 loadingSucceed = true
                 newsArray = articles
