@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopicDetail: View, RandomProvider {
+struct TopicDetail: View {
 
     let article: Articles
     let action: Action
@@ -28,13 +28,15 @@ struct TopicDetail: View, RandomProvider {
                         .clipped()
                         .clipShape(.buttonBorder)
                         .shadow(color: Color(image.averageColor), radius: 60)
-                        .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
+                        .applyNice3DRotation(rotating: rotating)
+                        .commonScaleAffect(state: rotating)
                         .onAppear { rotating.toggle() }
                 } else if phase.error != nil {
                     ErrorView(
                         title: "Error loading image...",
                         action: nil)
-                    .applyNice3DRotation(rotating: rotating, coordinates: randomCoordinates)
+                    .applyNice3DRotation(rotating: rotating)
+                    .commonScaleAffect(state: rotating)
                     .onAppear { rotating.toggle() }
                 } else {
                     Loader()

@@ -34,7 +34,7 @@ extension ImageProvider {
         case SoundTheme.cats.rawValue:
             "cat.fill"
         default:
-            "gear"
+            "info.circle.fill"
         }
 
         return Image(systemName: imageName)

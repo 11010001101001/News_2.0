@@ -14,6 +14,15 @@ struct SettingsCell: View, ImageProvider {
     @State private var scale = 1.0
 
     let id: String
+    let tappable: Bool
+
+    init(viewModel: ViewModel,
+         id: String,
+         tappable: Bool = true) {
+        self.viewModel = viewModel
+        self.id = id
+        self.tappable = tappable
+    }
 
     var body: some View {
         HStack {
@@ -24,9 +33,10 @@ struct SettingsCell: View, ImageProvider {
             CheckMark()
                 .opacity((viewModel.category == id || viewModel.soundTheme == id) ? 1.0 : .zero)
         }
-        .frame(height: 45)
+        .frame(height: 40)
         .contentShape(Rectangle())
         .onTapGesture {
+            guard tappable else { return }
             viewModel.applySettings(id.lowercased())
             needAnimate.toggle()
             withAnimation {
