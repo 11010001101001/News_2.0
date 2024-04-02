@@ -1,19 +1,21 @@
 //
-//  SettingsCell.swift
+//  LinkCell.swift
 //  News
 //
-//  Created by Ярослав Куприянов on 29.03.2024.
+//  Created by Ярослав Куприянов on 02.04.2024.
 //
 
 import SwiftUI
 
-struct SettingsCell: View, ImageProvider {
-    @ObservedObject var viewModel: ViewModel
+struct LinkCell: View, ImageProvider {
+
+    @Environment(\.openURL) private var openURL
 
     @State private var needAnimate = false
     @State private var scale = 1.0
 
     let id: String
+    let link: URL
 
     var body: some View {
         HStack {
@@ -21,19 +23,18 @@ struct SettingsCell: View, ImageProvider {
             Text(id.capitalizingFirstLetter())
                 .font(.system(size: 18, weight: .regular))
             Spacer()
-            CheckMark()
-                .opacity((viewModel.category == id || viewModel.soundTheme == id) ? 1.0 : .zero)
         }
         .frame(height: 40)
         .contentShape(Rectangle())
         .onTapGesture {
-            viewModel.applySettings(id.lowercased())
             needAnimate.toggle()
             withAnimation(.easeInOut(duration: 0.1)) {
                 scale = 0.95
             } completion: {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     scale = 1.0
+                } completion: {
+                    openURL(link)
                 }
             }
         }
@@ -46,5 +47,6 @@ struct SettingsCell: View, ImageProvider {
 }
 
 #Preview {
-    SettingsCell(viewModel: ViewModel(), id: Category.business.rawValue)
+    LinkCell(id: AdditionalInfo.contactUs.rawValue,
+             link: URL(string: "https://www.google.com")!)
 }

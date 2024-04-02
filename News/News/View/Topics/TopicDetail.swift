@@ -56,7 +56,7 @@ struct TopicDetail: View {
             }
             .scaleEffect(scale)
             .onAppear {
-                withAnimation(.bouncy) {
+                withAnimation(.bouncy(duration: 0.6, extraBounce: 0.3)) {
                     scale = 1.0
                 }
             }

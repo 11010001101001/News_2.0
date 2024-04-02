@@ -17,10 +17,10 @@ struct CustomButton: View {
     var body: some View {
         Button(action: {
             action?()
-            withAnimation {
+            withAnimation(.easeInOut(duration: 0.1)) {
                 scale = 0.85
             } completion: {
-                withAnimation {
+                withAnimation(.easeInOut(duration: 0.3)) {
                     scale = 1.0
                 }
             }

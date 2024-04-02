@@ -29,6 +29,7 @@ final class ViewModel: ObservableObject {
 
     var soundManager: SoundManager?
     var vibrateManager: VibrateManager?
+
     var savedSettings: [SettingsModel]?
 
     init(newsArray: [Articles] = [Articles](),
@@ -63,5 +64,6 @@ final class ViewModel: ObservableObject {
 
     deinit {
         soundManager = nil
+        vibrateManager = nil
     }
 }

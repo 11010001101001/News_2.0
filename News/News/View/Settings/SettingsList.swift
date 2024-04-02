@@ -27,11 +27,11 @@ struct SettingsList: View {
                 }
                 
                 Section(header: Text(AdditionalInfo.title).font(.headline)) {
-                    SettingsCell(viewModel: viewModel,
-                                 id: AdditionalInfo.appVersion.rawValue
-                                 +
-                                 AdditionalInfo.currentAppVersion,
-                                 tappable: false)
+                    InfoCell(id: AdditionalInfo.appVersion.rawValue
+                             +
+                             AdditionalInfo.currentAppVersion)
+                    LinkCell(id: AdditionalInfo.contactUs.rawValue,
+                             link: AdditionalInfo.contactLink)
                 }
             }
             .listStyle(.plain)

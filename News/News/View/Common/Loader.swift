@@ -16,15 +16,15 @@ struct Loader: View {
             .playing(loopMode: .loop)
             .scaleEffect(scale)
             .onAppear {
-                withAnimation(.bouncy.repeatForever(autoreverses: true)) {
+                withAnimation(.easeInOut(duration: 0.1)) {
                     scale = 0.4
                 } completion: {
-                    withAnimation(.snappy) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
                         scale = 0.3
                     }
                 }
             }
-            .shadow(color: .blue, radius: 70)
+            .shadow(color: .blue, radius: 40)
     }
 }
 
