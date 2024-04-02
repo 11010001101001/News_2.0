@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CustomButton: View {
 
+    @ObservedObject var viewModel: ViewModel
+
     @State private var scale = 1.0
 
     let title: String
@@ -16,12 +18,14 @@ struct CustomButton: View {
 
     var body: some View {
         Button(action: {
-            action?()
+            viewModel.impactOccured(.light)
             withAnimation(.easeInOut(duration: 0.1)) {
                 scale = 0.85
             } completion: {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     scale = 1.0
+                } completion: {
+                    action?()
                 }
             }
         }, label: {
@@ -38,5 +42,7 @@ struct CustomButton: View {
 }
 
 #Preview {
-    CustomButton(title: "Reload", action: {})
+    CustomButton(viewModel: ViewModel(),
+                 title: "Reload",
+                 action: {})
 }

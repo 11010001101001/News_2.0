@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsCell: View, ImageProvider {
+    
     @ObservedObject var viewModel: ViewModel
 
     @State private var needAnimate = false

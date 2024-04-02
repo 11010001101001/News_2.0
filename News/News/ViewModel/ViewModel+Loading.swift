@@ -11,6 +11,7 @@ import Combine
 // MARK: - Publisher
 
 extension ViewModel {
+    
     var newsPublisher: AnyPublisher<[Articles], ApiError> {
         var urlString: String {
             let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)

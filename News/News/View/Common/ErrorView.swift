@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ErrorView: View {
 
+    @ObservedObject var viewModel: ViewModel
+
     var title: String
     var action: Action
 
@@ -33,7 +35,9 @@ struct ErrorView: View {
                         .frame(width: 90, height: 100)
                 }
 
-                CustomButton(title: "Reload", action: action)
+                CustomButton(viewModel: viewModel,
+                             title: "Reload",
+                             action: action)
             }
         }
     }
@@ -41,7 +45,8 @@ struct ErrorView: View {
 
 #if DEBUG
 #Preview {
-    ErrorView(title: "Time - out\nerror\n\nServer problem or internet connection broken",
+    ErrorView(viewModel: ViewModel(),
+              title: "Time - out\nerror\n\nServer problem or internet connection broken",
               action: {
         print("Button pressed")
     })
