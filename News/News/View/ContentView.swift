@@ -31,7 +31,6 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("News")
-
         }
         .onAppear {
             loadSettings()

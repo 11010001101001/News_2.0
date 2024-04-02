@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CheckMark: View, RandomProvider {
+struct CheckMark: View {
 
     @State var rotating = false
 
@@ -17,9 +17,7 @@ struct CheckMark: View, RandomProvider {
             .foregroundStyle(.blue)
             .frame(width: 30, height: 30)
             .shadow(color: .blue, radius: 20)
-            .applyNice3DRotation(rotating: rotating,
-                                 duration: 1.5,
-                                 coordinates: randomCoordinates)
+            .applyNice3DRotation(rotating: rotating, duration: 1.5)
             .onAppear { rotating.toggle() }
     }
 }

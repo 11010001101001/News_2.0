@@ -27,7 +27,7 @@ struct TopicCell: View {
         .scaleEffect(scale)
         .onAppear {
             withAnimation(.bouncy) {
-                scale = 1.05
+                scale = 1.03
             } completion: {
                 withAnimation(.bouncy) {
                     scale = 1.0

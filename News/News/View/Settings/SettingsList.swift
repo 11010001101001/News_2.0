@@ -14,16 +14,24 @@ struct SettingsList: View {
     var body: some View {
         VStack(alignment: .leading) {
             List {
-                Section(header: Text(Category.title)) {
+                Section(header: Text(Category.title).font(.headline)) {
                     ForEach(Category.allCases) { category in
                         SettingsCell(viewModel: viewModel, id: category.rawValue)
                     }
                 }
 
-                Section(header: Text(SoundTheme.title)) {
+                Section(header: Text(SoundTheme.title).font(.headline)) {
                     ForEach(SoundTheme.allCases) { theme in
                         SettingsCell(viewModel: viewModel, id: theme.rawValue)
                     }
+                }
+                
+                Section(header: Text(AdditionalInfo.title).font(.headline)) {
+                    SettingsCell(viewModel: viewModel,
+                                 id: AdditionalInfo.appVersion.rawValue
+                                 +
+                                 AdditionalInfo.currentAppVersion,
+                                 tappable: false)
                 }
             }
             .listStyle(.plain)
