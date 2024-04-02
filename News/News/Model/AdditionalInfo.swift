@@ -10,7 +10,9 @@ import Foundation
 enum AdditionalInfo: String, CaseIterable, Identifiable {
     var id: Self { return self }
 
-    static let currentAppVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Error in recognizing appVersion"
+    static var currentAppVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Error in recognizing appVersion"
+    }
 
     static var title: String { "Additional info" }
 
