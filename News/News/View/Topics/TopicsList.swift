@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TopicsList: View {
+    
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
@@ -19,9 +20,9 @@ struct TopicsList: View {
                 ForEach($viewModel.newsArray) { $item in
                     ZStack {
                         NavigationLink {
-                            TopicDetail(article: item, action: {
-                                viewModel.impactOccured(.light)
-                            })
+                            TopicDetail(viewModel: viewModel,
+                                        article: item,
+                                        action: nil)
                         } label: {
                             TopicCell(article: item)
                                 .ignoresSafeArea()
@@ -33,11 +34,9 @@ struct TopicsList: View {
             .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
 
             ErrorView(
+                viewModel: viewModel,
                 title: $viewModel.failureReason.wrappedValue,
-                action: {
-                    viewModel.impactOccured(.light)
-                    viewModel.loadNews()
-                })
+                action: { viewModel.loadNews() })
             .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
         }
     }

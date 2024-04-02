@@ -9,6 +9,10 @@ import SwiftUI
 
 struct TopicDetail: View {
 
+    @ObservedObject var viewModel: ViewModel
+
+    @Environment(\.openURL) private var openURL
+
     let article: Articles
     let action: Action
 
@@ -33,6 +37,7 @@ struct TopicDetail: View {
                         .onAppear { rotating.toggle() }
                 } else if phase.error != nil {
                     ErrorView(
+                        viewModel: viewModel,
                         title: "Error loading image...",
                         action: nil)
                     .applyNice3DRotation(rotating: rotating)
@@ -51,8 +56,15 @@ struct TopicDetail: View {
                     .padding(.bottom)
                     .padding(.horizontal)
                 Spacer()
-                CustomButton(title: "More", action: action)
-                    .padding(.bottom)
+                CustomButton(viewModel: viewModel,
+                             title: "More",
+                             action: {
+                    action?()
+                    if let url = URL(string: article.url ?? .empty) {
+                        openURL(url)
+                    }
+                })
+                .padding(.bottom)
             }
             .scaleEffect(scale)
             .onAppear {
@@ -66,7 +78,8 @@ struct TopicDetail: View {
 }
 
 #Preview {
-    TopicDetail(article: Articles(source: Source(id: UUID().uuidString,
+    TopicDetail(viewModel: ViewModel(),
+                article: Articles(source: Source(id: UUID().uuidString,
                                                  name: "Source"),
                                   title: "Title",
                                   description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
