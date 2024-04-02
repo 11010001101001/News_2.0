@@ -14,6 +14,8 @@
 		C433F51A2BB40C2C0088A7FC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C433F5192BB40C2C0088A7FC /* Category.swift */; };
 		C44CFCB02BBAA5EF00CCAC97 /* ViewModel+Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CFCAF2BBAA5EF00CCAC97 /* ViewModel+Haptics.swift */; };
 		C44CFCB22BBC3F8200CCAC97 /* AdditionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CFCB12BBC3F8200CCAC97 /* AdditionalInfo.swift */; };
+		C44CFCB82BBC56B700CCAC97 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CFCB72BBC56B700CCAC97 /* InfoCell.swift */; };
+		C44CFCBA2BBC57D900CCAC97 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44CFCB92BBC57D900CCAC97 /* LinkCell.swift */; };
 		C451169E2BB965010003250E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C451169D2BB965010003250E /* Lottie */; };
 		C45116A02BB965300003250E /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451169F2BB965300003250E /* Loader.swift */; };
 		C45116A62BB9690B0003250E /* sandClock.json in Resources */ = {isa = PBXBuildFile; fileRef = C45116A52BB9690B0003250E /* sandClock.json */; };
@@ -86,6 +88,9 @@
 		C433F5192BB40C2C0088A7FC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C44CFCAF2BBAA5EF00CCAC97 /* ViewModel+Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Haptics.swift"; sourceTree = "<group>"; };
 		C44CFCB12BBC3F8200CCAC97 /* AdditionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfo.swift; sourceTree = "<group>"; };
+		C44CFCB72BBC56B700CCAC97 /* InfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
+		C44CFCB92BBC57D900CCAC97 /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
+		C44CFCBB2BBC65E000CCAC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C451169F2BB965300003250E /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		C45116A52BB9690B0003250E /* sandClock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sandClock.json; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
@@ -186,6 +191,8 @@
 			children = (
 				C4BC8D3D2BB312BF00A0AFC8 /* SettingsList.swift */,
 				C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */,
+				C44CFCB72BBC56B700CCAC97 /* InfoCell.swift */,
+				C44CFCB92BBC57D900CCAC97 /* LinkCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -323,6 +330,7 @@
 		C4BC8D072BB2FA3900A0AFC8 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				C44CFCBB2BBC65E000CCAC97 /* Info.plist */,
 				C4BC8D492BB318A500A0AFC8 /* Helpers */,
 				C4BC8D362BB3079200A0AFC8 /* Model */,
 				C4BC8D342BB3074F00A0AFC8 /* View */,
@@ -595,9 +603,11 @@
 			files = (
 				C4BC8D572BB35EB200A0AFC8 /* CGFloat+Extensions.swift in Sources */,
 				C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */,
+				C44CFCBA2BBC57D900CCAC97 /* LinkCell.swift in Sources */,
 				C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */,
 				C4BC8D4F2BB348C600A0AFC8 /* String+Formats.swift in Sources */,
 				C4BC8D382BB3089900A0AFC8 /* CommonInfo.swift in Sources */,
+				C44CFCB82BBC56B700CCAC97 /* InfoCell.swift in Sources */,
 				C4BC8D422BB3167200A0AFC8 /* ViewModel.swift in Sources */,
 				C4BC8D4B2BB318B500A0AFC8 /* VibrateManager.swift in Sources */,
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
@@ -794,6 +804,7 @@
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = News/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -823,6 +834,7 @@
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = News/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

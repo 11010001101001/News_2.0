@@ -5,12 +5,10 @@
 //  Created by Ярослав Куприянов on 30.03.2024.
 //
 
-import Foundation
 import AVKit
-import SwiftUI
 import Combine
 
-class SoundManager {
+final class SoundManager {
     private var player = AVAudioPlayer()
     private var refreshCancellable: AnyCancellable?
     private var loadedCancellable: AnyCancellable?

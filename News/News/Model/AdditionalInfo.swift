@@ -16,5 +16,8 @@ enum AdditionalInfo: String, CaseIterable, Identifiable {
 
     static var title: String { "Additional info" }
 
+    static let contactLink = URL(string: "https://t.me/Yaroslav_Kupriyanov")!
+
     case appVersion = "app version: "
+    case contactUs = "contact us"
 }
