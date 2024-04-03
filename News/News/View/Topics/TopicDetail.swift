@@ -12,10 +12,12 @@ struct TopicDetail: View {
     @ObservedObject var viewModel: ViewModel
 
     @Environment(\.openURL) private var openURL
+    @Environment(\.dismiss) private var dismiss
 
     let article: Articles
     let action: Action
 
+    @State private var imageWrapper: ContentWrapper?
     @State var rotating = false
     @State var scale = 0.85
 
@@ -56,24 +58,19 @@ struct TopicDetail: View {
                     .padding(.bottom)
                     .padding(.horizontal)
                 HStack {
-                    ShareLink(item: URL(string: article.url ?? .empty)?.absoluteString ?? .empty,
-                              subject: Text("Check it out"),
-                              message: Text("Link to News app in appStore 🦾: stay informed!👨🏻‍🔧")) {
-                        Button {
-                            // TODO: Think about how animate shareLink view like button when pressed
-                            viewModel.impactOccured(.light)
-                        } label: {
-                            Label(
-                                title: { EmptyView() },
-                                icon: { Image(systemName: "square.and.arrow.up") }
-                            )
-                        }
-                        .allowsHitTesting(false)
-                        .buttonStyle(.bordered)
-                        .clipShape(.capsule(style: .continuous))
-                        .controlSize(.regular)
-                    }
-                              .padding(.leading)
+                    CustomButton(viewModel: viewModel,
+                                 action: {
+                        self.imageWrapper = ContentWrapper(
+                            link: URL(string: article.url ?? .empty)?.absoluteString ?? .empty,
+                            description: "Link to News app in appStore 🦾: stay informed!👨🏻‍🔧")
+                    },
+                                 iconName: "square.and.arrow.up")
+                    .sheet(item: $imageWrapper,
+                           content: { content in
+                        ActivityViewController(contentWrapper: content)
+                    })
+                    .padding(.leading)
+
                     CustomButton(viewModel: viewModel,
                                  action: {
                         action?()
