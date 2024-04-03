@@ -9,7 +9,6 @@ import SwiftUI
 import Lottie
 
 struct ToTopCell: View {
-    @ObservedObject var viewModel: ViewModel
 
     let action: Action
 
@@ -32,5 +31,5 @@ struct ToTopCell: View {
 }
 
 #Preview {
-    ToTopCell(viewModel: ViewModel(), action: {})
+    ToTopCell(action: {})
 }
