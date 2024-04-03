@@ -19,6 +19,7 @@
 		C451169E2BB965010003250E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C451169D2BB965010003250E /* Lottie */; };
 		C45116A02BB965300003250E /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451169F2BB965300003250E /* Loader.swift */; };
 		C45116A62BB9690B0003250E /* sandClock.json in Resources */ = {isa = PBXBuildFile; fileRef = C45116A52BB9690B0003250E /* sandClock.json */; };
+		C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
 		C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Effects.swift */; };
 		C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A65E542BB76E0D002E3F39 /* SoundManager.swift */; };
@@ -93,6 +94,7 @@
 		C44CFCBB2BBC65E000CCAC97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C451169F2BB965300003250E /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		C45116A52BB9690B0003250E /* sandClock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sandClock.json; sourceTree = "<group>"; };
+		C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVcWrapper.swift; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
 		C49C849D2BB455CE00571CD4 /* View+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Effects.swift"; sourceTree = "<group>"; };
 		C4A65E542BB76E0D002E3F39 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -191,8 +193,6 @@
 			children = (
 				C4BC8D3D2BB312BF00A0AFC8 /* SettingsList.swift */,
 				C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */,
-				C44CFCB72BBC56B700CCAC97 /* InfoCell.swift */,
-				C44CFCB92BBC57D900CCAC97 /* LinkCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -200,6 +200,8 @@
 		C4311A572BB7088500DE9194 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C44CFCB72BBC56B700CCAC97 /* InfoCell.swift */,
+				C44CFCB92BBC57D900CCAC97 /* LinkCell.swift */,
 				C4BC8D522BB35C9900A0AFC8 /* ErrorView.swift */,
 				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
 				C4311A582BB708A500DE9194 /* CheckMark.swift */,
@@ -207,6 +209,14 @@
 				C45116A52BB9690B0003250E /* sandClock.json */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C45734AE2BBCFDD8005CA143 /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */,
+			);
+			path = Wrappers;
 			sourceTree = "<group>";
 		};
 		C4A65E602BB76F47002E3F39 /* Sounds */ = {
@@ -411,6 +421,7 @@
 				C4F676E02BB56B90002F3BCE /* Extensions */,
 				C4F676E12BB56CAB002F3BCE /* Managers */,
 				C4F676E42BB584F3002F3BCE /* Decorators */,
+				C45734AE2BBCFDD8005CA143 /* Wrappers */,
 				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
 				C4BC8D0E2BB2FA3B00A0AFC8 /* Assets.xcassets */,
 			);
@@ -638,6 +649,7 @@
 				C4BC8D402BB3162D00A0AFC8 /* TopicDetail.swift in Sources */,
 				C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */,
 				C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */,
+				C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
