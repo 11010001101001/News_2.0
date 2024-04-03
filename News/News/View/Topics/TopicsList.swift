@@ -8,36 +8,51 @@
 import SwiftUI
 
 struct TopicsList: View {
-    
+
     @ObservedObject var viewModel: ViewModel
 
-    var body: some View {
-        ZStack {
-            Loader()
-                .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
+    @State private var scrollToTop = false
 
-            List {
-                ForEach($viewModel.newsArray) { $item in
-                    ZStack {
-                        NavigationLink {
-                            TopicDetail(viewModel: viewModel,
-                                        article: item,
-                                        action: nil)
-                        } label: {
-                            TopicCell(article: item)
-                                .ignoresSafeArea()
+    var body: some View {
+        ScrollViewReader { proxy in
+            ZStack {
+                Loader()
+                    .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
+
+                List {
+                    EmptyView()
+                        .id("top")
+                        .onChange(of: scrollToTop) {
+                            withAnimation {
+                                proxy.scrollTo("top", anchor: .bottom)
+                            }
+                        }
+                    ForEach($viewModel.newsArray) { $item in
+                        ZStack {
+                            NavigationLink {
+                                TopicDetail(viewModel: viewModel,
+                                            article: item,
+                                            action: nil)
+                            } label: {
+                                TopicCell(article: item)
+                                    .ignoresSafeArea()
+                            }
                         }
                     }
                 }
-            }
-            .listStyle(.plain)
-            .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
+                .listStyle(.plain)
+                .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
 
-            ErrorView(
-                viewModel: viewModel,
-                title: $viewModel.failureReason.wrappedValue,
-                action: { viewModel.loadNews() })
-            .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
+                ErrorView(
+                    viewModel: viewModel,
+                    title: $viewModel.failureReason.wrappedValue,
+                    action: { viewModel.loadNews() })
+                .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
+
+                CustomButton(viewModel: viewModel,
+                             action: { scrollToTop.toggle() },
+                             iconName: "chevron.up")
+            }
         }
     }
 }
