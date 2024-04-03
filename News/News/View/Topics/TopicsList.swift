@@ -40,9 +40,9 @@ struct TopicsList: View {
                     }
 
                     ToTopCell() {
+                        viewModel.impactOccured(.light)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
                                                       execute: {
-                            viewModel.impactOccured(.light)
                             scrollToTop.toggle()
                         })
                     }
