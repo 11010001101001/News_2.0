@@ -10,7 +10,7 @@ import Lottie
 
 struct Loader: View {
     
-    @State var scale = 0.3
+    @State private var scale = 0.3
 
     var body: some View {
         LottieView(animation: .named("sandClock"))

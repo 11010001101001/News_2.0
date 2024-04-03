@@ -36,7 +36,6 @@ struct CustomButton: View {
                         EmptyView()
                     } else {
                         Text(title ?? .empty)
-                            .fontDesign(.monospaced)
                             .foregroundStyle(.blue)
                     }
                 },
@@ -54,6 +53,6 @@ struct CustomButton: View {
 #Preview {
     CustomButton(viewModel: ViewModel(),
                  action: {},
-                 title: nil,
+                 title: "Tap me",
                  iconName: "square.and.arrow.down.on.square")
 }

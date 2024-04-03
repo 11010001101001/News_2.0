@@ -8,17 +8,27 @@
 import SwiftUI
 
 struct TopicsList: View {
-    
+
     @ObservedObject var viewModel: ViewModel
 
-    var body: some View {
-        ZStack {
-            Loader()
-                .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
+    @State private var scrollToTop = false
 
-            List {
-                ForEach($viewModel.newsArray) { $item in
-                    ZStack {
+    var body: some View {
+        ScrollViewReader { proxy in
+            ZStack {
+                Loader()
+                    .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
+
+                List {
+                    EmptyView()
+                        .id("top")
+                        .onChange(of: scrollToTop) {
+                            withAnimation {
+                                proxy.scrollTo("top", anchor: .bottom)
+                            }
+                        }
+
+                    ForEach($viewModel.newsArray) { $item in
                         NavigationLink {
                             TopicDetail(viewModel: viewModel,
                                         article: item,
@@ -28,16 +38,23 @@ struct TopicsList: View {
                                 .ignoresSafeArea()
                         }
                     }
-                }
-            }
-            .listStyle(.plain)
-            .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
 
-            ErrorView(
-                viewModel: viewModel,
-                title: $viewModel.failureReason.wrappedValue,
-                action: { viewModel.loadNews() })
-            .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
+                    ToTopCell(viewModel: viewModel) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
+                                                      execute: {
+                            scrollToTop.toggle()
+                        })
+                    }
+                }
+                .listStyle(.plain)
+                .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
+
+                ErrorView(
+                    viewModel: viewModel,
+                    title: $viewModel.failureReason.wrappedValue,
+                    action: { viewModel.loadNews() })
+                .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
+            }
         }
     }
 }

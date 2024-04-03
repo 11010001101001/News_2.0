@@ -17,8 +17,8 @@ struct TopicDetail: View {
     let action: Action
 
     @State private var imageWrapper: ContentWrapper?
-    @State var rotating = false
-    @State var scale = 0.85
+    @State private var rotating = false
+    @State private var scale = 0.85
 
     var body: some View {
         VStack {
@@ -49,13 +49,11 @@ struct TopicDetail: View {
                 }
             }
             .frame(height: 300)
-            .padding(.vertical)
-            .padding(.horizontal)
+            .padding([.vertical, .horizontal])
 
             VStack {
                 Text(article.description ?? .empty)
-                    .padding(.bottom)
-                    .padding(.horizontal)
+                    .padding([.bottom, .horizontal])
                 HStack {
                     CustomButton(viewModel: viewModel,
                                  action: {
@@ -63,6 +61,7 @@ struct TopicDetail: View {
                             link: URL(string: article.url ?? .empty)?.absoluteString ?? .empty,
                             description: "Link to News app in appStore 🦾: stay informed!👨🏻‍🔧")
                     },
+                                 title: "Share",
                                  iconName: "square.and.arrow.up")
                     .sheet(item: $imageWrapper,
                            content: { content in
@@ -79,7 +78,7 @@ struct TopicDetail: View {
                         }
                     },
                                  title: "Open",
-                                 iconName: nil)
+                                 iconName: "link")
                     Spacer()
                 }
                 Spacer()
