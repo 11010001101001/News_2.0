@@ -59,24 +59,34 @@ struct TopicDetail: View {
                     ShareLink(item: URL(string: article.url ?? .empty)?.absoluteString ?? .empty,
                               subject: Text("Check it out"),
                               message: Text("Link to News app in appStore 🦾: stay informed!👨🏻‍🔧")) {
-                        Label(
-                            title: { Text("Share") },
-                            icon: { Image(systemName: "square.and.arrow.up") }
-                        )
+                        Button {
+                            // TODO: Think about how animate shareLink view like button when pressed
+                            viewModel.impactOccured(.light)
+                        } label: {
+                            Label(
+                                title: { EmptyView() },
+                                icon: { Image(systemName: "square.and.arrow.up") }
+                            )
+                        }
+                        .allowsHitTesting(false)
+                        .buttonStyle(.bordered)
+                        .clipShape(.capsule(style: .continuous))
+                        .controlSize(.regular)
                     }
                               .padding(.leading)
+                    CustomButton(viewModel: viewModel,
+                                 action: {
+                        action?()
+                        if let url = URL(string: article.url ?? .empty) {
+                            openURL(url)
+                        }
+                    },
+                                 title: "Open",
+                                 iconName: nil)
                     Spacer()
                 }
                 Spacer()
-                CustomButton(viewModel: viewModel,
-                             title: "More",
-                             action: {
-                    action?()
-                    if let url = URL(string: article.url ?? .empty) {
-                        openURL(url)
-                    }
-                })
-                .padding(.bottom)
+                    .padding(.bottom)
             }
             .scaleEffect(scale)
             .onAppear {
