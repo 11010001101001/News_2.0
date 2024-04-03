@@ -55,6 +55,18 @@ struct TopicDetail: View {
                 Text(article.description ?? .empty)
                     .padding(.bottom)
                     .padding(.horizontal)
+                HStack {
+                    ShareLink(item: URL(string: article.url ?? .empty)?.absoluteString ?? .empty,
+                              subject: Text("Check it out"),
+                              message: Text("Link to News app in appStore 🦾: stay informed!👨🏻‍🔧")) {
+                        Label(
+                            title: { Text("Share") },
+                            icon: { Image(systemName: "square.and.arrow.up") }
+                        )
+                    }
+                              .padding(.leading)
+                    Spacer()
+                }
                 Spacer()
                 CustomButton(viewModel: viewModel,
                              title: "More",
