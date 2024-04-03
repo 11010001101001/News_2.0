@@ -67,6 +67,7 @@ struct TopicDetail: View {
                     .sheet(item: $imageWrapper,
                            content: { content in
                         ActivityViewController(contentWrapper: content)
+                            .presentationDetents([.medium])
                     })
                     .padding(.leading)
 
