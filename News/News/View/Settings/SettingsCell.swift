@@ -33,7 +33,7 @@ struct SettingsCell: View, ImageProvider {
             withAnimation(.easeInOut(duration: 0.1)) {
                 scale = 0.95
             } completion: {
-                withAnimation(.easeInOut(duration: 0.3)) {
+                withAnimation(.smooth(duration: 0.2, extraBounce: 0.3)) {
                     scale = 1.0
                 }
             }

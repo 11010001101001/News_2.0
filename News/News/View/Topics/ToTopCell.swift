@@ -10,6 +10,9 @@ import Lottie
 
 struct ToTopCell: View {
 
+    @State private var animateGradient = false
+    @State private var scale = 1.0
+
     let action: Action
 
     var body: some View {
@@ -17,15 +20,34 @@ struct ToTopCell: View {
             Spacer()
             Spacer()
             Text("Need return?")
+                .font(.headline)
                 .padding(.leading)
 
-            ZStack {
-                LottieButton(animation: .named("button"), action: {
-                    action?()
-                })
+            LottieButton(animation: .named("button"), action: action ?? {})
                 .frame(height: 150)
+                .scaleEffect(scale)
+        }
+        .background {
+            LinearGradient(colors: [.cyan, .purple, .red, .orange],
+                           startPoint: animateGradient ? .leading : .bottom,
+                           endPoint: animateGradient ? .bottom : .trailing)
+            .ignoresSafeArea()
+            .blur(radius: 2)
+        }
+        .onAppear {
+            Task {
+                withAnimation(.bouncy(duration: 0.1)) {
+                    scale = 1.03
+                } completion: {
+                    withAnimation(.bouncy(duration: 0.2)) {
+                        scale = 1.0
+                    } completion: {
+                        withAnimation(.smooth(duration: 7).repeatForever(autoreverses: true)) {
+                            animateGradient.toggle()
+                        }
+                    }
+                }
             }
-            Spacer()
         }
     }
 }
