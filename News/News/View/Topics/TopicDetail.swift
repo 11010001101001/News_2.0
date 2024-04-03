@@ -12,7 +12,6 @@ struct TopicDetail: View {
     @ObservedObject var viewModel: ViewModel
 
     @Environment(\.openURL) private var openURL
-    @Environment(\.dismiss) private var dismiss
 
     let article: Articles
     let action: Action

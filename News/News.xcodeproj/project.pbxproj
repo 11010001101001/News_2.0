@@ -193,8 +193,6 @@
 			children = (
 				C4BC8D3D2BB312BF00A0AFC8 /* SettingsList.swift */,
 				C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */,
-				C44CFCB72BBC56B700CCAC97 /* InfoCell.swift */,
-				C44CFCB92BBC57D900CCAC97 /* LinkCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -202,6 +200,8 @@
 		C4311A572BB7088500DE9194 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C44CFCB72BBC56B700CCAC97 /* InfoCell.swift */,
+				C44CFCB92BBC57D900CCAC97 /* LinkCell.swift */,
 				C4BC8D522BB35C9900A0AFC8 /* ErrorView.swift */,
 				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
 				C4311A582BB708A500DE9194 /* CheckMark.swift */,
@@ -421,9 +421,9 @@
 				C4F676E02BB56B90002F3BCE /* Extensions */,
 				C4F676E12BB56CAB002F3BCE /* Managers */,
 				C4F676E42BB584F3002F3BCE /* Decorators */,
+				C45734AE2BBCFDD8005CA143 /* Wrappers */,
 				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
 				C4BC8D0E2BB2FA3B00A0AFC8 /* Assets.xcassets */,
-				C45734AE2BBCFDD8005CA143 /* Wrappers */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
