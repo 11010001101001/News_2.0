@@ -21,7 +21,7 @@ struct ErrorView: View {
                     Label(title, systemImage: "bolt.fill")
                         .labelStyle(.titleOnly)
                         .fontDesign(.monospaced)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(.blue)
                         .multilineTextAlignment(.center)
                         .font(.body)
                         .padding(EdgeInsets(top: .zero,
@@ -36,8 +36,8 @@ struct ErrorView: View {
                 }
 
                 CustomButton(viewModel: viewModel,
-                             title: "Reload",
-                             action: action)
+                             action: action,
+                             title: "Reload")
             }
         }
     }

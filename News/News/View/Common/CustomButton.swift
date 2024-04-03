@@ -13,14 +13,15 @@ struct CustomButton: View {
 
     @State private var scale = 1.0
 
-    let title: String
     let action: Action
+    var title: String?
+    var iconName: String?
 
     var body: some View {
         Button(action: {
             viewModel.impactOccured(.light)
             withAnimation(.easeInOut(duration: 0.1)) {
-                scale = 0.85
+                scale = 0.9
             } completion: {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     scale = 1.0
@@ -29,13 +30,22 @@ struct CustomButton: View {
                 }
             }
         }, label: {
-            Text(title)
-                .fontDesign(.monospaced)
-                .foregroundStyle(.gray)
+            Label(
+                title: {
+                    if title == nil {
+                        EmptyView()
+                    } else {
+                        Text(title ?? .empty)
+                            .fontDesign(.monospaced)
+                            .foregroundStyle(.blue)
+                    }
+                },
+                icon: { iconName == nil ? nil : Image(systemName: iconName!) }
+            )
         })
         .buttonStyle(.bordered)
-        .clipShape(.capsule(style: .circular))
-        .controlSize(.large)
+        .clipShape(.capsule(style: .continuous))
+        .controlSize(.regular)
         .opacity(action == nil ? .zero : 1.0)
         .scaleEffect(scale)
     }
@@ -43,6 +53,7 @@ struct CustomButton: View {
 
 #Preview {
     CustomButton(viewModel: ViewModel(),
-                 title: "Reload",
-                 action: {})
+                 action: {},
+                 title: nil,
+                 iconName: "square.and.arrow.down.on.square")
 }
