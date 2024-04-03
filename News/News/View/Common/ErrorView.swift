@@ -20,7 +20,6 @@ struct ErrorView: View {
                 VStack {
                     Label(title, systemImage: "bolt.fill")
                         .labelStyle(.titleOnly)
-                        .fontDesign(.monospaced)
                         .foregroundStyle(.blue)
                         .multilineTextAlignment(.center)
                         .font(.body)

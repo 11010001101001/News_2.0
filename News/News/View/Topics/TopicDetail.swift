@@ -61,6 +61,7 @@ struct TopicDetail: View {
                             link: URL(string: article.url ?? .empty)?.absoluteString ?? .empty,
                             description: "Link to News app in appStore 🦾: stay informed!👨🏻‍🔧")
                     },
+                                 title: "Share",
                                  iconName: "square.and.arrow.up")
                     .sheet(item: $imageWrapper,
                            content: { content in
@@ -77,7 +78,7 @@ struct TopicDetail: View {
                         }
                     },
                                  title: "Open",
-                                 iconName: nil)
+                                 iconName: "link")
                     Spacer()
                 }
                 Spacer()

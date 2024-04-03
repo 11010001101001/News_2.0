@@ -27,17 +27,23 @@ struct TopicsList: View {
                                 proxy.scrollTo("top", anchor: .bottom)
                             }
                         }
+
                     ForEach($viewModel.newsArray) { $item in
-                        ZStack {
-                            NavigationLink {
-                                TopicDetail(viewModel: viewModel,
-                                            article: item,
-                                            action: nil)
-                            } label: {
-                                TopicCell(article: item)
-                                    .ignoresSafeArea()
-                            }
+                        NavigationLink {
+                            TopicDetail(viewModel: viewModel,
+                                        article: item,
+                                        action: nil)
+                        } label: {
+                            TopicCell(article: item)
+                                .ignoresSafeArea()
                         }
+                    }
+
+                    ToTopCell(viewModel: viewModel) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
+                                                      execute: {
+                            scrollToTop.toggle()
+                        })
                     }
                 }
                 .listStyle(.plain)
@@ -48,10 +54,6 @@ struct TopicsList: View {
                     title: $viewModel.failureReason.wrappedValue,
                     action: { viewModel.loadNews() })
                 .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
-
-                CustomButton(viewModel: viewModel,
-                             action: { scrollToTop.toggle() },
-                             iconName: "chevron.up")
             }
         }
     }

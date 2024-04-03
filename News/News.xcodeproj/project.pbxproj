@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40AEBF02BBDD94500CA7DA2 /* ToTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40AEBEF2BBDD94500CA7DA2 /* ToTopCell.swift */; };
+		C40AEBF32BBDDEF300CA7DA2 /* button.json in Resources */ = {isa = PBXBuildFile; fileRef = C40AEBF12BBDDEF300CA7DA2 /* button.json */; };
 		C429E6DB2BB9A5750045AAA5 /* ViewModel+Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */; };
 		C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */; };
 		C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A522BB700B800DE9194 /* TopicsList.swift */; };
@@ -82,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C40AEBEF2BBDD94500CA7DA2 /* ToTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToTopCell.swift; sourceTree = "<group>"; };
+		C40AEBF12BBDDEF300CA7DA2 /* button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = button.json; sourceTree = "<group>"; };
 		C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Sound.swift"; sourceTree = "<group>"; };
 		C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		C4311A522BB700B800DE9194 /* TopicsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsList.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				C4311A522BB700B800DE9194 /* TopicsList.swift */,
 				C4BC8D502BB34D0E00A0AFC8 /* TopicCell.swift */,
 				C4BC8D3F2BB3162D00A0AFC8 /* TopicDetail.swift */,
+				C40AEBEF2BBDD94500CA7DA2 /* ToTopCell.swift */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
 				C4311A582BB708A500DE9194 /* CheckMark.swift */,
 				C451169F2BB965300003250E /* Loader.swift */,
+				C40AEBF12BBDDEF300CA7DA2 /* button.json */,
 				C45116A52BB9690B0003250E /* sandClock.json */,
 			);
 			path = Common;
@@ -578,6 +584,7 @@
 				C4A65E8C2BB8A97E002E3F39 /* cats_notification.mp3 in Resources */,
 				C4A65E7B2BB8A1F2002E3F39 /* starwars_refresh1.mp3 in Resources */,
 				C4A65E772BB8A0A1002E3F39 /* starwars_error.mp3 in Resources */,
+				C40AEBF32BBDDEF300CA7DA2 /* button.json in Resources */,
 				C4A65E8E2BB8A984002E3F39 /* cats_refresh.mp3 in Resources */,
 				C4A65E792BB8A1CC002E3F39 /* starwars_notification.mp3 in Resources */,
 				C45116A62BB9690B0003250E /* sandClock.json in Resources */,
@@ -623,6 +630,7 @@
 				C4BC8D4B2BB318B500A0AFC8 /* VibrateManager.swift in Sources */,
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
 				C45116A02BB965300003250E /* Loader.swift in Sources */,
+				C40AEBF02BBDD94500CA7DA2 /* ToTopCell.swift in Sources */,
 				C4BC8D532BB35C9900A0AFC8 /* ErrorView.swift in Sources */,
 				C4F676E32BB570F5002F3BCE /* SoundTheme.swift in Sources */,
 				C4BC8D3A2BB308A500A0AFC8 /* Articles.swift in Sources */,
