@@ -25,6 +25,8 @@
 		C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */; };
 		C47BBB5C2BBE4302009CBE8A /* rocket.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB5B2BBE4302009CBE8A /* rocket.json */; };
 		C47BBB5E2BBE4E92009CBE8A /* LoaderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */; };
+		C47BBB612BBECE15009CBE8A /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB5F2BBECE15009CBE8A /* hamster.json */; };
+		C47BBB622BBECE15009CBE8A /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB602BBECE15009CBE8A /* astronaut.json */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
 		C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Effects.swift */; };
 		C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A65E542BB76E0D002E3F39 /* SoundManager.swift */; };
@@ -105,6 +107,8 @@
 		C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderConfiguration.swift; sourceTree = "<group>"; };
 		C47BBB5B2BBE4302009CBE8A /* rocket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket.json; sourceTree = "<group>"; };
 		C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderSettingsCell.swift; sourceTree = "<group>"; };
+		C47BBB5F2BBECE15009CBE8A /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
+		C47BBB602BBECE15009CBE8A /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut.json; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
 		C49C849D2BB455CE00571CD4 /* View+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Effects.swift"; sourceTree = "<group>"; };
 		C4A65E542BB76E0D002E3F39 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 				C40AEBF12BBDDEF300CA7DA2 /* button.json */,
 				C45116A52BB9690B0003250E /* hourglass.json */,
 				C47BBB5B2BBE4302009CBE8A /* rocket.json */,
+				C47BBB602BBECE15009CBE8A /* astronaut.json */,
+				C47BBB5F2BBECE15009CBE8A /* hamster.json */,
 			);
 			path = LottieJsons;
 			sourceTree = "<group>";
@@ -600,12 +606,14 @@
 			files = (
 				C4A65E8C2BB8A97E002E3F39 /* cats_notification.mp3 in Resources */,
 				C4A65E7B2BB8A1F2002E3F39 /* starwars_refresh1.mp3 in Resources */,
+				C47BBB622BBECE15009CBE8A /* astronaut.json in Resources */,
 				C4A65E772BB8A0A1002E3F39 /* starwars_error.mp3 in Resources */,
 				C40AEBF32BBDDEF300CA7DA2 /* button.json in Resources */,
 				C4A65E8E2BB8A984002E3F39 /* cats_refresh.mp3 in Resources */,
 				C4A65E792BB8A1CC002E3F39 /* starwars_notification.mp3 in Resources */,
 				C45116A62BB9690B0003250E /* hourglass.json in Resources */,
 				C4A65E882BB8A970002E3F39 /* cats_error.mp3 in Resources */,
+				C47BBB612BBECE15009CBE8A /* hamster.json in Resources */,
 				C47BBB5C2BBE4302009CBE8A /* rocket.json in Resources */,
 				C4A65E672BB78B90002E3F39 /* starwars_refresh.mp3 in Resources */,
 				C4A65E7D2BB8A202002E3F39 /* starwars_loaded.mp3 in Resources */,
