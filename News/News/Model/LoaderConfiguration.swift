@@ -15,6 +15,8 @@ enum LoaderConfiguration: String, CaseIterable, Identifiable {
 
     case rocket
     case hourGlass = "hourglass"
+    case astronaut
+    case hamster
 
     var shadowColor: Color {
         switch self {
@@ -22,6 +24,10 @@ enum LoaderConfiguration: String, CaseIterable, Identifiable {
             return .orange
         case .hourGlass:
             return .cyan
+        case .astronaut:
+            return .red
+        case .hamster:
+            return .blue
         }
     }
 }
