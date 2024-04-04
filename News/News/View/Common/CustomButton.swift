@@ -43,7 +43,7 @@ struct CustomButton: View {
             }
         }
     }
-    
+
     private var titleView: some View {
         Group {
             if title == nil {

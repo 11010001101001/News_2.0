@@ -27,7 +27,7 @@ struct LoaderSettingsCell: View {
 
             HStack(alignment: .center, spacing: 20) {
                 Spacer()
-                
+
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
                     .shadow(color: LoaderConfiguration(rawValue: id)?.shadowColor ?? .clear,

@@ -10,6 +10,7 @@ import SwiftUI
 
 protocol ImageProvider {}
 
+// swiftlint:disable cyclomatic_complexity
 extension ImageProvider {
     func getImage(for settingName: String) -> some View {
         let imageName = switch settingName {
@@ -42,3 +43,4 @@ extension ImageProvider {
         return Image(systemName: imageName)
     }
 }
+// swiftlint:enable cyclomatic_complexity

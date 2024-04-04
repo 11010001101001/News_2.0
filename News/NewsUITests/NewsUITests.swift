@@ -7,6 +7,7 @@
 
 import XCTest
 
+// swiftlint:disable line_length
 final class NewsUITests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -39,3 +40,4 @@ final class NewsUITests: XCTestCase {
         }
     }
 }
+// swiftlint:enable line_length

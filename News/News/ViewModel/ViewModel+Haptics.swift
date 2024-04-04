@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 extension ViewModel {
-    
     func impactOccured(_ style: UIImpactFeedbackGenerator.FeedbackStyle) {
         feedbackStyle = style
     }

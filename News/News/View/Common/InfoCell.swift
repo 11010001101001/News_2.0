@@ -32,4 +32,3 @@ struct InfoCell: View, ImageProvider {
 #Preview {
     InfoCell(id: AdditionalInfo.appVersion.rawValue)
 }
-

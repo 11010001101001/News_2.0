@@ -8,6 +8,6 @@
 import Foundation
 
 enum Mode {
-    case keyword(_ : String)
-    case category(_ : String)
+    case keyword(_: String)
+    case category(_: String)
 }

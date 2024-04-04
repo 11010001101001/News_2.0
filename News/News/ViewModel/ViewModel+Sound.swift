@@ -53,7 +53,6 @@ extension ViewModel {
 }
 
 extension ViewModel {
-    
     private var starwarsRefresh: String {
         Set(["starwars_refresh", "starwars_refresh1", "starwars_refresh2"]).randomElement() ?? ""
     }
