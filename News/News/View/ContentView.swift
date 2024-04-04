@@ -19,10 +19,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             TopicsList(viewModel: viewModel)
-                .refreshable {
-                    viewModel.playRefresh()
-                    viewModel.loadNews()
-                }
+                .refreshable { refresh() }
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {
@@ -54,6 +51,11 @@ extension ContentView {
         } else {
             viewModel.savedSettings = savedSettings
         }
+    }
+
+    private func refresh() {
+        viewModel.playRefresh()
+        viewModel.loadNews()
     }
 }
 

@@ -18,7 +18,19 @@ struct CustomButton: View {
     var iconName: String?
 
     var body: some View {
-        Button(action: {
+        Button(action: { buttonAction?() },
+               label: { Label(title: { titleView },
+                              icon: { iconView })
+        })
+        .buttonStyle(.bordered)
+        .clipShape(.capsule(style: .continuous))
+        .controlSize(.regular)
+        .opacity(action == nil ? .zero : 1.0)
+        .scaleEffect(scale)
+    }
+
+    private var buttonAction: Action {
+        {
             viewModel.impactOccured(.light)
             withAnimation(.easeInOut(duration: 0.1)) {
                 scale = 0.9
@@ -29,24 +41,24 @@ struct CustomButton: View {
                     action?()
                 }
             }
-        }, label: {
-            Label(
-                title: {
-                    if title == nil {
-                        EmptyView()
-                    } else {
-                        Text(title ?? .empty)
-                            .foregroundStyle(.blue)
-                    }
-                },
-                icon: { iconName == nil ? nil : Image(systemName: iconName!) }
-            )
-        })
-        .buttonStyle(.bordered)
-        .clipShape(.capsule(style: .continuous))
-        .controlSize(.regular)
-        .opacity(action == nil ? .zero : 1.0)
-        .scaleEffect(scale)
+        }
+    }
+    
+    private var titleView: some View {
+        Group {
+            if title == nil {
+                EmptyView()
+            } else {
+                Text(title ?? .empty)
+                    .foregroundStyle(.blue)
+            }
+        }
+    }
+
+    private var iconView: some View {
+        iconName == nil
+        ? nil
+        : Image(systemName: iconName!)
     }
 }
 

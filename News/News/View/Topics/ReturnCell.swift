@@ -1,5 +1,5 @@
 //
-//  ToTopCell.swift
+//  ReturnCell.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 03.04.2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Lottie
 
-struct ToTopCell: View {
+struct ReturnCell: View {
 
     @State private var animateGradient = false
     @State private var scale = 1.0
@@ -53,5 +53,5 @@ struct ToTopCell: View {
 }
 
 #Preview {
-    ToTopCell(action: {})
+    ReturnCell(action: {})
 }
