@@ -42,7 +42,7 @@ struct ReturnCell: View {
                     withAnimation(.bouncy(duration: 0.2)) {
                         scale = 1.0
                     } completion: {
-                        withAnimation(.smooth(duration: 7).repeatForever(autoreverses: true)) {
+                        withAnimation(.smooth(duration: 3)) {
                             animateGradient.toggle()
                         }
                     }

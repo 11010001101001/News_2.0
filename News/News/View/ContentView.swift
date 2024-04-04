@@ -43,7 +43,8 @@ extension ContentView {
     private func loadSettings() {
         if savedSettings.isEmpty {
             let defaultSettings = [SettingsModel(category: Category.business.rawValue,
-                                                 soundTheme: SoundTheme.silentMode.rawValue)]
+                                                 soundTheme: SoundTheme.silentMode.rawValue,
+                                                 loader: LoaderConfiguration.hourGlass.rawValue)]
             modelContext.insert(defaultSettings[0])
             try? modelContext.save()
 
@@ -51,6 +52,8 @@ extension ContentView {
         } else {
             viewModel.savedSettings = savedSettings
         }
+
+        viewModel.redrawContentViewLoader()
     }
 
     private func refresh() {

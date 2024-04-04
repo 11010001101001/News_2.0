@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct SettingsList: View {
 
@@ -14,19 +15,25 @@ struct SettingsList: View {
     var body: some View {
         VStack(alignment: .leading) {
             List {
-                Section(header: Text(Category.title).font(.headline)) {
+                Section(header: getSectionTitle(LoaderConfiguration.title)) {
+                    ForEach(LoaderConfiguration.allCases) { loader in
+                        LoaderSettingsCell(viewModel: viewModel, id: loader.rawValue)
+                    }
+                }
+
+                Section(header: getSectionTitle(Category.title)) {
                     ForEach(Category.allCases) { category in
                         SettingsCell(viewModel: viewModel, id: category.rawValue)
                     }
                 }
 
-                Section(header: Text(SoundTheme.title).font(.headline)) {
+                Section(header: getSectionTitle(SoundTheme.title)) {
                     ForEach(SoundTheme.allCases) { theme in
                         SettingsCell(viewModel: viewModel, id: theme.rawValue)
                     }
                 }
                 
-                Section(header: Text(AdditionalInfo.title).font(.headline)) {
+                Section(header: getSectionTitle(AdditionalInfo.title)) {
                     InfoCell(id: AdditionalInfo.appVersion.rawValue
                              +
                              AdditionalInfo.currentAppVersion)
@@ -37,6 +44,10 @@ struct SettingsList: View {
             .listStyle(.plain)
             .navigationTitle("Settings")
         }
+    }
+
+    private func getSectionTitle(_ title: String) -> some View {
+        Text(title).font(.headline)
     }
 }
 

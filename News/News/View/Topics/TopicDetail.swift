@@ -25,11 +25,15 @@ struct TopicDetail: View {
             getAsyncImage()
 
             VStack {
-                Text(article.description ?? .empty)
+                HStack {
+                    Text(article.description ?? .empty)
+                        .padding(.vertical)
+                    Spacer()
+                }
                 buttonsStack
                 Spacer()
             }
-            .padding(.leading)
+            .padding(.horizontal)
             .commonScaleAffect(state: rotating)
         }
         .navigationTitle("Details")
@@ -59,7 +63,8 @@ struct TopicDetail: View {
                 .commonScaleAffect(state: rotating)
                 .onAppear { rotating.toggle() }
             } else {
-                Loader()
+                Loader(loaderName: viewModel.loader,
+                       shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
             }
         }
         .frame(height: 300)

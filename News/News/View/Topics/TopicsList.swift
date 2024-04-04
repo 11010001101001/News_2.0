@@ -16,8 +16,10 @@ struct TopicsList: View {
     var body: some View {
         ScrollViewReader { proxy in
             ZStack {
-                Loader()
+                Loader(loaderName: viewModel.loader,
+                       shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
                     .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
+                    .id(viewModel.id)
 
                 getTopicsList(proxy: proxy)
 
