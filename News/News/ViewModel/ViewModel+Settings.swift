@@ -19,6 +19,11 @@ extension ViewModel {
         set { savedSettings?.first?.category = newValue }
     }
 
+    private(set) var loader: String {
+        get { savedSettings?.first?.loader ?? LoaderConfiguration.hourGlass.rawValue }
+        set { savedSettings?.first?.loader = newValue }
+    }
+
     func applySettings(_ name: String) {
         switch name {
         case let name where Category.allCases.contains(where: { $0.rawValue == name }):
@@ -35,8 +40,20 @@ extension ViewModel {
             }
             soundTheme = name
             notificationOccurred(.success)
+        case let name where LoaderConfiguration.allCases.contains(where: { $0.rawValue == name }):
+            guard name != loader else {
+                notificationOccurred(.error)
+                return
+            }
+            loader = name
+            redrawContentViewLoader()
+            notificationOccurred(.success)
         default:
             break
         }
+    }
+
+    func redrawContentViewLoader() {
+        id = Int.random(in: .zero...Int.max)
     }
 }

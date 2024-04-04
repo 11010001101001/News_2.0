@@ -16,39 +16,12 @@ struct TopicsList: View {
     var body: some View {
         ScrollViewReader { proxy in
             ZStack {
-                Loader()
+                Loader(loaderName: viewModel.loader,
+                       shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
                     .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
+                    .id(viewModel.id)
 
-                List {
-                    EmptyView()
-                        .id("top")
-                        .onChange(of: scrollToTop) {
-                            withAnimation {
-                                proxy.scrollTo("top", anchor: .bottom)
-                            }
-                        }
-
-                    ForEach($viewModel.newsArray) { $item in
-                        NavigationLink {
-                            TopicDetail(viewModel: viewModel,
-                                        article: item,
-                                        action: nil)
-                        } label: {
-                            TopicCell(article: item)
-                                .ignoresSafeArea()
-                        }
-                    }
-
-                    ToTopCell() {
-                        viewModel.impactOccured(.light)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
-                                                      execute: {
-                            scrollToTop.toggle()
-                        })
-                    }
-                }
-                .listStyle(.plain)
-                .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
+                getTopicsList(proxy: proxy)
 
                 ErrorView(
                     viewModel: viewModel,
@@ -57,6 +30,44 @@ struct TopicsList: View {
                 .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
             }
         }
+    }
+
+    private func getTopicsList(proxy: ScrollViewProxy) -> some View {
+        List {
+            getTopView(proxy: proxy)
+
+            ForEach($viewModel.newsArray) { $item in
+                NavigationLink {
+                    TopicDetail(viewModel: viewModel,
+                                article: item,
+                                action: nil)
+                } label: {
+                    TopicCell(article: item)
+                        .ignoresSafeArea()
+                }
+            }
+
+            ReturnCell() {
+                viewModel.impactOccured(.light)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
+                                              execute: {
+                    scrollToTop.toggle()
+                })
+            }
+        }
+        .listStyle(.plain)
+        .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
+    }
+
+    /// For scrolling to `top` only
+    private func getTopView(proxy: ScrollViewProxy) -> some View {
+        EmptyView()
+            .id("top")
+            .onChange(of: scrollToTop) {
+                withAnimation {
+                    proxy.scrollTo("top", anchor: .bottom)
+                }
+            }
     }
 }
 

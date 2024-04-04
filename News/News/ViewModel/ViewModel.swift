@@ -16,6 +16,8 @@ final class ViewModel: ObservableObject {
     @Published var loadingSucceed: Bool
     @Published var loadingFailed: Bool
     @Published var failureReason: String
+    /// For redraw loader on content view after settings loaded: render loader -> settings loaded -> redraw
+    @Published var id: Int?
     @Published var keyWord: String?
 
     @Published var errorSound: String
