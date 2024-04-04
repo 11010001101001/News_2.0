@@ -18,7 +18,6 @@ struct TopicDetail: View {
 
     @State private var imageWrapper: ContentWrapper?
     @State private var rotating = false
-    @State private var scale = 0.85
 
     var body: some View {
         VStack {
@@ -53,8 +52,9 @@ struct TopicDetail: View {
 
             VStack {
                 Text(article.description ?? .empty)
-                    .padding([.bottom, .horizontal])
+
                 HStack {
+                    
                     CustomButton(viewModel: viewModel,
                                  action: {
                         self.imageWrapper = ContentWrapper(
@@ -68,7 +68,6 @@ struct TopicDetail: View {
                         ActivityViewController(contentWrapper: content)
                             .presentationDetents([.medium])
                     })
-                    .padding(.leading)
 
                     CustomButton(viewModel: viewModel,
                                  action: {
@@ -81,15 +80,11 @@ struct TopicDetail: View {
                                  iconName: "link")
                     Spacer()
                 }
+
                 Spacer()
-                    .padding(.bottom)
             }
-            .scaleEffect(scale)
-            .onAppear {
-                withAnimation(.bouncy(duration: 0.6, extraBounce: 0.3)) {
-                    scale = 1.0
-                }
-            }
+            .padding(.leading)
+            .commonScaleAffect(state: rotating)
         }
         .navigationTitle("Details")
     }

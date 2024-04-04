@@ -37,7 +37,7 @@ extension View {
     func commonScaleAffect(state: Bool) -> some View {
         return self
             .scaleEffect((state ? 1.0 : .zero) ?? .zero)
-            .animation(.smooth(duration: 0.6, extraBounce: 0.3), value: state)
+            .animation(.smooth(duration: 0.3, extraBounce: 0.4), value: state)
     }
 
     func applyNice3DRotation(rotating: Bool, duration: CGFloat? = 10.0) -> some View {
