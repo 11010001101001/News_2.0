@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Source : Decodable {
-    var id : String?
-    var name : String?
+struct Source: Decodable {
+    var id: String?
+    var name: String?
 }

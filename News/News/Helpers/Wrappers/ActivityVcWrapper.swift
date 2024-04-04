@@ -19,7 +19,9 @@ struct ActivityViewController: UIViewControllerRepresentable {
     let contentWrapper: ContentWrapper
 
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let activityVC = UIActivityViewController(activityItems: [contentWrapper.link, contentWrapper.description], applicationActivities: nil)
+        let activityVC = UIActivityViewController(
+            activityItems: [contentWrapper.link, contentWrapper.description],
+            applicationActivities: nil)
         activityVC.completionWithItemsHandler = { _, _, _, _ in
             activityVC.dismiss(animated: true)
         }

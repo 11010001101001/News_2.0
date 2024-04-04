@@ -11,17 +11,19 @@ import Combine
 // MARK: - Publisher
 
 extension ViewModel {
-    
+    // swiftlint:disable line_length
     var newsPublisher: AnyPublisher<[Articles], ApiError> {
         var urlString: String {
             let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)
             return switch mode {
             case .keyword(let keyword):
+
                 "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey.rawValue)"
             case .category(let category):
                 "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey.rawValue)"
             }
         }
+        // swiftlint:enable line_length
 
         if let url = URL(string: urlString) {
             return URLSession.shared.dataTaskPublisher(for: url)
@@ -31,7 +33,7 @@ extension ViewModel {
                     try self?.handleResponse(response as? HTTPURLResponse)
                     return info.articles ?? []
                 }
-                .mapError { error in
+                .mapError { _ in
                     ApiError.mappingError(msg: Errors.mappingError.rawValue)
                 }
                 .receive(on: RunLoop.main)

@@ -11,6 +11,8 @@ enum HttpStatusCodes: Int {
     case badRequest = 400
     case internalServerError = 500
     case notFound = 401
+    // swiftlint:disable identifier_name
     case ok = 200
+    // swiftlint:enable identifier_name
     case tooManyRequests = 429
 }

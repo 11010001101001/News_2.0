@@ -45,8 +45,7 @@ final class ViewModel: ObservableObject {
          cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
          savedSettings: [SettingsModel]? = nil,
          feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle? = nil,
-         feedBackType: UINotificationFeedbackGenerator.FeedbackType? = nil)
-    {
+         feedBackType: UINotificationFeedbackGenerator.FeedbackType? = nil) {
         self.newsArray = newsArray
         self.loadingSucceed = loadingSucceed
         self.loadingFailed = loadingFailed

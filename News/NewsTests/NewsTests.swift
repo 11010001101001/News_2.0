@@ -8,6 +8,7 @@
 import XCTest
 @testable import News
 
+// swiftlint:disable line_length
 final class NewsTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -32,5 +33,5 @@ final class NewsTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
+// swiftlint:enable line_length

@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
+// swiftlint:disable line_length
 extension View {
 
     @MainActor
@@ -28,7 +29,7 @@ extension View {
         var bitmap = [UInt8](repeating: 0, count: 4)
 
         let context = CIContext(options: [.workingColorSpace: kCFNull!])
-        
+
         context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
         return UIColor(red: CGFloat(bitmap[0]) / 255,
                        green: CGFloat(bitmap[1]) / 255,
@@ -36,3 +37,4 @@ extension View {
                        alpha: CGFloat(bitmap[3]) / 255)
     }
 }
+// swiftlint:enable line_length

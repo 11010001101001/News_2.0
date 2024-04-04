@@ -8,23 +8,26 @@
 import Foundation
 import SwiftUI
 
+// swiftlint:disable large_tuple
 extension View {
 
     private var rotationCoordinates: [(x: CGFloat, y: CGFloat, z: CGFloat)] {
         var randomNumbers = [CGFloat]()
 
-        for i in stride(from: -1.0, to: 1.0, by: 0.1) {
-            randomNumbers.append(i)
+        for num in stride(from: -1.0, to: 1.0, by: 0.1) {
+            randomNumbers.append(num)
         }
 
-        let x = randomNumbers.randomElement() ?? .zero
-        let y = randomNumbers.randomElement() ?? .zero
-        let z = randomNumbers.randomElement() ?? .zero
+        let randomX = randomNumbers.randomElement() ?? .zero
+        let randomY = randomNumbers.randomElement() ?? .zero
+        let randomZ = randomNumbers.randomElement() ?? .zero
 
         var coordinates = [(x: CGFloat, y: CGFloat, z: CGFloat)]()
 
         for _ in 0...10 {
-            coordinates.append((x: x, y: y, z: z))
+            coordinates.append((x: randomX,
+                                y: randomY,
+                                z: randomZ))
         }
 
         return coordinates
@@ -53,3 +56,4 @@ extension View {
                        value: rotating)
     }
 }
+// swiftlint:enable large_tuple

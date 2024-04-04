@@ -32,7 +32,6 @@ struct SettingsList: View {
                         SettingsCell(viewModel: viewModel, id: theme.rawValue)
                     }
                 }
-                
                 Section(header: getSectionTitle(AdditionalInfo.title)) {
                     InfoCell(id: AdditionalInfo.appVersion.rawValue
                              +
@@ -50,7 +49,6 @@ struct SettingsList: View {
         Text(title).font(.headline)
     }
 }
-
 
 #Preview {
     SettingsList(viewModel: ViewModel())

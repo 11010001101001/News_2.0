@@ -47,7 +47,7 @@ struct TopicsList: View {
                 }
             }
 
-            ReturnCell() {
+            ReturnCell {
                 viewModel.impactOccured(.light)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
                                               execute: {

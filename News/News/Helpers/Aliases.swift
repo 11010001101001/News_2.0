@@ -8,4 +8,4 @@
 import Foundation
 
 typealias Action = (() -> Void)?
-typealias SettingsTappedAction = (String) -> ()
+typealias SettingsTappedAction = (String) -> Void

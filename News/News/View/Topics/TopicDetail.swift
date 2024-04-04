@@ -120,6 +120,7 @@ struct TopicDetail: View {
 }
 
 #Preview {
+    // swiftlint:disable line_length
     TopicDetail(viewModel: ViewModel(),
                 article: Articles(source: Source(id: UUID().uuidString,
                                                  name: "Source"),
@@ -129,4 +130,5 @@ struct TopicDetail: View {
                 action: {
         print("tapped")
     })
+    // swiftlint:enable line_length
 }
