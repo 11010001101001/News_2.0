@@ -13,7 +13,7 @@ final class SettingsModel {
     var category: String
     var soundTheme: String
     var loader: String
-    var watchedTopics = [String]()
+    var watchedTopics: [String]?
 
     init(category: String,
          soundTheme: String,

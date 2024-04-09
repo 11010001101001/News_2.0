@@ -22,6 +22,8 @@
 		C45116A02BB965300003250E /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451169F2BB965300003250E /* Loader.swift */; };
 		C45116A62BB9690B0003250E /* hourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = C45116A52BB9690B0003250E /* hourglass.json */; };
 		C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */; };
+		C478DEAF2BC5DFC600C089D7 /* ViewModel+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */; };
+		C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsViewed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsViewed.swift */; };
 		C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */; };
 		C47BBB5C2BBE4302009CBE8A /* rocket.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB5B2BBE4302009CBE8A /* rocket.json */; };
 		C47BBB5E2BBE4E92009CBE8A /* LoaderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */; };
@@ -149,6 +151,8 @@
 		C451169F2BB965300003250E /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		C45116A52BB9690B0003250E /* hourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hourglass.json; sourceTree = "<group>"; };
 		C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVcWrapper.swift; sourceTree = "<group>"; };
+		C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Notifications.swift"; sourceTree = "<group>"; };
+		C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsViewed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+CheckIsViewed.swift"; sourceTree = "<group>"; };
 		C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderConfiguration.swift; sourceTree = "<group>"; };
 		C47BBB5B2BBE4302009CBE8A /* rocket.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket.json; sourceTree = "<group>"; };
 		C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderSettingsCell.swift; sourceTree = "<group>"; };
@@ -513,6 +517,8 @@
 				C4F676EB2BB5A36A002F3BCE /* ViewModel+Loading.swift */,
 				C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */,
 				C44CFCAF2BBAA5EF00CCAC97 /* ViewModel+Haptics.swift */,
+				C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */,
+				C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsViewed.swift */,
 				C4F676ED2BB5A3B2002F3BCE /* ViewModel+Settings.swift */,
 			);
 			path = ViewModel;
@@ -862,6 +868,7 @@
 				C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */,
 				C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */,
 				C4BC8D4D2BB3443800A0AFC8 /* Errors.swift in Sources */,
+				C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsViewed.swift in Sources */,
 				C4AA48E22BC5860D00D45D3F /* Date+Extensions.swift in Sources */,
 				C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */,
 				C4BC8D3E2BB312BF00A0AFC8 /* SettingsList.swift in Sources */,
@@ -872,6 +879,7 @@
 				C4BC8D552BB35CC300A0AFC8 /* Aliases.swift in Sources */,
 				C4BC8D402BB3162D00A0AFC8 /* TopicDetail.swift in Sources */,
 				C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */,
+				C478DEAF2BC5DFC600C089D7 /* ViewModel+Notifications.swift in Sources */,
 				C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */,
 				C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */,
 			);
