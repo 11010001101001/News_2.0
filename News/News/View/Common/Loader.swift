@@ -34,10 +34,10 @@ struct Loader: View {
                     }
                 }
             }
-            .shadow(color: shadowColor, radius: 40)
+            .shadow(color: shadowColor, radius: 20)
     }
 }
 
 #Preview {
-    Loader(loaderName: "Test", shadowColor: .red)
+    Loader(loaderName: "astronaut", shadowColor: .red)
 }
