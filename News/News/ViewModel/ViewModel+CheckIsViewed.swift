@@ -8,16 +8,16 @@
 import Foundation
 
 extension ViewModel {
-    func checkIsViewed(_ topicTitle: String) -> Bool {
-        watchedTopics.contains(where: { $0 == topicTitle })
+    func checkIsViewed(_ key: String) -> Bool {
+        watchedTopics.contains(where: { $0 == key })
     }
 
-    func markAsRead(_ topicTitle: String) {
-        let isViewed = checkIsViewed(topicTitle)
+    func markAsRead(_ key: String) {
+        let isViewed = checkIsViewed(key)
 
         guard !isViewed else { return }
 
-        watchedTopics.append(topicTitle)
+        watchedTopics.append(key)
         clearStorage()
     }
 
@@ -25,9 +25,4 @@ extension ViewModel {
         guard watchedTopics.count >= Constants.storageCapacity else { return }
         watchedTopics = Array(watchedTopics.dropFirst(Constants.needDropCount))
     }
-}
-
-private enum Constants {
-    static let storageCapacity = 500
-    static let needDropCount = 250
 }
