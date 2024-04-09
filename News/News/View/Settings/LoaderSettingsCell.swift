@@ -31,7 +31,7 @@ struct LoaderSettingsCell: View {
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
                     .shadow(color: LoaderConfiguration(rawValue: id)?.shadowColor ?? .clear,
-                            radius: 40)
+                            radius: 20)
                     .frame(width: 150, height: 100)
                     .ignoresSafeArea()
                     .scaledToFit()

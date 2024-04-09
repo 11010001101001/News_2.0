@@ -11,6 +11,10 @@ enum Category: String, CaseIterable, Identifiable {
     var id: Self { return self }
     static var title: String { String(describing: self) }
 
+    static var random: String {
+        Category.allCases.randomElement()?.rawValue ?? ""
+    }
+
     case business
     case entertainment
     case general
