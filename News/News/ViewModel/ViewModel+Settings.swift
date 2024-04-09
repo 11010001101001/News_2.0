@@ -27,7 +27,7 @@ extension ViewModel {
         set { savedSettings?.first?.loader = newValue }
     }
 
-    private(set) var watchedTopics: [String] {
+    var watchedTopics: [String] {
         get { savedSettings?.first?.watchedTopics ?? [] }
         set { savedSettings?.first?.watchedTopics = newValue }
     }
@@ -67,39 +67,4 @@ extension ViewModel {
     func redrawContentViewLoader() {
         id = Int.random(in: .zero...Int.max)
     }
-
-    func checkIsViewed(_ topicTitle: String) -> Bool {
-        watchedTopics.contains(where: { $0 == topicTitle })
-    }
-
-    func markAsRead(_ topicTitle: String) {
-        let isViewed = checkIsViewed(topicTitle)
-
-        guard !isViewed else { return }
-
-        watchedTopics.append(topicTitle)
-        clearStorage()
-    }
-
-    private func clearStorage() {
-        guard watchedTopics.count >= Constants.storageCapacity else { return }
-        watchedTopics = Array(watchedTopics.dropFirst(Constants.needDropCount))
-    }
-
-    /// sound theme can change - do it during every app launch and sound changing
-    func configureNotifications() {
-        notificationSound = switch SoundTheme(rawValue: soundTheme) {
-        case .starwars:
-            "starwars_notification"
-        case .cats:
-            "cats_notification"
-        default:
-            String.empty
-        }
-    }
-}
-
-private enum Constants {
-    static let storageCapacity = 500
-    static let needDropCount = 250
 }
