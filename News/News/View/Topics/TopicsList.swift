@@ -44,6 +44,7 @@ struct TopicsList: View {
                 } label: {
                     TopicCell(article: item)
                         .ignoresSafeArea()
+                        .opacity(getOpacity(item))
                 }
             }
 
@@ -68,6 +69,11 @@ struct TopicsList: View {
                     proxy.scrollTo("top", anchor: .bottom)
                 }
             }
+    }
+
+    private func getOpacity(_ topic: Article) -> Double {
+        guard let title = topic.title else { return 1.0 }
+        return viewModel.checkIsViewed(title) ? 0.5 : 1.0
     }
 }
 

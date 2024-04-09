@@ -19,7 +19,6 @@ final class NotificationManager {
             }
     }
 
-    /// e.g. sound theme can change - plan it again during every app launch
     private func configureNotifications(with sound: String) {
         let notificationCenter = UNUserNotificationCenter.current()
 

@@ -12,7 +12,7 @@ import Combine
 
 extension ViewModel {
     // swiftlint:disable line_length
-    var newsPublisher: AnyPublisher<[Articles], ApiError> {
+    var newsPublisher: AnyPublisher<[Article], ApiError> {
         var urlString: String {
             let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)
             return switch mode {

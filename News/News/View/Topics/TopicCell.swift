@@ -11,7 +11,7 @@ struct TopicCell: View {
 
     @State private var scale = 1.0
 
-    let article: Articles
+    let article: Article
 
     var body: some View {
         VStack(alignment: .leading,
@@ -38,10 +38,10 @@ struct TopicCell: View {
 }
 
 #Preview {
-    TopicCell(article: Articles(source: Source(id: UUID().uuidString,
-                                               name: "Source"),
-                                title: "Title",
-                                publishedAt: makeTestDateString()))
+    TopicCell(article: Article(source: Source(id: UUID().uuidString,
+                                              name: "Source"),
+                               title: "Title",
+                               publishedAt: makeTestDateString()))
 
 }
 

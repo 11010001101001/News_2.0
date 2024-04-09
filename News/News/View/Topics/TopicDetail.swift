@@ -14,7 +14,7 @@ struct TopicDetail: View {
 
     @Environment(\.openURL) private var openURL
 
-    let article: Articles
+    let article: Article
     let action: Action
 
     @State private var imageWrapper: ContentWrapper?
@@ -37,6 +37,10 @@ struct TopicDetail: View {
             .commonScaleAffect(state: rotating)
         }
         .navigationTitle("Details")
+        .onAppear {
+            guard let title = article.title else { return }
+            viewModel.markAsRead(title)
+        }
     }
 
     private func getAsyncImage() -> some View {
@@ -122,11 +126,11 @@ struct TopicDetail: View {
 #Preview {
     // swiftlint:disable line_length
     TopicDetail(viewModel: ViewModel(),
-                article: Articles(source: Source(id: UUID().uuidString,
-                                                 name: "Source"),
-                                  title: "Title",
-                                  description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
-                                  publishedAt: "Time"),
+                article: Article(source: Source(id: UUID().uuidString,
+                                                name: "Source"),
+                                 title: "Title",
+                                 description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
+                                 publishedAt: "Time"),
                 action: {
         print("tapped")
     })
