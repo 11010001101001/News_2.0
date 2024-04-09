@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Articles: Decodable, Identifiable {
+struct Article: Decodable, Identifiable {
     var id: UUID? {
         UUID()
     }
@@ -19,5 +19,4 @@ struct Articles: Decodable, Identifiable {
     var urlToImage: String?
     var publishedAt: String?
     var content: String?
-    var viewed: Bool?
 }

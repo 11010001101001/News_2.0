@@ -12,7 +12,7 @@ import SwiftData
 
 final class ViewModel: ObservableObject {
 
-    @Published var newsArray = [Articles]()
+    @Published var newsArray = [Article]()
     @Published var loadingSucceed = false
     @Published var loadingFailed = false
     @Published var failureReason = String.empty
@@ -45,5 +45,6 @@ final class ViewModel: ObservableObject {
     deinit {
         soundManager = nil
         vibrateManager = nil
+        notificationManager = nil
     }
 }
