@@ -29,6 +29,7 @@
 		C47BBB5E2BBE4E92009CBE8A /* LoaderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */; };
 		C47BBB612BBECE15009CBE8A /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB5F2BBECE15009CBE8A /* hamster.json */; };
 		C47BBB622BBECE15009CBE8A /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB602BBECE15009CBE8A /* astronaut.json */; };
+		C490ED652BC6027C00AE977C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C490ED642BC6027C00AE977C /* Constants.swift */; };
 		C49C5FAF2BBF576400554218 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49C5FAE2BBF576400554218 /* WidgetKit.framework */; };
 		C49C5FB12BBF576400554218 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49C5FB02BBF576400554218 /* SwiftUI.framework */; };
 		C49C5FB42BBF576400554218 /* NewsWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C5FB32BBF576400554218 /* NewsWidgetsBundle.swift */; };
@@ -158,6 +159,7 @@
 		C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderSettingsCell.swift; sourceTree = "<group>"; };
 		C47BBB5F2BBECE15009CBE8A /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
 		C47BBB602BBECE15009CBE8A /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut.json; sourceTree = "<group>"; };
+		C490ED642BC6027C00AE977C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C49C5FAC2BBF576400554218 /* NewsWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NewsWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49C5FAE2BBF576400554218 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		C49C5FB02BBF576400554218 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -550,6 +552,7 @@
 				C4F676E42BB584F3002F3BCE /* Decorators */,
 				C45734AE2BBCFDD8005CA143 /* Wrappers */,
 				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
+				C490ED642BC6027C00AE977C /* Constants.swift */,
 				C4BC8D0E2BB2FA3B00A0AFC8 /* Assets.xcassets */,
 			);
 			path = Helpers;
@@ -866,6 +869,7 @@
 				C429E6DB2BB9A5750045AAA5 /* ViewModel+Sound.swift in Sources */,
 				C47BBB5E2BBE4E92009CBE8A /* LoaderSettingsCell.swift in Sources */,
 				C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */,
+				C490ED652BC6027C00AE977C /* Constants.swift in Sources */,
 				C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */,
 				C4BC8D4D2BB3443800A0AFC8 /* Errors.swift in Sources */,
 				C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsViewed.swift in Sources */,

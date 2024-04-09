@@ -89,9 +89,3 @@ extension ViewModel {
         }
     }
 }
-
-// MARK: - Constants
-
-private enum Constants {
-    static let newsCount = "100"
-}

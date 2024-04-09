@@ -37,10 +37,6 @@ struct TopicDetail: View {
             .commonScaleAffect(state: rotating)
         }
         .navigationTitle("Details")
-        .onAppear {
-            guard let title = article.title else { return }
-            viewModel.markAsRead(title)
-        }
     }
 
     private func getAsyncImage() -> some View {
@@ -57,7 +53,7 @@ struct TopicDetail: View {
                     .shadow(color: Color(image.averageColor), radius: 60)
                     .applyNice3DRotation(rotating: rotating)
                     .commonScaleAffect(state: rotating)
-                    .onAppear { rotating.toggle() }
+                    .onAppear { onAppear() }
             } else if phase.error != nil {
                 ErrorView(
                     viewModel: viewModel,
@@ -65,7 +61,7 @@ struct TopicDetail: View {
                     action: nil)
                 .applyNice3DRotation(rotating: rotating)
                 .commonScaleAffect(state: rotating)
-                .onAppear { rotating.toggle() }
+                .onAppear { onAppear() }
             } else {
                 Loader(loaderName: viewModel.loader,
                        shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
@@ -120,6 +116,13 @@ struct TopicDetail: View {
                 openURL(url)
             }
         }
+    }
+
+    private func onAppear() {
+        rotating.toggle()
+        guard let title = article.title else { return }
+        let key = title + String(article.description ?? .empty).prefix(Constants.saltNumber)
+        viewModel.markAsRead(key)
     }
 }
 
