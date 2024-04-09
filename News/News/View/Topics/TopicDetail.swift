@@ -120,9 +120,7 @@ struct TopicDetail: View {
 
     private func onAppear() {
         rotating.toggle()
-        guard let title = article.title else { return }
-        let key = title + String(article.description ?? .empty).prefix(Constants.saltNumber)
-        viewModel.markAsRead(key)
+        viewModel.markAsRead(article.key)
     }
 }
 

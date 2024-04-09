@@ -1,5 +1,5 @@
 //
-//  ViewModel+CheckIsViewed.swift
+//  ViewModel+CheckIsRead.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 09.04.2024.
@@ -8,12 +8,12 @@
 import Foundation
 
 extension ViewModel {
-    func checkIsViewed(_ key: String) -> Bool {
+    func checkIsRead(_ key: String) -> Bool {
         watchedTopics.contains(where: { $0 == key })
     }
 
     func markAsRead(_ key: String) {
-        let isViewed = checkIsViewed(key)
+        let isViewed = checkIsRead(key)
 
         guard !isViewed else { return }
 
