@@ -32,14 +32,19 @@ struct ContentView: View {
             .navigationTitle("News")
         }
         .onAppear {
-            loadSettings()
-            viewModel.loadNews()
+            onAppear()
         }
     }
 }
 
 // MARK: - Helpers
 extension ContentView {
+    private func onAppear() {
+        loadSettings()
+        viewModel.loadNews()
+        viewModel.configureNotifications()
+    }
+
     private func loadSettings() {
         if savedSettings.isEmpty {
             let defaultSettings = [SettingsModel(category: Category.business.rawValue,
