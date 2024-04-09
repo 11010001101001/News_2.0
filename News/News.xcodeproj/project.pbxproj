@@ -64,6 +64,8 @@
 		C4AA48E32BC5864B00D45D3F /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA48E12BC5860D00D45D3F /* Date+Extensions.swift */; };
 		C4AA48E42BC5864F00D45D3F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D4E2BB348C600A0AFC8 /* String+Extensions.swift */; };
 		C4AA48E52BC5880600D45D3F /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */; };
+		C4AA48E82BC597C600D45D3F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA48E72BC597C600D45D3F /* NotificationManager.swift */; };
+		C4AA48EA2BC5992000D45D3F /* ViewModel+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AA48E92BC5992000D45D3F /* ViewModel+Notifications.swift */; };
 		C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */; };
 		C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */; };
 		C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */; };
@@ -177,6 +179,8 @@
 		C4A65E8D2BB8A984002E3F39 /* cats_refresh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cats_refresh.mp3; sourceTree = "<group>"; };
 		C4AA48E12BC5860D00D45D3F /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		C4AA48E62BC5885500D45D3F /* NewsWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NewsWidgetsExtension.entitlements; sourceTree = "<group>"; };
+		C4AA48E72BC597C600D45D3F /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		C4AA48E92BC5992000D45D3F /* ViewModel+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Notifications.swift"; sourceTree = "<group>"; };
 		C4BC8D052BB2FA3900A0AFC8 /* News.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = News.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApp.swift; sourceTree = "<group>"; };
 		C4BC8D0A2BB2FA3900A0AFC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -510,6 +514,7 @@
 				C4BC8D412BB3167200A0AFC8 /* ViewModel.swift */,
 				C4F676EB2BB5A36A002F3BCE /* ViewModel+Loading.swift */,
 				C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */,
+				C4AA48E92BC5992000D45D3F /* ViewModel+Notifications.swift */,
 				C44CFCAF2BBAA5EF00CCAC97 /* ViewModel+Haptics.swift */,
 				C4F676ED2BB5A3B2002F3BCE /* ViewModel+Settings.swift */,
 			);
@@ -573,6 +578,7 @@
 			children = (
 				C4BC8D4A2BB318B500A0AFC8 /* VibrateManager.swift */,
 				C4A65E542BB76E0D002E3F39 /* SoundManager.swift */,
+				C4AA48E72BC597C600D45D3F /* NotificationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -821,6 +827,7 @@
 				C4AA48DF2BC5827F00D45D3F /* ViewModel.swift in Sources */,
 				C45116A02BB965300003250E /* Loader.swift in Sources */,
 				C40AEBF02BBDD94500CA7DA2 /* ReturnCell.swift in Sources */,
+				C4AA48E82BC597C600D45D3F /* NotificationManager.swift in Sources */,
 				C4BC8D532BB35C9900A0AFC8 /* ErrorView.swift in Sources */,
 				C4F676E32BB570F5002F3BCE /* SoundTheme.swift in Sources */,
 				C4BC8D3A2BB308A500A0AFC8 /* Articles.swift in Sources */,
@@ -849,6 +856,7 @@
 				C4BC8D552BB35CC300A0AFC8 /* Aliases.swift in Sources */,
 				C4BC8D402BB3162D00A0AFC8 /* TopicDetail.swift in Sources */,
 				C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */,
+				C4AA48EA2BC5992000D45D3F /* ViewModel+Notifications.swift in Sources */,
 				C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */,
 				C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */,
 			);

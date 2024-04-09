@@ -12,55 +12,34 @@ import SwiftData
 
 final class ViewModel: ObservableObject {
 
-    @Published var newsArray: [Articles]
-    @Published var loadingSucceed: Bool
-    @Published var loadingFailed: Bool
-    @Published var failureReason: String
+    @Published var newsArray = [Articles]()
+    @Published var loadingSucceed = false
+    @Published var loadingFailed = false
+    @Published var failureReason = String.empty
     /// For redraw loader on content view after settings loaded: render loader -> settings loaded -> redraw
     @Published var id: Int?
     @Published var keyWord: String?
 
-    @Published var errorSound: String
-    @Published var refreshSound: String
-    @Published var loadedSound: String
+    @Published var errorSound = String.empty
+    @Published var refreshSound = String.empty
+    @Published var loadedSound = String.empty
+    @Published var notificationSound = String.empty
 
     @Published var feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle?
     @Published var feedBackType: UINotificationFeedbackGenerator.FeedbackType?
 
-    @Published var cancellables: Set<AnyCancellable>
+    @Published var cancellables = Set<AnyCancellable>()
 
     var soundManager: SoundManager?
     var vibrateManager: VibrateManager?
+    var notificationManager: NotificationManager?
 
     var savedSettings: [SettingsModel]?
 
-    init(newsArray: [Articles] = [Articles](),
-         loadingSucceed: Bool = false,
-         loadingFailed: Bool = false,
-         failureReason: String = String.empty,
-         keyWord: String? = nil,
-         errorSound: String = String.empty,
-         refreshSound: String = String.empty,
-         loadedSound: String = String.empty,
-         cancellables: Set<AnyCancellable> = Set<AnyCancellable>(),
-         savedSettings: [SettingsModel]? = nil,
-         feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle? = nil,
-         feedBackType: UINotificationFeedbackGenerator.FeedbackType? = nil) {
-        self.newsArray = newsArray
-        self.loadingSucceed = loadingSucceed
-        self.loadingFailed = loadingFailed
-        self.failureReason = failureReason
-        self.keyWord = keyWord
-        self.errorSound = errorSound
-        self.refreshSound = refreshSound
-        self.loadedSound = loadedSound
-        self.cancellables = cancellables
-        self.savedSettings = savedSettings
-        self.feedbackStyle = feedbackStyle
-        self.feedBackType = feedBackType
-
+    init(savedSettings: [SettingsModel]? = nil) {
         soundManager = SoundManager(viewModel: self)
         vibrateManager = VibrateManager(viewModel: self)
+        notificationManager = NotificationManager(viewModel: self)
     }
 
     deinit {
