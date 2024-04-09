@@ -72,9 +72,7 @@ struct TopicsList: View {
     }
 
     private func getOpacity(_ topic: Article) -> Double {
-        guard let title = topic.title else { return 1.0 }
-        let key = title + String(topic.description ?? .empty).prefix(Constants.saltNumber)
-        return viewModel.checkIsViewed(key) ? 0.5 : 1.0
+        viewModel.checkIsRead(topic.key) ? 0.5 : 1.0
     }
 }
 

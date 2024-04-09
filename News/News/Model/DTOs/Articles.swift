@@ -8,9 +8,16 @@
 import Foundation
 
 struct Article: Decodable, Identifiable {
+
     var id: UUID? {
         UUID()
     }
+
+    var key: String {
+        let saltNumber = 7
+        return (title ?? .empty) + String(description ?? .empty).prefix(saltNumber)
+    }
+
     var source: Source?
     var author: String?
     var title: String?
