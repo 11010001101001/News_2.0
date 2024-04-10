@@ -31,9 +31,7 @@ struct ContentView: View {
             }
             .navigationTitle("News")
         }
-        .onAppear {
-            onAppear()
-        }
+        .onAppear { onAppear() }
     }
 }
 
@@ -43,6 +41,7 @@ extension ContentView {
         loadSettings()
         viewModel.loadNews()
         viewModel.configureNotifications()
+        viewModel.configureShortcutItems()
     }
 
     private func loadSettings() {

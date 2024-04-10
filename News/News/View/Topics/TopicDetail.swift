@@ -12,12 +12,8 @@ struct TopicDetail: View {
 
     @ObservedObject var viewModel: ViewModel
 
-    @Environment(\.openURL) private var openURL
-
     let article: Article
-    let action: Action
 
-    @State private var imageWrapper: ContentWrapper?
     @State private var rotating = false
 
     var body: some View {
@@ -73,48 +69,15 @@ struct TopicDetail: View {
 
     private var buttonsStack: some View {
         HStack {
-            shareButton
-            openLinkButton
+            ShareButton(viewModel: viewModel,
+                        data: ButtonMetaData(article: article,
+                                             title: "Share",
+                                             iconName: "square.and.arrow.up"))
+            OpenLinkButton(viewModel: viewModel,
+                           data: ButtonMetaData(article: article,
+                                                title: "Open",
+                                                iconName: "link"))
             Spacer()
-        }
-    }
-
-    private var shareButton: some View {
-        CustomButton(viewModel: viewModel,
-                     action: { Task { wrapActivityVcAction?() } },
-                     title: "Share",
-                     iconName: "square.and.arrow.up")
-
-        .sheet(item: $imageWrapper,
-               content: { content in getContent(content: content) })
-    }
-
-    private var wrapActivityVcAction: Action {
-        {
-            self.imageWrapper = ContentWrapper(
-                link: URL(string: article.url ?? .empty)?.absoluteString ?? .empty,
-                description: "Link to News app in appStore 🦾: stay informed!👨🏻‍🔧")
-        }
-    }
-
-    private func getContent(content: ContentWrapper) -> some View {
-        ActivityViewController(contentWrapper: content)
-            .presentationDetents([.medium])
-    }
-
-    private var openLinkButton: some View {
-        CustomButton(viewModel: viewModel,
-                     action: { Task { openLinkAction?() } },
-                     title: "Open",
-                     iconName: "link")
-    }
-
-    private var openLinkAction: Action {
-        {
-            action?()
-            if let url = URL(string: article.url ?? .empty) {
-                openURL(url)
-            }
         }
     }
 
@@ -131,9 +94,6 @@ struct TopicDetail: View {
                                                 name: "Source"),
                                  title: "Title",
                                  description: "Very long description of the topic if you really want this for testing for example i dont know what to type more here but i guess it's enough",
-                                 publishedAt: "Time"),
-                action: {
-        print("tapped")
-    })
+                                 publishedAt: "Time"))
     // swiftlint:enable line_length
 }

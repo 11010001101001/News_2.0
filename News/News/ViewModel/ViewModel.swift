@@ -46,5 +46,7 @@ final class ViewModel: ObservableObject {
         soundManager = nil
         vibrateManager = nil
         notificationManager = nil
+
+        cancellables.forEach { $0.cancel() }
     }
 }
