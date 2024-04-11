@@ -10,11 +10,15 @@ import SwiftData
 
 struct ContentView: View {
 
+    @Environment(ViewModel.self) private var viewModel
+
     @Environment(\.modelContext) var modelContext
 
     @Query private var savedSettings: [SettingsModel]
 
-    @ObservedObject var viewModel: ViewModel
+    @State private var imageWrapper: ContentWrapper?
+
+    @State private var needShare = false
 
     var body: some View {
         NavigationStack {
@@ -30,9 +34,24 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("News")
+            .sheet(item: $imageWrapper,
+                   content: { content in
+                ActivityViewController(contentWrapper: content)
+                    .presentationDetents([.medium])
+            })
+            .navigationDestination(isPresented: $needShare,
+                                   destination: {
+                SettingsList(viewModel: viewModel)
+            })
         }
-        .onAppear {
-            onAppear()
+        .onAppear { onAppear() }
+        .onReceive(viewModel.$shareShortcutItemTapped) { needShare in
+            guard needShare else { return }
+            self.imageWrapper = ContentWrapper(link: .empty, description: DeveloperInfo.shareInfo.rawValue)
+        }
+        .onReceive(viewModel.$settingsShortcutItemTapped) { needOpenSettings in
+            guard needOpenSettings else { return }
+            needShare.toggle()
         }
     }
 }
@@ -68,6 +87,6 @@ extension ContentView {
 }
 
 #Preview {
-    ContentView(viewModel: ViewModel())
+    ContentView()
         .modelContainer(for: SettingsModel.self, inMemory: true)
 }

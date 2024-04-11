@@ -38,9 +38,7 @@ struct TopicsList: View {
 
             ForEach($viewModel.newsArray) { $item in
                 NavigationLink {
-                    TopicDetail(viewModel: viewModel,
-                                article: item,
-                                action: nil)
+                    TopicDetail(viewModel: viewModel, article: item)
                 } label: {
                     TopicCell(article: item)
                         .ignoresSafeArea()

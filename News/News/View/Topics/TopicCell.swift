@@ -41,13 +41,5 @@ struct TopicCell: View {
     TopicCell(article: Article(source: Source(id: UUID().uuidString,
                                               name: "Source"),
                                title: "Title",
-                               publishedAt: makeTestDateString()))
-
-}
-
-func makeTestDateString() -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-    dateFormatter.locale = Locale(identifier: "en_En")
-    return dateFormatter.string(from: Date())
+                               publishedAt: Date().makeTestDateString()))
 }
