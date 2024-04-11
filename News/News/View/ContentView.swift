@@ -18,6 +18,8 @@ struct ContentView: View {
 
     @State private var imageWrapper: ContentWrapper?
 
+    @State private var needShare = false
+
     var body: some View {
         NavigationStack {
             TopicsList(viewModel: viewModel)
@@ -37,11 +39,19 @@ struct ContentView: View {
                 ActivityViewController(contentWrapper: content)
                     .presentationDetents([.medium])
             })
+            .navigationDestination(isPresented: $needShare,
+                                   destination: {
+                SettingsList(viewModel: viewModel)
+            })
         }
         .onAppear { onAppear() }
         .onReceive(viewModel.$shareShortcutItemTapped) { needShare in
             guard needShare else { return }
             self.imageWrapper = ContentWrapper(link: .empty, description: DeveloperInfo.shareInfo.rawValue)
+        }
+        .onReceive(viewModel.$settingsShortcutItemTapped) { needOpenSettings in
+            guard needOpenSettings else { return }
+            needShare.toggle()
         }
     }
 }
