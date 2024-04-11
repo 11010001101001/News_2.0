@@ -58,8 +58,6 @@ struct ContentView: View {
             needShare.toggle()
         }
         .task {
-            try? Tips.resetDatastore()
-
             try? Tips.configure([
                 .displayFrequency(.immediate),
                 .datastoreLocation(.applicationDefault)
