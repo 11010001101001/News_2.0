@@ -34,7 +34,7 @@ final class NotificationManager {
 
                 let content = UNMutableNotificationContent()
                 content.title = "Mmmmm nice-ey"
-                content.body = "News carriage arrived, unload please 🧸"
+                content.body = "News carriage arrived, unload please 🦥"
                 content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "\(sound).mp3"))
 
                 var dateComponents = DateComponents()
