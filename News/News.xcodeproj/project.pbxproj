@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		C40AEBF02BBDD94500CA7DA2 /* ReturnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40AEBEF2BBDD94500CA7DA2 /* ReturnCell.swift */; };
 		C40AEBF32BBDDEF300CA7DA2 /* button.json in Resources */ = {isa = PBXBuildFile; fileRef = C40AEBF12BBDDEF300CA7DA2 /* button.json */; };
-		C41586FC2BC65FE800C6BD2C /* ViewModel+ShortcutItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41586FB2BC65FE800C6BD2C /* ViewModel+ShortcutItems.swift */; };
 		C41587002BC67D4B00C6BD2C /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41586FF2BC67D4B00C6BD2C /* ShareButton.swift */; };
 		C41587052BC67E1F00C6BD2C /* OpenLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41587042BC67E1F00C6BD2C /* OpenLinkButton.swift */; };
 		C41587072BC67F1200C6BD2C /* ButtonMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */; };
 		C415870F2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C415870E2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift */; };
+		C41F1E582BC75828006C6E90 /* ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F1E572BC75828006C6E90 /* ShortcutItem.swift */; };
+		C41F1E5A2BC759D3006C6E90 /* ViewModel+ShortcutItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F1E592BC759D3006C6E90 /* ViewModel+ShortcutItems.swift */; };
+		C41F1E5C2BC75C38006C6E90 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F1E5B2BC75C38006C6E90 /* Delegates.swift */; };
 		C429E6DB2BB9A5750045AAA5 /* ViewModel+Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */; };
 		C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */; };
 		C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4311A522BB700B800DE9194 /* TopicsList.swift */; };
@@ -144,11 +146,13 @@
 /* Begin PBXFileReference section */
 		C40AEBEF2BBDD94500CA7DA2 /* ReturnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnCell.swift; sourceTree = "<group>"; };
 		C40AEBF12BBDDEF300CA7DA2 /* button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = button.json; sourceTree = "<group>"; };
-		C41586FB2BC65FE800C6BD2C /* ViewModel+ShortcutItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+ShortcutItems.swift"; sourceTree = "<group>"; };
 		C41586FF2BC67D4B00C6BD2C /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		C41587042BC67E1F00C6BD2C /* OpenLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkButton.swift; sourceTree = "<group>"; };
 		C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMetaData.swift; sourceTree = "<group>"; };
 		C415870E2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
+		C41F1E572BC75828006C6E90 /* ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItem.swift; sourceTree = "<group>"; };
+		C41F1E592BC759D3006C6E90 /* ViewModel+ShortcutItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+ShortcutItems.swift"; sourceTree = "<group>"; };
+		C41F1E5B2BC75C38006C6E90 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		C429E6DA2BB9A5750045AAA5 /* ViewModel+Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Sound.swift"; sourceTree = "<group>"; };
 		C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		C4311A522BB700B800DE9194 /* TopicsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsList.swift; sourceTree = "<group>"; };
@@ -478,12 +482,12 @@
 		C4BC8CFC2BB2FA3900A0AFC8 = {
 			isa = PBXGroup;
 			children = (
-				C4AA48E62BC5885500D45D3F /* NewsWidgetsExtension.entitlements */,
 				C4BC8D072BB2FA3900A0AFC8 /* News */,
 				C4BC8D1A2BB2FA3B00A0AFC8 /* NewsTests */,
 				C4BC8D242BB2FA3B00A0AFC8 /* NewsUITests */,
 				C49C5FB22BBF576400554218 /* NewsWidgets */,
 				C49C5FAD2BBF576400554218 /* Frameworks */,
+				C4AA48E62BC5885500D45D3F /* NewsWidgetsExtension.entitlements */,
 				C4BC8D062BB2FA3900A0AFC8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -558,7 +562,7 @@
 				C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */,
 				C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift */,
 				C4F676ED2BB5A3B2002F3BCE /* ViewModel+Settings.swift */,
-				C41586FB2BC65FE800C6BD2C /* ViewModel+ShortcutItems.swift */,
+				C41F1E592BC759D3006C6E90 /* ViewModel+ShortcutItems.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -576,6 +580,7 @@
 				C44CFCB12BBC3F8200CCAC97 /* AdditionalInfo.swift */,
 				C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */,
 				C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */,
+				C41F1E572BC75828006C6E90 /* ShortcutItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -601,6 +606,7 @@
 			children = (
 				C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */,
 				C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */,
+				C41F1E5B2BC75C38006C6E90 /* Delegates.swift */,
 			);
 			path = Schema;
 			sourceTree = "<group>";
@@ -903,6 +909,7 @@
 				C4BC8D3C2BB308B600A0AFC8 /* Source.swift in Sources */,
 				C4F676EE2BB5A3B2002F3BCE /* ViewModel+Settings.swift in Sources */,
 				C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */,
+				C41F1E5A2BC759D3006C6E90 /* ViewModel+ShortcutItems.swift in Sources */,
 				C4BC8D482BB3186400A0AFC8 /* DeveloperInfo.swift in Sources */,
 				C4311A532BB700B800DE9194 /* TopicsList.swift in Sources */,
 				C4311A512BB6FE3E00DE9194 /* SettingsCell.swift in Sources */,
@@ -914,11 +921,11 @@
 				C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */,
 				C4BC8D4D2BB3443800A0AFC8 /* Errors.swift in Sources */,
 				C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift in Sources */,
+				C41F1E582BC75828006C6E90 /* ShortcutItem.swift in Sources */,
 				C4AA48E22BC5860D00D45D3F /* Date+Extensions.swift in Sources */,
 				C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */,
 				C4BC8D3E2BB312BF00A0AFC8 /* SettingsList.swift in Sources */,
 				C41587072BC67F1200C6BD2C /* ButtonMetaData.swift in Sources */,
-				C41586FC2BC65FE800C6BD2C /* ViewModel+ShortcutItems.swift in Sources */,
 				C415870F2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift in Sources */,
 				C44CFCB02BBAA5EF00CCAC97 /* ViewModel+Haptics.swift in Sources */,
 				C4BC8D442BB3180200A0AFC8 /* Mode.swift in Sources */,
@@ -930,6 +937,7 @@
 				C478DEAF2BC5DFC600C089D7 /* ViewModel+Notifications.swift in Sources */,
 				C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */,
 				C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */,
+				C41F1E5C2BC75C38006C6E90 /* Delegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,12 @@ import SwiftData
 
 @main
 struct NewsApp: App {
+    @Environment(\.scenePhase) var phase
+
+    @StateObject var viewModel = ViewModel()
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             SettingsModel.self
@@ -25,7 +31,22 @@ struct NewsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: ViewModel())
+            ContentView()
+                .environment(viewModel)
+                .onChange(of: phase) { _, phase in
+                    switch phase {
+                    case .active:
+                        if let itemName = ShortcutItem.selectedAction?.userInfo?["name"] as? String {
+                            viewModel.handleShortcutItemTap(itemName)
+                        }
+                    case .background:
+                        viewModel.addShortcutItems()
+                    case .inactive:
+                        break
+                    @unknown default:
+                        assertionFailure("Unknown default phase: \(phase)")
+                    }
+                }
         }
         .modelContainer(sharedModelContainer)
     }

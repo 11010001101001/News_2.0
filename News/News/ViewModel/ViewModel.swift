@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 import SwiftData
 
-final class ViewModel: ObservableObject {
+final class ViewModel: Observable, ObservableObject {
 
     @Published var newsArray = [Article]()
     @Published var loadingSucceed = false

@@ -10,11 +10,11 @@ import SwiftData
 
 struct ContentView: View {
 
+    @Environment(ViewModel.self) private var viewModel
+
     @Environment(\.modelContext) var modelContext
 
     @Query private var savedSettings: [SettingsModel]
-
-    @ObservedObject var viewModel: ViewModel
 
     var body: some View {
         NavigationStack {
@@ -41,7 +41,6 @@ extension ContentView {
         loadSettings()
         viewModel.loadNews()
         viewModel.configureNotifications()
-        viewModel.configureShortcutItems()
     }
 
     private func loadSettings() {
@@ -67,6 +66,6 @@ extension ContentView {
 }
 
 #Preview {
-    ContentView(viewModel: ViewModel())
+    ContentView()
         .modelContainer(for: SettingsModel.self, inMemory: true)
 }
