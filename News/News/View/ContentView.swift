@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
 
 struct ContentView: View {
 
@@ -21,6 +22,9 @@ struct ContentView: View {
     @State private var needShare = false
 
     var body: some View {
+        TipView(SettingsTip())
+            .padding()
+
         NavigationStack {
             TopicsList(viewModel: viewModel)
                 .refreshable { refresh() }
@@ -52,6 +56,14 @@ struct ContentView: View {
         .onReceive(viewModel.$settingsShortcutItemTapped) { needOpenSettings in
             guard needOpenSettings else { return }
             needShare.toggle()
+        }
+        .task {
+            try? Tips.resetDatastore()
+
+            try? Tips.configure([
+                .displayFrequency(.immediate),
+                .datastoreLocation(.applicationDefault)
+            ])
         }
     }
 }
