@@ -16,6 +16,8 @@ struct ContentView: View {
 
     @Query private var savedSettings: [SettingsModel]
 
+    @State private var imageWrapper: ContentWrapper?
+
     var body: some View {
         NavigationStack {
             TopicsList(viewModel: viewModel)
@@ -30,8 +32,17 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("News")
+            .sheet(item: $imageWrapper,
+                   content: { content in
+                ActivityViewController(contentWrapper: content)
+                    .presentationDetents([.medium])
+            })
         }
         .onAppear { onAppear() }
+        .onReceive(viewModel.$shareShortcutItemTapped) { needShare in
+            guard needShare else { return }
+            self.imageWrapper = ContentWrapper(link: .empty, description: DeveloperInfo.shareInfo.rawValue)
+        }
     }
 }
 

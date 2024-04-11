@@ -28,6 +28,9 @@ final class ViewModel: Observable, ObservableObject {
     @Published var feedbackStyle: UIImpactFeedbackGenerator.FeedbackStyle?
     @Published var feedBackType: UINotificationFeedbackGenerator.FeedbackType?
 
+    @Published var settingsShortcutItemTapped = false
+    @Published var shareShortcutItemTapped = false
+
     @Published var cancellables = Set<AnyCancellable>()
 
     var soundManager: SoundManager?

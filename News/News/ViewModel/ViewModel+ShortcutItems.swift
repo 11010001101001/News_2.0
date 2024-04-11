@@ -16,9 +16,9 @@ extension ViewModel {
     func handleShortcutItemTap(_ name: String) {
         switch name {
         case ShortcutItem.settings.rawValue:
-            print("settings tapped!")
+            settingsShortcutItemTapped.toggle()
         case ShortcutItem.share.rawValue:
-            print("share tapped")
+            shareShortcutItemTapped.toggle()
         default:
             break
         }
