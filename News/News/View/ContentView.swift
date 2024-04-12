@@ -19,7 +19,7 @@ struct ContentView: View {
 
     @State private var imageWrapper: ContentWrapper?
 
-    @State private var needShare = false
+    @State private var needOpenSettings = false
 
     var body: some View {
         TipView(SettingsTip())
@@ -43,7 +43,7 @@ struct ContentView: View {
                 ActivityViewController(contentWrapper: content)
                     .presentationDetents([.medium])
             })
-            .navigationDestination(isPresented: $needShare,
+            .navigationDestination(isPresented: $needOpenSettings,
                                    destination: {
                 SettingsList(viewModel: viewModel)
             })
@@ -53,9 +53,9 @@ struct ContentView: View {
             guard needShare else { return }
             self.imageWrapper = ContentWrapper(link: .empty, description: DeveloperInfo.shareInfo.rawValue)
         }
-        .onReceive(viewModel.$settingsShortcutItemTapped) { needOpenSettings in
-            guard needOpenSettings else { return }
-            needShare.toggle()
+        .onReceive(viewModel.$settingsShortcutItemTapped) { needOpen in
+            guard needOpen else { return }
+            needOpenSettings.toggle()
         }
         .task {
             try? Tips.configure([
