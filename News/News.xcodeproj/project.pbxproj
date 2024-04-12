@@ -38,6 +38,7 @@
 		C47BBB5E2BBE4E92009CBE8A /* LoaderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */; };
 		C47BBB612BBECE15009CBE8A /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB5F2BBECE15009CBE8A /* hamster.json */; };
 		C47BBB622BBECE15009CBE8A /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB602BBECE15009CBE8A /* astronaut.json */; };
+		C48733AC2BC9F93E00309537 /* error.json in Resources */ = {isa = PBXBuildFile; fileRef = C48733AB2BC9F93E00309537 /* error.json */; };
 		C490ED652BC6027C00AE977C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C490ED642BC6027C00AE977C /* Constants.swift */; };
 		C49C5FAF2BBF576400554218 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49C5FAE2BBF576400554218 /* WidgetKit.framework */; };
 		C49C5FB12BBF576400554218 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49C5FB02BBF576400554218 /* SwiftUI.framework */; };
@@ -177,6 +178,7 @@
 		C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderSettingsCell.swift; sourceTree = "<group>"; };
 		C47BBB5F2BBECE15009CBE8A /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
 		C47BBB602BBECE15009CBE8A /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut.json; sourceTree = "<group>"; };
+		C48733AB2BC9F93E00309537 /* error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error.json; sourceTree = "<group>"; };
 		C490ED642BC6027C00AE977C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C49C5FAC2BBF576400554218 /* NewsWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NewsWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49C5FAE2BBF576400554218 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -355,6 +357,7 @@
 		C47BBB582BBE3EE6009CBE8A /* LottieJsons */ = {
 			isa = PBXGroup;
 			children = (
+				C48733AB2BC9F93E00309537 /* error.json */,
 				C40AEBF12BBDDEF300CA7DA2 /* button.json */,
 				C45116A52BB9690B0003250E /* hourglass.json */,
 				C47BBB5B2BBE4302009CBE8A /* rocket.json */,
@@ -792,6 +795,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48733AC2BC9F93E00309537 /* error.json in Resources */,
 				C4A65E8C2BB8A97E002E3F39 /* cats_notification.mp3 in Resources */,
 				C4A65E7B2BB8A1F2002E3F39 /* starwars_refresh1.mp3 in Resources */,
 				C445A9D92BC8CA1D00157A1A /* cat.json in Resources */,
