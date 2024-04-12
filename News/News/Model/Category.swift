@@ -9,7 +9,9 @@ import Foundation
 
 enum Category: String, CaseIterable, Identifiable {
     var id: Self { return self }
+
     static var title: String { String(describing: self) }
+    static var tabItemImage: String { "checklist" }
 
     static var random: String {
         Category.allCases.randomElement()?.rawValue ?? ""

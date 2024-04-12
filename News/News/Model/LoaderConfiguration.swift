@@ -12,6 +12,7 @@ enum LoaderConfiguration: String, CaseIterable, Identifiable {
     var id: Self { return self }
 
     static var title: String { "Loader" }
+    static var tabItemImage: String { "hourglass" }
 
     case rocket
     case hourGlass = "hourglass"
@@ -30,7 +31,7 @@ enum LoaderConfiguration: String, CaseIterable, Identifiable {
         case .hamster:
             return .blue
         case .cat:
-            return .purple
+            return .yellow
         }
     }
 }
