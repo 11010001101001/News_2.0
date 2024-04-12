@@ -15,6 +15,7 @@ enum AdditionalInfo: String, CaseIterable, Identifiable {
     }
 
     static var title: String { "Additional info" }
+    static var tabItemImage: String { "info.circle" }
 
     static let contactLink = URL(string: "https://t.me/Yaroslav_Kupriyanov")!
 

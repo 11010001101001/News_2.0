@@ -16,4 +16,6 @@ extension CGFloat {
     static var screenWidth: CGFloat {
         UIScreen.main.bounds.width
     }
+
+    static let sideInsets: CGFloat = 32.0
 }

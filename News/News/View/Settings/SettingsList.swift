@@ -13,26 +13,27 @@ struct SettingsList: View {
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {
-        VStack(alignment: .leading) {
-            List {
-                Section(header: getSectionTitle(LoaderConfiguration.title)) {
-                    ForEach(LoaderConfiguration.allCases) { loader in
-                        LoaderSettingsCell(viewModel: viewModel, id: loader.rawValue)
-                    }
+        TabView {
+            getTabItem(title: LoaderConfiguration.title, imageName: LoaderConfiguration.tabItemImage) {
+                ForEach(LoaderConfiguration.allCases) { loader in
+                    LoaderSettingsCell(viewModel: viewModel, id: loader.rawValue)
                 }
+            }
 
-                Section(header: getSectionTitle(Category.title)) {
-                    ForEach(Category.allCases) { category in
-                        SettingsCell(viewModel: viewModel, id: category.rawValue)
-                    }
+            getTabItem(title: Category.title, imageName: Category.tabItemImage) {
+                ForEach(Category.allCases) { category in
+                    SettingsCell(viewModel: viewModel, id: category.rawValue)
                 }
+            }
 
-                Section(header: getSectionTitle(SoundTheme.title)) {
-                    ForEach(SoundTheme.allCases) { theme in
-                        SettingsCell(viewModel: viewModel, id: theme.rawValue)
-                    }
+            getTabItem(title: SoundTheme.title, imageName: SoundTheme.tabItemImage) {
+                ForEach(SoundTheme.allCases) { theme in
+                    SettingsCell(viewModel: viewModel, id: theme.rawValue)
                 }
-                Section(header: getSectionTitle(AdditionalInfo.title)) {
+            }
+
+            getTabItem(title: AdditionalInfo.title, imageName: AdditionalInfo.tabItemImage) {
+                Group {
                     InfoCell(id: AdditionalInfo.appVersion.rawValue
                              +
                              AdditionalInfo.currentAppVersion)
@@ -40,13 +41,32 @@ struct SettingsList: View {
                              link: AdditionalInfo.contactLink)
                 }
             }
-            .listStyle(.plain)
-            .navigationTitle("Settings")
         }
+        .listStyle(.plain)
+        .tabViewStyle(.page)
+        .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        .navigationTitle("Settings")
+    }
+
+    private func getTabItem(title: String,
+                            imageName: String,
+                            content: () -> some View) -> some View {
+        VStack(alignment: .leading) {
+            List {
+                Section(header: getSectionTitle(title)) {
+                    content()
+                }
+            }
+        }
+        .tabItem { Image(systemName: imageName) }
     }
 
     private func getSectionTitle(_ title: String) -> some View {
-        Text(title).font(.headline)
+        HStack {
+            Text(title).font(.headline)
+            Spacer()
+        }
+        .padding(.bottom)
     }
 }
 
