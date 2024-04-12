@@ -31,7 +31,7 @@ enum LoaderConfiguration: String, CaseIterable, Identifiable {
         case .hamster:
             return .blue
         case .cat:
-            return .purple
+            return .yellow
         }
     }
 }
