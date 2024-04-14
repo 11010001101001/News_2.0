@@ -42,7 +42,6 @@ struct SettingsList: View {
                 }
             }
         }
-        .listStyle(.plain)
         .tabViewStyle(.page)
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         .navigationTitle("Settings")
@@ -56,6 +55,16 @@ struct SettingsList: View {
                 Section(header: getSectionTitle(title)) {
                     content()
                 }
+                .listRowSeparator(.hidden)
+                .listRowBackground(
+                    RoundedRectangle(cornerRadius: 26)
+                        .fill(.rowBackground)
+                        .padding(4)
+                )
+                .listRowInsets(.init(top: Constants.insets.top,
+                                     leading: Constants.insets.leading,
+                                     bottom: Constants.insets.bottom,
+                                     trailing: Constants.insets.trailing))
             }
         }
         .tabItem { Image(systemName: imageName) }

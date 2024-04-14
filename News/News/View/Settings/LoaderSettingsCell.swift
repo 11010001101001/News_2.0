@@ -20,22 +20,20 @@ struct LoaderSettingsCell: View {
     var body: some View {
         ZStack {
             HStack {
-                Text(id.capitalizingFirstLetter())
-                    .font(.system(size: 18, weight: .regular))
-                Spacer()
-            }
-
-            HStack(alignment: .center, spacing: 20) {
-                Spacer()
-
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
                     .shadow(color: LoaderConfiguration(rawValue: id)?.shadowColor ?? .clear,
                             radius: 20)
                     .frame(width: 150, height: 100)
-                    .ignoresSafeArea()
-                    .scaledToFit()
-                    .padding(.horizontal)
+                    .padding(.leading, -40)
+
+                Spacer()
+            }
+
+            HStack {
+                Text(id.capitalizingFirstLetter())
+                    .font(.system(size: 18, weight: .regular))
+                    .padding(.leading, 80)
 
                 Spacer()
 

@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Constants {
     static let newsCount = "100"
     static let storageCapacity = 500
     static let needDropCount = 250
+    static let insets = EdgeInsets(top: 20,
+                                   leading: 20,
+                                   bottom: 20,
+                                   trailing: 20)
 }

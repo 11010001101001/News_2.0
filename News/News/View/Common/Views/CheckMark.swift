@@ -15,9 +15,9 @@ struct CheckMark: View {
         Image(systemName: "checkmark.circle.fill")
             .resizable()
             .foregroundStyle(.blue)
-            .frame(width: 30, height: 30)
+            .frame(width: 25, height: 25)
             .shadow(color: .blue, radius: 20)
-            .applyNice3DRotation(rotating: rotating, duration: 1.5)
+            .applyNice3DRotation(rotating: rotating, duration: 0.7)
             .onAppear { rotating.toggle() }
     }
 }

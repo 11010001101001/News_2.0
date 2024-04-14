@@ -1,5 +1,5 @@
 //
-//  View+Effects.swift
+//  View+Extensions.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 27.03.2024.
@@ -43,7 +43,7 @@ extension View {
             .animation(.smooth(duration: 0.3, extraBounce: 0.4), value: state)
     }
 
-    func applyNice3DRotation(rotating: Bool, duration: CGFloat? = 10.0) -> some View {
+    func applyNice3DRotation(rotating: Bool, duration: CGFloat? = 30.0) -> some View {
         return self
             .rotation3DEffect(
                 Angle(degrees: rotating ? -10 : 10),

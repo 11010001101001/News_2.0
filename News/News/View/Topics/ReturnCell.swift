@@ -10,7 +10,6 @@ import Lottie
 
 struct ReturnCell: View {
 
-    @State private var animateGradient = false
     @State private var scale = 1.0
 
     let action: Action
@@ -18,34 +17,25 @@ struct ReturnCell: View {
     var body: some View {
         HStack {
             Spacer()
-            Spacer()
-            Text("Need return?")
+
+            Text("That's all. Return?")
                 .font(.headline)
                 .padding(.leading)
 
             LottieButton(animation: .named("button"), action: action ?? {})
-                .frame(height: 150)
+                .frame(width: 100, height: 80)
+                .shadow(color: .white, radius: 10)
                 .scaleEffect(scale)
-        }
-        .background {
-            LinearGradient(colors: [.cyan, .purple, .red, .orange],
-                           startPoint: animateGradient ? .leading : .bottom,
-                           endPoint: animateGradient ? .bottom : .trailing)
-            .ignoresSafeArea()
-            .blur(radius: 2)
+                .padding(.trailing)
+
+            Spacer()
         }
         .onAppear {
-            Task {
-                withAnimation(.bouncy(duration: 0.1)) {
-                    scale = 1.03
-                } completion: {
-                    withAnimation(.bouncy(duration: 0.2)) {
-                        scale = 1.0
-                    } completion: {
-                        withAnimation(.smooth(duration: 3)) {
-                            animateGradient.toggle()
-                        }
-                    }
+            withAnimation(.bouncy(duration: 0.1)) {
+                scale = 1.1
+            } completion: {
+                withAnimation(.bouncy(duration: 0.2, extraBounce: 0.3)) {
+                    scale = 1.0
                 }
             }
         }
