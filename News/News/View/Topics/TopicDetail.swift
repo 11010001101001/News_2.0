@@ -19,18 +19,8 @@ struct TopicDetail: View {
     var body: some View {
         VStack {
             getAsyncImage()
-
-            VStack {
-                HStack {
-                    Text(article.description ?? .empty)
-                        .padding(.vertical)
-                    Spacer()
-                }
-                buttonsStack
-                Spacer()
-            }
-            .padding(.horizontal)
-            .commonScaleAffect(state: rotating)
+            contents
+            Spacer()
         }
         .navigationTitle("Details")
     }
@@ -67,7 +57,29 @@ struct TopicDetail: View {
         .padding([.vertical, .horizontal])
     }
 
-    private var buttonsStack: some View {
+    private var contents: some View {
+        VStack {
+            description
+            buttons
+                .padding(.top)
+        }
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 26)
+                .fill(.rowBackground)
+        }
+        .padding(.horizontal)
+        .commonScaleAffect(state: rotating)
+    }
+
+    private var description: some View {
+        HStack {
+            Text(article.description ?? .empty)
+            Spacer()
+        }
+    }
+
+    private var buttons: some View {
         HStack {
             ShareButton(viewModel: viewModel,
                         data: ButtonMetaData(article: article,

@@ -59,7 +59,7 @@
 		C49C5FCD2BC0037200554218 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC8D3B2BB308B600A0AFC8 /* Source.swift */; };
 		C49C5FCF2BC003D600554218 /* LoaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
-		C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Effects.swift */; };
+		C49C849E2BB455CE00571CD4 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Extensions.swift */; };
 		C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A65E542BB76E0D002E3F39 /* SoundManager.swift */; };
 		C4A65E672BB78B90002E3F39 /* starwars_refresh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E612BB76F47002E3F39 /* starwars_refresh.mp3 */; };
 		C4A65E682BB78B90002E3F39 /* starwars_refresh2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E652BB76F47002E3F39 /* starwars_refresh2.mp3 */; };
@@ -190,7 +190,7 @@
 		C49C5FBB2BBF576600554218 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C49C5FBD2BBF576600554218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
-		C49C849D2BB455CE00571CD4 /* View+Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Effects.swift"; sourceTree = "<group>"; };
+		C49C849D2BB455CE00571CD4 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		C4A65E542BB76E0D002E3F39 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C4A65E612BB76F47002E3F39 /* starwars_refresh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_refresh.mp3; sourceTree = "<group>"; };
 		C4A65E652BB76F47002E3F39 /* starwars_refresh2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_refresh2.mp3; sourceTree = "<group>"; };
@@ -626,7 +626,7 @@
 				C4BC8D4E2BB348C600A0AFC8 /* String+Extensions.swift */,
 				C4BC8D562BB35EB200A0AFC8 /* CGFloat+Extensions.swift */,
 				C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */,
-				C49C849D2BB455CE00571CD4 /* View+Effects.swift */,
+				C49C849D2BB455CE00571CD4 /* View+Extensions.swift */,
 				C4AA48E12BC5860D00D45D3F /* Date+Extensions.swift */,
 				C415870E2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift */,
 			);
@@ -900,7 +900,7 @@
 				C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */,
 				C41587052BC67E1F00C6BD2C /* OpenLinkButton.swift in Sources */,
 				C44CFCBA2BBC57D900CCAC97 /* LinkCell.swift in Sources */,
-				C49C849E2BB455CE00571CD4 /* View+Effects.swift in Sources */,
+				C49C849E2BB455CE00571CD4 /* View+Extensions.swift in Sources */,
 				C4BC8D4F2BB348C600A0AFC8 /* String+Extensions.swift in Sources */,
 				C4BC8D382BB3089900A0AFC8 /* CommonInfo.swift in Sources */,
 				C44CFCB82BBC56B700CCAC97 /* InfoCell.swift in Sources */,

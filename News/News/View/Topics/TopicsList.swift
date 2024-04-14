@@ -13,15 +13,17 @@ struct TopicsList: View {
 
     @State private var scrollToTop = false
 
+    @State private var animateBackgroundGradient = false
+
     var body: some View {
         ScrollViewReader { proxy in
             ZStack {
+                getTopicsList(proxy: proxy)
+
                 Loader(loaderName: viewModel.loader,
                        shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
-                    .opacity($viewModel.loadingFailed.wrappedValue ? .zero : 1.0)
-                    .id(viewModel.id)
-
-                getTopicsList(proxy: proxy)
+                .opacity($viewModel.loadingSucceed.wrappedValue ? .zero : 1.0)
+                .id(viewModel.id)
 
                 ErrorView(
                     viewModel: viewModel,
@@ -30,31 +32,47 @@ struct TopicsList: View {
                 .opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
             }
         }
+        .onAppear {
+            withAnimation(.linear(duration: 30).repeatForever(autoreverses: true)) {
+                animateBackgroundGradient = true
+            }
+        }
     }
 
     private func getTopicsList(proxy: ScrollViewProxy) -> some View {
         List {
-            getTopView(proxy: proxy)
+            Section {
+                getTopView(proxy: proxy)
 
-            ForEach($viewModel.newsArray) { $item in
-                NavigationLink {
-                    TopicDetail(viewModel: viewModel, article: item)
-                } label: {
-                    TopicCell(article: item)
-                        .ignoresSafeArea()
-                        .opacity(getOpacity(item))
+                ForEach($viewModel.newsArray) { $item in
+                    NavigationLink {
+                        TopicDetail(viewModel: viewModel, article: item)
+                    } label: {
+                        TopicCell(article: item)
+                            .ignoresSafeArea()
+                            .opacity(getOpacity(item))
+                            .shadow(color: .shadowHighlight,
+                                    radius: (item.title?.lowercased() ?? .empty).contains("apple") ? 3.0 : .zero)
+                    }
+                }
+            } footer: {
+                ReturnCell {
+                    viewModel.impactOccured(.light)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
+                                                  execute: { scrollToTop.toggle() })
                 }
             }
-
-            ReturnCell {
-                viewModel.impactOccured(.light)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
-                                              execute: {
-                    scrollToTop.toggle()
-                })
-            }
+            .listRowSeparator(.hidden)
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 26)
+                    .fill(.rowBackground)
+                    .padding(4)
+            )
+            .listRowInsets(.init(top: Constants.insets.top,
+                                 leading: Constants.insets.leading,
+                                 bottom: Constants.insets.bottom,
+                                 trailing: Constants.insets.trailing))
         }
-        .listStyle(.plain)
         .opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
     }
 

@@ -11,7 +11,7 @@ import Combine
 
 struct Loader: View {
 
-    @State private var scale = 0.4
+    @State private var scale = 0.35
 
     private let loaderName: String
     private let shadowColor: Color
@@ -27,10 +27,10 @@ struct Loader: View {
             .scaleEffect(scale)
             .onAppear {
                 withAnimation(.easeInOut(duration: 0.1)) {
-                    scale = 0.5
+                    scale = 0.45
                 } completion: {
                     withAnimation(.easeInOut(duration: 0.3)) {
-                        scale = 0.4
+                        scale = 0.35
                     }
                 }
             }
