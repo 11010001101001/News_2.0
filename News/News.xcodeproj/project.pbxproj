@@ -31,6 +31,8 @@
 		C45116A02BB965300003250E /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451169F2BB965300003250E /* Loader.swift */; };
 		C45116A62BB9690B0003250E /* hourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = C45116A52BB9690B0003250E /* hourglass.json */; };
 		C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */; };
+		C475AEA22BCD6C1300189AA4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475AEA12BCD6C1300189AA4 /* WebView.swift */; };
+		C475AEA42BCD6D4B00189AA4 /* OpenWebViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475AEA32BCD6D4B00189AA4 /* OpenWebViewButton.swift */; };
 		C478DEAF2BC5DFC600C089D7 /* ViewModel+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */; };
 		C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift */; };
 		C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */; };
@@ -171,6 +173,8 @@
 		C451169F2BB965300003250E /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		C45116A52BB9690B0003250E /* hourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hourglass.json; sourceTree = "<group>"; };
 		C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVcWrapper.swift; sourceTree = "<group>"; };
+		C475AEA12BCD6C1300189AA4 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		C475AEA32BCD6D4B00189AA4 /* OpenWebViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWebViewButton.swift; sourceTree = "<group>"; };
 		C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Notifications.swift"; sourceTree = "<group>"; };
 		C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+CheckIsRead.swift"; sourceTree = "<group>"; };
 		C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderConfiguration.swift; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 		C41587022BC67DE500C6BD2C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C475AEA12BCD6C1300189AA4 /* WebView.swift */,
 				C4BC8D522BB35C9900A0AFC8 /* ErrorView.swift */,
 				C4311A582BB708A500DE9194 /* CheckMark.swift */,
 				C451169F2BB965300003250E /* Loader.swift */,
@@ -300,6 +305,7 @@
 				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
 				C41586FF2BC67D4B00C6BD2C /* ShareButton.swift */,
 				C41587042BC67E1F00C6BD2C /* OpenLinkButton.swift */,
+				C475AEA32BCD6D4B00189AA4 /* OpenWebViewButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -897,6 +903,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4BC8D572BB35EB200A0AFC8 /* CGFloat+Extensions.swift in Sources */,
+				C475AEA42BCD6D4B00189AA4 /* OpenWebViewButton.swift in Sources */,
 				C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */,
 				C41587052BC67E1F00C6BD2C /* OpenLinkButton.swift in Sources */,
 				C44CFCBA2BBC57D900CCAC97 /* LinkCell.swift in Sources */,
@@ -917,6 +924,7 @@
 				C433F51A2BB40C2C0088A7FC /* Category.swift in Sources */,
 				C4F676EA2BB590EA002F3BCE /* ImageProvider.swift in Sources */,
 				C44CFCB22BBC3F8200CCAC97 /* AdditionalInfo.swift in Sources */,
+				C475AEA22BCD6C1300189AA4 /* WebView.swift in Sources */,
 				C4BC8D3C2BB308B600A0AFC8 /* Source.swift in Sources */,
 				C4F676EE2BB5A3B2002F3BCE /* ViewModel+Settings.swift in Sources */,
 				C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */,
