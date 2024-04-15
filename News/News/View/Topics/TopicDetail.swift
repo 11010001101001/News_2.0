@@ -85,10 +85,10 @@ struct TopicDetail: View {
                         data: ButtonMetaData(article: article,
                                              title: "Share",
                                              iconName: "square.and.arrow.up"))
-            OpenLinkButton(viewModel: viewModel,
-                           data: ButtonMetaData(article: article,
-                                                title: "Open",
-                                                iconName: "link"))
+            OpenWebViewButton(viewModel: viewModel,
+                              data: ButtonMetaData(article: article,
+                                                   title: "Open",
+                                                   iconName: "link"))
             Spacer()
         }
     }
