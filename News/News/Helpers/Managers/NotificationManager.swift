@@ -19,6 +19,10 @@ final class NotificationManager {
             }
     }
 
+    deinit {
+        notificationCancellable = nil
+    }
+
     private func configureNotifications(with sound: String) {
         let notificationCenter = UNUserNotificationCenter.current()
 

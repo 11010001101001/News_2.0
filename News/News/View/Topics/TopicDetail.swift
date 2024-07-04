@@ -18,46 +18,16 @@ struct TopicDetail: View {
 
     var body: some View {
         VStack {
-            getAsyncImage()
-            contents
+            CachedAsyncImage(article: article,
+                             rotating: rotating,
+                             viewModel: viewModel)
+            otherContent
             Spacer()
         }
         .navigationTitle("Details")
     }
 
-    private func getAsyncImage() -> some View {
-        AsyncImage(url: URL(string: article.urlToImage ?? .empty)) { phase in
-            if let image = phase.image {
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: CGFloat.screenWidth - 32,
-                           height: 300,
-                           alignment: .center)
-                    .clipped()
-                    .clipShape(.buttonBorder)
-                    .shadow(color: Color(image.averageColor), radius: 60)
-                    .applyNice3DRotation(rotating: rotating)
-                    .commonScaleAffect(state: rotating)
-                    .onAppear { onAppear() }
-            } else if phase.error != nil {
-                ErrorView(
-                    viewModel: viewModel,
-                    title: "Error loading image...",
-                    action: nil)
-                .applyNice3DRotation(rotating: rotating)
-                .commonScaleAffect(state: rotating)
-                .onAppear { onAppear() }
-            } else {
-                Loader(loaderName: viewModel.loader,
-                       shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
-            }
-        }
-        .frame(height: 300)
-        .padding([.vertical, .horizontal])
-    }
-
-    private var contents: some View {
+    private var otherContent: some View {
         VStack {
             description
             buttons
@@ -70,6 +40,7 @@ struct TopicDetail: View {
         }
         .padding(.horizontal)
         .commonScaleAffect(state: rotating)
+        .onAppear { rotating.toggle() }
     }
 
     private var description: some View {
@@ -91,11 +62,6 @@ struct TopicDetail: View {
                                                    iconName: "link"))
             Spacer()
         }
-    }
-
-    private func onAppear() {
-        rotating.toggle()
-        viewModel.markAsRead(article.key)
     }
 }
 
