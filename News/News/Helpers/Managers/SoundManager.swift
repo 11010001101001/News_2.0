@@ -37,6 +37,12 @@ final class SoundManager {
         bind()
     }
 
+    deinit {
+        refreshCancellable = nil
+        loadedCancellable = nil
+        errorCancellable = nil
+    }
+
     func playSound(soundFileName: String) {
         guard !soundFileName.isEmpty,
               let urlPath = Bundle

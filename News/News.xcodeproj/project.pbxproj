@@ -42,6 +42,10 @@
 		C47BBB622BBECE15009CBE8A /* astronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = C47BBB602BBECE15009CBE8A /* astronaut.json */; };
 		C48733AC2BC9F93E00309537 /* error.json in Resources */ = {isa = PBXBuildFile; fileRef = C48733AB2BC9F93E00309537 /* error.json */; };
 		C490ED652BC6027C00AE977C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C490ED642BC6027C00AE977C /* Constants.swift */; };
+		C4956ADD2C37296800E1F100 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4956ADC2C37296800E1F100 /* CachedAsyncImage.swift */; };
+		C4956AE12C37352C00E1F100 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4956AE02C37352C00E1F100 /* CacheManager.swift */; };
+		C4956AE32C37381B00E1F100 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4956AE22C37381B00E1F100 /* CachedImage.swift */; };
+		C4956AE72C37506400E1F100 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4956AE62C37506400E1F100 /* Image+Extensions.swift */; };
 		C49C5FAF2BBF576400554218 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49C5FAE2BBF576400554218 /* WidgetKit.framework */; };
 		C49C5FB12BBF576400554218 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49C5FB02BBF576400554218 /* SwiftUI.framework */; };
 		C49C5FB42BBF576400554218 /* NewsWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C5FB32BBF576400554218 /* NewsWidgetsBundle.swift */; };
@@ -184,6 +188,10 @@
 		C47BBB602BBECE15009CBE8A /* astronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut.json; sourceTree = "<group>"; };
 		C48733AB2BC9F93E00309537 /* error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error.json; sourceTree = "<group>"; };
 		C490ED642BC6027C00AE977C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C4956ADC2C37296800E1F100 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		C4956AE02C37352C00E1F100 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		C4956AE22C37381B00E1F100 /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
+		C4956AE62C37506400E1F100 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		C49C5FAC2BBF576400554218 /* NewsWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NewsWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49C5FAE2BBF576400554218 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		C49C5FB02BBF576400554218 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -294,6 +302,7 @@
 				C4BC8D522BB35C9900A0AFC8 /* ErrorView.swift */,
 				C4311A582BB708A500DE9194 /* CheckMark.swift */,
 				C451169F2BB965300003250E /* Loader.swift */,
+				C4956ADC2C37296800E1F100 /* CachedAsyncImage.swift */,
 				C41587032BC67DED00C6BD2C /* Buttons */,
 			);
 			path = Views;
@@ -596,6 +605,7 @@
 				C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */,
 				C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */,
 				C41F1E572BC75828006C6E90 /* ShortcutItem.swift */,
+				C4956AE22C37381B00E1F100 /* CachedImage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -633,6 +643,7 @@
 				C4BC8D562BB35EB200A0AFC8 /* CGFloat+Extensions.swift */,
 				C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */,
 				C49C849D2BB455CE00571CD4 /* View+Extensions.swift */,
+				C4956AE62C37506400E1F100 /* Image+Extensions.swift */,
 				C4AA48E12BC5860D00D45D3F /* Date+Extensions.swift */,
 				C415870E2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift */,
 			);
@@ -645,6 +656,7 @@
 				C4BC8D4A2BB318B500A0AFC8 /* VibrateManager.swift */,
 				C4A65E542BB76E0D002E3F39 /* SoundManager.swift */,
 				C4AA48E72BC597C600D45D3F /* NotificationManager.swift */,
+				C4956AE02C37352C00E1F100 /* CacheManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -924,6 +936,7 @@
 				C433F51A2BB40C2C0088A7FC /* Category.swift in Sources */,
 				C4F676EA2BB590EA002F3BCE /* ImageProvider.swift in Sources */,
 				C44CFCB22BBC3F8200CCAC97 /* AdditionalInfo.swift in Sources */,
+				C4956AE32C37381B00E1F100 /* CachedImage.swift in Sources */,
 				C475AEA22BCD6C1300189AA4 /* WebView.swift in Sources */,
 				C4BC8D3C2BB308B600A0AFC8 /* Source.swift in Sources */,
 				C4F676EE2BB5A3B2002F3BCE /* ViewModel+Settings.swift in Sources */,
@@ -942,14 +955,17 @@
 				C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift in Sources */,
 				C41F1E582BC75828006C6E90 /* ShortcutItem.swift in Sources */,
 				C4AA48E22BC5860D00D45D3F /* Date+Extensions.swift in Sources */,
+				C4956AE12C37352C00E1F100 /* CacheManager.swift in Sources */,
 				C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */,
 				C4BC8D3E2BB312BF00A0AFC8 /* SettingsList.swift in Sources */,
 				C41587072BC67F1200C6BD2C /* ButtonMetaData.swift in Sources */,
 				C415870F2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift in Sources */,
 				C44CFCB02BBAA5EF00CCAC97 /* ViewModel+Haptics.swift in Sources */,
 				C4BC8D442BB3180200A0AFC8 /* Mode.swift in Sources */,
+				C4956ADD2C37296800E1F100 /* CachedAsyncImage.swift in Sources */,
 				C4BC8D462BB3181200A0AFC8 /* HttpStatusCodes.swift in Sources */,
 				C4BC8D592BB35FEE00A0AFC8 /* CustomButton.swift in Sources */,
+				C4956AE72C37506400E1F100 /* Image+Extensions.swift in Sources */,
 				C4BC8D552BB35CC300A0AFC8 /* Aliases.swift in Sources */,
 				C4BC8D402BB3162D00A0AFC8 /* TopicDetail.swift in Sources */,
 				C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */,

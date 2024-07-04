@@ -49,9 +49,13 @@ extension ViewModel {
 
 extension ViewModel {
 
-    func loadNews() {
+    private func cancelErrors() {
         loadingSucceed = false
         loadingFailed = false
+    }
+
+    func loadNews() {
+        cancelErrors()
 
         newsPublisher
             .sink { [weak self] error in
