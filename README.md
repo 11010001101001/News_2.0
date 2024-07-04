@@ -1,18 +1,21 @@
 # News_2.0
 
-- SwiftUI
-- MVVM
-- Combine
-- Swift data
-- Tests
-- CI/CD
-- Widgets
-- Notifications
-- Linter
-- Fast actions
-- Siri kit
-- TipKit
-- ...
+- SwiftUI ✅
+- MVVM ✅
+- Combine ✅
+- Swift data ✅
+- Widgets ✅👨🏻‍🔧
+- Notifications ✅
+- Linter ✅
+- Fast actions ✅
+- TipKit ✅
+- AsyncCachedImage ✅
+- Metal shaders 🚫
+- Siri kit 🚫
+- Tests 🚫
+- CI/CD 🚫
+- Инструменты 🚫
+- ... 🚫
 
 👀 Quick peek
 
