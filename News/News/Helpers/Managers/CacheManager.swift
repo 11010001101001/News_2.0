@@ -7,17 +7,39 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-struct CacheManager {
-    static let shared = CacheManager()
+final class CacheManager {
+
+    private var imageCancellable: AnyCancellable?
 
     private let cache = NSCache<AnyObject, AnyObject>()
 
-    func save(object: AnyObject, key: AnyObject) {
+    init(viewModel: ViewModel) {
+        imageCancellable = viewModel.$imageCacheData
+            .sink { [weak self] data in
+                guard let data, let self else { return }
+                save(object: data.image, key: data.key)
+            }
+    }
+
+    deinit {
+        imageCancellable = nil
+    }
+}
+
+extension CacheManager {
+    private func save(object: AnyObject, key: AnyObject) {
         cache.setObject(object, forKey: key)
     }
 
-    func get(key: AnyObject) -> AnyObject? {
+    private func get(key: AnyObject) -> AnyObject? {
         cache.object(forKey: key)
+    }
+}
+
+extension CacheManager {
+    func getCachedImage(key: AnyObject) -> Image? {
+        (get(key: key) as? CachedImage)?.image
     }
 }

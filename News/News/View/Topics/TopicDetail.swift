@@ -18,9 +18,7 @@ struct TopicDetail: View {
 
     var body: some View {
         VStack {
-            CachedAsyncImage(article: article,
-                             rotating: rotating,
-                             viewModel: viewModel)
+            CachedAsyncImage(article: article, viewModel: viewModel)
             otherContent
             Spacer()
         }
@@ -45,7 +43,7 @@ struct TopicDetail: View {
 
     private var description: some View {
         HStack {
-            Text(article.description ?? .empty)
+            Text(article.description ?? "Loading...")
             Spacer()
         }
     }
