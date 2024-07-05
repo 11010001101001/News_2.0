@@ -31,11 +31,14 @@ final class ViewModel: Observable, ObservableObject {
     @Published var settingsShortcutItemTapped = false
     @Published var shareShortcutItemTapped = false
 
+    @Published var imageCacheData: (image: AnyObject, key: AnyObject)?
+
     @Published var cancellables = Set<AnyCancellable>()
 
     var soundManager: SoundManager?
     var vibrateManager: VibrateManager?
     var notificationManager: NotificationManager?
+    var cacheManager: CacheManager?
 
     var savedSettings: [SettingsModel]?
 
@@ -43,12 +46,14 @@ final class ViewModel: Observable, ObservableObject {
         soundManager = SoundManager(viewModel: self)
         vibrateManager = VibrateManager(viewModel: self)
         notificationManager = NotificationManager(viewModel: self)
+        cacheManager = CacheManager(viewModel: self)
     }
 
     deinit {
         soundManager = nil
         vibrateManager = nil
         notificationManager = nil
+        cacheManager = nil
 
         cancellables.forEach { $0.cancel() }
     }

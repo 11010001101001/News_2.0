@@ -11,7 +11,7 @@ struct CachedAsyncImage: View {
 
     let article: Article
 
-    @State var rotating = false
+    @State private var rotating = false
 
     @ObservedObject var viewModel: ViewModel
 
@@ -23,6 +23,10 @@ struct CachedAsyncImage: View {
         url as AnyObject
     }
 
+    private var cachedImage: Image? {
+        viewModel.getCachedImage(key: key)
+    }
+
     var body: some View {
         cachedAsyncImage()
             .padding([.vertical, .horizontal])
@@ -30,27 +34,22 @@ struct CachedAsyncImage: View {
 
     @ViewBuilder
     private func cachedAsyncImage() -> some View {
-        if let image = (CacheManager.shared.get(key: key as AnyObject) as? CachedImage)?.image {
-            image
+        if let cachedImage {
+            cachedImage
                 .makeRounded(height: Constants.imageHeight)
                 .applyNice3DRotation(rotating: rotating)
                 .commonScaleAffect(state: rotating)
-                .onAppear { onAppear(image) }
+                .onAppear { onAppear() }
         } else {
             AsyncImage(url: URL(string: url)) { phase in
                 if let image = phase.image {
                     image
-                        .makeRounded(height: Constants.imageHeight)
-                        .applyNice3DRotation(rotating: rotating)
-                        .commonScaleAffect(state: rotating)
                         .onAppear { onAppear(image) }
                 } else if phase.error != nil {
-                    ErrorView(
-                        viewModel: viewModel,
-                        title: "Error loading image...",
-                        action: nil)
+                    ErrorView(viewModel: viewModel, action: nil)
                     .applyNice3DRotation(rotating: rotating)
                     .commonScaleAffect(state: rotating)
+                    .frame(height: Constants.imageHeight)
                     .onAppear { onAppear() }
                 } else {
                     Loader(loaderName: viewModel.loader,
@@ -62,16 +61,17 @@ struct CachedAsyncImage: View {
     }
 
     private func onAppear(_ image: Image? = nil) {
-        rotating.toggle()
+        if image == nil {
+            rotating.toggle()
+        }
+
         viewModel.markAsRead(article.key)
         cache(image)
     }
 
     private func cache(_ image: Image?) {
-        guard let image, CacheManager.shared.get(key: key as AnyObject) == nil else { return }
+        guard let image, cachedImage == nil else { return }
         let object = CachedImage(image: image)
-        Task {
-            CacheManager.shared.save(object: object, key: key as AnyObject)
-        }
+        viewModel.cache(object: object, key: key)
     }
 }

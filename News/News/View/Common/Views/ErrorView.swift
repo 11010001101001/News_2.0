@@ -14,22 +14,24 @@ struct ErrorView: View {
 
     @State private var scale = 1.0
 
-    var title: String
+    var title: String?
     var action: Action
 
     var body: some View {
         ZStack {
             VStack {
                 VStack {
-                    Label(title, systemImage: "bolt.fill")
-                        .labelStyle(.titleOnly)
-                        .foregroundStyle(.blue)
-                        .multilineTextAlignment(.center)
-                        .font(.body)
-                        .padding(EdgeInsets(top: .zero,
-                                            leading: 100,
-                                            bottom: .zero,
-                                            trailing: 100))
+                    if let title {
+                        Label(title, systemImage: "bolt.fill")
+                            .labelStyle(.titleOnly)
+                            .foregroundStyle(.blue)
+                            .multilineTextAlignment(.center)
+                            .font(.body)
+                            .padding(EdgeInsets(top: .zero,
+                                                leading: 100,
+                                                bottom: .zero,
+                                                trailing: 100))
+                    }
 
                     LottieView(animation: .named("error"))
                         .playing(loopMode: .playOnce)

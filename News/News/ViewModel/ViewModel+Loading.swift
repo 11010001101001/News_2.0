@@ -31,7 +31,8 @@ extension ViewModel {
                 .tryMap { [weak self] data, response in
                     let info = try JSONDecoder().decode(CommonInfo.self, from: data)
                     try self?.handleResponse(response as? HTTPURLResponse)
-                    return info.articles ?? []
+                    let filtered = info.articles?.filter { !($0.title ?? .empty).contains("Removed") }
+                    return filtered ?? []
                 }
                 .mapError { _ in
                     ApiError.mappingError(msg: Errors.mappingError.rawValue)
