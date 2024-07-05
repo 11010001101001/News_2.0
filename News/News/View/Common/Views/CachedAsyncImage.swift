@@ -44,7 +44,7 @@ struct CachedAsyncImage: View {
             AsyncImage(url: URL(string: url)) { phase in
                 if let image = phase.image {
                     image
-                        .onAppear { onAppear(image) }
+                        .onAppear { cache(image) }
                 } else if phase.error != nil {
                     ErrorView(viewModel: viewModel, action: nil)
                     .applyNice3DRotation(rotating: rotating)
@@ -60,17 +60,12 @@ struct CachedAsyncImage: View {
         }
     }
 
-    private func onAppear(_ image: Image? = nil) {
-        if image == nil {
-            rotating.toggle()
-        }
-
+    private func onAppear() {
+        rotating.toggle()
         viewModel.markAsRead(article.key)
-        cache(image)
     }
 
-    private func cache(_ image: Image?) {
-        guard let image, cachedImage == nil else { return }
+    private func cache(_ image: Image) {
         let object = CachedImage(image: image)
         viewModel.cache(object: object, key: key)
     }
