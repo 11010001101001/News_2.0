@@ -12,7 +12,7 @@ struct SettingsCell: View, ImageProvider {
     @ObservedObject var viewModel: ViewModel
 
     @State private var needAnimate = false
-    @State private var scale = 1.0
+    @State private var scale: CGFloat = 1.0
 
     let id: String
 
@@ -25,22 +25,19 @@ struct SettingsCell: View, ImageProvider {
             CheckMark()
                 .opacity((viewModel.category == id || viewModel.soundTheme == id) ? 1.0 : .zero)
         }
+        .applyBackground()
         .frame(height: 40)
         .contentShape(Rectangle())
-        .onTapGesture {
-            viewModel.applySettings(id.lowercased())
-            needAnimate.toggle()
-            withAnimation(.easeInOut(duration: 0.1)) {
-                scale = 0.95
-            } completion: {
-                withAnimation(.smooth(duration: 0.2, extraBounce: 0.3)) {
-                    scale = 1.0
+        .modifier(
+            OnTap(
+                scale: $scale,
+                execute: {
+                    viewModel.applySettings(id.lowercased())
+                    needAnimate.toggle()
                 }
-            }
-        }
-        .onAppear {
-            needAnimate.toggle()
-        }
+            )
+        )
+        .onAppear { needAnimate.toggle() }
         .symbolEffect(.bounce, value: needAnimate)
         .scaleEffect(scale)
     }

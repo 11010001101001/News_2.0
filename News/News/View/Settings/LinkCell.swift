@@ -12,7 +12,7 @@ struct LinkCell: View, ImageProvider {
     @Environment(\.openURL) private var openURL
 
     @State private var needAnimate = false
-    @State private var scale = 1.0
+    @State private var scale: CGFloat = 1.0
 
     let id: String
     let link: URL
@@ -24,23 +24,17 @@ struct LinkCell: View, ImageProvider {
                 .font(.system(size: 18, weight: .regular))
             Spacer()
         }
+        .applyBackground()
         .frame(height: 40)
         .contentShape(Rectangle())
-        .onTapGesture {
-            needAnimate.toggle()
-            withAnimation(.easeInOut(duration: 0.1)) {
-                scale = 0.95
-            } completion: {
-                withAnimation(.easeInOut(duration: 0.3)) {
-                    scale = 1.0
-                } completion: {
-                    openURL(link)
-                }
-            }
-        }
-        .onAppear {
-            needAnimate.toggle()
-        }
+        .modifier(
+            OnTap(
+                scale: $scale,
+                execute: { needAnimate.toggle() },
+                completion: { openURL(link) }
+            )
+        )
+        .onAppear { needAnimate.toggle() }
         .symbolEffect(.bounce, value: needAnimate)
         .scaleEffect(scale)
     }

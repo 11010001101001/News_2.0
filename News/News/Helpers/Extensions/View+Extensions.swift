@@ -55,5 +55,15 @@ extension View {
             .animation(.easeInOut(duration: duration ?? .zero).repeatForever(autoreverses: true),
                        value: rotating)
     }
+
+    func applyBackground() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 26)
+                .fill(.rowBackground)
+                .padding(-15)
+
+            self
+        }
+    }
 }
 // swiftlint:enable large_tuple

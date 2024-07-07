@@ -20,11 +20,10 @@ struct InfoCell: View, ImageProvider {
                 .font(.system(size: 18, weight: .regular))
             Spacer()
         }
+        .applyBackground()
         .frame(height: 40)
         .contentShape(Rectangle())
-        .onAppear {
-            needAnimate.toggle()
-        }
+        .onAppear { needAnimate.toggle() }
         .symbolEffect(.bounce, value: needAnimate)
     }
 }

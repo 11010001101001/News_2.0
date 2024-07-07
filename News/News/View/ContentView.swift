@@ -66,7 +66,7 @@ struct ContentView: View {
     }
 }
 
-// MARK: - Helpers
+// MARK: - Helpers & Settings
 extension ContentView {
     private func onAppear() {
         loadSettings()
