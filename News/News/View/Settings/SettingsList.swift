@@ -58,7 +58,7 @@ struct SettingsList: View {
                 .listRowSeparator(.hidden)
                 .listRowBackground(
                     RoundedRectangle(cornerRadius: 26)
-                        .fill(.rowBackground)
+                        .fill(.clear)
                         .padding(4)
                 )
                 .listRowInsets(.init(top: Constants.insets.top,
