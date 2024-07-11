@@ -11,7 +11,6 @@ import UIKit
 
 // swiftlint:disable line_length
 extension View {
-
     @MainActor
     var averageColor: UIColor {
         let renderer = ImageRenderer(content: self)

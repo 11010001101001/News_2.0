@@ -11,7 +11,6 @@ import Combine
 // MARK: - Logic
 
 extension ViewModel {
-
     func playLoaded() {
         guard soundTheme != SoundTheme.silentMode.rawValue else { return }
 

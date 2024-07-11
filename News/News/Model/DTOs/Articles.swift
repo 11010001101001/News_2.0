@@ -8,7 +8,6 @@
 import Foundation
 
 struct Article: Decodable, Identifiable {
-
     var id: UUID? {
         UUID()
     }

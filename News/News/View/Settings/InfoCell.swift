@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct InfoCell: View, ImageProvider {
-
     @State private var needAnimate = false
-
     let id: String
 
     var body: some View {

@@ -9,11 +9,8 @@ import SwiftUI
 import Lottie
 
 struct ErrorView: View {
-
     @ObservedObject var viewModel: ViewModel
-
     @State private var scale = 1.0
-
     var title: String?
     var action: Action
 

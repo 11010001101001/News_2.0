@@ -11,9 +11,7 @@ import SwiftData
 @main
 struct NewsApp: App {
     @Environment(\.scenePhase) var phase
-
     @StateObject var viewModel = ViewModel()
-
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var sharedModelContainer: ModelContainer = {

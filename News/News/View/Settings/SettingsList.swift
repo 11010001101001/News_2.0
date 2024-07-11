@@ -9,7 +9,6 @@ import SwiftUI
 import Lottie
 
 struct SettingsList: View {
-
     @ObservedObject var viewModel: ViewModel
 
     var body: some View {

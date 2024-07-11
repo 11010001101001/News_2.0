@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TopicCell: View {
-
     @State private var scale = 1.0
-
     let article: Article
 
     var body: some View {

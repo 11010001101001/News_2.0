@@ -10,7 +10,6 @@ import SwiftUI
 
 // swiftlint:disable large_tuple
 extension View {
-
     private var rotationCoordinates: [(x: CGFloat, y: CGFloat, z: CGFloat)] {
         var randomNumbers = [CGFloat]()
 

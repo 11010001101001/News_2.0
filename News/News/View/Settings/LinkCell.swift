@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct LinkCell: View, ImageProvider {
-
     @Environment(\.openURL) private var openURL
-
     @State private var needAnimate = false
     @State private var scale: CGFloat = 1.0
 

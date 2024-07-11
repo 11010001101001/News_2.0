@@ -9,11 +9,8 @@ import SwiftUI
 import UIKit
 
 struct TopicDetail: View {
-
     @ObservedObject var viewModel: ViewModel
-
     let article: Article
-
     @State private var rotating = false
 
     var body: some View {
