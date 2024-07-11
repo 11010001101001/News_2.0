@@ -10,9 +10,7 @@ import SwiftUI
 import Combine
 
 final class CacheManager {
-
     private var imageCancellable: AnyCancellable?
-
     private let cache = NSCache<AnyObject, AnyObject>()
 
     init(viewModel: ViewModel) {

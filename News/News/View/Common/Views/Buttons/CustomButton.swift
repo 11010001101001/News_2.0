@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct CustomButton: View {
-
     @ObservedObject var viewModel: ViewModel
-
     @State private var scale = 1.0
-
     let action: Action
     var title: String?
     var iconName: String?

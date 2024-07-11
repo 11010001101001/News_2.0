@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct OpenWebViewButton: View {
-
     @ObservedObject var viewModel: ViewModel
-
     @State private var webViewPresented = false
-
     let data: ButtonMetaData
 
     var body: some View {

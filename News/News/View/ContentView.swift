@@ -10,15 +10,11 @@ import SwiftData
 import TipKit
 
 struct ContentView: View {
-
     @Environment(ViewModel.self) private var viewModel
-
     @Environment(\.modelContext) var modelContext
 
     @Query private var savedSettings: [SettingsModel]
-
     @State private var imageWrapper: ContentWrapper?
-
     @State private var needOpenSettings = false
 
     var body: some View {
@@ -28,6 +24,7 @@ struct ContentView: View {
         NavigationStack {
             TopicsList(viewModel: viewModel)
                 .refreshable { refresh() }
+                .padding(.top, -Constants.topInset)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {
@@ -38,6 +35,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("News")
+            .navigationBarTitleDisplayMode(.inline)
             .sheet(item: $imageWrapper,
                    content: { content in
                 ActivityViewController(contentWrapper: content)

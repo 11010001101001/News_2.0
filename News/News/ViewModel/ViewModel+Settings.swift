@@ -8,7 +8,6 @@
 import Foundation
 
 extension ViewModel {
-
     private(set) var soundTheme: String {
         get { savedSettings?.first?.soundTheme ?? SoundTheme.silentMode.rawValue }
         set {

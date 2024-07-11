@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct TopicsList: View {
-
     @ObservedObject var viewModel: ViewModel
-
     @State private var scrollToTop = false
-
     @State private var animateBackgroundGradient = false
 
     var body: some View {

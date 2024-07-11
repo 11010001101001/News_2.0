@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CheckMark: View {
-
     @State var rotating = false
 
     var body: some View {

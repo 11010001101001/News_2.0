@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct OpenLinkButton: View {
-
     @Environment(\.openURL) private var openURL
-
     @ObservedObject var viewModel: ViewModel
-
     let data: ButtonMetaData
 
     var body: some View {

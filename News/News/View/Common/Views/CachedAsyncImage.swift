@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct CachedAsyncImage: View {
-
     let article: Article
-
     @State private var rotating = false
-
     @ObservedObject var viewModel: ViewModel
 
     private var url: String {

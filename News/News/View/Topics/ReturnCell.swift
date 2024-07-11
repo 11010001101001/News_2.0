@@ -9,9 +9,7 @@ import SwiftUI
 import Lottie
 
 struct ReturnCell: View {
-
     @State private var scale = 1.0
-
     let action: Action
 
     var body: some View {

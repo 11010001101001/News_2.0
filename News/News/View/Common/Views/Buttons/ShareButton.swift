@@ -9,11 +9,8 @@ import Foundation
 import SwiftUI
 
 struct ShareButton: View {
-
     @ObservedObject var viewModel: ViewModel
-
     @State private var imageWrapper: ContentWrapper?
-
     let data: ButtonMetaData
 
     var body: some View {

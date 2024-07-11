@@ -9,9 +9,7 @@ import SwiftUI
 import Lottie
 
 struct LoaderSettingsCell: View {
-
     @ObservedObject var viewModel: ViewModel
-
     @State private var needAnimate = false
     @State private var scale: CGFloat = 1.0
 

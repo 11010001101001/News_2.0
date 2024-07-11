@@ -17,4 +17,5 @@ enum Constants {
                                    bottom: 20,
                                    trailing: 20)
     static let imageHeight: CGFloat = 300
+    static let topInset: CGFloat = 30
 }

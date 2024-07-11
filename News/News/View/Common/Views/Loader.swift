@@ -10,7 +10,6 @@ import Lottie
 import Combine
 
 struct Loader: View {
-
     private let loaderName: String
     private let shadowColor: Color
 
