@@ -24,7 +24,7 @@ struct ContentView: View {
         NavigationStack {
             TopicsList(viewModel: viewModel)
                 .refreshable { refresh() }
-                .padding(.top, -Constants.topInset)
+//                .padding(.top, -Constants.topInset)
                 .scrollIndicators(.never)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -36,7 +36,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("News")
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationBarTitleDisplayMode(.large)
             .sheet(item: $imageWrapper,
                    content: { content in
                 ActivityViewController(contentWrapper: content)
