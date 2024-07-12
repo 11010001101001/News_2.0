@@ -64,5 +64,24 @@ extension View {
             self
         }
     }
+
+    func asAnyView() -> AnyView {
+        AnyView(self)
+    }
+
+    func applyConditionalModifier(
+        isEnabled: Bool,
+        scale: Binding<CGFloat>,
+        execute: Action
+    ) -> some View {
+        isEnabled ?
+        self.modifier(AnswerNegative()).asAnyView() :
+        self.modifier(
+            OnTap(
+                scale: scale,
+                execute: execute
+            )
+        ).asAnyView()
+    }
 }
 // swiftlint:enable large_tuple

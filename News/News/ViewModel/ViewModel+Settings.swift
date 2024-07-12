@@ -59,6 +59,14 @@ extension ViewModel {
             break
         }
     }
+
+    func checkIsEnabled(_ settingName: String) -> Bool {
+        [
+            soundTheme,
+            category,
+            loader
+        ].first(where: { $0 == settingName }) != nil
+    }
 }
 
 // MARK: - Helpers

@@ -42,15 +42,13 @@ struct LoaderSettingsCell: View {
         .applyBackground()
         .frame(height: 100)
         .contentShape(Rectangle())
-        .modifier(
-            OnTap(
-                scale: $scale,
-                execute: {
-                    viewModel.applySettings(id.lowercased())
-                    needAnimate.toggle()
-                }
-            )
-        )
+        .applyConditionalModifier(
+            isEnabled: viewModel.checkIsEnabled(id.lowercased()),
+            scale: $scale
+        ) {
+            viewModel.applySettings(id.lowercased())
+            needAnimate.toggle()
+        }
         .onAppear { needAnimate.toggle() }
         .symbolEffect(.bounce, value: needAnimate)
         .scaleEffect(scale)

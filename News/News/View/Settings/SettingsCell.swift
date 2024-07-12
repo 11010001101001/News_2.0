@@ -26,16 +26,16 @@ struct SettingsCell: View, ImageProvider {
         .applyBackground()
         .frame(height: 40)
         .contentShape(Rectangle())
-        .modifier(
-            OnTap(
-                scale: $scale,
-                execute: {
-                    viewModel.applySettings(id.lowercased())
-                    needAnimate.toggle()
-                }
-            )
-        )
-        .onAppear { needAnimate.toggle() }
+        .applyConditionalModifier(
+            isEnabled: viewModel.checkIsEnabled(id.lowercased()),
+            scale: $scale
+        ) {
+            viewModel.applySettings(id.lowercased())
+            needAnimate.toggle()
+        }
+        .onAppear {
+            needAnimate.toggle()
+        }
         .symbolEffect(.bounce, value: needAnimate)
         .scaleEffect(scale)
     }

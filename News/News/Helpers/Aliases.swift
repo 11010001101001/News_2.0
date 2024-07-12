@@ -9,3 +9,4 @@ import Foundation
 
 typealias Action = (() -> Void)?
 typealias SettingsTappedAction = (String) -> Void
+typealias BoolClosure = (Bool) -> Void

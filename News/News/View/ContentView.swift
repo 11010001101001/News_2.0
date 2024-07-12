@@ -25,6 +25,7 @@ struct ContentView: View {
             TopicsList(viewModel: viewModel)
                 .refreshable { refresh() }
                 .padding(.top, -Constants.topInset)
+                .scrollIndicators(.never)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     NavigationLink {

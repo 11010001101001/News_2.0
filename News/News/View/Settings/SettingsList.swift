@@ -44,6 +44,7 @@ struct SettingsList: View {
         .tabViewStyle(.page)
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         .navigationTitle("Settings")
+        .scrollIndicators(.never)
     }
 
     private func getTabItem(title: String,
@@ -51,9 +52,7 @@ struct SettingsList: View {
                             content: () -> some View) -> some View {
         VStack(alignment: .leading) {
             List {
-                Section(header: getSectionTitle(title)) {
-                    content()
-                }
+                Section(header: Text(title).font(.subheadline)) { content() }
                 .listRowSeparator(.hidden)
                 .listRowBackground(
                     RoundedRectangle(cornerRadius: 26)
@@ -67,14 +66,6 @@ struct SettingsList: View {
             }
         }
         .tabItem { Image(systemName: imageName) }
-    }
-
-    private func getSectionTitle(_ title: String) -> some View {
-        HStack {
-            Text(title).font(.headline)
-            Spacer()
-        }
-        .padding(.bottom)
     }
 }
 

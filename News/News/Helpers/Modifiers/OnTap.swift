@@ -1,5 +1,5 @@
 //
-//  Modifiers.swift
+//  OnTap.swift
 //  News
 //
 //  Created by Ярослав Куприянов on 08.07.2024.
