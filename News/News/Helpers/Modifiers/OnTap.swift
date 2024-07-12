@@ -9,7 +9,6 @@ import SwiftUI
 
 struct OnTap: ViewModifier {
     @Binding var scale: CGFloat
-
     var execute: Action?
     var completion: Action?
 

@@ -11,6 +11,7 @@ struct AnswerNegative: ViewModifier {
     @State private var left = false
     @State private var right = false
     @State private var initial = false
+    var execute: Action?
 
     func body(content: Content) -> some View {
         content
@@ -18,18 +19,17 @@ struct AnswerNegative: ViewModifier {
             .offset(x: right ? 10 : 0)
             .offset(x: initial ? -5 : 0)
             .onTapGesture {
-                withAnimation {
-                    left.toggle()
-                }
+                withAnimation { left.toggle() }
             completion: {
-                withAnimation {
-                    right.toggle()
-                }
+                withAnimation { right.toggle() }
             completion: {
                 withAnimation(
                     .interpolatingSpring(
                         stiffness: 1000,
-                        damping: 5)) { initial.toggle() }
+                        damping: 5)) {
+                            execute??()
+                            initial.toggle()
+                        }
             }
             }
             }

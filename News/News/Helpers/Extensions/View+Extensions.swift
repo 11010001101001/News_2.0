@@ -75,13 +75,8 @@ extension View {
         execute: Action
     ) -> some View {
         isEnabled ?
-        self.modifier(AnswerNegative()).asAnyView() :
-        self.modifier(
-            OnTap(
-                scale: scale,
-                execute: execute
-            )
-        ).asAnyView()
+        self.modifier(AnswerNegative(execute: execute)).asAnyView() :
+        self.modifier(OnTap(scale: scale, execute: execute)).asAnyView()
     }
 }
 // swiftlint:enable large_tuple
