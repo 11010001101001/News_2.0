@@ -113,7 +113,8 @@
 		C4F8270A2C3CB6A700C27450 /* SettingsTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F827092C3CB6A600C27450 /* SettingsTip.swift */; };
 		C4F8270D2C3CB6BB00C27450 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F8270B2C3CB6BB00C27450 /* InfoCell.swift */; };
 		C4F8270E2C3CB6BB00C27450 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F8270C2C3CB6BB00C27450 /* LinkCell.swift */; };
-		C4F827132C3CB7BB00C27450 /* OnTapModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F827122C3CB7BB00C27450 /* OnTapModifier.swift */; };
+		DA5FDE622C7793D8002CD19B /* AnswerNegative.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */; };
+		DA5FDE632C7793D8002CD19B /* OnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FDE612C7793D8002CD19B /* OnTap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,7 +253,8 @@
 		C4F827092C3CB6A600C27450 /* SettingsTip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTip.swift; sourceTree = "<group>"; };
 		C4F8270B2C3CB6BB00C27450 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		C4F8270C2C3CB6BB00C27450 /* LinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
-		C4F827122C3CB7BB00C27450 /* OnTapModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTapModifier.swift; sourceTree = "<group>"; };
+		DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerNegative.swift; sourceTree = "<group>"; };
+		DA5FDE612C7793D8002CD19B /* OnTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,7 +672,8 @@
 		C4F827112C3CB7BB00C27450 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				C4F827122C3CB7BB00C27450 /* OnTapModifier.swift */,
+				DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */,
+				DA5FDE612C7793D8002CD19B /* OnTap.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -699,12 +702,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4BC8D2B2BB2FA3B00A0AFC8 /* Build configuration list for PBXNativeTarget "News" */;
 			buildPhases = (
-				C47BBB6A2BBEE73D009CBE8A /* ShellScript */,
 				C4BC8D012BB2FA3900A0AFC8 /* Sources */,
 				C4BC8D022BB2FA3900A0AFC8 /* Frameworks */,
 				C4BC8D032BB2FA3900A0AFC8 /* Resources */,
 				C49C5FC02BBF576600554218 /* Embed Foundation Extensions */,
-				C478DEAD2BC5DAB500C089D7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -857,45 +858,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		C478DEAD2BC5DAB500C089D7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nswiftlint --fix\n";
-		};
-		C47BBB6A2BBEE73D009CBE8A /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		C49C5FA82BBF576400554218 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -925,9 +887,9 @@
 				C4311A592BB708A500DE9194 /* CheckMark.swift in Sources */,
 				C41587052BC67E1F00C6BD2C /* OpenLinkButton.swift in Sources */,
 				C49C849E2BB455CE00571CD4 /* View+Extensions.swift in Sources */,
-				C4F827132C3CB7BB00C27450 /* OnTapModifier.swift in Sources */,
 				C4BC8D4F2BB348C600A0AFC8 /* String+Extensions.swift in Sources */,
 				C4BC8D382BB3089900A0AFC8 /* CommonInfo.swift in Sources */,
+				DA5FDE632C7793D8002CD19B /* OnTap.swift in Sources */,
 				C4BC8D4B2BB318B500A0AFC8 /* VibrateManager.swift in Sources */,
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
 				C4AA48DF2BC5827F00D45D3F /* ViewModel.swift in Sources */,
@@ -969,6 +931,7 @@
 				C4BC8D3E2BB312BF00A0AFC8 /* SettingsList.swift in Sources */,
 				C41587072BC67F1200C6BD2C /* ButtonMetaData.swift in Sources */,
 				C415870F2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift in Sources */,
+				DA5FDE622C7793D8002CD19B /* AnswerNegative.swift in Sources */,
 				C44CFCB02BBAA5EF00CCAC97 /* ViewModel+Haptics.swift in Sources */,
 				C4BC8D442BB3180200A0AFC8 /* Mode.swift in Sources */,
 				C4956ADD2C37296800E1F100 /* CachedAsyncImage.swift in Sources */,

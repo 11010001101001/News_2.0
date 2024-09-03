@@ -41,6 +41,7 @@ struct CachedAsyncImage: View {
             AsyncImage(url: URL(string: url)) { phase in
                 if let image = phase.image {
                     image
+						.resizable()
                         .onAppear { cache(image) }
                 } else if phase.error != nil {
                     ErrorView(viewModel: viewModel, action: nil)
