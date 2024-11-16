@@ -22,16 +22,11 @@ enum LoaderConfiguration: String, CaseIterable, Identifiable {
 
     var shadowColor: Color {
         switch self {
-        case .rocket:
-            return .orange
-        case .hourGlass:
-            return .cyan
-        case .astronaut:
-            return .red
-        case .hamster:
-            return .blue
-        case .cat:
-            return .yellow
+        case .rocket: .orange
+        case .hourGlass: .cyan
+        case .astronaut: .red
+        case .hamster: .blue
+        case .cat: .yellow
         }
     }
 }

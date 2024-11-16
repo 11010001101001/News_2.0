@@ -31,12 +31,8 @@ struct SettingsCell: View, ImageProvider {
             scale: $scale
         ) {
             viewModel.applySettings(id.lowercased())
-            needAnimate.toggle()
         }
-        .onAppear {
-            needAnimate.toggle()
-        }
-        .symbolEffect(.bounce, value: needAnimate)
+        .onAppear { needAnimate.toggle() }
         .scaleEffect(scale)
     }
 }

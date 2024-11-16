@@ -47,10 +47,8 @@ struct LoaderSettingsCell: View {
             scale: $scale
         ) {
             viewModel.applySettings(id.lowercased())
-            needAnimate.toggle()
         }
         .onAppear { needAnimate.toggle() }
-        .symbolEffect(.bounce, value: needAnimate)
         .scaleEffect(scale)
     }
 }
