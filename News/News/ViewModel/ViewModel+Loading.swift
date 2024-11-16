@@ -17,7 +17,6 @@ extension ViewModel {
             let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)
             return switch mode {
             case .keyword(let keyword):
-
                 "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey.rawValue)"
             case .category(let category):
                 "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey.rawValue)"

@@ -8,17 +8,39 @@
 import SwiftUI
 
 struct CustomButton: View {
-    @ObservedObject var viewModel: ViewModel
-    @State private var scale = 1.0
-    let action: Action
-    var title: String?
-    var iconName: String?
+    @ObservedObject private var viewModel: ViewModel
+	@State private var scale: CGFloat
+	
+    private let action: Action
+    private var title: String?
+    private var iconName: String?
+	
+	init(
+		viewModel: ViewModel,
+		scale: Double = 1.0,
+		action: Action,
+		title: String? = nil,
+		iconName: String? = nil
+	) {
+		self.viewModel = viewModel
+		self.scale = scale
+		self.action = action
+		self.title = title
+		self.iconName = iconName
+	}
 
     var body: some View {
-        Button(action: { buttonAction?() },
-               label: { Label(title: { titleView },
-                              icon: { iconView })
-        })
+		Button(
+			action: {
+				buttonAction?()
+			},
+			label: {
+				Label(
+					title: { titleView },
+					icon: { iconView }
+				)
+			}
+		)
         .buttonStyle(.bordered)
         .clipShape(.capsule(style: .continuous))
         .controlSize(.regular)
@@ -29,10 +51,10 @@ struct CustomButton: View {
     private var buttonAction: Action {
         {
             viewModel.impactOccured(.light)
-            withAnimation(.easeInOut(duration: 0.1)) {
-                scale = 0.9
+			withAnimation(.easeInOut(duration: .zero)) {
+                scale = 0.90
             } completion: {
-                withAnimation(.easeInOut(duration: 0.3)) {
+                withAnimation(.easeInOut(duration: 0.15)) {
                     scale = 1.0
                 } completion: {
                     action?()
@@ -53,9 +75,7 @@ struct CustomButton: View {
     }
 
     private var iconView: some View {
-        iconName == nil
-        ? nil
-        : Image(systemName: iconName!)
+        iconName == nil ? nil : Image(systemName: iconName!)
     }
 }
 

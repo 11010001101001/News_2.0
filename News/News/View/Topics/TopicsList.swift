@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopicsList: View {
 	@ObservedObject var viewModel: ViewModel
-	@State private var scrollToTop = false
+	@State private var isNeedScrollToTop = false
 	@State private var animateBackgroundGradient = false
 	
 	var body: some View {
@@ -17,15 +17,18 @@ struct TopicsList: View {
 			ZStack {
 				buildTopicsList(proxy: proxy)
 				
-				Loader(loaderName: viewModel.loader,
-					   shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
+				Loader(
+					loaderName: viewModel.loader,
+					shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear
+				)
 				.opacity($viewModel.loadingSucceed.wrappedValue ? .zero : 1.0)
 				.id(viewModel.id)
 				
 				ErrorView(
 					viewModel: viewModel,
 					title: $viewModel.failureReason.wrappedValue,
-					action: { viewModel.loadNews() })
+					action: { viewModel.loadNews() }
+				)
 				.opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
 			}
 		}
@@ -37,58 +40,48 @@ struct TopicsList: View {
 	}
 }
 
-// MARK: Private
-extension TopicsList {
-	private func buildTopicsList(proxy: ScrollViewProxy) -> some View {
-		List {
-			Section {
+// MARK: - Private
+private extension TopicsList {
+	func buildTopicsList(proxy: ScrollViewProxy) -> some View {
+		ScrollView {
+			VerStack {
 				buildTopView(proxy: proxy)
-				
-				ForEach($viewModel.newsArray) { $item in
-					NavigationLink {
-						TopicDetail(viewModel: viewModel, article: item)
-					} label: {
-						TopicCell(article: item)
-							.ignoresSafeArea()
-							.opacity(getOpacity(item))
-							.shadow(color: .shadowHighlight,
-									radius: (item.title?.lowercased() ?? .empty).contains("apple") ? 3.0 : .zero)
-					}
-				}
-			} footer: {
-				ReturnCell {
-					viewModel.impactOccured(.light)
-					DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
-												  execute: { scrollToTop.toggle() })
-				}
+				buildTopic()
+				buildReturnToTopButton()
 			}
-			.listRowSeparator(.hidden)
-			.listRowBackground(
-				RoundedRectangle(cornerRadius: 26)
-					.fill(.rowBackground)
-					.padding(4)
-			)
-			.listRowInsets(.init(top: Constants.insets.top,
-								 leading: Constants.insets.leading,
-								 bottom: Constants.insets.bottom,
-								 trailing: Constants.insets.trailing))
+			.padding(.top, Constants.padding)
 		}
 		.opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
+		.scrollIndicators(.automatic)
+	}
+	
+	func buildTopic() -> some View {
+		ForEach($viewModel.newsArray) { $article in
+			NavigationLink {
+				TopicDetail(viewModel: viewModel, article: article)
+			} label: {
+				TopicCell(viewModel: viewModel, article: article)
+			}
+		}
 	}
 	
 	/// For scrolling to `top` only
-	private func buildTopView(proxy: ScrollViewProxy) -> some View {
+	func buildTopView(proxy: ScrollViewProxy) -> some View {
 		EmptyView()
 			.id("top")
-			.onChange(of: scrollToTop) {
+			.onChange(of: isNeedScrollToTop) {
 				withAnimation {
 					proxy.scrollTo("top", anchor: .bottom)
 				}
 			}
 	}
 	
-	private func getOpacity(_ topic: Article) -> Double {
-		viewModel.checkIsRead(topic.key) ? 0.5 : 1.0
+	func buildReturnToTopButton() -> some View {
+		ReturnCell {
+			viewModel.impactOccured(.light)
+			DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
+										  execute: { isNeedScrollToTop.toggle() })
+		}
 	}
 }
 

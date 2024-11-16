@@ -10,7 +10,11 @@ import WebKit
 import SwiftUI
 
 struct WebView: UIViewRepresentable {
-    let url: URL
+    private let url: URL
+	
+	init(url: URL) {
+		self.url = url
+	}
 
     func makeUIView(context: Context) -> some WKWebView {
         WKWebView()

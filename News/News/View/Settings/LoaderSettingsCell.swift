@@ -9,47 +9,52 @@ import SwiftUI
 import Lottie
 
 struct LoaderSettingsCell: View {
-    @ObservedObject var viewModel: ViewModel
-    @State private var needAnimate = false
-    @State private var scale: CGFloat = 1.0
+    @ObservedObject private var viewModel: ViewModel
+    @State private var scale: CGFloat
+    private let id: String
+	
+	private var shadowColor: Color {
+		LoaderConfiguration(rawValue: id)?.shadowColor ?? .shadowHighlight
+	}
 
-    let id: String
-
+	init(
+		viewModel: ViewModel,
+		scale: CGFloat = 1.0,
+		id: String
+	) {
+		self.viewModel = viewModel
+		self.scale = scale
+		self.id = id
+	}
+	
     var body: some View {
         ZStack {
-            HStack {
+            HorStack {
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
-                    .shadow(color: LoaderConfiguration(rawValue: id)?.shadowColor ?? .clear,
-                            radius: 20)
+                    .shadow(color: shadowColor, radius: 20)
                     .frame(width: 150, height: 100)
-                    .padding(.leading, -40)
+                    .padding(.leading, -20)
 
                 Spacer()
             }
 
-            HStack {
+			HorStack {
                 Text(id.capitalizingFirstLetter())
                     .font(.system(size: 18, weight: .regular))
-                    .padding(.leading, 80)
-
+                    .padding(.leading, 100)
+				
                 Spacer()
-
-                CheckMark()
-                    .opacity(viewModel.loader == id ? 1.0 : .zero)
             }
         }
-        .applyBackground()
-        .frame(height: 100)
-        .contentShape(Rectangle())
-        .applyConditionalModifier(
+        .card()
+        .applyOrNotSettingsModifier(
             isEnabled: viewModel.checkIsEnabled(id.lowercased()),
             scale: $scale
         ) {
             viewModel.applySettings(id.lowercased())
         }
-        .onAppear { needAnimate.toggle() }
-        .scaleEffect(scale)
+		.markIsSelected(viewModel, id, shadowColor)
     }
 }
 
