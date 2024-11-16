@@ -11,18 +11,23 @@ import UIKit
 struct TopicDetail: View {
 	@ObservedObject private var viewModel: ViewModel
 	private let article: Article
-	@State private var rotating: Bool
 	
-	init(viewModel: ViewModel, article: Article, rotating: Bool = false) {
+	init(viewModel: ViewModel, article: Article) {
 		self.viewModel = viewModel
 		self.article = article
-		self.rotating = rotating
 	}
 	
 	var body: some View {
-		VerStack(alignment: .center) {
-			CachedAsyncImage(article: article, viewModel: viewModel)
-			otherContent
+		ZStack {
+			VerStack(alignment: .center) {
+				Spacer()
+				otherContent
+			}
+			.ignoresSafeArea(edges: .bottom)
+			VerStack(alignment: .center) {
+				CachedAsyncImage(article: article, viewModel: viewModel)
+				Spacer()
+			}
 		}
 		.navigationTitle("Details")
 	}
@@ -38,10 +43,8 @@ private extension TopicDetail {
 			Spacer()
 		}
 		.padding([.top, .horizontal])
+		.frame(height: CGFloat.screenHeight / 2)
 		.card()
-		.commonScaleAffect(state: rotating)
-		.onAppear { rotating.toggle() }
-		.ignoresSafeArea(edges: .bottom)
 	}
 	
 	var description: some View {
@@ -49,7 +52,7 @@ private extension TopicDetail {
 	}
 	
 	var buttons: some View {
-		HorStack(spacing: Constants.padding) {
+		HorStack(spacing: Constants.padding / 2) {
 			ShareButton(viewModel: viewModel,
 						data: ButtonMetaData(article: article,
 											 title: "Share",

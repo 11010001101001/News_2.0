@@ -118,6 +118,7 @@
 		DA8888D52CE8A7210036B198 /* HorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D42CE8A7210036B198 /* HorStack.swift */; };
 		DA8888D72CE8B7100036B198 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D62CE8B7100036B198 /* Shadow.swift */; };
 		DAC06D2B2CE8DA3E00337E32 /* AdditionalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC06D2A2CE8DA3E00337E32 /* AdditionalInfoCell.swift */; };
+		DAC06D2E2CE8FEB700337E32 /* ConditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,6 +262,7 @@
 		DA8888D42CE8A7210036B198 /* HorStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorStack.swift; sourceTree = "<group>"; };
 		DA8888D62CE8B7100036B198 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
 		DAC06D2A2CE8DA3E00337E32 /* AdditionalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoCell.swift; sourceTree = "<group>"; };
+		DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 				C4956ADC2C37296800E1F100 /* CachedAsyncImage.swift */,
 				DA8888D02CE8A6770036B198 /* VerStack.swift */,
 				DA8888D42CE8A7210036B198 /* HorStack.swift */,
+				DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */,
 				C41587032BC67DED00C6BD2C /* Buttons */,
 			);
 			path = Views;
@@ -900,6 +903,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4BC8D572BB35EB200A0AFC8 /* CGFloat+Extensions.swift in Sources */,
+				DAC06D2E2CE8FEB700337E32 /* ConditionalView.swift in Sources */,
 				C475AEA42BCD6D4B00189AA4 /* OpenWebViewButton.swift in Sources */,
 				C41587052BC67E1F00C6BD2C /* OpenLinkButton.swift in Sources */,
 				C49C849E2BB455CE00571CD4 /* View+Extensions.swift in Sources */,
