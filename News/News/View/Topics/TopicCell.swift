@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TopicCell: View {
-    @State private var scale = 1.0
     let article: Article
 
     var body: some View {
@@ -22,16 +21,6 @@ struct TopicCell: View {
             Text(article.source?.name ?? .empty)
                 .font(.subheadline)
         })
-        .scaleEffect(scale)
-        .onAppear {
-            withAnimation(.bouncy(duration: 0.1)) {
-                scale = 1.03
-            } completion: {
-                withAnimation(.bouncy(duration: 0.2, extraBounce: 0.3)) {
-                    scale = 1.0
-                }
-            }
-        }
     }
 }
 

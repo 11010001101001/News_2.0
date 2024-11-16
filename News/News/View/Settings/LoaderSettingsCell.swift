@@ -39,7 +39,7 @@ struct LoaderSettingsCell: View {
                     .opacity(viewModel.loader == id ? 1.0 : .zero)
             }
         }
-        .applyBackground()
+        .applyRowBackground()
         .frame(height: 100)
         .contentShape(Rectangle())
         .applyConditionalModifier(

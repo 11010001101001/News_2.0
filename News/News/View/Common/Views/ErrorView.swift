@@ -15,45 +15,43 @@ struct ErrorView: View {
     var action: Action
 
     var body: some View {
-        ZStack {
-            VStack {
-                VStack {
-                    if let title {
-                        Label(title, systemImage: "bolt.fill")
-                            .labelStyle(.titleOnly)
-                            .foregroundStyle(.blue)
-                            .multilineTextAlignment(.center)
-                            .font(.body)
-                            .padding(EdgeInsets(top: .zero,
-                                                leading: 100,
-                                                bottom: .zero,
-                                                trailing: 100))
-                    }
-
-                    LottieView(animation: .named("error"))
-                        .playing(loopMode: .playOnce)
-                        .shadow(color: .red, radius: 30)
-                        .frame(width: 150, height: 100)
-                        .ignoresSafeArea()
-                        .scaledToFit()
-                        .padding(.horizontal)
-                        .scaleEffect(scale)
-                        .onAppear {
-                            withAnimation(.easeInOut(duration: 0.1)) {
-                                scale = 2.1
-                            } completion: {
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    scale = 1.0
-                                }
-                            }
-                        }
-                }
-
-                CustomButton(viewModel: viewModel,
-                             action: action,
-                             title: "Reload")
-            }
-        }
+		VStack {
+			if let title {
+				Label(title, systemImage: "bolt.fill")
+					.labelStyle(.titleOnly)
+					.foregroundStyle(.blue)
+					.multilineTextAlignment(.center)
+					.font(.body)
+					.padding(EdgeInsets(top: .zero,
+										leading: 100,
+										bottom: .zero,
+										trailing: 100))
+			}
+			
+			LottieView(animation: .named("error"))
+				.playing(loopMode: .playOnce)
+				.shadow(color: .red, radius: 30)
+				.frame(width: 150, height: 100)
+				.ignoresSafeArea()
+				.scaledToFit()
+				.padding(.horizontal)
+				.scaleEffect(scale)
+				.onAppear {
+					withAnimation(.easeInOut(duration: 0.1)) {
+						scale = 2.1
+					} completion: {
+						withAnimation(.easeInOut(duration: 0.3)) {
+							scale = 1.0
+						}
+					}
+				}
+			
+			CustomButton(viewModel: viewModel,
+						 action: action,
+						 title: "Reload")
+		}
+		.applyRowBackground()
+		.ignoresSafeArea()
     }
 }
 

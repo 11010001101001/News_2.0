@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsCell: View, ImageProvider {
     @ObservedObject var viewModel: ViewModel
-    @State private var needAnimate = false
+//    @State private var needAnimate = false
     @State private var scale: CGFloat = 1.0
 
     let id: String
@@ -23,7 +23,7 @@ struct SettingsCell: View, ImageProvider {
             CheckMark()
                 .opacity((viewModel.category == id || viewModel.soundTheme == id) ? 1.0 : .zero)
         }
-        .applyBackground()
+        .applyRowBackground()
         .frame(height: 40)
         .contentShape(Rectangle())
         .applyConditionalModifier(
@@ -32,8 +32,15 @@ struct SettingsCell: View, ImageProvider {
         ) {
             viewModel.applySettings(id.lowercased())
         }
-        .onAppear { needAnimate.toggle() }
-        .scaleEffect(scale)
+//		.modifier(
+//			OnTap(
+//				scale: $scale,
+//				execute: nil,
+//				completion: { viewModel.applySettings(id.lowercased()) }
+//			)
+//		)
+//        .onAppear { needAnimate.toggle() }
+//        .scaleEffect(scale)
     }
 }
 

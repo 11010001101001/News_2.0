@@ -36,12 +36,12 @@ struct SettingsList: View {
                     InfoCell(id: AdditionalInfo.appVersion.rawValue
                              +
                              AdditionalInfo.currentAppVersion)
-                    LinkCell(id: AdditionalInfo.contactUs.rawValue,
+					LinkCell(viewModel: viewModel,
+							 id: AdditionalInfo.contactUs.rawValue,
                              link: AdditionalInfo.contactLink)
                 }
             }
         }
-        .tabViewStyle(.page)
         .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
         .navigationTitle("Settings")
         .scrollIndicators(.never)

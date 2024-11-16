@@ -35,6 +35,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("News")
+			.navigationBarTitleDisplayMode(.inline)
             .sheet(item: $imageWrapper,
                    content: { content in
                 ActivityViewController(contentWrapper: content)

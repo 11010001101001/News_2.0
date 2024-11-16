@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct InfoCell: View, ImageProvider {
-    @State private var needAnimate = false
     let id: String
 
     var body: some View {
@@ -18,11 +17,9 @@ struct InfoCell: View, ImageProvider {
                 .font(.system(size: 18, weight: .regular))
             Spacer()
         }
-        .applyBackground()
+        .applyRowBackground()
         .frame(height: 40)
         .contentShape(Rectangle())
-        .onAppear { needAnimate.toggle() }
-        .symbolEffect(.bounce, value: needAnimate)
     }
 }
 

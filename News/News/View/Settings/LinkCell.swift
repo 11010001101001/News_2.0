@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LinkCell: View, ImageProvider {
+	@ObservedObject var viewModel: ViewModel
     @Environment(\.openURL) private var openURL
-    @State private var needAnimate = false
     @State private var scale: CGFloat = 1.0
 
     let id: String
@@ -22,23 +22,23 @@ struct LinkCell: View, ImageProvider {
                 .font(.system(size: 18, weight: .regular))
             Spacer()
         }
-        .applyBackground()
+        .applyRowBackground()
         .frame(height: 40)
         .contentShape(Rectangle())
         .modifier(
             OnTap(
                 scale: $scale,
-                execute: { needAnimate.toggle() },
+				execute: { viewModel.impactOccured(.light) },
                 completion: { openURL(link) }
             )
         )
-        .onAppear { needAnimate.toggle() }
-        .symbolEffect(.bounce, value: needAnimate)
-        .scaleEffect(scale)
     }
 }
 
 #Preview {
-    LinkCell(id: AdditionalInfo.contactUs.rawValue,
-             link: URL(string: "https://www.google.com")!)
+	LinkCell(
+		viewModel: ViewModel(),
+		id: AdditionalInfo.contactUs.rawValue,
+		link: URL(string: "https://www.google.com")!
+	)
 }

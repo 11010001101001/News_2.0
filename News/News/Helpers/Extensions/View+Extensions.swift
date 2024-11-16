@@ -55,7 +55,7 @@ extension View {
                        value: rotating)
     }
 
-    func applyBackground() -> some View {
+    func applyRowBackground() -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 26)
                 .fill(.rowBackground)
@@ -76,7 +76,7 @@ extension View {
     ) -> some View {
         isEnabled ?
         self.modifier(AnswerNegative(execute: execute)).any() :
-        self.modifier(OnTap(scale: scale, execute: execute)).any()
+		self.modifier(OnTap(scale: scale, execute: nil, completion: execute)).any()
     }
 }
 // swiftlint:enable large_tuple
