@@ -25,8 +25,7 @@ struct CachedAsyncImage: View {
     }
 
     var body: some View {
-        cachedAsyncImage()
-            .padding([.vertical, .horizontal])
+        cachedAsyncImage().padding([.vertical, .horizontal])
     }
 
     @ViewBuilder

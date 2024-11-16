@@ -9,48 +9,62 @@ import SwiftUI
 import Lottie
 
 struct ErrorView: View {
-    @ObservedObject var viewModel: ViewModel
-    @State private var scale = 1.0
-    var title: String?
-    var action: Action
+    @ObservedObject private var viewModel: ViewModel
+	@State private var scale: CGFloat
+	private var title: String?
+	private let action: Action
+	
+	init(
+		viewModel: ViewModel,
+		scale: Double = 1.0,
+		title: String? = nil,
+		action: Action
+	) {
+		self.viewModel = viewModel
+		self.scale = scale
+		self.title = title
+		self.action = action
+	}
 
     var body: some View {
-		VStack {
-			if let title {
-				Label(title, systemImage: "bolt.fill")
-					.labelStyle(.titleOnly)
-					.foregroundStyle(.blue)
-					.multilineTextAlignment(.center)
-					.font(.body)
-					.padding(EdgeInsets(top: .zero,
-										leading: 100,
-										bottom: .zero,
-										trailing: 100))
-			}
-			
-			LottieView(animation: .named("error"))
-				.playing(loopMode: .playOnce)
-				.shadow(color: .red, radius: 30)
-				.frame(width: 150, height: 100)
-				.ignoresSafeArea()
-				.scaledToFit()
-				.padding(.horizontal)
-				.scaleEffect(scale)
-				.onAppear {
-					withAnimation(.easeInOut(duration: 0.1)) {
-						scale = 2.1
-					} completion: {
-						withAnimation(.easeInOut(duration: 0.3)) {
-							scale = 1.0
+		VerStack(alignment: .center) {
+			Group {
+				if let title {
+					Label(title, systemImage: "bolt.fill")
+						.labelStyle(.titleOnly)
+						.foregroundStyle(.blue)
+						.multilineTextAlignment(.center)
+						.font(.headline)
+						.padding(.horizontal, Constants.padding * 2)
+				}
+				
+				LottieView(animation: .named("error"))
+					.playing(loopMode: .playOnce)
+					.shadow(color: .red, radius: 30)
+					.frame(width: 200, height: 150)
+					.ignoresSafeArea()
+					.scaledToFit()
+					.padding(.horizontal)
+					.scaleEffect(scale)
+					.onAppear {
+						withAnimation(.easeInOut(duration: 0.1)) {
+							scale = 2.1
+						} completion: {
+							withAnimation(.easeInOut(duration: 0.3)) {
+								scale = 1.0
+							}
 						}
 					}
-				}
-			
-			CustomButton(viewModel: viewModel,
-						 action: action,
-						 title: "Reload")
+				
+				CustomButton(
+					viewModel: viewModel,
+					action: action,
+					title: "Reload"
+				)
+			}
+			.padding(Constants.padding)
 		}
-		.applyRowBackground()
+		.card()
 		.ignoresSafeArea()
     }
 }

@@ -55,21 +55,17 @@ extension View {
                        value: rotating)
     }
 
-    func applyRowBackground() -> some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 26)
-                .fill(.rowBackground)
-                .padding(-15)
-
-            self
-        }
+    func card() -> some View {
+		self
+			.background(.rowBackground)
+			.clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
     }
 
     func any() -> AnyView {
         AnyView(self)
     }
 
-    func applyConditionalModifier(
+    func applyOrNotSettingsModifier(
         isEnabled: Bool,
         scale: Binding<CGFloat>,
         execute: Action
@@ -78,5 +74,34 @@ extension View {
         self.modifier(AnswerNegative(execute: execute)).any() :
 		self.modifier(OnTap(scale: scale, execute: nil, completion: execute)).any()
     }
+	
+	func markAsReadOrHighlight(
+		_ viewModel: ViewModel,
+		_ article: Article
+	) -> some View {
+		let isRead = viewModel.checkIsRead(article.key)
+		let opacity = isRead ? 0.5 : 1.0
+		let isShadowEnabled = (article.title?.lowercased() ?? .empty).contains("apple")
+		
+		return switch (isRead, isShadowEnabled) {
+		case (false, false):
+			self.any()
+		case (true, false):
+			self.opacity(opacity).any()
+		case (true, true):
+			self.opacity(opacity).any()
+		case (false, true):
+			self.modifier(Shadow(isEnabled: isShadowEnabled)).any()
+		}
+	}
+	
+	func markIsSelected(
+		_ viewModel: ViewModel,
+		_ id: String,
+		_ shadowColor: Color? = .shadowHighlight
+	) -> some View {
+		let isEnabled = viewModel.checkIsEnabled(id.lowercased())
+		return self.modifier(Shadow(isEnabled: isEnabled, color: shadowColor))
+	}
 }
 // swiftlint:enable large_tuple

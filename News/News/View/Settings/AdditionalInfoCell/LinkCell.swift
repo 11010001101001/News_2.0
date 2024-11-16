@@ -1,25 +1,30 @@
 //
-//  SettingsCell.swift
+//  LinkCell.swift
 //  News
 //
-//  Created by Ярослав Куприянов on 29.03.2024.
+//  Created by Ярослав Куприянов on 02.04.2024.
 //
 
 import SwiftUI
 
-struct SettingsCell: View, ImageProvider {
+struct LinkCell: View, ImageProvider {
 	@ObservedObject private var viewModel: ViewModel
+	@Environment(\.openURL) private var openURL
 	@State private var scale: CGFloat
+	
 	private let id: String
+	private let link: URL
 	
 	init(
 		viewModel: ViewModel,
 		scale: CGFloat = 1.0,
-		id: String
+		id: String,
+		link: URL
 	) {
 		self.viewModel = viewModel
 		self.scale = scale
 		self.id = id
+		self.link = link
 	}
 	
 	var body: some View {
@@ -33,16 +38,20 @@ struct SettingsCell: View, ImageProvider {
 		}
 		.card()
 		.frame(height: 70)
-		.applyOrNotSettingsModifier(
-			isEnabled: viewModel.checkIsEnabled(id.lowercased()),
-			scale: $scale
-		) {
-			viewModel.applySettings(id.lowercased())
-		}
-		.markIsSelected(viewModel, id)
+		.modifier(
+			OnTap(
+				scale: $scale,
+				execute: { viewModel.impactOccured(.light) },
+				completion: { openURL(link) }
+			)
+		)
 	}
 }
 
 #Preview {
-	SettingsCell(viewModel: ViewModel(), id: Category.business.rawValue)
+	LinkCell(
+		viewModel: ViewModel(),
+		id: AdditionalInfo.contactUs.rawValue,
+		link: URL(string: "https://www.google.com")!
+	)
 }

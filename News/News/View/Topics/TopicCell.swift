@@ -8,25 +8,58 @@
 import SwiftUI
 
 struct TopicCell: View {
-    let article: Article
-
-    var body: some View {
-        VStack(alignment: .leading,
-               content: {
-            Text(article.title ?? .empty)
-                .padding(.bottom)
-                .font(.headline)
-            Text(article.publishedAt?.toReadableDate() ?? .empty)
-                .font(.subheadline)
-            Text(article.source?.name ?? .empty)
-                .font(.subheadline)
-        })
-    }
+	@ObservedObject private var viewModel: ViewModel
+	private let article: Article
+	
+	init(viewModel: ViewModel, article: Article) {
+		self.viewModel = viewModel
+		self.article = article
+	}
+	
+	var body: some View {
+		Group {
+			VerStack {
+				Text(article.title ?? .empty)
+					.multilineTextAlignment(.leading)
+					.padding(.bottom)
+					.font(.headline)
+					.foregroundStyle(Color.primary)
+				Text(article.publishedAt?.toReadableDate() ?? .empty)
+					.font(.subheadline)
+					.foregroundStyle(Color.secondary)
+				Text(article.source?.name ?? .empty)
+					.font(.subheadline)
+					.foregroundStyle(Color.secondary)
+			}
+			.padding(Constants.padding)
+		}
+		.frame(maxWidth: .infinity, alignment: .leading)
+		.card()
+		.padding([.bottom, .horizontal], Constants.padding)
+		.markAsReadOrHighlight(viewModel, article)
+	}
 }
 
 #Preview {
-    TopicCell(article: Article(source: Source(id: UUID().uuidString,
-                                              name: "Source"),
-                               title: "Title",
-                               publishedAt: Date().makeTestDateString()))
+	ScrollView {
+		VerStack {
+			Spacer().frame(height: 50)
+			TopicCell(viewModel: ViewModel(),
+					  article: Article(source: Source(id: UUID().uuidString,
+													  name: "test"),
+									   title: "Very long name that will be truncated to 30 characters or less if needed to fit the screen  ",
+									   publishedAt: Date().makeTestDateString()))
+			TopicCell(viewModel: ViewModel(),
+					  article: Article(source: Source(id: UUID().uuidString,
+													  name: "test"),
+									   title: "Very long name that will be truncated to 30 characters or less if needed to fit the screen Very long name that will be truncated to 30 characters or less if needed to fit the screen",
+									   publishedAt: Date().makeTestDateString()))
+			TopicCell(viewModel: ViewModel(),
+					  article: Article(source: Source(id: UUID().uuidString,
+													  name: "test"),
+									   title: "Very long name apple",
+									   publishedAt: Date().makeTestDateString()))
+		}
+	}
+	.background(.background)
 }

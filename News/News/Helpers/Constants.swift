@@ -12,10 +12,8 @@ enum Constants {
     static let newsCount = "100"
     static let storageCapacity = 500
     static let needDropCount = 250
-    static let insets = EdgeInsets(top: 20,
-                                   leading: 20,
-                                   bottom: 20,
-                                   trailing: 20)
+	static let padding: CGFloat = 16
+	static let cornerRadius: CGFloat = 26
     static let imageHeight: CGFloat = 300
     static let topInset: CGFloat = 25
 }

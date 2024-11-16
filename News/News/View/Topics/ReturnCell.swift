@@ -9,26 +9,26 @@ import SwiftUI
 import Lottie
 
 struct ReturnCell: View {
-    let action: Action
-
-    var body: some View {
-        HStack {
-            Spacer()
-
-            Text("That's all. Return?")
-                .font(.headline)
-                .padding(.leading)
-
-            LottieButton(animation: .named("button"), action: action ?? {})
-                .frame(width: 100, height: 80)
-                .shadow(color: .white, radius: 10)
-                .padding(.trailing)
-
-            Spacer()
-        }
-    }
+	private let action: Action
+	
+	init(action: Action) {
+		self.action = action
+	}
+	
+	var body: some View {
+		HorStack {
+			Text("That's all for now.\nRead again?")
+				.font(.headline)
+				.padding(.leading)
+			
+			LottieButton(animation: .named("button"), action: action ?? {})
+				.frame(width: 100, height: 80)
+				.shadow(color: .white, radius: 7)
+				.padding(.trailing)
+		}
+	}
 }
 
 #Preview {
-    ReturnCell(action: {})
+	ReturnCell(action: {})
 }

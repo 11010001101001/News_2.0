@@ -14,7 +14,7 @@ enum AdditionalInfo: String, CaseIterable, Identifiable {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Error in recognizing appVersion"
     }
 
-    static var title: String { "Additional info" }
+    static var title: String { "Info" }
     static var tabItemImage: String { "info.circle" }
 
     static let contactLink = URL(string: "https://t.me/Yaroslav_Kupriyanov")!
