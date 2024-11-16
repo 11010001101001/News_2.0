@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct CachedAsyncImage: View {
-    let article: Article
+	private let article: Article
     @State private var rotating = false
-    @ObservedObject var viewModel: ViewModel
+    @ObservedObject private var viewModel: ViewModel
 
     private var url: String {
         article.urlToImage ?? .empty
@@ -23,10 +23,16 @@ struct CachedAsyncImage: View {
     private var cachedImage: Image? {
         viewModel.getCachedImage(key: key)
     }
-
-    var body: some View {
-        cachedAsyncImage().padding([.vertical, .horizontal])
-    }
+	
+	init(article: Article, rotating: Bool = false, viewModel: ViewModel) {
+		self.article = article
+		self.rotating = rotating
+		self.viewModel = viewModel
+	}
+	
+	var body: some View {
+		cachedAsyncImage().padding([.vertical, .horizontal])
+	}
 
     @ViewBuilder
     private func cachedAsyncImage() -> some View {

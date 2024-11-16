@@ -17,7 +17,7 @@ struct OnTap: ViewModifier {
             .scaleEffect(scale)
             .onTapGesture {
                 execute??()
-                withAnimation(.easeInOut(duration: 0.1)) {
+				withAnimation(.easeInOut(duration: .zero)) {
                     scale = 0.98
                 } completion: {
                     withAnimation(.easeInOut(duration: 0.15)) {
