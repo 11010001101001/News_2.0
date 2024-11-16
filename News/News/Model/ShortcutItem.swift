@@ -35,22 +35,18 @@ enum ShortcutItem: String {
 
     case settings
     case share
-
-    var title: String {
-        switch self {
-        case .settings:
-            return "Open settings"
-        case .share:
-            return "Share app"
-        }
-    }
-
-    var systemImageName: String {
-        switch self {
-        case .settings:
-            return "gear"
-        case .share:
-            return "square.and.arrow.up"
-        }
-    }
+	
+	var title: String {
+		switch self {
+		case .settings: "Open settings"
+		case .share: "Share app"
+		}
+	}
+	
+	var systemImageName: String {
+		switch self {
+		case .settings: "gear"
+		case .share: "square.and.arrow.up"
+		}
+	}
 }

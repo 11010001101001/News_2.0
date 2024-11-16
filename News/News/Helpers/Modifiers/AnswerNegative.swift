@@ -23,16 +23,18 @@ struct AnswerNegative: ViewModifier {
             completion: {
                 withAnimation { right.toggle() }
             completion: {
-                withAnimation(
-                    .interpolatingSpring(
-                        stiffness: 1000,
-                        damping: 5)) {
-                            execute??()
-                            initial.toggle()
-                        }
-            }
-            }
-            }
+				withAnimation(
+					.interpolatingSpring(
+						stiffness: 1000,
+						damping: 9
+					)
+				) {
+					execute??()
+					initial.toggle()
+				}
+			}
+			}
+			}
     }
 }
 

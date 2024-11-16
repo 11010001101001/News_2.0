@@ -24,7 +24,6 @@ struct ContentView: View {
         NavigationStack {
             TopicsList(viewModel: viewModel)
                 .refreshable { refresh() }
-//                .padding(.top, -Constants.topInset)
                 .scrollIndicators(.never)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -36,7 +35,6 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("News")
-//            .navigationBarTitleDisplayMode(.large)
             .sheet(item: $imageWrapper,
                    content: { content in
                 ActivityViewController(contentWrapper: content)
@@ -66,14 +64,14 @@ struct ContentView: View {
 }
 
 // MARK: - Helpers & Settings
-extension ContentView {
-    private func onAppear() {
+private extension ContentView {
+    func onAppear() {
         loadSettings()
         viewModel.loadNews()
         viewModel.configureNotifications()
     }
 
-    private func loadSettings() {
+    func loadSettings() {
         if savedSettings.isEmpty {
             let defaultSettings = [SettingsModel(category: Category.business.rawValue,
                                                  soundTheme: SoundTheme.silentMode.rawValue,
@@ -89,7 +87,7 @@ extension ContentView {
         viewModel.redrawContentViewLoader()
     }
 
-    private func refresh() {
+    func refresh() {
         viewModel.playRefresh()
         viewModel.loadNews()
     }
