@@ -12,6 +12,10 @@ struct LoaderSettingsCell: View {
     @ObservedObject private var viewModel: ViewModel
     @State private var scale: CGFloat
     private let id: String
+	
+	private var shadowColor: Color {
+		LoaderConfiguration(rawValue: id)?.shadowColor ?? .shadowHighlight
+	}
 
 	init(
 		viewModel: ViewModel,
@@ -28,8 +32,7 @@ struct LoaderSettingsCell: View {
             HorStack {
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
-                    .shadow(color: LoaderConfiguration(rawValue: id)?.shadowColor ?? .clear,
-                            radius: 20)
+                    .shadow(color: shadowColor, radius: 20)
                     .frame(width: 150, height: 100)
                     .padding(.leading, -20)
 
@@ -51,7 +54,7 @@ struct LoaderSettingsCell: View {
         ) {
             viewModel.applySettings(id.lowercased())
         }
-		.markIsSelected(viewModel, id)
+		.markIsSelected(viewModel, id, shadowColor)
     }
 }
 
