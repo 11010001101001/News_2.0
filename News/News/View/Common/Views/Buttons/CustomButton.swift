@@ -10,11 +10,11 @@ import SwiftUI
 struct CustomButton: View {
     @ObservedObject private var viewModel: ViewModel
 	@State private var scale: CGFloat = 1.0
-	
+
     private let action: Action
     private var title: String?
     private var iconName: String?
-	
+
 	init(
 		viewModel: ViewModel,
 		action: Action,

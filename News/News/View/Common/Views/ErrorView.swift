@@ -13,7 +13,7 @@ struct ErrorView: View {
 	@State private var scale: CGFloat
 	private var title: String?
 	private let action: Action
-	
+
 	init(
 		viewModel: ViewModel,
 		scale: Double = 1.0,
@@ -37,7 +37,7 @@ struct ErrorView: View {
 						.font(.headline)
 						.padding(.horizontal, Constants.padding * 2)
 				}
-				
+
 				LottieView(animation: .named("error"))
 					.playing(loopMode: .playOnce)
 					.shadow(color: .red, radius: 30)
@@ -55,7 +55,7 @@ struct ErrorView: View {
 							}
 						}
 					}
-				
+
 				CustomButton(
 					viewModel: viewModel,
 					action: action,

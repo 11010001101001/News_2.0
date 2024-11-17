@@ -12,7 +12,7 @@ public struct VerStack<Content: View>: View {
 	public let alignment: HorizontalAlignment
 	public let content: () -> Content
 	public let spacing: CGFloat?
-	
+
 	public init(
 		alignment: HorizontalAlignment = .leading,
 		spacing: CGFloat = .zero,
@@ -22,7 +22,7 @@ public struct VerStack<Content: View>: View {
 		self.content = content
 		self.spacing = spacing
 	}
-	
+
 	public var body: some View {
 		VStack(alignment: alignment, spacing: spacing) {
 			content()

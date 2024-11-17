@@ -10,19 +10,19 @@ import SwiftUI
 struct TopicsList: View {
 	@ObservedObject var viewModel: ViewModel
 	@State private var isNeedScrollToTop = false
-	
+
 	var body: some View {
 		ScrollViewReader { proxy in
 			ZStack {
 				buildTopicsList(proxy: proxy)
-				
+
 				Loader(
 					loaderName: viewModel.loader,
 					shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear
 				)
 				.opacity($viewModel.loadingSucceed.wrappedValue ? .zero : 1.0)
 				.id(viewModel.id)
-				
+
 				ErrorView(
 					viewModel: viewModel,
 					title: $viewModel.failureReason.wrappedValue,
@@ -48,7 +48,7 @@ private extension TopicsList {
 		.opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
 		.scrollIndicators(.automatic)
 	}
-	
+
 	func buildTopic() -> some View {
 		ForEach($viewModel.newsArray) { $article in
 			NavigationLink {
@@ -58,7 +58,7 @@ private extension TopicsList {
 			}
 		}
 	}
-	
+
 	/// For scrolling to `top` only
 	func buildTopView(proxy: ScrollViewProxy) -> some View {
 		EmptyView()
@@ -69,7 +69,7 @@ private extension TopicsList {
 				}
 			}
 	}
-	
+
 	func buildReturnToTopButton() -> some View {
 		ReturnCell {
 			viewModel.impactOccured(.light)

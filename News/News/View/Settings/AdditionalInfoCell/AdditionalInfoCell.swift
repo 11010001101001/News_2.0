@@ -10,11 +10,11 @@ import SwiftUI
 
 struct AdditionalInfoCell: View {
 	@ObservedObject private var viewModel: ViewModel
-	
+
 	init(viewModel: ViewModel) {
 		self.viewModel = viewModel
 	}
-	
+
 	var body: some View {
 		Group {
 			InfoCell(id: DeveloperInfo.currentAppVersion)

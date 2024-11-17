@@ -10,12 +10,12 @@ import SwiftUI
 struct TopicCell: View {
 	@ObservedObject private var viewModel: ViewModel
 	private let article: Article
-	
+
 	init(viewModel: ViewModel, article: Article) {
 		self.viewModel = viewModel
 		self.article = article
 	}
-	
+
 	var body: some View {
 		Group {
 			VerStack {
@@ -50,10 +50,13 @@ struct TopicCell: View {
 									   title: "Very long name that will be truncated to 30 characters or less if needed to fit the screen  ",
 									   publishedAt: Date().makeTestDateString()))
 			TopicCell(viewModel: ViewModel(),
-					  article: Article(source: Source(id: UUID().uuidString,
-													  name: "test"),
-									   title: "Very long name that will be truncated to 30 characters or less if needed to fit the screen Very long name that will be truncated to 30 characters or less if needed to fit the screen",
-									   publishedAt: Date().makeTestDateString()))
+					  article: Article(
+						source: Source(id: UUID().uuidString,
+									   name: "test"),
+						// long text
+						title: "Very ",
+						publishedAt: Date().makeTestDateString())
+			)
 			TopicCell(viewModel: ViewModel(),
 					  article: Article(source: Source(id: UUID().uuidString,
 													  name: "test"),

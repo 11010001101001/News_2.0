@@ -10,12 +10,12 @@ import SwiftUI
 struct SettingsCell: View, ImageProvider {
 	@ObservedObject private var viewModel: ViewModel
 	private let id: String
-	
+
 	init(viewModel: ViewModel, id: String) {
 		self.viewModel = viewModel
 		self.id = id
 	}
-	
+
 	var body: some View {
 		HorStack(spacing: Constants.padding) {
 			getImage(for: id)

@@ -23,13 +23,13 @@ struct CachedAsyncImage: View {
     private var cachedImage: Image? {
         viewModel.getCachedImage(key: key)
     }
-	
+
 	init(article: Article, rotating: Bool = false, viewModel: ViewModel) {
 		self.article = article
 		self.rotating = rotating
 		self.viewModel = viewModel
 	}
-	
+
 	var body: some View {
 		cachedAsyncImage().padding([.vertical, .horizontal])
 	}

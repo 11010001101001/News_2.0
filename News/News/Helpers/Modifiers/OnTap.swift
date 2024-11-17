@@ -9,10 +9,10 @@ import SwiftUI
 
 struct OnTap: ViewModifier {
 	@State private var scale: CGFloat = 1.0
-	
+
 	private let execute: Action?
 	private let completion: Action?
-	
+
 	init(
 		execute: Action? = nil,
 		completion: Action? = nil

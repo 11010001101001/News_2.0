@@ -73,7 +73,7 @@ extension View {
         self.modifier(AnswerNegative(execute: execute)).any() :
 		self.modifier(OnTap(execute: nil, completion: execute)).any()
     }
-	
+
 	func markAsReadOrHighlight(
 		_ viewModel: ViewModel,
 		_ article: Article
@@ -81,7 +81,7 @@ extension View {
 		let isRead = viewModel.checkIsRead(article.key)
 		let opacity = isRead ? 0.5 : 1.0
 		let isShadowEnabled = (article.title?.lowercased() ?? .empty).contains("apple")
-		
+
 		return switch (isRead, isShadowEnabled) {
 		case (false, false):
 			self.any()
@@ -93,7 +93,7 @@ extension View {
 			self.modifier(Shadow(isEnabled: isShadowEnabled)).any()
 		}
 	}
-	
+
 	func markIsSelected(
 		_ viewModel: ViewModel,
 		_ id: String,

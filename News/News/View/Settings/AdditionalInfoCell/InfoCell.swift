@@ -9,11 +9,11 @@ import SwiftUI
 
 struct InfoCell: View, ImageProvider {
 	private let id: String
-	
+
 	init(id: String) {
 		self.id = id
 	}
-	
+
 	var body: some View {
 		HorStack(spacing: Constants.padding) {
 			getImage(for: id)

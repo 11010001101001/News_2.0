@@ -12,6 +12,8 @@ struct DeveloperInfo {
 	static let shareInfo = Texts.Share.info()
 	static let contactLink = URL(string: Texts.App.telegram())!
 	static var currentAppVersion: String {
-		Texts.App.version(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Error in recognizing appVersion")
+		Texts.App.version(
+			Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Error in recognizing appVersion"
+		)
 	}
 }
