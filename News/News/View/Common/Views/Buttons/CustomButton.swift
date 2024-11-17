@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomButton: View {
     @ObservedObject private var viewModel: ViewModel
-	@State private var scale: CGFloat
+	@State private var scale: CGFloat = 1.0
 	
     private let action: Action
     private var title: String?
@@ -17,13 +17,11 @@ struct CustomButton: View {
 	
 	init(
 		viewModel: ViewModel,
-		scale: Double = 1.0,
 		action: Action,
 		title: String? = nil,
 		iconName: String? = nil
 	) {
 		self.viewModel = viewModel
-		self.scale = scale
 		self.action = action
 		self.title = title
 		self.iconName = iconName

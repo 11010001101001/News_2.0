@@ -59,7 +59,7 @@ struct ErrorView: View {
 				CustomButton(
 					viewModel: viewModel,
 					action: action,
-					title: "Reload"
+					title: Texts.Actions.reload()
 				)
 			}
 			.padding(Constants.padding)

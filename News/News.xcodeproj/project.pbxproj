@@ -542,7 +542,7 @@
 			children = (
 				C44CFCBB2BBC65E000CCAC97 /* Info.plist */,
 				C4BC8D492BB318A500A0AFC8 /* Helpers */,
-				C4BC8D362BB3079200A0AFC8 /* Model */,
+				C4BC8D362BB3079200A0AFC8 /* Models */,
 				C4BC8D342BB3074F00A0AFC8 /* View */,
 				C4BC8D352BB3075B00A0AFC8 /* ViewModel */,
 				C4BC8D102BB2FA3B00A0AFC8 /* Preview Content */,
@@ -602,24 +602,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		C4BC8D362BB3079200A0AFC8 /* Model */ = {
+		C4BC8D362BB3079200A0AFC8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C4311A542BB707E000DE9194 /* DTOs */,
-				C4BC8D432BB3180200A0AFC8 /* Mode.swift */,
-				C4BC8D452BB3181200A0AFC8 /* HttpStatusCodes.swift */,
-				C4BC8D472BB3186400A0AFC8 /* DeveloperInfo.swift */,
-				C4BC8D4C2BB3443800A0AFC8 /* Errors.swift */,
-				C433F5192BB40C2C0088A7FC /* Category.swift */,
-				C4F676E22BB570F5002F3BCE /* SoundTheme.swift */,
-				C44CFCB12BBC3F8200CCAC97 /* AdditionalInfo.swift */,
-				C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */,
-				C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */,
-				C41F1E572BC75828006C6E90 /* ShortcutItem.swift */,
-				C4956AE22C37381B00E1F100 /* CachedImage.swift */,
-				C4F827092C3CB6A600C27450 /* SettingsTip.swift */,
+				DAD6FB3D2CEA85DE00492B3C /* Errors */,
+				DAD6FB3E2CEA866C00492B3C /* Settings */,
+				DAD6FB3F2CEA86F800492B3C /* Others */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C4BC8D492BB318A500A0AFC8 /* Helpers */ = {
@@ -726,6 +717,39 @@
 				C4F8270C2C3CB6BB00C27450 /* LinkCell.swift */,
 			);
 			path = AdditionalInfoCell;
+			sourceTree = "<group>";
+		};
+		DAD6FB3D2CEA85DE00492B3C /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC8D452BB3181200A0AFC8 /* HttpStatusCodes.swift */,
+				C4BC8D4C2BB3443800A0AFC8 /* Errors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		DAD6FB3E2CEA866C00492B3C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C433F5192BB40C2C0088A7FC /* Category.swift */,
+				C4F676E22BB570F5002F3BCE /* SoundTheme.swift */,
+				C44CFCB12BBC3F8200CCAC97 /* AdditionalInfo.swift */,
+				C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DAD6FB3F2CEA86F800492B3C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC8D472BB3186400A0AFC8 /* DeveloperInfo.swift */,
+				C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */,
+				C4BC8D432BB3180200A0AFC8 /* Mode.swift */,
+				C41F1E572BC75828006C6E90 /* ShortcutItem.swift */,
+				C4956AE22C37381B00E1F100 /* CachedImage.swift */,
+				C4F827092C3CB6A600C27450 /* SettingsTip.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

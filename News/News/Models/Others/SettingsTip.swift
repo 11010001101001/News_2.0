@@ -10,11 +10,11 @@ import TipKit
 
 struct SettingsTip: Tip {
     var title: Text {
-        Text("Tip")
+		Text(Texts.Tip.Settings.title())
     }
 
     var message: Text? {
-        Text("Configure category, loader and sound theme 🦥")
+		Text(Texts.Tip.Settings.message())
     }
 
     var image: Image? {

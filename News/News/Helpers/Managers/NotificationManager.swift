@@ -37,8 +37,8 @@ final class NotificationManager {
                 guard error == nil, granted else { return }
 
                 let content = UNMutableNotificationContent()
-                content.title = "Mmmmm nice-ey"
-                content.body = "News carriage arrived, unload please 🦥"
+				content.title = Texts.Notification.title()
+				content.body = Texts.Notification.body()
                 content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "\(sound).mp3"))
 
                 var dateComponents = DateComponents()

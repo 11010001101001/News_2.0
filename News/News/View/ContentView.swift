@@ -34,7 +34,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("News")
+			.navigationTitle(Texts.Screen.Main.title())
 			.navigationBarTitleDisplayMode(.inline)
             .sheet(item: $imageWrapper,
                    content: { content in
@@ -49,7 +49,7 @@ struct ContentView: View {
         .onAppear { onAppear() }
         .onReceive(viewModel.$shareShortcutItemTapped) { needShare in
             guard needShare else { return }
-            self.imageWrapper = ContentWrapper(link: .empty, description: DeveloperInfo.shareInfo.rawValue)
+            self.imageWrapper = ContentWrapper(link: .empty, description: DeveloperInfo.shareInfo)
         }
         .onReceive(viewModel.$settingsShortcutItemTapped) { needOpen in
             guard needOpen else { return }

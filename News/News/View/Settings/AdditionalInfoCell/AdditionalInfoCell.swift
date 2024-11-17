@@ -17,12 +17,10 @@ struct AdditionalInfoCell: View {
 	
 	var body: some View {
 		Group {
-			InfoCell(id: AdditionalInfo.appVersion.rawValue
-					 +
-					 AdditionalInfo.currentAppVersion)
+			InfoCell(id: DeveloperInfo.currentAppVersion)
 			LinkCell(viewModel: viewModel,
-					 id: AdditionalInfo.contactUs.rawValue,
-					 link: AdditionalInfo.contactLink)
+					 id: Texts.App.contactUs(),
+					 link: DeveloperInfo.contactLink)
 		}
 	}
 }

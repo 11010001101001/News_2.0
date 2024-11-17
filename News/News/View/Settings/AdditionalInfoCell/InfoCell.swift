@@ -29,5 +29,5 @@ struct InfoCell: View, ImageProvider {
 }
 
 #Preview {
-	InfoCell(id: AdditionalInfo.appVersion.rawValue)
+	InfoCell(id: DeveloperInfo.currentAppVersion)
 }

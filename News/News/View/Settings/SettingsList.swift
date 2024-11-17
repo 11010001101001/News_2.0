@@ -52,7 +52,7 @@ struct SettingsList: View {
 			}
 		}
 		.indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-		.navigationTitle("Settings")
+		.navigationTitle(Texts.Screen.Settings.title())
 		.scrollIndicators(.automatic)
 	}
 }

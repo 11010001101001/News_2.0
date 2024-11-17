@@ -47,7 +47,7 @@ struct LinkCell: View, ImageProvider {
 #Preview {
 	LinkCell(
 		viewModel: ViewModel(),
-		id: AdditionalInfo.contactUs.rawValue,
+		id: Texts.App.contactUs(),
 		link: URL(string: "https://www.google.com")!
 	)
 }
