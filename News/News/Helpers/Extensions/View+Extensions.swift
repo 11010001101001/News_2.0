@@ -67,12 +67,11 @@ extension View {
 
     func applyOrNotSettingsModifier(
         isEnabled: Bool,
-        scale: Binding<CGFloat>,
         execute: Action
     ) -> some View {
         isEnabled ?
         self.modifier(AnswerNegative(execute: execute)).any() :
-		self.modifier(OnTap(scale: scale, execute: nil, completion: execute)).any()
+		self.modifier(OnTap(execute: nil, completion: execute)).any()
     }
 	
 	func markAsReadOrHighlight(

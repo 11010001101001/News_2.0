@@ -8,16 +8,25 @@
 import SwiftUI
 
 struct OnTap: ViewModifier {
-    @Binding var scale: CGFloat
-    var execute: Action?
-    var completion: Action?
+	@State private var scale: CGFloat = 1.0
+	
+	private let execute: Action?
+	private let completion: Action?
+	
+	init(
+		execute: Action? = nil,
+		completion: Action? = nil
+	) {
+		self.execute = execute
+		self.completion = completion
+	}
 
     func body(content: Content) -> some View {
         content
             .scaleEffect(scale)
             .onTapGesture {
                 execute??()
-				withAnimation(.easeInOut(duration: .zero)) {
+				withAnimation(.easeInOut(duration: .leastNonzeroMagnitude)) {
                     scale = 0.98
                 } completion: {
                     withAnimation(.easeInOut(duration: 0.15)) {

@@ -34,7 +34,7 @@ extension ImageProvider {
             "powersleep"
         case SoundTheme.cats.rawValue:
             "cat.fill"
-        case AdditionalInfo.contactUs.rawValue:
+        case Texts.App.contactUs():
             "ellipsis.message"
         default:
             "info.circle.fill"

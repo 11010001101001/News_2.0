@@ -29,7 +29,7 @@ struct ShareButton: View {
 			action: {
 				self.imageWrapper = ContentWrapper(
 					link: URL(string: data.article.url ?? .empty)?.absoluteString ?? .empty,
-					description: DeveloperInfo.shareInfo.rawValue)
+					description: DeveloperInfo.shareInfo)
 			},
 			title: data.title,
 			iconName: data.iconName

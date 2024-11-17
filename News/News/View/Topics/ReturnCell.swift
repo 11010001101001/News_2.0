@@ -17,7 +17,7 @@ struct ReturnCell: View {
 	
 	var body: some View {
 		HorStack {
-			Text("That's all for now.\nRead again?")
+			Text(Texts.Actions.Return.message())
 				.font(.headline)
 				.padding(.leading)
 			

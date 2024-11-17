@@ -17,9 +17,9 @@ extension ViewModel {
             let mode: Mode = keyWord == nil ? .category(category) : .keyword(keyWord ?? .empty)
             return switch mode {
             case .keyword(let keyword):
-                "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey.rawValue)"
+                "https://newsapi.org/v2/everything?q=\(keyword)&pageSize=\(Constants.newsCount)&language=ru&apiKey=\(DeveloperInfo.apiKey)"
             case .category(let category):
-                "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey.rawValue)"
+                "https://newsapi.org/v2/top-headlines?country=us&category=\(category)&pageSize=\(Constants.newsCount)&apiKey=\(DeveloperInfo.apiKey)"
             }
         }
         // swiftlint:enable line_length
@@ -34,12 +34,12 @@ extension ViewModel {
                     return filtered ?? []
                 }
                 .mapError { _ in
-                    ApiError.mappingError(msg: Errors.mappingError.rawValue)
+                    ApiError.mappingError(msg: Errors.mappingError)
                 }
                 .receive(on: RunLoop.main)
                 .eraseToAnyPublisher()
         } else {
-            return Fail(error: ApiError.invalidRequest(msg: Errors.invalidUrl.rawValue))
+            return Fail(error: ApiError.invalidRequest(msg: Errors.invalidUrl))
                 .eraseToAnyPublisher()
         }
     }
@@ -76,18 +76,18 @@ extension ViewModel {
 
     func handleResponse(_ response: HTTPURLResponse?) throws {
         guard let response else {
-            throw ApiError.mappingError(msg: Errors.responseError.rawValue)
+            throw ApiError.mappingError(msg: Errors.responseError)
         }
 
         switch response.statusCode {
         case HttpStatusCodes.tooManyRequests.rawValue:
-            throw ApiError.tooManyRequests(msg: Errors.tooManyRequests.rawValue)
+            throw ApiError.tooManyRequests(msg: Errors.tooManyRequests)
         case HttpStatusCodes.internalServerError.rawValue:
-            throw ApiError.internalServerError(msg: Errors.serverError.rawValue)
+            throw ApiError.internalServerError(msg: Errors.serverError)
         case HttpStatusCodes.notFound.rawValue:
-            throw ApiError.notFound(msg: Errors.unauthorized.rawValue)
+            throw ApiError.notFound(msg: Errors.unauthorized)
         case HttpStatusCodes.badRequest.rawValue:
-            throw ApiError.badRequest(msg: Errors.badRequest.rawValue)
+            throw ApiError.badRequest(msg: Errors.badRequest)
         default:
             break
         }

@@ -10,19 +10,16 @@ import SwiftUI
 struct LinkCell: View, ImageProvider {
 	@ObservedObject private var viewModel: ViewModel
 	@Environment(\.openURL) private var openURL
-	@State private var scale: CGFloat
 	
 	private let id: String
 	private let link: URL
 	
 	init(
 		viewModel: ViewModel,
-		scale: CGFloat = 1.0,
 		id: String,
 		link: URL
 	) {
 		self.viewModel = viewModel
-		self.scale = scale
 		self.id = id
 		self.link = link
 	}
@@ -40,7 +37,6 @@ struct LinkCell: View, ImageProvider {
 		.frame(height: 70)
 		.modifier(
 			OnTap(
-				scale: $scale,
 				execute: { viewModel.impactOccured(.light) },
 				completion: { openURL(link) }
 			)
@@ -51,7 +47,7 @@ struct LinkCell: View, ImageProvider {
 #Preview {
 	LinkCell(
 		viewModel: ViewModel(),
-		id: AdditionalInfo.contactUs.rawValue,
+		id: Texts.App.contactUs(),
 		link: URL(string: "https://www.google.com")!
 	)
 }

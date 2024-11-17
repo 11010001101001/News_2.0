@@ -1,0 +1,27 @@
+// swiftlint:disable all
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
+
+{% if catalogs.count > 0 %}
+{% set accessModifier %}{% if param.publicAccess %}public{% else %}public{% endif %}{% endset %}
+import UIKit
+
+{{accessModifier}} extension UIImage {
+{% macro parseAssets catalog %}
+{% for asset in catalog.assets %}
+			{% if asset.items.count > 0 %}
+
+	enum {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}} {
+			{% for item in asset.items %}
+		{{accessModifier}} static var {{item.name|swiftIdentifier:"pretty"|escapeReservedKeywords|lowerFirstWord}} = UIImage(named: "{{item.name|swiftIdentifier:"pretty"|escapeReservedKeywords}}.imageset", in: .module, with: .none)!
+			{% endfor %}
+	}
+			{% else %}
+	{{accessModifier}} static var {{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords|lowerFirstWord}} = UIImage(named: "{{asset.name|swiftIdentifier:"pretty"|escapeReservedKeywords}}.imageset", in: .module, with: .none)!
+			{% endif %}
+{% endfor %}
+{% endmacro %}
+{% call parseAssets catalogs.first %}
+{% endif %}
+
+}
+// swiftlint:enable all

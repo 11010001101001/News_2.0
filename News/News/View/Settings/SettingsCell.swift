@@ -9,16 +9,10 @@ import SwiftUI
 
 struct SettingsCell: View, ImageProvider {
 	@ObservedObject private var viewModel: ViewModel
-	@State private var scale: CGFloat
 	private let id: String
 	
-	init(
-		viewModel: ViewModel,
-		scale: CGFloat = 1.0,
-		id: String
-	) {
+	init(viewModel: ViewModel, id: String) {
 		self.viewModel = viewModel
-		self.scale = scale
 		self.id = id
 	}
 	
@@ -34,8 +28,7 @@ struct SettingsCell: View, ImageProvider {
 		.card()
 		.frame(height: 70)
 		.applyOrNotSettingsModifier(
-			isEnabled: viewModel.checkIsEnabled(id.lowercased()),
-			scale: $scale
+			isEnabled: viewModel.checkIsEnabled(id.lowercased())
 		) {
 			viewModel.applySettings(id.lowercased())
 		}

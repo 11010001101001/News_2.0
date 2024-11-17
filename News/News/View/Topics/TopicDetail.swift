@@ -29,7 +29,7 @@ struct TopicDetail: View {
 				Spacer()
 			}
 		}
-		.navigationTitle("Details")
+		.navigationTitle(Texts.Screen.Details.title())
 	}
 }
 
@@ -48,18 +48,18 @@ private extension TopicDetail {
 	}
 	
 	var description: some View {
-		Text(article.description ?? "Loading...")
+		Text(article.description ?? Texts.State.loading())
 	}
 	
 	var buttons: some View {
 		HorStack(spacing: Constants.padding / 2) {
 			ShareButton(viewModel: viewModel,
 						data: ButtonMetaData(article: article,
-											 title: "Share",
+											 title: Texts.Actions.share(),
 											 iconName: "square.and.arrow.up"))
 			OpenWebViewButton(viewModel: viewModel,
 							  data: ButtonMetaData(article: article,
-												   title: "Open",
+												   title: Texts.Actions.open(),
 												   iconName: "link"))
 			Spacer()
 		}
