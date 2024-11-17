@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct AnswerNegative: ViewModifier {
-    @State private var left = false
-    @State private var right = false
-    @State private var initial = false
-    var execute: Action?
+	@State private var left = false
+	@State private var right = false
+	@State private var initial = false
+	
+    private let execute: Action
+	
+	init(execute: Action) {
+		self.execute = execute
+	}
 
     func body(content: Content) -> some View {
         content
@@ -26,10 +31,10 @@ struct AnswerNegative: ViewModifier {
 				withAnimation(
 					.interpolatingSpring(
 						stiffness: 1000,
-						damping: 9
+						damping: 6
 					)
 				) {
-					execute??()
+					execute?()
 					initial.toggle()
 				}
 			}
@@ -41,5 +46,5 @@ struct AnswerNegative: ViewModifier {
 #Preview {
     Circle()
         .frame(width: 100, height: 100, alignment: .center)
-        .modifier(AnswerNegative())
+		.modifier(AnswerNegative(execute: {}))
 }

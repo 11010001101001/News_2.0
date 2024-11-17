@@ -10,7 +10,6 @@ import SwiftUI
 struct TopicsList: View {
 	@ObservedObject var viewModel: ViewModel
 	@State private var isNeedScrollToTop = false
-	@State private var animateBackgroundGradient = false
 	
 	var body: some View {
 		ScrollViewReader { proxy in
@@ -30,11 +29,6 @@ struct TopicsList: View {
 					action: { viewModel.loadNews() }
 				)
 				.opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
-			}
-		}
-		.onAppear {
-			withAnimation(.linear(duration: 30).repeatForever(autoreverses: true)) {
-				animateBackgroundGradient = true
 			}
 		}
 	}
