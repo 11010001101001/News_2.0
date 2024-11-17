@@ -114,6 +114,8 @@
 		C4F8270E2C3CB6BB00C27450 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F8270C2C3CB6BB00C27450 /* LinkCell.swift */; };
 		DA5FDE622C7793D8002CD19B /* AnswerNegative.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */; };
 		DA5FDE632C7793D8002CD19B /* OnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FDE612C7793D8002CD19B /* OnTap.swift */; };
+		DA7A0C282CEA6F240061D585 /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA7A0C262CEA6F240061D585 /* Strings.strings */; };
+		DA7A0C302CEA7B0F0061D585 /* GeneratedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A0C2F2CEA7B0F0061D585 /* GeneratedStrings.swift */; };
 		DA8888D12CE8A6770036B198 /* VerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D02CE8A6770036B198 /* VerStack.swift */; };
 		DA8888D52CE8A7210036B198 /* HorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D42CE8A7210036B198 /* HorStack.swift */; };
 		DA8888D72CE8B7100036B198 /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D62CE8B7100036B198 /* Shadow.swift */; };
@@ -258,6 +260,8 @@
 		C4F8270C2C3CB6BB00C27450 /* LinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerNegative.swift; sourceTree = "<group>"; };
 		DA5FDE612C7793D8002CD19B /* OnTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTap.swift; sourceTree = "<group>"; };
+		DA7A0C272CEA6F240061D585 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Strings.strings; sourceTree = "<group>"; };
+		DA7A0C2F2CEA7B0F0061D585 /* GeneratedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedStrings.swift; sourceTree = "<group>"; };
 		DA8888D02CE8A6770036B198 /* VerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerStack.swift; sourceTree = "<group>"; };
 		DA8888D42CE8A7210036B198 /* HorStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorStack.swift; sourceTree = "<group>"; };
 		DA8888D62CE8B7100036B198 /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
@@ -621,7 +625,6 @@
 		C4BC8D492BB318A500A0AFC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C4A65E602BB76F47002E3F39 /* Sounds */,
 				C4F676DF2BB56B7A002F3BCE /* Schema */,
 				C4F676E02BB56B90002F3BCE /* Extensions */,
 				C4F676E12BB56CAB002F3BCE /* Managers */,
@@ -630,7 +633,7 @@
 				C45734AE2BBCFDD8005CA143 /* Wrappers */,
 				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
 				C490ED642BC6027C00AE977C /* Constants.swift */,
-				C4BC8D0E2BB2FA3B00A0AFC8 /* Assets.xcassets */,
+				DA7A0C2C2CEA7A080061D585 /* Sources */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -688,6 +691,33 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		DA7A0C2C2CEA7A080061D585 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DA7A0C2D2CEA7A170061D585 /* Strings */,
+				DA7A0C2E2CEA7A200061D585 /* Assets */,
+				C4A65E602BB76F47002E3F39 /* Sounds */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DA7A0C2D2CEA7A170061D585 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				DA7A0C262CEA6F240061D585 /* Strings.strings */,
+				DA7A0C2F2CEA7B0F0061D585 /* GeneratedStrings.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		DA7A0C2E2CEA7A200061D585 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C4BC8D0E2BB2FA3B00A0AFC8 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		DAC06D2C2CE8DA8B00337E32 /* AdditionalInfoCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -722,6 +752,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4BC8D2B2BB2FA3B00A0AFC8 /* Build configuration list for PBXNativeTarget "News" */;
 			buildPhases = (
+				DA7A0C2B2CEA743F0061D585 /* SwiftGen script */,
 				C4BC8D012BB2FA3900A0AFC8 /* Sources */,
 				C4BC8D022BB2FA3900A0AFC8 /* Frameworks */,
 				C4BC8D032BB2FA3900A0AFC8 /* Resources */,
@@ -784,7 +815,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					C49C5FAB2BBF576400554218 = {
 						CreatedOnToolsVersion = 15.2;
@@ -853,6 +884,7 @@
 				C4A65E882BB8A970002E3F39 /* cats_error.mp3 in Resources */,
 				C47BBB612BBECE15009CBE8A /* hamster.json in Resources */,
 				C47BBB5C2BBE4302009CBE8A /* rocket.json in Resources */,
+				DA7A0C282CEA6F240061D585 /* Strings.strings in Resources */,
 				C4A65E672BB78B90002E3F39 /* starwars_refresh.mp3 in Resources */,
 				C4A65E7D2BB8A202002E3F39 /* starwars_loaded.mp3 in Resources */,
 				C4A65E682BB78B90002E3F39 /* starwars_refresh2.mp3 in Resources */,
@@ -877,6 +909,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DA7A0C2B2CEA743F0061D585 /* SwiftGen script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftGen script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftgen >/dev/null; then\n  swiftgen\nelse\n  echo \"error: SwiftGen not installed, download from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C49C5FA82BBF576400554218 /* Sources */ = {
@@ -920,6 +974,7 @@
 				C4AA48E82BC597C600D45D3F /* NotificationManager.swift in Sources */,
 				C4BC8D532BB35C9900A0AFC8 /* ErrorView.swift in Sources */,
 				DAC06D2B2CE8DA3E00337E32 /* AdditionalInfoCell.swift in Sources */,
+				DA7A0C302CEA7B0F0061D585 /* GeneratedStrings.swift in Sources */,
 				C4F676E32BB570F5002F3BCE /* SoundTheme.swift in Sources */,
 				C4BC8D3A2BB308A500A0AFC8 /* Articles.swift in Sources */,
 				C4BC8D512BB34D0E00A0AFC8 /* TopicCell.swift in Sources */,
@@ -1014,6 +1069,17 @@
 			targetProxy = C4BC8D222BB2FA3B00A0AFC8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA7A0C262CEA6F240061D585 /* Strings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA7A0C272CEA6F240061D585 /* en */,
+			);
+			name = Strings.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C49C5FC22BBF576600554218 /* Debug */ = {
@@ -1196,7 +1262,6 @@
 		C4BC8D2C2BB2FA3B00A0AFC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1228,7 +1293,6 @@
 		C4BC8D2D2BB2FA3B00A0AFC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1260,7 +1324,6 @@
 		C4BC8D2F2BB2FA3B00A0AFC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1280,7 +1343,6 @@
 		C4BC8D302BB2FA3B00A0AFC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1300,7 +1362,6 @@
 		C4BC8D322BB2FA3B00A0AFC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
@@ -1318,7 +1379,6 @@
 		C4BC8D332BB2FA3B00A0AFC8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62XGY8QWW9;
