@@ -12,7 +12,7 @@ struct ShareButton: View {
 	@ObservedObject private var viewModel: ViewModel
 	@State private var imageWrapper: ContentWrapper?
 	private let data: ButtonMetaData
-	
+
 	init(
 		viewModel: ViewModel,
 		imageWrapper: ContentWrapper? = nil,
@@ -22,7 +22,7 @@ struct ShareButton: View {
 		self.imageWrapper = imageWrapper
 		self.data = data
 	}
-	
+
 	var body: some View {
 		CustomButton(
 			viewModel: viewModel,
@@ -34,7 +34,7 @@ struct ShareButton: View {
 			title: data.title,
 			iconName: data.iconName
 		)
-		
+
 		.sheet(
 			item: $imageWrapper,
 			content: { content in

@@ -10,10 +10,10 @@ import SwiftUI
 struct LinkCell: View, ImageProvider {
 	@ObservedObject private var viewModel: ViewModel
 	@Environment(\.openURL) private var openURL
-	
+
 	private let id: String
 	private let link: URL
-	
+
 	init(
 		viewModel: ViewModel,
 		id: String,
@@ -23,7 +23,7 @@ struct LinkCell: View, ImageProvider {
 		self.id = id
 		self.link = link
 	}
-	
+
 	var body: some View {
 		HorStack(spacing: Constants.padding) {
 			getImage(for: id)

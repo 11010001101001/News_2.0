@@ -11,12 +11,12 @@ import UIKit
 struct TopicDetail: View {
 	@ObservedObject private var viewModel: ViewModel
 	private let article: Article
-	
+
 	init(viewModel: ViewModel, article: Article) {
 		self.viewModel = viewModel
 		self.article = article
 	}
-	
+
 	var body: some View {
 		ZStack {
 			VerStack(alignment: .center) {
@@ -46,11 +46,11 @@ private extension TopicDetail {
 		.frame(height: CGFloat.screenHeight / 2)
 		.card()
 	}
-	
+
 	var description: some View {
 		Text(article.description ?? Texts.State.loading())
 	}
-	
+
 	var buttons: some View {
 		HorStack(spacing: Constants.padding / 2) {
 			ShareButton(viewModel: viewModel,

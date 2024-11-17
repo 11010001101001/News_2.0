@@ -12,7 +12,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 		super.init()
 		setURLCacheMemoryCapacity()
 	}
-	
+
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
                      options: UIScene.ConnectionOptions) -> UISceneConfiguration {

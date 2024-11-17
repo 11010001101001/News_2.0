@@ -11,7 +11,7 @@ struct OpenLinkButton: View {
 	@Environment(\.openURL) private var openURL
 	@ObservedObject private var viewModel: ViewModel
 	private let data: ButtonMetaData
-	
+
 	init(
 		viewModel: ViewModel,
 		data: ButtonMetaData
@@ -19,7 +19,7 @@ struct OpenLinkButton: View {
 		self.viewModel = viewModel
 		self.data = data
 	}
-	
+
 	var body: some View {
 		CustomButton(
 			viewModel: viewModel,
@@ -28,7 +28,7 @@ struct OpenLinkButton: View {
 			iconName: data.iconName
 		)
 	}
-	
+
 	private var openLinkAction: Action {
 		{
 			if let url = URL(string: data.article.url ?? .empty) {

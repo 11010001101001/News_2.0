@@ -10,11 +10,11 @@ import Lottie
 
 struct SettingsList: View {
 	@ObservedObject private var viewModel: ViewModel
-	
+
 	init(viewModel: ViewModel) {
 		self.viewModel = viewModel
 	}
-	
+
 	var body: some View {
 		TabView {
 			buildTabItem(
@@ -25,7 +25,7 @@ struct SettingsList: View {
 					LoaderSettingsCell(viewModel: viewModel, id: loader.rawValue)
 				}
 			}
-			
+
 			buildTabItem(
 				title: Category.title,
 				imageName: Category.tabItemImage
@@ -34,7 +34,7 @@ struct SettingsList: View {
 					SettingsCell(viewModel: viewModel, id: category.rawValue)
 				}
 			}
-			
+
 			buildTabItem(
 				title: SoundTheme.title,
 				imageName: SoundTheme.tabItemImage
@@ -43,7 +43,7 @@ struct SettingsList: View {
 					SettingsCell(viewModel: viewModel, id: theme.rawValue)
 				}
 			}
-			
+
 			buildTabItem(
 				title: AdditionalInfo.title,
 				imageName: AdditionalInfo.tabItemImage

@@ -12,7 +12,7 @@ public struct HorStack<Content: View>: View {
 	public let alignment: VerticalAlignment
 	public let content: () -> Content
 	public let spacing: CGFloat?
-	
+
 	public init(
 		alignment: VerticalAlignment = .center,
 		spacing: CGFloat = .zero,
@@ -22,7 +22,7 @@ public struct HorStack<Content: View>: View {
 		self.content = content
 		self.spacing = spacing
 	}
-	
+
 	public var body: some View {
 		HStack(alignment: alignment, spacing: spacing) {
 			content()

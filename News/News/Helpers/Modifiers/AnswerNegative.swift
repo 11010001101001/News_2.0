@@ -11,9 +11,9 @@ struct AnswerNegative: ViewModifier {
 	@State private var left = false
 	@State private var right = false
 	@State private var initial = false
-	
+
     private let execute: Action
-	
+
 	init(execute: Action) {
 		self.execute = execute
 	}

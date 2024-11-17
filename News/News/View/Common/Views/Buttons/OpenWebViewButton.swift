@@ -11,16 +11,17 @@ struct OpenWebViewButton: View {
 	@ObservedObject private var viewModel: ViewModel
 	@State private var webViewPresented: Bool
 	private let data: ButtonMetaData
-	
-	init(viewModel: ViewModel,
-		 webViewPresented: Bool = false,
-		 data: ButtonMetaData
+
+	init(
+		viewModel: ViewModel,
+		webViewPresented: Bool = false,
+		data: ButtonMetaData
 	) {
 		self.viewModel = viewModel
 		self.webViewPresented = webViewPresented
 		self.data = data
 	}
-	
+
 	var body: some View {
 		CustomButton(
 			viewModel: viewModel,

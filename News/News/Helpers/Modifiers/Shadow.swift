@@ -11,7 +11,7 @@ import SwiftUI
 struct Shadow: ViewModifier {
 	private let isEnabled: Bool
 	private let color: Color?
-	
+
 	init(
 		isEnabled: Bool,
 		color: Color? = nil

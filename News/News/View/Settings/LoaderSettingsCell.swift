@@ -11,7 +11,7 @@ import Lottie
 struct LoaderSettingsCell: View {
     @ObservedObject private var viewModel: ViewModel
     private let id: String
-	
+
 	private var shadowColor: Color {
 		LoaderConfiguration(rawValue: id)?.shadowColor ?? .shadowHighlight
 	}
@@ -20,7 +20,7 @@ struct LoaderSettingsCell: View {
 		self.viewModel = viewModel
 		self.id = id
 	}
-	
+
     var body: some View {
         ZStack {
             HorStack {
@@ -37,7 +37,7 @@ struct LoaderSettingsCell: View {
                 Text(id.capitalizingFirstLetter())
                     .font(.system(size: 18, weight: .regular))
                     .padding(.leading, 100)
-				
+
                 Spacer()
             }
         }
