@@ -11,12 +11,12 @@
 - TipKit ✅
 - AsyncCachedImage ✅
 - Generated strings ✅
-- Metal shaders 🚫
-- Siri kit 🚫
-- Tests 🚫
-- CI/CD 🚫
-- Инструменты 🚫
-- ... 🚫
+- Metal shaders ⏳
+- Siri kit ⏳
+- Tests ⏳
+- CI/CD ⏳
+- Инструменты ⏳
+- ... ⏳
 
 👀 Quick peek
 
