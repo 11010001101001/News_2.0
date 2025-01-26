@@ -88,6 +88,13 @@ public enum Texts {
     public static func undefinedError() -> String { Texts.tr("Strings", "errors.undefinedError", fallback: "undefinedError")
     }
   }
+  public enum Loading {
+    public enum State {
+      /// ok
+      public static func ok() -> String { Texts.tr("Strings", "loading.state.ok", fallback: "ok")
+      }
+    }
+  }
   public enum Notification {
     /// News carriage arrived, unload please 🦥
     public static func body() -> String { Texts.tr("Strings", "notification.body", fallback: "News carriage arrived, unload please 🦥")
