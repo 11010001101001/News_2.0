@@ -10,18 +10,15 @@ import Lottie
 
 struct ErrorView: View {
     @ObservedObject private var viewModel: ViewModel
-	@State private var scale: CGFloat
 	private var title: String?
 	private let action: Action
 
 	init(
 		viewModel: ViewModel,
-		scale: Double = 1.0,
 		title: String? = nil,
 		action: Action
 	) {
 		self.viewModel = viewModel
-		self.scale = scale
 		self.title = title
 		self.action = action
 	}
@@ -38,23 +35,12 @@ struct ErrorView: View {
 						.padding(.horizontal, Constants.padding * 2)
 				}
 
-				LottieView(animation: .named("error"))
-					.playing(loopMode: .playOnce)
-					.shadow(color: .red, radius: 30)
-					.frame(width: 200, height: 150)
-					.ignoresSafeArea()
-					.scaledToFit()
+				Image(uiImage: .errorCat)
+					.resizable()
+					.frame(width: 150, height: 150)
+					.scaledToFill()
 					.padding(.horizontal)
-					.scaleEffect(scale)
-					.onAppear {
-						withAnimation(.easeInOut(duration: 0.1)) {
-							scale = 2.1
-						} completion: {
-							withAnimation(.easeInOut(duration: 0.3)) {
-								scale = 1.0
-							}
-						}
-					}
+					.shadow(color: .shadowHighlight, radius: 10)
 
 				CustomButton(
 					viewModel: viewModel,

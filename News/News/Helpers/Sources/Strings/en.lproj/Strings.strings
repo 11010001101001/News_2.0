@@ -21,6 +21,7 @@
 "errors.invalidUrl" = "invalidUrl";
 "errors.responseError" = "responseError";
 "errors.undefinedError" = "undefinedError";
+"loading.state.ok" = "ok";
 
 "app.version" = "app version: %@";
 "app.contactUs" = "contact us";
