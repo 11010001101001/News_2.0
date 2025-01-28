@@ -73,8 +73,10 @@ private extension TopicsList {
 	func buildReturnToTopButton() -> some View {
 		ReturnCell {
 			viewModel.impactOccured(.light)
-			DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
-										  execute: { isNeedScrollToTop.toggle() })
+			DispatchQueue.main.asyncAfter(
+				deadline: .now() + 1.5,
+				execute: { isNeedScrollToTop.toggle() }
+			)
 		}
 	}
 }
