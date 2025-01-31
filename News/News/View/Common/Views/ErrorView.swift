@@ -9,7 +9,7 @@ import SwiftUI
 import Lottie
 
 struct ErrorView: View {
-    @ObservedObject private var viewModel: ViewModel
+	@ObservedObject private var viewModel: ViewModel
 	private var title: String?
 	private let action: Action
 
@@ -23,44 +23,57 @@ struct ErrorView: View {
 		self.action = action
 	}
 
-    var body: some View {
+	var body: some View {
 		VerStack(alignment: .center) {
 			Group {
-				if let title {
-					Label(title, systemImage: "bolt.fill")
-						.labelStyle(.titleOnly)
-						.foregroundStyle(.blue)
-						.multilineTextAlignment(.center)
-						.font(.headline)
-						.padding(.horizontal, Constants.padding * 2)
-				}
-
-				Image(uiImage: .errorCat)
-					.resizable()
-					.frame(width: 150, height: 150)
-					.scaledToFill()
-					.padding(.horizontal)
-					.shadow(color: .shadowHighlight, radius: 10)
-
-				CustomButton(
-					viewModel: viewModel,
-					action: action,
-					title: Texts.Actions.reload()
-				)
+				errorTitle
+				errorImage
+				reloadButton
 			}
 			.padding(Constants.padding)
 		}
 		.card()
 		.ignoresSafeArea()
-    }
+	}
+}
+
+// MARK: - Private
+private extension ErrorView {
+	var errorTitle: some View {
+		ConditionalView(title != nil) {
+			Label(title ?? .empty, systemImage: "bolt.fill")
+				.labelStyle(.titleOnly)
+				.foregroundStyle(.blue)
+				.multilineTextAlignment(.center)
+				.font(.headline)
+				.padding(.horizontal, Constants.padding * 2)
+		}
+	}
+
+	var errorImage: some View {
+		Image(uiImage: .errorCat)
+			.resizable()
+			.frame(width: 150, height: 150)
+			.scaledToFill()
+			.padding(.horizontal)
+			.shadow(color: .shadowHighlight, radius: 10)
+	}
+
+	var reloadButton: some View {
+		CustomButton(
+			viewModel: viewModel,
+			action: action,
+			title: Texts.Actions.reload()
+		)
+	}
 }
 
 #if DEBUG
 #Preview {
-    ErrorView(viewModel: ViewModel(),
-              title: "Time - out\nerror\n\nServer problem or internet connection broken",
-              action: {
-        print("Button pressed")
-    })
+	ErrorView(viewModel: ViewModel(),
+			  title: "Time - out\nerror\n\nServer problem or internet connection broken",
+			  action: {
+		print("Button pressed")
+	})
 }
 #endif

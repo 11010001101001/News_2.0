@@ -37,16 +37,18 @@ struct TopicsList: View {
 // MARK: - Private
 private extension TopicsList {
 	func buildTopicsList(proxy: ScrollViewProxy) -> some View {
-		ScrollView {
-			VerStack {
-				buildTopView(proxy: proxy)
-				buildTopic()
-				buildReturnToTopButton()
-			}
-			.padding(.top, Constants.padding)
-		}
+		CustomScrollView(
+			content: {
+				VerStack {
+					buildTopView(proxy: proxy)
+					buildTopic()
+					buildReturnToTopButton()
+				}
+				.padding(.top, Constants.padding)
+			},
+			viewModel: viewModel
+		)
 		.opacity($viewModel.loadingSucceed.wrappedValue ? 1.0 : .zero)
-		.scrollIndicators(.automatic)
 	}
 
 	func buildTopic() -> some View {
@@ -73,8 +75,10 @@ private extension TopicsList {
 	func buildReturnToTopButton() -> some View {
 		ReturnCell {
 			viewModel.impactOccured(.light)
-			DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
-										  execute: { isNeedScrollToTop.toggle() })
+			DispatchQueue.main.asyncAfter(
+				deadline: .now() + 1.5,
+				execute: { isNeedScrollToTop.toggle() }
+			)
 		}
 	}
 }
