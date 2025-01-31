@@ -19,15 +19,15 @@ struct TopicCell: View {
 	var body: some View {
 		Group {
 			VerStack {
-				Text(article.title ?? .empty)
+				DesignedText(text: article.title ?? .empty)
 					.multilineTextAlignment(.leading)
 					.padding(.bottom)
 					.font(.headline)
 					.foregroundStyle(Color.primary)
-				Text(article.publishedAt?.toReadableDate() ?? .empty)
+				DesignedText(text: article.publishedAt?.toReadableDate() ?? .empty)
 					.font(.subheadline)
 					.foregroundStyle(Color.secondary)
-				Text(article.source?.name ?? .empty)
+				DesignedText(text: article.source?.name ?? .empty)
 					.font(.subheadline)
 					.foregroundStyle(Color.secondary)
 			}

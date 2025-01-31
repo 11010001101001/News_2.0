@@ -9,5 +9,4 @@ import Foundation
 
 enum AdditionalInfo {
     static var title: String { "Info" }
-    static var tabItemImage: String { "info.circle" }
 }

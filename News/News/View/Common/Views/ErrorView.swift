@@ -33,6 +33,7 @@ struct ErrorView: View {
 			.padding(Constants.padding)
 		}
 		.card()
+		.shadow(color: .shadowHighlight, radius: 10.0)
 		.ignoresSafeArea()
 	}
 }
@@ -46,7 +47,7 @@ private extension ErrorView {
 				.foregroundStyle(.blue)
 				.multilineTextAlignment(.center)
 				.font(.headline)
-				.padding(.horizontal, Constants.padding * 2)
+				.padding(.horizontal, CGFloat.sideInsets)
 		}
 	}
 

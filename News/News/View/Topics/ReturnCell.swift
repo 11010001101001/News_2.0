@@ -17,13 +17,13 @@ struct ReturnCell: View {
 
 	var body: some View {
 		HorStack {
-			Text(Texts.Actions.Return.message())
+			DesignedText(text: Texts.Actions.Return.message())
 				.font(.headline)
 				.padding(.leading)
 
 			LottieButton(animation: .named("button"), action: action ?? {})
 				.frame(width: 100, height: 80)
-				.shadow(color: .white, radius: 7)
+				.shadow(color: .white, radius: 10)
 				.padding(.trailing)
 		}
 	}

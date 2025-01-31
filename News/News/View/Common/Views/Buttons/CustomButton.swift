@@ -66,7 +66,7 @@ struct CustomButton: View {
             if title == nil {
                 EmptyView()
             } else {
-                Text(title ?? .empty)
+                DesignedText(text: title ?? .empty)
                     .foregroundStyle(.blue)
             }
         }

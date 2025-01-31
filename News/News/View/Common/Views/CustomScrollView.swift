@@ -29,7 +29,7 @@ struct CustomScrollView<Content: View>: View {
 		Date().getSeconds()
 	}
 
-	public init(
+	init(
 		content: @escaping () -> Content,
 		viewModel: ViewModel
 	) {
@@ -37,7 +37,7 @@ struct CustomScrollView<Content: View>: View {
 		self.viewModel = viewModel
 	}
 
-	public var body: some View {
+	var body: some View {
 		ScrollView {
 			customRefreshControl
 			scrollViewContent
@@ -64,7 +64,7 @@ private extension CustomScrollView {
 
 		return ZStack {
 			if seconds % 10 == .zero {
-				Text(icons.first ?? "💩")
+				DesignedText(text: icons.first ?? "💩")
 					.font(.system(size: 34))
 			} else {
 				Image(systemName: "arrow.down.circle")
@@ -81,7 +81,7 @@ private extension CustomScrollView {
 
 		return ZStack {
 			if seconds % 10 == .zero {
-				Text(icons.first ?? "💩")
+				DesignedText(text: icons.first ?? "💩")
 					.font(.system(size: 34))
 			} else {
 				Image(systemName: "circle.dotted")

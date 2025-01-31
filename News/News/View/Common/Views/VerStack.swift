@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-public struct VerStack<Content: View>: View {
-	public let alignment: HorizontalAlignment
-	public let content: () -> Content
-	public let spacing: CGFloat?
+struct VerStack<Content: View>: View {
+	let alignment: HorizontalAlignment
+	let content: () -> Content
+	let spacing: CGFloat?
 
-	public init(
+	init(
 		alignment: HorizontalAlignment = .leading,
 		spacing: CGFloat = .zero,
 		@ViewBuilder content: @escaping () -> Content
@@ -23,7 +23,7 @@ public struct VerStack<Content: View>: View {
 		self.spacing = spacing
 	}
 
-	public var body: some View {
+	var body: some View {
 		VStack(alignment: alignment, spacing: spacing) {
 			content()
 		}

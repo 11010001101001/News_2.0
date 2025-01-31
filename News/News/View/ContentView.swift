@@ -31,8 +31,11 @@ struct ContentView: View {
 							Label("", systemImage: "gear")
 						}
 					}
+					ToolbarItem(placement: .principal) {
+						DesignedText(text: Texts.Screen.Main.title())
+							.font(.title)
+					}
 				}
-				.navigationTitle(Texts.Screen.Main.title())
 				.navigationBarTitleDisplayMode(.inline)
 				.sheet(item: $imageWrapper,
 					   content: { content in

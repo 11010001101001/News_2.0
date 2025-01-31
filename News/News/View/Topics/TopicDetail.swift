@@ -29,7 +29,13 @@ struct TopicDetail: View {
 				Spacer()
 			}
 		}
-		.navigationTitle(Texts.Screen.Details.title())
+		.toolbarRole(.editor)
+		.toolbar {
+			ToolbarItem(placement: .principal) {
+				DesignedText(text: Texts.Screen.Details.title())
+					.font(.title)
+			}
+		}
 	}
 }
 
@@ -38,6 +44,7 @@ private extension TopicDetail {
 	var otherContent: some View {
 		VerStack {
 			description
+				.padding(.horizontal, Constants.padding / 2)
 			buttons
 				.padding(.vertical, Constants.padding)
 			Spacer()
@@ -48,7 +55,7 @@ private extension TopicDetail {
 	}
 
 	var description: some View {
-		Text(article.description ?? Texts.State.loading())
+		DesignedText(text: article.description ?? Texts.State.loading())
 	}
 
 	var buttons: some View {

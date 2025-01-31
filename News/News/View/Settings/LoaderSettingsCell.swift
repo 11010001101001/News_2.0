@@ -34,7 +34,7 @@ struct LoaderSettingsCell: View {
             }
 
 			HorStack {
-                Text(id.capitalizingFirstLetter())
+                DesignedText(text: id.capitalizingFirstLetter())
                     .font(.system(size: 18, weight: .regular))
                     .padding(.leading, 100)
 
