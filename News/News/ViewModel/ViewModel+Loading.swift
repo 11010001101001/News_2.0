@@ -23,7 +23,6 @@ extension ViewModel {
 			}
 		}
 		// swiftlint:enable line_length
-
 		guard let url = URL(string: urlString) else {
 			return Fail(error: ApiError.invalidRequest(msg: Errors.invalidUrl))
 				.eraseToAnyPublisher()
@@ -39,19 +38,34 @@ extension ViewModel {
 
 // MARK: - Logic
 extension ViewModel {
-	func loadNews() {
-		loadingSucceed = false
-		loadingFailed = false
+	func loadNews(
+		isRefresh: Bool = false,
+		completion: Action = nil
+	) {
+		if !isRefresh {
+			loadingSucceed = false
+			loadingFailed = false
+		}
 
 		newsPublisher
-			.sink { _ in } receiveValue: { [weak self] value in self?.handleResponse(value)}
+			.sink { _ in } receiveValue: { [weak self] value in
+				self?.handleResponse(value, completion)
+			}
 			.store(in: &cancellables)
+	}
+
+	func refresh(completion: Action) {
+		playRefresh()
+		loadNews(isRefresh: true, completion: completion)
 	}
 }
 
 // MARK: - Private
 private extension ViewModel {
-	func handleResponse(_ value: (data: Data, response: URLResponse)) {
+	func handleResponse(
+		_ value: (data: Data, response: URLResponse),
+		_ completion: Action = nil
+	) {
 		guard let response = value.response as? HTTPURLResponse,
 			  let model = try? JSONDecoder().decode(CommonInfo.self, from: value.data)
 		else { return }
@@ -70,5 +84,7 @@ private extension ViewModel {
 			loadingFailed = true
 			failureReason = HttpStatusCodes(rawValue: statusCode)?.message ?? .empty
 		}
+
+		completion?()
 	}
 }
