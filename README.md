@@ -1,4 +1,4 @@
-# News_2.0
+# News SUI
 
 - SwiftUI ✅
 - MVVM ✅
