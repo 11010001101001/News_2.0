@@ -18,7 +18,7 @@ struct InfoCell: View, ImageProvider {
 		HorStack(spacing: Constants.padding) {
 			getImage(for: id)
 				.padding(.leading, Constants.padding)
-			Text(id.capitalizingFirstLetter())
+			DesignedText(text: id.capitalizingFirstLetter())
 				.font(.headline)
 				.frame(maxHeight: .infinity, alignment: .leading)
 			Spacer()

@@ -24,7 +24,7 @@ struct Shadow: ViewModifier {
 		guard isEnabled else { return content.any() }
 		return content.shadow(
 			color: color ?? .shadowHighlight,
-			radius: isEnabled ? 15.0 : .zero
+			radius: isEnabled ? 10.0 : .zero
 		).any()
 	}
 }

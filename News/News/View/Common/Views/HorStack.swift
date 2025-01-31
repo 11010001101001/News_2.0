@@ -8,12 +8,12 @@
 import Foundation
 import SwiftUI
 
-public struct HorStack<Content: View>: View {
-	public let alignment: VerticalAlignment
-	public let content: () -> Content
-	public let spacing: CGFloat?
+struct HorStack<Content: View>: View {
+	let alignment: VerticalAlignment
+	let content: () -> Content
+	let spacing: CGFloat?
 
-	public init(
+	init(
 		alignment: VerticalAlignment = .center,
 		spacing: CGFloat = .zero,
 		@ViewBuilder content: @escaping () -> Content
@@ -23,7 +23,7 @@ public struct HorStack<Content: View>: View {
 		self.spacing = spacing
 	}
 
-	public var body: some View {
+	var body: some View {
 		HStack(alignment: alignment, spacing: spacing) {
 			content()
 		}

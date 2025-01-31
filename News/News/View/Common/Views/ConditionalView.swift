@@ -8,11 +8,11 @@
 import Foundation
 import SwiftUI
 
-public struct ConditionalView<Content: View>: View {
-	public let condition: Bool
-	public let content: () -> Content
+struct ConditionalView<Content: View>: View {
+	let condition: Bool
+	let content: () -> Content
 
-	public init(
+	init(
 		_ condition: Bool,
 		@ViewBuilder content: @escaping () -> Content
 	) {
@@ -20,7 +20,7 @@ public struct ConditionalView<Content: View>: View {
 		self.content = content
 	}
 
-	public var body: some View {
+	var body: some View {
 		Group {
 			if condition {
 				content()

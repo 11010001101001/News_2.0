@@ -11,7 +11,6 @@ enum SoundTheme: String, CaseIterable, Identifiable {
     var id: Self { return self }
 
     static var title: String { "Sound" }
-    static var tabItemImage: String { "music.note.list" }
 
     case starwars = "star wars"
     case cats = "cats meow"

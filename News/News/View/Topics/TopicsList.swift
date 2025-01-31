@@ -28,6 +28,7 @@ struct TopicsList: View {
 					title: $viewModel.failureReason.wrappedValue,
 					action: { viewModel.loadNews() }
 				)
+				.padding(.horizontal, CGFloat.sideInsets)
 				.opacity($viewModel.loadingFailed.wrappedValue ? 1.0 : .zero)
 			}
 		}

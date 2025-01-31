@@ -17,43 +17,38 @@ struct SettingsList: View {
 
 	var body: some View {
 		TabView {
-			buildTabItem(
-				title: LoaderConfiguration.title,
-				imageName: LoaderConfiguration.tabItemImage
-			) {
+			buildTabItem(title: LoaderConfiguration.title) {
 				ForEach(LoaderConfiguration.allCases) { loader in
 					LoaderSettingsCell(viewModel: viewModel, id: loader.rawValue)
 				}
 			}
 
-			buildTabItem(
-				title: Category.title,
-				imageName: Category.tabItemImage
-			) {
+			buildTabItem(title: Category.title) {
 				ForEach(Category.allCases) { category in
 					SettingsCell(viewModel: viewModel, id: category.rawValue)
 				}
 			}
 
-			buildTabItem(
-				title: SoundTheme.title,
-				imageName: SoundTheme.tabItemImage
-			) {
+			buildTabItem(title: SoundTheme.title) {
 				ForEach(SoundTheme.allCases) { theme in
 					SettingsCell(viewModel: viewModel, id: theme.rawValue)
 				}
 			}
 
-			buildTabItem(
-				title: AdditionalInfo.title,
-				imageName: AdditionalInfo.tabItemImage
-			) {
+			buildTabItem(title: AdditionalInfo.title) {
 				AdditionalInfoCell(viewModel: viewModel)
 			}
 		}
 		.indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-		.navigationTitle(Texts.Screen.Settings.title())
+		.toolbarRole(.editor)
+		.toolbar {
+			ToolbarItem(placement: .principal) {
+				DesignedText(text: Texts.Screen.Settings.title())
+					.font(.title)
+			}
+		}
 		.scrollIndicators(.automatic)
+		.tabViewStyle(.page)
 	}
 }
 
@@ -61,20 +56,22 @@ struct SettingsList: View {
 extension SettingsList {
 	func buildTabItem(
 		title: String,
-		imageName: String,
 		content: @escaping () -> some View
 	) -> some View {
 		ScrollView {
+			HorStack {
+				DesignedText(text: title)
+					.font(.title)
+					.fontDesign(.monospaced)
+					.padding(.top)
+				Spacer()
+			}
+			.padding(.horizontal, Constants.padding * 2)
+
 			VerStack(spacing: Constants.padding) {
 				content()
 			}
-			.padding([.top, .horizontal], Constants.padding)
-		}
-		.tabItem {
-			VerStack {
-				Image(systemName: imageName).padding(.bottom, 8)
-				Text(title).font(.callout)
-			}
+			.padding(.horizontal, Constants.padding)
 		}
 	}
 }
