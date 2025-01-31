@@ -15,7 +15,7 @@
 
 👀 Quick peek
 
-![MixCollage-15-Apr-2024-01-33-AM-939](https://github.com/11010001101001/News_2.0/assets/88098218/cc0f91c6-be74-4888-9836-aa121fbdbfee)
+![Unknown](https://github.com/user-attachments/assets/3a95b5cb-3d94-4414-b34e-5bf4205bf386)
 
 ## ☕️
 - **TON**: UQCQclFDQnQkHI4bJETisvn4QAZevjMWx5mjC3AErZaXvhlU
