@@ -42,11 +42,12 @@ struct ErrorView: View {
 private extension ErrorView {
 	var errorTitle: some View {
 		ConditionalView(title != nil) {
-			Label(title ?? .empty, systemImage: "bolt.fill")
+			DesignedText(text: title ?? .empty)
 				.labelStyle(.titleOnly)
 				.foregroundStyle(.blue)
 				.multilineTextAlignment(.center)
 				.font(.headline)
+				.fixedSize(horizontal: false, vertical: true)
 				.padding(.horizontal, CGFloat.sideInsets)
 		}
 	}

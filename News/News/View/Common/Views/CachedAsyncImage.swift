@@ -49,7 +49,7 @@ struct CachedAsyncImage: View {
 						.resizable()
 						.onAppear { cache(image) }
 				} else if phase.error != nil {
-					ErrorView(viewModel: viewModel, action: nil)
+					ErrorView(viewModel: viewModel, title: Errors.imageLoadingError, action: nil)
 						.applyNice3DRotation(rotating: rotating)
 						.commonScaleAffect(state: rotating)
 						.frame(height: Constants.imageHeight)

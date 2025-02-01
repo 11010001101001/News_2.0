@@ -28,4 +28,5 @@ struct Errors {
     static let invalidUrl = Texts.Errors.invalidUrl()
     static let responseError = Texts.Errors.responseError()
     static let undefinedError = Texts.Errors.undefinedError()
+	static let imageLoadingError = Texts.Errors.imageLoadingError()
 }

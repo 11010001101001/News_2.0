@@ -31,7 +31,7 @@ struct AnswerNegative: ViewModifier {
 				withAnimation(
 					.interpolatingSpring(
 						stiffness: 1000,
-						damping: 6
+						damping: 9
 					)
 				) {
 					execute?()
