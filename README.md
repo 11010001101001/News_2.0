@@ -17,7 +17,7 @@
 
 👀 Quick peek
 
-<img src="https://github.com/user-attachments/assets/15217c5e-8450-496e-aa89-1081ecedb3ae" width="1000" height="437,5">
+![Unknown](https://github.com/user-attachments/assets/2cd13994-de02-4954-a6f3-3a349fdba05f)
 
 ## ☕️
 - **TON**: UQCQclFDQnQkHI4bJETisvn4QAZevjMWx5mjC3AErZaXvhlU
