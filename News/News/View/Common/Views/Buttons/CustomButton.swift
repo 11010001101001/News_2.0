@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CustomButton: View {
-    @ObservedObject private var viewModel: ViewModel
+	@ObservedObject private var viewModel: ViewModel
 	@State private var scale: CGFloat = 1.0
 
-    private let action: Action
-    private var title: String?
-    private var iconName: String?
+	private let action: Action
+	private var title: String?
+	private var iconName: String?
 
 	init(
 		viewModel: ViewModel,
@@ -27,59 +27,60 @@ struct CustomButton: View {
 		self.iconName = iconName
 	}
 
-    var body: some View {
-		Button(
-			action: {
-				buttonAction?()
-			},
-			label: {
-				Label(
-					title: { titleView },
-					icon: { iconView }
-				)
-			}
-		)
-        .buttonStyle(.bordered)
-        .clipShape(.capsule(style: .continuous))
-        .controlSize(.regular)
-        .opacity(action == nil ? .zero : 1.0)
-        .scaleEffect(scale)
-    }
+	var body: some View {
+		ConditionalView(action != nil) {
+			Button(
+				action: {
+					buttonAction?()
+				},
+				label: {
+					Label(
+						title: { titleView },
+						icon: { iconView }
+					)
+				}
+			)
+			.buttonStyle(.bordered)
+			.clipShape(.capsule(style: .continuous))
+			.controlSize(.regular)
+			.scaleEffect(scale)
+		}
+	}
 
-    private var buttonAction: Action {
-        {
-            viewModel.impactOccured(.light)
+	private var buttonAction: Action {
+		{
+			viewModel.impactOccured(.light)
 			withAnimation(.easeInOut(duration: .zero)) {
-                scale = 0.90
-            } completion: {
-                withAnimation(.easeInOut(duration: 0.15)) {
-                    scale = 1.0
-                } completion: {
-                    action?()
-                }
-            }
-        }
-    }
+				scale = 0.90
+			} completion: {
+				withAnimation(.easeInOut(duration: 0.15)) {
+					scale = 1.0
+				} completion: {
+					action?()
+				}
+			}
+		}
+	}
 
-    private var titleView: some View {
-        Group {
-            if title == nil {
-                EmptyView()
-            } else {
-                DesignedText(text: title ?? .empty)
-                    .foregroundStyle(.blue)
-            }
-        }
-    }
+	private var titleView: some View {
+		Group {
+			if title == nil {
+				EmptyView()
+			} else {
+				DesignedText(text: title ?? .empty)
+					.foregroundStyle(.blue)
+			}
+		}
+	}
 
-    private var iconView: some View {
-        iconName == nil ? nil : Image(systemName: iconName!)
-    }
+	private var iconView: some View {
+		iconName == nil ? nil : Image(systemName: iconName!)
+	}
 }
 
 #Preview {
-    CustomButton(viewModel: ViewModel(),
-                 action: {},
-                 title: "Tap me",
-                 iconName: "square.and.arrow.down.on.square")
+	CustomButton(viewModel: ViewModel(),
+				 action: {},
+				 title: "Tap me",
+				 iconName: "square.and.arrow.down.on.square")
 }

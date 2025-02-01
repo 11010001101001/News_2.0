@@ -51,6 +51,9 @@ public enum Texts {
     /// Bad request, please try again later
     public static func badRequest() -> String { Texts.tr("Strings", "errors.badRequest", fallback: "Error 400\n\nBad request, please try again later")
     }
+    /// Image loading failed
+    public static func imageLoadingError() -> String { Texts.tr("Strings", "errors.imageLoadingError", fallback: "Image loading failed")
+    }
     /// invalidUrl
     public static func invalidUrl() -> String { Texts.tr("Strings", "errors.invalidUrl", fallback: "invalidUrl")
     }
@@ -135,8 +138,8 @@ public enum Texts {
   }
   public enum Tip {
     public enum Settings {
-      /// Configure category, loader and sound theme 🦥
-      public static func message() -> String { Texts.tr("Strings", "tip.settings.message", fallback: "Configure category, loader and sound theme 🦥")
+      /// Don't forget to check settings 🦥
+      public static func message() -> String { Texts.tr("Strings", "tip.settings.message", fallback: "Don't forget to check settings 🦥")
       }
       /// Tip
       public static func title() -> String { Texts.tr("Strings", "tip.settings.title", fallback: "Tip")

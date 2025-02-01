@@ -21,6 +21,7 @@
 "errors.invalidUrl" = "invalidUrl";
 "errors.responseError" = "responseError";
 "errors.undefinedError" = "undefinedError";
+"errors.imageLoadingError" = "Image loading failed";
 "loading.state.ok" = "ok";
 
 "app.version" = "app version: %@";
@@ -30,7 +31,7 @@
 "app.apiKey2" = "eb4bc5c32bdd40ca937aa8f94ff2673a";
 
 "tip.settings.title" = "Tip";
-"tip.settings.message" = "Configure category, loader and sound theme 🦥";
+"tip.settings.message" = "Don't forget to check settings 🦥";
 
 "screen.details.title" = "Details";
 "screen.main.title" = "News";

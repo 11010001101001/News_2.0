@@ -35,7 +35,7 @@ extension ImageProvider {
         case SoundTheme.cats.rawValue:
             "cat.fill"
         case Texts.App.contactUs():
-            "ellipsis.message"
+            "paperplane.fill"
         default:
             "info.circle.fill"
         }
