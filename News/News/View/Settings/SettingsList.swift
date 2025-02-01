@@ -35,6 +35,14 @@ struct SettingsList: View {
 				}
 			}
 
+			if UIApplication.shared.supportsAlternateIcons {
+				buildTabItem(title: AppIconConfiguration.title) {
+					ForEach(AppIconConfiguration.allCases) { theme in
+						AppIconSettingsCell(viewModel: viewModel, id: theme.rawValue)
+					}
+				}
+			}
+
 			buildTabItem(title: AdditionalInfo.title) {
 				AdditionalInfoCell(viewModel: viewModel)
 			}
