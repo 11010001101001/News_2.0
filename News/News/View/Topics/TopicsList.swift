@@ -81,6 +81,7 @@ private extension TopicsList {
 				execute: { isNeedScrollToTop.toggle() }
 			)
 		}
+		.padding(.horizontal, Constants.padding)
 	}
 }
 

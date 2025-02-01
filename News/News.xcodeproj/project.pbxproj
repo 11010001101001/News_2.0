@@ -123,6 +123,8 @@
 		DA9861F22D49626600F1BEE4 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9861F12D49626600F1BEE4 /* CustomScrollView.swift */; };
 		DAC06D2B2CE8DA3E00337E32 /* AdditionalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC06D2A2CE8DA3E00337E32 /* AdditionalInfoCell.swift */; };
 		DAC06D2E2CE8FEB700337E32 /* ConditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */; };
+		DAC13F612D4DF3D800E0AED8 /* AppIconSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13F602D4DF3D800E0AED8 /* AppIconSettingsCell.swift */; };
+		DAC13F632D4DFA8900E0AED8 /* AppIconConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13F622D4DFA8900E0AED8 /* AppIconConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,6 +273,8 @@
 		DA9861F12D49626600F1BEE4 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		DAC06D2A2CE8DA3E00337E32 /* AdditionalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoCell.swift; sourceTree = "<group>"; };
 		DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalView.swift; sourceTree = "<group>"; };
+		DAC13F602D4DF3D800E0AED8 /* AppIconSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCell.swift; sourceTree = "<group>"; };
+		DAC13F622D4DFA8900E0AED8 /* AppIconConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +367,7 @@
 				C4BC8D3D2BB312BF00A0AFC8 /* SettingsList.swift */,
 				C4311A502BB6FE3E00DE9194 /* SettingsCell.swift */,
 				C47BBB5D2BBE4E92009CBE8A /* LoaderSettingsCell.swift */,
+				DAC13F602D4DF3D800E0AED8 /* AppIconSettingsCell.swift */,
 				DAC06D2C2CE8DA8B00337E32 /* AdditionalInfoCell */,
 			);
 			path = Settings;
@@ -739,6 +744,7 @@
 			children = (
 				C433F5192BB40C2C0088A7FC /* Category.swift */,
 				C4F676E22BB570F5002F3BCE /* SoundTheme.swift */,
+				DAC13F622D4DFA8900E0AED8 /* AppIconConfiguration.swift */,
 				C44CFCB12BBC3F8200CCAC97 /* AdditionalInfo.swift */,
 				C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */,
 			);
@@ -1017,6 +1023,7 @@
 				C4BC8D4B2BB318B500A0AFC8 /* VibrateManager.swift in Sources */,
 				DA8888D72CE8B7100036B198 /* Shadow.swift in Sources */,
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
+				DAC13F612D4DF3D800E0AED8 /* AppIconSettingsCell.swift in Sources */,
 				C4AA48DF2BC5827F00D45D3F /* ViewModel.swift in Sources */,
 				C45116A02BB965300003250E /* Loader.swift in Sources */,
 				DA8888D12CE8A6770036B198 /* VerStack.swift in Sources */,
@@ -1072,6 +1079,7 @@
 				C4BC8D552BB35CC300A0AFC8 /* Aliases.swift in Sources */,
 				C4BC8D402BB3162D00A0AFC8 /* TopicDetail.swift in Sources */,
 				C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */,
+				DAC13F632D4DFA8900E0AED8 /* AppIconConfiguration.swift in Sources */,
 				C478DEAF2BC5DFC600C089D7 /* ViewModel+Notifications.swift in Sources */,
 				C4BC8D092BB2FA3900A0AFC8 /* NewsApp.swift in Sources */,
 				C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */,
@@ -1316,6 +1324,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"News/Preview Content\"";
@@ -1347,6 +1356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"News/Preview Content\"";
