@@ -7,5 +7,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<false/>
+		<key>UIColorName</key>
+		<string>gray</string>
+		<key>UIImageName</key>
+		<string>ls1</string>
+	</dict>
 </dict>
 </plist>
