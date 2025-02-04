@@ -103,6 +103,15 @@ extension View {
 		return self.shadow_(isEnabled: isEnabled, color: shadowColor)
 	}
 
+	func markIsSelectedWithGloss(
+		_ viewModel: ViewModel,
+		_ id: String,
+		_ shadowColor: Color = .shadowHighlight
+	) -> some View {
+		let isEnabled = viewModel.checkIsEnabled(id.lowercased())
+		return self.gloss(isEnabled: isEnabled, color: shadowColor)
+	}
+
 	func gloss(
 		isEnabled: Bool = true,
 		color: Color = .shadowHighlight,
