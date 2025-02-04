@@ -33,7 +33,7 @@ struct ErrorView: View {
 			.padding(Constants.padding)
 		}
 		.card()
-		.shadow(color: .shadowHighlight, radius: 10.0)
+		.shadow_()
 		.ignoresSafeArea()
 	}
 }
@@ -58,7 +58,7 @@ private extension ErrorView {
 			.frame(width: 150, height: 150)
 			.scaledToFill()
 			.padding(.horizontal)
-			.shadow(color: .shadowHighlight, radius: 10)
+			.gloss()
 	}
 
 	var reloadButton: some View {

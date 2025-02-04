@@ -23,7 +23,7 @@ struct ReturnCell: View {
 
 			LottieButton(animation: .named("button"), action: action ?? {})
 				.frame(width: 100, height: 80)
-				.shadow(color: .white, radius: 10)
+				.shadow_(color: .white)
 				.padding(.trailing)
 		}
 	}

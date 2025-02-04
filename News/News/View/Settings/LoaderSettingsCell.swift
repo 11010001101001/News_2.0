@@ -26,7 +26,7 @@ struct LoaderSettingsCell: View {
             HorStack {
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
-                    .shadow(color: shadowColor, radius: 20)
+                    .gloss(color: shadowColor)
                     .frame(width: 150, height: 100)
                     .padding(.leading, -20)
 

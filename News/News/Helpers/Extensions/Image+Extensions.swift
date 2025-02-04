@@ -18,6 +18,6 @@ extension Image {
 				   alignment: .center)
 			.clipped()
 			.clipShape(.buttonBorder)
-			.shadow(color: Color(self.averageColor), radius: 60)
+			.shadow_(color: Color(self.averageColor), radius: 60)
 	}
 }
