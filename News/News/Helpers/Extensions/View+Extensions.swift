@@ -90,7 +90,7 @@ extension View {
 		case (true, true):
 			self.opacity(opacity).any()
 		case (false, true):
-			self.shadow(isEnabled: isShadowEnabled).any()
+			self.shadow_(isEnabled: isShadowEnabled).any()
 		}
 	}
 
@@ -100,24 +100,42 @@ extension View {
 		_ shadowColor: Color = .shadowHighlight
 	) -> some View {
 		let isEnabled = viewModel.checkIsEnabled(id.lowercased())
-		return self.shadow(isEnabled: isEnabled, color: shadowColor)
+		return self.shadow_(isEnabled: isEnabled, color: shadowColor)
 	}
 
-	func shadow(
-		isEnabled: Bool = false,
+	func gloss(
+		isEnabled: Bool = true,
 		color: Color = .shadowHighlight,
 		radius: CGFloat = 10.0
 	) -> some View {
 		guard isEnabled else { return self.any() }
-		// to make it brighter
-		return ForEach(0..<4) { _ in
-			self
-				.shadow(
-					color: color,
-					radius: isEnabled ? 10.0 : .zero
-				)
-		}
-		.any()
+
+		return self
+			.overlay {
+				ForEach(0..<4) { _ in
+					self
+						.shadow(
+							color: color,
+							radius: radius
+						)
+				}
+			}
+			.any()
+	}
+
+	func shadow_(
+		isEnabled: Bool = true,
+		color: Color = .shadowHighlight,
+		radius: CGFloat = 10.0
+	) -> some View {
+		guard isEnabled else { return self.any() }
+
+		return self
+			.shadow(
+				color: color,
+				radius: radius
+			)
+			.any()
 	}
 }
 // swiftlint:enable large_tuple

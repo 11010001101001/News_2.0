@@ -55,7 +55,7 @@ private extension TopicDetail {
 	}
 
 	var description: some View {
-		DesignedText(text: article.description ?? Texts.State.loading())
+		DesignedText(text: article.description.orEmpty(Texts.State.noDescription()))
 	}
 
 	var buttons: some View {

@@ -132,8 +132,8 @@ public enum Texts {
     }
   }
   public enum State {
-    /// Loading, please wait
-    public static func loading() -> String { Texts.tr("Strings", "state.loading", fallback: "Loading, please wait")
+    /// 🌚
+    public static func noDescription() -> String { Texts.tr("Strings", "state.noDescription", fallback: "🌚")
     }
   }
   public enum Tip {

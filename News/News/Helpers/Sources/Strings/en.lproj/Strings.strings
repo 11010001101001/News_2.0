@@ -37,7 +37,7 @@
 "screen.main.title" = "News";
 "screen.settings.title" = "Settings";
 
-"state.loading" = "Loading, please wait";
+"state.noDescription" = "🌚";
 
 "actions.share" = "Share";
 "actions.open" = "Open";
