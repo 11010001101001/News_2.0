@@ -91,7 +91,7 @@ extension View {
             self.opacity(opacity).any()
         case (false, true):
             if isShadowEnabled {
-                self.innerShadow().any()
+                self.modifier(InnerShadowAnimator()).any()
             } else {
                 self.any()
             }
@@ -104,7 +104,7 @@ extension View {
     ) -> some View {
         let isEnabled = viewModel.checkIsEnabled(id.lowercased())
         guard isEnabled else { return self.any() }
-        return self.innerShadow().any()
+        return self.modifier(InnerShadowAnimator(isAnimationEnabled: true)).any()
     }
 
     func gloss(
@@ -141,41 +141,6 @@ extension View {
                 radius: radius
             )
             .any()
-    }
-
-    func innerShadow<S: Shape>(
-        using shape: S = .rect(cornerRadius: Constants.cornerRadius),
-        angle: Angle = .degrees(.zero),
-        colors: [Color] = [.blue, .purple, .red, .orange, .yellow, .purple, .blue],
-        width: CGFloat = 6,
-        radius: CGFloat = 2
-    ) -> some View {
-        let finalX = CGFloat(cos(angle.radians - .pi / 2))
-        let finalY = CGFloat(sin(angle.radians - .pi / 2))
-
-        return self
-            .overlay(
-                ZStack {
-                    shape
-                        .stroke(AngularGradient(colors: colors, center: .center), lineWidth: width)
-                        .offset(x: finalX * width * 0.6, y: finalY * width * 0.6)
-                        .blur(radius: radius * 6)
-                        .mask(shape)
-                    ForEach(0..<2) { _ in
-                        shape
-                            .stroke(AngularGradient(colors: colors, center: .center), lineWidth: width)
-                            .offset(x: finalX * width * 0.6, y: finalY * width * 0.6)
-                            .blur(radius: radius * 3)
-                            .mask(shape)
-                    }
-                    ForEach(0..<3) { _ in
-                        shape
-                            .stroke(AngularGradient(colors: colors, center: .center), lineWidth: width)
-                            .blur(radius: radius)
-                            .mask(shape)
-                    }
-                }
-            )
     }
 }
 // swiftlint:enable large_tuple
