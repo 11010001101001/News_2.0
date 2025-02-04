@@ -12,6 +12,10 @@ struct AppIconSettingsCell: View {
     @ObservedObject private var viewModel: ViewModel
     private let id: String
 
+	private var shadowColor: Color {
+		AppIconConfiguration(rawValue: id)?.shadowColor ?? .shadowHighlight
+	}
+
 	init(viewModel: ViewModel, id: String) {
 		self.viewModel = viewModel
 		self.id = id
@@ -22,9 +26,10 @@ struct AppIconSettingsCell: View {
             HorStack {
 				Image(id)
 					.resizable()
-					.frame(width: 100, height: 100)
-					.clipShape(.capsule)
-					.padding()
+					.frame(width: 80, height: 80)
+					.clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
+					.markIsSelectedWithGloss(viewModel, id, shadowColor)
+					.padding(.all, Constants.padding + 7)
 
                 Spacer()
             }
@@ -32,7 +37,7 @@ struct AppIconSettingsCell: View {
 			HorStack {
                 DesignedText(text: id.capitalizingFirstLetter())
                     .font(.system(size: 18, weight: .regular))
-                    .padding(.leading, 140)
+                    .padding(.leading, 130)
 
                 Spacer()
             }
@@ -43,7 +48,6 @@ struct AppIconSettingsCell: View {
         ) {
             viewModel.applySettings(id.lowercased())
         }
-		.markIsSelected(viewModel, id, .shadowHighlight)
     }
 }
 

@@ -26,7 +26,7 @@ struct LoaderSettingsCell: View {
             HorStack {
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
-                    .gloss(color: shadowColor)
+					.markIsSelectedWithGloss(viewModel, id, shadowColor)
                     .frame(width: 150, height: 100)
                     .padding(.leading, -20)
 
@@ -47,7 +47,6 @@ struct LoaderSettingsCell: View {
         ) {
             viewModel.applySettings(id.lowercased())
         }
-		.markIsSelected(viewModel, id, shadowColor)
     }
 }
 
