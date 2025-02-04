@@ -16,6 +16,10 @@ struct AppIconSettingsCell: View {
 		AppIconConfiguration(rawValue: id)?.shadowColor ?? .shadowHighlight
 	}
 
+    private var isEnabled: Bool {
+        viewModel.checkIsEnabled(id.lowercased())
+    }
+
 	init(viewModel: ViewModel, id: String) {
 		self.viewModel = viewModel
 		self.id = id
@@ -28,7 +32,7 @@ struct AppIconSettingsCell: View {
 					.resizable()
 					.frame(width: 80, height: 80)
 					.clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
-					.markIsSelectedWithGloss(viewModel, id, shadowColor)
+                    .gloss(isEnabled: isEnabled, color: shadowColor)
 					.padding(.all, Constants.padding + 7)
 
                 Spacer()
@@ -43,6 +47,7 @@ struct AppIconSettingsCell: View {
             }
         }
         .card()
+        .markIsSelected(viewModel, id)
         .applyOrNotSettingsModifier(
             isEnabled: viewModel.checkIsEnabled(id.lowercased())
         ) {
