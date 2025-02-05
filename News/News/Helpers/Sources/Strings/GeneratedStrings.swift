@@ -60,6 +60,9 @@ public enum Texts {
     /// mappingError
     public static func mappingError() -> String { Texts.tr("Strings", "errors.mappingError", fallback: "mappingError")
     }
+    /// No connection
+    public static func noConnection() -> String { Texts.tr("Strings", "errors.noConnection", fallback: "No connection")
+    }
     /// responseError
     public static func responseError() -> String { Texts.tr("Strings", "errors.responseError", fallback: "responseError")
     }
@@ -89,6 +92,9 @@ public enum Texts {
     }
     /// undefinedError
     public static func undefinedError() -> String { Texts.tr("Strings", "errors.undefinedError", fallback: "undefinedError")
+    }
+    /// Ups, unhandled error
+    public static func unhandled() -> String { Texts.tr("Strings", "errors.unhandled", fallback: "Ups, unhandled error")
     }
   }
   public enum Loading {
