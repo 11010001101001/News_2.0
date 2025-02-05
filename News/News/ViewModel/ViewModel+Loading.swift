@@ -86,9 +86,9 @@ private extension ViewModel {
 
         switch error {
         case let .noConnection(msg):
-            message = Texts.Errors.noConnection()
+            message = msg
         case let .mappingError(msg):
-            message = Texts.Errors.mappingError()
+            message = msg
         default:
             message = Texts.Errors.unhandled()
         }
