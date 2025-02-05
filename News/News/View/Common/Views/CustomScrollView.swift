@@ -12,22 +12,10 @@ struct CustomScrollView<Content: View>: View {
 	let viewModel: ViewModel
 
 	@State private var isLoading = false
-	@State private var isRotating = false
-
-	@State private var arrowSize: CGFloat = .zero
-	@State private var arrowAngle: Angle = .zero
-	@State private var arrowScale: CGFloat = .zero
-
+	@State private var radius: CGFloat = .zero
+	@State private var circleColor: Color = .rowBackground
 	@State private var circleSize: CGFloat = .zero
-	@State private var circleAngle: Angle = .zero
-	@State private var circleScale: CGFloat = .zero
-
 	@State private var initialOffset: CGFloat = .zero
-	@State private var previousDiff: CGFloat = .zero
-
-	private var seconds: Int {
-		Date().getSeconds()
-	}
 
 	init(
 		content: @escaping () -> Content,
@@ -46,54 +34,17 @@ struct CustomScrollView<Content: View>: View {
 		.onPreferenceChange(ScrollViewOffsetPreferenceKey.self) { value in
 			onPreferenceChanged(value)
 		}
-		.onAppear { startRotating() }
 	}
 }
 
 // MARK: - Views
 private extension CustomScrollView {
 	var customRefreshControl: some View {
-		ZStack {
-			arrow
-			circle
-		}
-	}
-
-	var arrow: some View {
-		let icons: Set = ["🙄", "😎"]
-
-		return ZStack {
-			if seconds % 10 == .zero {
-				DesignedText(text: icons.first ?? "💩")
-					.font(.system(size: 34))
-			} else {
-				Image(systemName: "arrow.down.circle")
-					.resizable()
-			}
-		}
-		.frame(width: arrowSize, height: arrowSize)
-		.scaleEffect(arrowScale)
-		.rotationEffect(arrowAngle)
-	}
-
-	var circle: some View {
-		let icons: Set = ["😵‍💫", "🤤"]
-
-		return ZStack {
-			if seconds % 10 == .zero {
-				DesignedText(text: icons.first ?? "💩")
-					.font(.system(size: 34))
-			} else {
-				Image(systemName: "circle.dotted")
-					.resizable()
-			}
-		}
-		.frame(
-			width: circleSize,
-			height: circleSize
-		)
-		.scaleEffect(circleScale)
-		.rotationEffect(circleAngle)
+		Circle()
+			.fill(circleColor)
+			.gloss(color: circleColor, radius: radius)
+			.padding(.top, Constants.padding)
+			.frame(width: circleSize, height: circleSize)
 	}
 
 	var scrollViewContent: some View {
@@ -113,40 +64,14 @@ private extension CustomScrollView {
 		if initialOffset == .zero { initialOffset = value }
 		let diff = value - initialOffset
 
-		if diff > Constants.refreshControlSize * 2 {
-			withAnimation(.bouncy(duration: 0.3)) {
-				showArrow()
-				refreshData()
-			}
-		} else if diff == Constants.refreshControlSize {
-			guard isLoading else { return }
-			withAnimation(.easeInOut(duration: 0.15)) {
-				hideArrow()
-				showCircle()
-			}
+		if diff > Constants.refreshControlSize * 3 {
+			refreshData()
 		} else {
 			guard !isLoading else { return }
-			rotateArrowDown()
+			let size = diff / 2
+			guard size > 0 else { return }
+			circleSize = size
 		}
-
-		rotateArrowUp(diff)
-	}
-
-	func rotateArrowUp(_ diff: CGFloat) {
-		if previousDiff > diff {
-			guard !isRotating else { return }
-			isRotating = true
-			withAnimation {
-				arrowAngle = .degrees(180)
-			}
-		}
-
-		previousDiff = diff
-	}
-
-	func rotateArrowDown() {
-		isRotating = false
-		arrowAngle = .zero
 	}
 }
 
@@ -154,53 +79,26 @@ private extension CustomScrollView {
 private extension CustomScrollView {
 	func refreshData() {
 		guard !isLoading else { return }
-		isLoading = true
-
-		viewModel.impactOccured(.rigid)
-		viewModel.refresh {
-			hideRefreshControl()
-		}
-	}
-
-	func startRotating() {
-		withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
-			circleAngle = .degrees(360)
+		withAnimation(.bouncy(duration: 0.3)) {
+			radius = 20.0
+			circleColor = .green
+			circleSize = Constants.refreshControlSize
+			isLoading = true
+			viewModel.impactOccured(.rigid)
+			viewModel.refresh { hideRefreshControl() }
 		}
 	}
 
 	func hideRefreshControl() {
 		Task {
 			isLoading = false
-
 			withAnimation(.bouncy(duration: 0.2)) {
-				hideCircle()
-				hideArrow()
+				circleSize = .zero
+			} completion: {
+				radius = .zero
+				circleColor = .rowBackground
 			}
 		}
-	}
-}
-
-// MARK: - Helpers
-private extension CustomScrollView {
-	func showArrow() {
-		arrowSize = Constants.refreshControlSize
-		arrowScale = 1.0
-		hideCircle()
-	}
-
-	func hideArrow() {
-		arrowSize = .zero
-		arrowScale = .zero
-	}
-
-	func showCircle() {
-		circleScale = 1.0
-		circleSize = Constants.refreshControlSize
-	}
-
-	func hideCircle() {
-		circleSize = .zero
-		circleScale = .zero
 	}
 }
 

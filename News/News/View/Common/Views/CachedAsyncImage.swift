@@ -55,8 +55,10 @@ struct CachedAsyncImage: View {
 						.frame(height: Constants.imageHeight)
 						.onAppear { onAppear() }
 				} else {
-					Loader(loaderName: viewModel.loader,
-						   shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear)
+					Loader(
+						loaderName: viewModel.loader,
+						shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear
+					)
 					.frame(height: Constants.imageHeight)
 				}
 			}
