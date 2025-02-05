@@ -17,7 +17,7 @@
 
 👀 Quick peek
 
-![png_trans](https://github.com/user-attachments/assets/7226924c-0b7b-40a8-aa52-f6996b74f5ef)
+![111](https://github.com/user-attachments/assets/4a553dfc-7e5e-48ef-9a4c-64afc6b1eb93)
 
 ## ☕️
 - **TON**: UQCQclFDQnQkHI4bJETisvn4QAZevjMWx5mjC3AErZaXvhlU
