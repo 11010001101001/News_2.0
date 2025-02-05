@@ -26,13 +26,13 @@ struct SettingsCell: View, ImageProvider {
 			Spacer()
 		}
 		.card()
+        .markIsSelected(viewModel, id)
 		.frame(height: 70)
 		.applyOrNotSettingsModifier(
 			isEnabled: viewModel.checkIsEnabled(id.lowercased())
 		) {
 			viewModel.applySettings(id.lowercased())
 		}
-		.markIsSelected(viewModel, id)
 	}
 }
 

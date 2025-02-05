@@ -35,8 +35,8 @@ struct TopicCell: View {
 		}
 		.frame(maxWidth: .infinity, alignment: .leading)
 		.card()
+        .markAsReadOrHighlight(viewModel, article)
 		.padding([.bottom, .horizontal], Constants.padding)
-		.markAsReadOrHighlight(viewModel, article)
 	}
 }
 

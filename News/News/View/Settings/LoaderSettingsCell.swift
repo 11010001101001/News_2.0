@@ -16,6 +16,10 @@ struct LoaderSettingsCell: View {
 		LoaderConfiguration(rawValue: id)?.shadowColor ?? .shadowHighlight
 	}
 
+    private var isEnabled: Bool {
+        viewModel.checkIsEnabled(id)
+    }
+
 	init(viewModel: ViewModel, id: String) {
 		self.viewModel = viewModel
 		self.id = id
@@ -26,7 +30,7 @@ struct LoaderSettingsCell: View {
             HorStack {
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
-					.markIsSelectedWithGloss(viewModel, id, shadowColor)
+                    .gloss(isEnabled: isEnabled, color: shadowColor)
                     .frame(width: 150, height: 100)
                     .padding(.leading, -20)
 
@@ -42,6 +46,7 @@ struct LoaderSettingsCell: View {
             }
         }
         .card()
+        .markIsSelected(viewModel, id)
         .applyOrNotSettingsModifier(
             isEnabled: viewModel.checkIsEnabled(id.lowercased())
         ) {

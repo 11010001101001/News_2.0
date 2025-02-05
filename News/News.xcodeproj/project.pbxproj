@@ -62,6 +62,7 @@
 		C49C5FCF2BC003D600554218 /* LoaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */; };
 		C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */; };
 		C49C849E2BB455CE00571CD4 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C849D2BB455CE00571CD4 /* View+Extensions.swift */; };
+		C4A5F5862D52B05100717C50 /* InnerShadowAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A5F5852D52B05100717C50 /* InnerShadowAnimator.swift */; };
 		C4A65E552BB76E0D002E3F39 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A65E542BB76E0D002E3F39 /* SoundManager.swift */; };
 		C4A65E672BB78B90002E3F39 /* starwars_refresh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E612BB76F47002E3F39 /* starwars_refresh.mp3 */; };
 		C4A65E682BB78B90002E3F39 /* starwars_refresh2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4A65E652BB76F47002E3F39 /* starwars_refresh2.mp3 */; };
@@ -212,6 +213,7 @@
 		C49C5FBD2BBF576600554218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49C849B2BB437F200571CD4 /* Image+AverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+AverageColor.swift"; sourceTree = "<group>"; };
 		C49C849D2BB455CE00571CD4 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		C4A5F5852D52B05100717C50 /* InnerShadowAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerShadowAnimator.swift; sourceTree = "<group>"; };
 		C4A65E542BB76E0D002E3F39 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C4A65E612BB76F47002E3F39 /* starwars_refresh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_refresh.mp3; sourceTree = "<group>"; };
 		C4A65E652BB76F47002E3F39 /* starwars_refresh2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = starwars_refresh2.mp3; sourceTree = "<group>"; };
@@ -689,6 +691,7 @@
 			children = (
 				DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */,
 				DA5FDE612C7793D8002CD19B /* OnTap.swift */,
+				C4A5F5852D52B05100717C50 /* InnerShadowAnimator.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1030,6 +1033,7 @@
 				DA9861F22D49626600F1BEE4 /* CustomScrollView.swift in Sources */,
 				C40AEBF02BBDD94500CA7DA2 /* ReturnCell.swift in Sources */,
 				C4AA48E82BC597C600D45D3F /* NotificationManager.swift in Sources */,
+				C4A5F5862D52B05100717C50 /* InnerShadowAnimator.swift in Sources */,
 				C4BC8D532BB35C9900A0AFC8 /* ErrorView.swift in Sources */,
 				DAC06D2B2CE8DA3E00337E32 /* AdditionalInfoCell.swift in Sources */,
 				DA7A0C302CEA7B0F0061D585 /* GeneratedStrings.swift in Sources */,
