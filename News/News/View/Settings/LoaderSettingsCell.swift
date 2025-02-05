@@ -56,5 +56,5 @@ struct LoaderSettingsCell: View {
 }
 
 #Preview {
-    LoaderSettingsCell(viewModel: ViewModel(), id: LoaderConfiguration.rocket.rawValue)
+	LoaderSettingsCell(viewModel: ViewModel(), id: LoaderConfiguration.cat.rawValue)
 }
