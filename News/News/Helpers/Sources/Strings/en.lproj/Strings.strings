@@ -22,6 +22,8 @@
 "errors.responseError" = "responseError";
 "errors.undefinedError" = "undefinedError";
 "errors.imageLoadingError" = "Image loading failed";
+"errors.noConnection" = "No connection";
+"errors.unhandled" = "Ups, unhandled error";
 "loading.state.ok" = "ok";
 
 "app.version" = "app version: %@";

@@ -15,6 +15,7 @@ enum ApiError: LocalizedError {
     case badRequest(msg: String)
     case mappingError(msg: String)
     case undefined(msg: String)
+    case noConnection(msg: String)
 }
 
 struct Errors {
@@ -29,4 +30,5 @@ struct Errors {
     static let responseError = Texts.Errors.responseError()
     static let undefinedError = Texts.Errors.undefinedError()
 	static let imageLoadingError = Texts.Errors.imageLoadingError()
+    static let noConnection = Texts.Errors.noConnection()
 }
