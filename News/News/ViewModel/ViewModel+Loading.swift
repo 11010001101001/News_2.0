@@ -113,14 +113,32 @@ private extension ViewModel {
             notificationOccurred(.success)
             playLoaded()
             loadingSucceed = true
-            newsArray = model.articles?.filter { !($0.title ?? .empty).contains("Removed") } ?? []
+			newsArray = sortIsRead(model.articles)
+
         default:
             notificationOccurred(.error)
             playError()
             loadingFailed = true
-            failureReason = HttpStatusCodes(rawValue: statusCode)?.message ?? .empty
+			failureReason = (HttpStatusCodes(rawValue: statusCode)?.message).orEmpty
         }
 
         completion?()
     }
+
+	func sortIsRead(_ articles: [Article]?) -> [Article] {
+		var read = [Article]()
+		var notRead = [Article]()
+
+		articles?.forEach {
+			guard !$0.title.orEmpty.contains("Removed") else { return }
+			let isRead = checkIsRead($0.key)
+			if isRead {
+				read.append($0)
+			} else {
+				notRead.append($0)
+			}
+		}
+
+		return notRead + read
+	}
 }

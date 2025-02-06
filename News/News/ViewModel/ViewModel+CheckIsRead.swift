@@ -18,10 +18,14 @@ extension ViewModel {
         guard !isViewed else { return }
 
         watchedTopics.append(key)
-        clearStorage()
+        clearStorageIfNeeded()
     }
 
-    private func clearStorage() {
+	func markAllAsRead() {
+		newsArray.forEach { markAsRead($0.key) }
+	}
+
+    private func clearStorageIfNeeded() {
         guard watchedTopics.count >= Constants.storageCapacity else { return }
         watchedTopics = Array(watchedTopics.dropFirst(Constants.needDropCount))
     }
