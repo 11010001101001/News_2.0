@@ -41,6 +41,10 @@ final class ViewModel: Observable, ObservableObject {
 
     var savedSettings: [SettingsModel]?
 
+	var loaderShadowColor: Color {
+		LoaderConfiguration(rawValue: loader)?.shadowColor ?? .clear
+	}
+
     init(savedSettings: [SettingsModel]? = nil) {
         soundManager = SoundManager(viewModel: self)
         vibrateManager = VibrateManager(viewModel: self)

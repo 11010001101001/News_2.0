@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopicsList: View {
 	@ObservedObject var viewModel: ViewModel
-	@State private var isNeedScrollToTop = false
+	@State private var enderOpacity: CGFloat = .zero
 
 	var body: some View {
 		ScrollViewReader { proxy in
@@ -18,7 +18,7 @@ struct TopicsList: View {
 
 				Loader(
 					loaderName: viewModel.loader,
-					shadowColor: LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor ?? .clear
+					shadowColor: viewModel.loaderShadowColor
 				)
 				.opacity($viewModel.loadingSucceed.wrappedValue ? .zero : 1.0)
 				.id(viewModel.id)
@@ -41,9 +41,8 @@ private extension TopicsList {
 		CustomScrollView(
 			content: {
 				VerStack {
-					buildTopView(proxy: proxy)
 					buildTopic()
-					buildReturnToTopButton()
+					buildScrollEnder()
 				}
 				.padding(.top, Constants.padding)
 			},
@@ -62,26 +61,22 @@ private extension TopicsList {
 		}
 	}
 
-	/// For scrolling to `top` only
-	func buildTopView(proxy: ScrollViewProxy) -> some View {
-		EmptyView()
-			.id("top")
-			.onChange(of: isNeedScrollToTop) {
-				withAnimation {
-					proxy.scrollTo("top", anchor: .bottom)
+	func buildScrollEnder() -> some View {
+		HorStack {
+			Spacer()
+			Color.red
+				.clipShape(.rect(cornerRadius: Constants.cornerRadius))
+				.gloss(color: .red)
+				.frame(width: 170, height: 1)
+				.opacity(enderOpacity)
+				.padding(.top, -Constants.padding)
+				.onAppear {
+					withAnimation(.bouncy(duration: 2.0).repeatForever(autoreverses: true)) {
+						enderOpacity = 1
+					}
 				}
-			}
-	}
-
-	func buildReturnToTopButton() -> some View {
-		ReturnCell {
-			viewModel.impactOccured(.light)
-			DispatchQueue.main.asyncAfter(
-				deadline: .now() + 1.5,
-				execute: { isNeedScrollToTop.toggle() }
-			)
+			Spacer()
 		}
-		.padding(.horizontal, Constants.padding)
 	}
 }
 
