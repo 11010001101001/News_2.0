@@ -28,12 +28,20 @@ struct ContentView: View {
 						NavigationLink {
 							SettingsList(viewModel: viewModel)
 						} label: {
-							Label("", systemImage: "gear")
+							Image(systemName: "gearshape.fill")
 						}
 					}
+
 					ToolbarItem(placement: .principal) {
 						DesignedText(text: Texts.Screen.Main.title())
 							.font(.title)
+					}
+
+					ToolbarItem(placement: .topBarTrailing) {
+						Image(systemName: "checkmark.seal.fill")
+							.onTapGesture {
+								viewModel.markAllAsRead()
+							}
 					}
 				}
 				.navigationBarTitleDisplayMode(.inline)

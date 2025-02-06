@@ -33,12 +33,3 @@ extension String {
         return dateFormatter.date(from: self) ?? Date()
     }
 }
-
-extension Optional where Wrapped == String {
-	func orEmpty(_ defaultValue: String) -> String {
-		if let self, self.isEmpty {
-			return defaultValue
-		}
-		return self ?? defaultValue
-	}
-}

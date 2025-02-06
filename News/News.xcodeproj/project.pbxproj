@@ -119,6 +119,7 @@
 		DA5FDE632C7793D8002CD19B /* OnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FDE612C7793D8002CD19B /* OnTap.swift */; };
 		DA7A0C282CEA6F240061D585 /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA7A0C262CEA6F240061D585 /* Strings.strings */; };
 		DA7A0C302CEA7B0F0061D585 /* GeneratedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A0C2F2CEA7B0F0061D585 /* GeneratedStrings.swift */; };
+		DA84EC0D2D555A03008965EB /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA84EC0C2D555A03008965EB /* Optional+Extensions.swift */; };
 		DA8888D12CE8A6770036B198 /* VerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D02CE8A6770036B198 /* VerStack.swift */; };
 		DA8888D52CE8A7210036B198 /* HorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D42CE8A7210036B198 /* HorStack.swift */; };
 		DA9861F22D49626600F1BEE4 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9861F12D49626600F1BEE4 /* CustomScrollView.swift */; };
@@ -270,6 +271,7 @@
 		DA5FDE612C7793D8002CD19B /* OnTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTap.swift; sourceTree = "<group>"; };
 		DA7A0C272CEA6F240061D585 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Strings.strings; sourceTree = "<group>"; };
 		DA7A0C2F2CEA7B0F0061D585 /* GeneratedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedStrings.swift; sourceTree = "<group>"; };
+		DA84EC0C2D555A03008965EB /* Optional+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extensions.swift"; sourceTree = "<group>"; };
 		DA8888D02CE8A6770036B198 /* VerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerStack.swift; sourceTree = "<group>"; };
 		DA8888D42CE8A7210036B198 /* HorStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorStack.swift; sourceTree = "<group>"; };
 		DA9861F12D49626600F1BEE4 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				C4956AE62C37506400E1F100 /* Image+Extensions.swift */,
 				C4AA48E12BC5860D00D45D3F /* Date+Extensions.swift */,
 				C415870E2BC6DC2C00C6BD2C /* NotificationName+Extensions.swift */,
+				DA84EC0C2D555A03008965EB /* Optional+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1069,6 +1072,7 @@
 				C41F1E582BC75828006C6E90 /* ShortcutItem.swift in Sources */,
 				C4AA48E22BC5860D00D45D3F /* Date+Extensions.swift in Sources */,
 				C4956AE12C37352C00E1F100 /* CacheManager.swift in Sources */,
+				DA84EC0D2D555A03008965EB /* Optional+Extensions.swift in Sources */,
 				C4BC8D0B2BB2FA3900A0AFC8 /* ContentView.swift in Sources */,
 				C4BC8D3E2BB312BF00A0AFC8 /* SettingsList.swift in Sources */,
 				C41587072BC67F1200C6BD2C /* ButtonMetaData.swift in Sources */,
