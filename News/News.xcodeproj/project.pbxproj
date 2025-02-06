@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C40AEBF02BBDD94500CA7DA2 /* ReturnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40AEBEF2BBDD94500CA7DA2 /* ReturnCell.swift */; };
-		C40AEBF32BBDDEF300CA7DA2 /* button.json in Resources */ = {isa = PBXBuildFile; fileRef = C40AEBF12BBDDEF300CA7DA2 /* button.json */; };
 		C41587002BC67D4B00C6BD2C /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41586FF2BC67D4B00C6BD2C /* ShareButton.swift */; };
 		C41587052BC67E1F00C6BD2C /* OpenLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41587042BC67E1F00C6BD2C /* OpenLinkButton.swift */; };
 		C41587072BC67F1200C6BD2C /* ButtonMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */; };
@@ -168,8 +166,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C40AEBEF2BBDD94500CA7DA2 /* ReturnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnCell.swift; sourceTree = "<group>"; };
-		C40AEBF12BBDDEF300CA7DA2 /* button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = button.json; sourceTree = "<group>"; };
 		C41586FF2BC67D4B00C6BD2C /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		C41587042BC67E1F00C6BD2C /* OpenLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenLinkButton.swift; sourceTree = "<group>"; };
 		C41587062BC67F1200C6BD2C /* ButtonMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMetaData.swift; sourceTree = "<group>"; };
@@ -360,7 +356,6 @@
 				C4311A522BB700B800DE9194 /* TopicsList.swift */,
 				C4BC8D502BB34D0E00A0AFC8 /* TopicCell.swift */,
 				C4BC8D3F2BB3162D00A0AFC8 /* TopicDetail.swift */,
-				C40AEBEF2BBDD94500CA7DA2 /* ReturnCell.swift */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -398,7 +393,6 @@
 			isa = PBXGroup;
 			children = (
 				C48733AB2BC9F93E00309537 /* error.json */,
-				C40AEBF12BBDDEF300CA7DA2 /* button.json */,
 				C45116A52BB9690B0003250E /* hourglass.json */,
 				C47BBB5B2BBE4302009CBE8A /* rocket.json */,
 				C47BBB602BBECE15009CBE8A /* astronaut.json */,
@@ -921,7 +915,6 @@
 				C47BBB622BBECE15009CBE8A /* astronaut.json in Resources */,
 				C4A65E772BB8A0A1002E3F39 /* starwars_error.mp3 in Resources */,
 				DA09D40E2D50045700FC95B9 /* LaunchScreen.storyboard in Resources */,
-				C40AEBF32BBDDEF300CA7DA2 /* button.json in Resources */,
 				C4A65E8E2BB8A984002E3F39 /* cats_refresh.mp3 in Resources */,
 				C4A65E792BB8A1CC002E3F39 /* starwars_notification.mp3 in Resources */,
 				C45116A62BB9690B0003250E /* hourglass.json in Resources */,
@@ -1034,7 +1027,6 @@
 				C45116A02BB965300003250E /* Loader.swift in Sources */,
 				DA8888D12CE8A6770036B198 /* VerStack.swift in Sources */,
 				DA9861F22D49626600F1BEE4 /* CustomScrollView.swift in Sources */,
-				C40AEBF02BBDD94500CA7DA2 /* ReturnCell.swift in Sources */,
 				C4AA48E82BC597C600D45D3F /* NotificationManager.swift in Sources */,
 				C4A5F5862D52B05100717C50 /* InnerShadowAnimator.swift in Sources */,
 				C4BC8D532BB35C9900A0AFC8 /* ErrorView.swift in Sources */,

@@ -20,12 +20,6 @@ public enum Texts {
     /// Share
     public static func share() -> String { Texts.tr("Strings", "actions.share", fallback: "Share")
     }
-    public enum Return {
-      /// That's all for now.
-      /// Read again?
-      public static func message() -> String { Texts.tr("Strings", "actions.return.message", fallback: "That's all for now.\nRead again?")
-      }
-    }
   }
   public enum App {
     /// 8f825354e7354c71829cfb4cb15c4893

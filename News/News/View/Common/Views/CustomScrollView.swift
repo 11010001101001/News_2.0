@@ -81,7 +81,7 @@ private extension CustomScrollView {
 		guard !isLoading else { return }
 		withAnimation(.bouncy(duration: 0.3)) {
 			radius = 20.0
-			circleColor = .green
+			circleColor = viewModel.loaderShadowColor
 			circleSize = Constants.refreshControlSize
 			isLoading = true
 			viewModel.impactOccured(.rigid)

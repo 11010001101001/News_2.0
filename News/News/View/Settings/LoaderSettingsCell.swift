@@ -12,10 +12,6 @@ struct LoaderSettingsCell: View {
     @ObservedObject private var viewModel: ViewModel
     private let id: String
 
-	private var shadowColor: Color {
-		LoaderConfiguration(rawValue: id)?.shadowColor ?? .shadowHighlight
-	}
-
     private var isEnabled: Bool {
         viewModel.checkIsEnabled(id)
     }
@@ -30,7 +26,7 @@ struct LoaderSettingsCell: View {
             HorStack {
                 LottieView(animation: .named(id))
                     .playing(loopMode: .loop)
-                    .gloss(isEnabled: isEnabled, color: shadowColor)
+					.gloss(isEnabled: isEnabled, color: viewModel.loaderShadowColor)
                     .frame(width: 150, height: 100)
                     .padding(.leading, -20)
 

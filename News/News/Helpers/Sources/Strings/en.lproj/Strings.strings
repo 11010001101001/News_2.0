@@ -43,5 +43,4 @@
 
 "actions.share" = "Share";
 "actions.open" = "Open";
-"actions.return.message" = "That's all for now.\nRead again?";
 "actions.reload" = "Reload";
