@@ -39,13 +39,22 @@ final class ViewModel: Observable, ObservableObject {
     var notificationManager: NotificationManager?
     var cacheManager: CacheManager?
 
-    var savedSettings: [SettingsModel]?
+	var savedSettings: [SettingsModel]?
 
 	var loaderShadowColor: Color {
 		LoaderConfiguration(rawValue: loader)?.shadowColor ?? .clear
 	}
 
-    init(savedSettings: [SettingsModel]? = nil) {
+	var isAllRead: Bool {
+		guard !newsArray.isEmpty else { return false }
+		return newsArray.allSatisfy { checkIsRead($0.key) }
+	}
+
+	var isDefaultSettings: Bool {
+		savedSettings == Constants.defaultSettings
+	}
+
+    init() {
         soundManager = SoundManager(viewModel: self)
         vibrateManager = VibrateManager(viewModel: self)
         notificationManager = NotificationManager(viewModel: self)
@@ -57,7 +66,6 @@ final class ViewModel: Observable, ObservableObject {
         vibrateManager = nil
         notificationManager = nil
         cacheManager = nil
-
         cancellables.forEach { $0.cancel() }
     }
 }

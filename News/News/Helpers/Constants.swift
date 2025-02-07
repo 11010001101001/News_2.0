@@ -17,4 +17,12 @@ enum Constants {
 	static let imageHeight: CGFloat = 300
 	static let topInset: CGFloat = 25
 	static let refreshControlSize: CGFloat = 40
+	static let defaultSettings = [
+		SettingsModel(
+			category: Category.business.rawValue,
+			soundTheme: SoundTheme.silentMode.rawValue,
+			loader: LoaderConfiguration.hourGlass.rawValue,
+			appIcon: AppIconConfiguration.globe.rawValue
+		)
+	]
 }

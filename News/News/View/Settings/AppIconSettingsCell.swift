@@ -32,7 +32,7 @@ struct AppIconSettingsCell: View {
 					.resizable()
 					.frame(width: 80, height: 80)
 					.clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius, style: .continuous))
-                    .gloss(isEnabled: isEnabled, color: shadowColor)
+					.gloss(isEnabled: isEnabled, color: shadowColor, isBorderHighlighted: true)
 					.padding(.all, Constants.padding + 7)
 
                 Spacer()
