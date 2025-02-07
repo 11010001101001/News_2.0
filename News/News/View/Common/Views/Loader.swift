@@ -22,7 +22,7 @@ struct Loader: View {
         LottieView(animation: .named(loaderName))
             .playing(loopMode: .loop)
             .scaleEffect(0.35)
-            .gloss(color: shadowColor)
+			.gloss(color: shadowColor, isBorderHighlighted: true)
     }
 }
 

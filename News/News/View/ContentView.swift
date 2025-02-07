@@ -28,7 +28,7 @@ struct ContentView: View {
 						NavigationLink {
 							SettingsList(viewModel: viewModel)
 						} label: {
-							Image(systemName: "gearshape.fill")
+							Image(systemName: getSettingsImageSystemName())
 						}
 					}
 
@@ -38,22 +38,22 @@ struct ContentView: View {
 					}
 
 					ToolbarItem(placement: .topBarTrailing) {
-						Image(systemName: "checkmark.seal.fill")
-							.onTapGesture {
-								viewModel.markAllAsRead()
-							}
+						Image(systemName: getMarkAllReadImageSystemName())
+							.onTapGesture { viewModel.markAsReadOrUnread() }
 					}
 				}
 				.navigationBarTitleDisplayMode(.inline)
-				.sheet(item: $imageWrapper,
-					   content: { content in
-					ActivityViewController(contentWrapper: content)
-						.presentationDetents([.medium])
-				})
-				.navigationDestination(isPresented: $needOpenSettings,
-									   destination: {
-					SettingsList(viewModel: viewModel)
-				})
+				.sheet(
+					item: $imageWrapper,
+					content: { content in
+						ActivityViewController(contentWrapper: content)
+							.presentationDetents([.medium])
+					}
+				)
+				.navigationDestination(
+					isPresented: $needOpenSettings,
+					destination: { SettingsList(viewModel: viewModel) }
+				)
 		}
 		.onAppear { onAppear() }
 		.onReceive(viewModel.$shareShortcutItemTapped) { needShare in
@@ -65,10 +65,12 @@ struct ContentView: View {
 			needOpenSettings.toggle()
 		}
 		.task {
-			try? Tips.configure([
-				.displayFrequency(.immediate),
-				.datastoreLocation(.applicationDefault)
-			])
+			try? Tips.configure(
+				[
+					.displayFrequency(.immediate),
+					.datastoreLocation(.applicationDefault)
+				]
+			)
 		}
 	}
 }
@@ -83,23 +85,28 @@ private extension ContentView {
 
 	func loadSettings() {
 		if savedSettings.isEmpty {
-			let defaultSettings = [
-				SettingsModel(
-					category: Category.business.rawValue,
-					soundTheme: SoundTheme.silentMode.rawValue,
-					loader: LoaderConfiguration.hourGlass.rawValue,
-					appIcon: AppIconConfiguration.globe.rawValue
-				)
-			]
-			modelContext.insert(defaultSettings[0])
+			let defaultModel = SettingsModel(
+				category: Constants.DefaultSettings.category,
+				soundTheme: Constants.DefaultSettings.soundTheme,
+				loader: Constants.DefaultSettings.loader,
+				appIcon: Constants.DefaultSettings.appIcon
+			)
+			modelContext.insert(defaultModel)
 			try? modelContext.save()
-
-			viewModel.savedSettings = defaultSettings
+			viewModel.savedSettings = [defaultModel]
 		} else {
 			viewModel.savedSettings = savedSettings
 		}
 
 		viewModel.redrawContentViewLoader()
+	}
+
+	func getSettingsImageSystemName() -> String {
+		viewModel.isDefaultSettings ? "gearshape" : "gearshape.fill"
+	}
+
+	func getMarkAllReadImageSystemName() -> String {
+		viewModel.isAllRead ? "checkmark.seal.fill" : "checkmark.seal"
 	}
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension ViewModel {
     func checkIsRead(_ key: String) -> Bool {
@@ -21,8 +22,17 @@ extension ViewModel {
         clearStorageIfNeeded()
     }
 
-	func markAllAsRead() {
-		newsArray.forEach { markAsRead($0.key) }
+	func markAsUnread(_ key: String) {
+		watchedTopics.removeAll(where: { $0 == key })
+		clearStorageIfNeeded()
+	}
+
+	func markAsReadOrUnread() {
+		if isAllRead {
+			newsArray.forEach { markAsUnread($0.key) }
+		} else {
+			newsArray.forEach { markAsRead($0.key) }
+		}
 	}
 
     private func clearStorageIfNeeded() {
