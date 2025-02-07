@@ -85,9 +85,15 @@ private extension ContentView {
 
 	func loadSettings() {
 		if savedSettings.isEmpty {
-			modelContext.insert(Constants.defaultSettings[0])
+			let defaultModel = SettingsModel(
+				category: Constants.DefaultSettings.category,
+				soundTheme: Constants.DefaultSettings.soundTheme,
+				loader: Constants.DefaultSettings.loader,
+				appIcon: Constants.DefaultSettings.appIcon
+			)
+			modelContext.insert(defaultModel)
 			try? modelContext.save()
-			viewModel.savedSettings = Constants.defaultSettings
+			viewModel.savedSettings = [defaultModel]
 		} else {
 			viewModel.savedSettings = savedSettings
 		}

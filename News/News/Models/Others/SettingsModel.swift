@@ -28,14 +28,3 @@ final class SettingsModel {
 		self.appIcon = appIcon
     }
 }
-
-// MARK: - Equatable
-extension SettingsModel: Equatable {
-	static func == (lhs: SettingsModel, rhs: SettingsModel) -> Bool {
-		lhs.category == rhs.category &&
-		lhs.soundTheme == rhs.soundTheme &&
-		lhs.loader == rhs.loader &&
-		lhs.appIcon == rhs.appIcon &&
-		lhs.watchedTopics == rhs.watchedTopics
-	}
-}

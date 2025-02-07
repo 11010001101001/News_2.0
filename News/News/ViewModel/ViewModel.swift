@@ -51,7 +51,10 @@ final class ViewModel: Observable, ObservableObject {
 	}
 
 	var isDefaultSettings: Bool {
-		savedSettings == Constants.defaultSettings
+		category == Constants.DefaultSettings.category &&
+		soundTheme == Constants.DefaultSettings.soundTheme &&
+		loader == Constants.DefaultSettings.loader &&
+		appIcon == Constants.DefaultSettings.appIcon
 	}
 
     init() {

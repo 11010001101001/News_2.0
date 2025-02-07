@@ -642,7 +642,6 @@
 			isa = PBXGroup;
 			children = (
 				C4BC8D082BB2FA3900A0AFC8 /* NewsApp.swift */,
-				C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */,
 				C41F1E5B2BC75C38006C6E90 /* Delegates.swift */,
 				DA09D40D2D50045700FC95B9 /* LaunchScreen.storyboard */,
 			);
@@ -760,6 +759,7 @@
 				C41F1E572BC75828006C6E90 /* ShortcutItem.swift */,
 				C4956AE22C37381B00E1F100 /* CachedImage.swift */,
 				C4F827092C3CB6A600C27450 /* SettingsTip.swift */,
+				C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
