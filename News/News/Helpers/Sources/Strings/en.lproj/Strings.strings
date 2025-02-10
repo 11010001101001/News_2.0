@@ -22,6 +22,7 @@
 "errors.responseError" = "responseError";
 "errors.undefinedError" = "undefinedError";
 "errors.imageLoadingError" = "Image loading failed";
+"errors.loadingFailed" = "Loading failed";
 "errors.noConnection" = "No connection";
 "errors.unhandled" = "Ups, unhandled error";
 "loading.state.ok" = "ok";
@@ -38,6 +39,7 @@
 "screen.details.title" = "Details";
 "screen.main.title" = "News";
 "screen.settings.title" = "Settings";
+"screen.more.title" = "More";
 
 "state.noDescription" = "🌚";
 
