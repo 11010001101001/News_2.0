@@ -10,41 +10,39 @@ import SwiftUI
 struct AnswerNegative: ViewModifier {
 	@State private var left = false
 	@State private var right = false
-	@State private var initial = false
+	@State private var isInitial = false
+	@State private var isAnimating = false
 
-    private let execute: Action
-
-	init(execute: Action) {
-		self.execute = execute
-	}
-
-    func body(content: Content) -> some View {
-        content
-            .offset(x: left ? -5 : 0)
-            .offset(x: right ? 10 : 0)
-            .offset(x: initial ? -5 : 0)
-            .onTapGesture {
-                withAnimation { left.toggle() }
-            completion: {
-                withAnimation { right.toggle() }
-            completion: {
-				withAnimation(
-					.interpolatingSpring(
-						stiffness: 1000,
-						damping: 9
-					)
-				) {
-					execute?()
-					initial.toggle()
+	func body(content: Content) -> some View {
+		content
+			.offset(x: left ? -5 : 0)
+			.offset(x: right ? 10 : 0)
+			.offset(x: isInitial ? -5 : 0)
+			.onTapGesture {
+				guard !isAnimating else { return }
+				isAnimating = true
+				withAnimation { left.toggle() }
+				completion: {
+					withAnimation { right.toggle() }
+					completion: {
+						withAnimation(
+							.interpolatingSpring(
+								stiffness: 1000,
+								damping: 9
+							)
+						) {
+							isInitial.toggle()
+						} completion: {
+							isAnimating = false
+						}
+					}
 				}
 			}
-			}
-			}
-    }
+	}
 }
 
 #Preview {
-    Circle()
-        .frame(width: 100, height: 100, alignment: .center)
-		.modifier(AnswerNegative(execute: {}))
+	Circle()
+		.frame(width: 100, height: 100, alignment: .center)
+		.modifier(AnswerNegative())
 }
