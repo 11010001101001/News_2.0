@@ -31,17 +31,19 @@ struct CachedAsyncImage: View {
 	}
 
 	var body: some View {
-		cachedAsyncImage().padding([.vertical, .horizontal])
+		buildCachedAsyncImage()
+			.padding([.vertical, .horizontal])
+			.onAppear { viewModel.markAsRead(article.key) }
 	}
 
 	@ViewBuilder
-	private func cachedAsyncImage() -> some View {
+	private func buildCachedAsyncImage() -> some View {
 		if let cachedImage {
 			cachedImage
 				.makeRounded(height: Constants.imageHeight)
 				.applyNice3DRotation(rotating: rotating)
 				.commonScaleAffect(state: rotating)
-				.onAppear { onAppear() }
+				.onAppear { rotating.toggle() }
 		} else {
 			AsyncImage(url: URL(string: url)) { phase in
 				if let image = phase.image {
@@ -53,7 +55,7 @@ struct CachedAsyncImage: View {
 						.applyNice3DRotation(rotating: rotating)
 						.commonScaleAffect(state: rotating)
 						.frame(height: Constants.imageHeight)
-						.onAppear { onAppear() }
+						.onAppear { rotating.toggle() }
 				} else {
 					Loader(
 						loaderName: viewModel.loader,
@@ -63,11 +65,6 @@ struct CachedAsyncImage: View {
 				}
 			}
 		}
-	}
-
-	private func onAppear() {
-		rotating.toggle()
-		viewModel.markAsRead(article.key)
 	}
 
 	private func cache(_ image: Image) {

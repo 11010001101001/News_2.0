@@ -10,6 +10,9 @@ import UIKit
 
 struct TopicDetail: View {
 	@ObservedObject private var viewModel: ViewModel
+
+	@State private var webViewPresented = false
+
 	private let article: Article
 
 	init(viewModel: ViewModel, article: Article) {
@@ -60,16 +63,39 @@ private extension TopicDetail {
 
 	var buttons: some View {
 		HorStack(spacing: Constants.padding / 2) {
-			ShareButton(viewModel: viewModel,
-						data: ButtonMetaData(article: article,
-											 title: Texts.Actions.share(),
-											 iconName: "square.and.arrow.up"))
-			OpenWebViewButton(viewModel: viewModel,
-							  data: ButtonMetaData(article: article,
-												   title: Texts.Actions.open(),
-												   iconName: "link"))
+			shareButton
+			linkButton
 			Spacer()
 		}
+	}
+
+	var shareButton: some View {
+		ShareButton(
+			viewModel: viewModel,
+			data: ButtonMetaData(
+				article: article,
+				title: Texts.Actions.share(),
+				iconName: "square.and.arrow.up"
+			)
+		)
+	}
+
+	var linkButton: some View {
+		CustomButton(
+			viewModel: viewModel,
+			action: {
+				webViewPresented.toggle()
+			},
+			title: Texts.Actions.open(),
+			iconName: "link"
+		)
+		.modifier(
+			FullScreenCoverModifier(
+				viewModel: viewModel,
+				webViewPresented: $webViewPresented,
+				url: article.url.orEmpty
+			)
+		)
 	}
 }
 

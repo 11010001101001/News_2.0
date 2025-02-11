@@ -1,55 +1,45 @@
 //
-//  OpenWebViewButton.swift
+//  FullScreenCoverModifier.swift
 //  News
 //
-//  Created by Ярослав Куприянов on 15.04.2024.
+//  Created by Yaroslav Kupriyanov on 11.02.2025.
 //
 
 import SwiftUI
 
-struct OpenWebViewButton: View {
+struct FullScreenCoverModifier: ViewModifier {
 	@ObservedObject private var viewModel: ViewModel
 	@ObservedObject var webViewModel = WebViewModel()
 
 	@State private var rotating = false
-	@State private var webViewPresented: Bool
+	@Binding private var webViewPresented: Bool
 	@State private var opacity = 1.0
-
-	private let data: ButtonMetaData
 
 	init(
 		viewModel: ViewModel,
-		webViewPresented: Bool = false,
-		data: ButtonMetaData
+		webViewPresented: Binding<Bool>,
+		url: String
 	) {
 		self.viewModel = viewModel
-		self.webViewPresented = webViewPresented
-		self.data = data
-		if let url = data.article.url {
-			webViewModel.url = URL(string: url)
-		}
+		_webViewPresented = webViewPresented
+		webViewModel.url = URL(string: url)
 	}
 
-	var body: some View {
-		CustomButton(
-			viewModel: viewModel,
-			action: { webViewPresented.toggle() },
-			title: data.title,
-			iconName: data.iconName
-		)
-		.fullScreenCover(isPresented: $webViewPresented) {
-			FullScreenCover(title: Texts.Screen.More.title()) {
-				VerStack {
-					progressView
-					buildCoverContents()
+	func body(content: Content) -> some View {
+		content
+			.fullScreenCover(isPresented: _webViewPresented) {
+				FullScreenCover(title: Texts.Screen.More.title()) {
+					VerStack {
+						progressView
+						buildCoverContents()
+					}
 				}
 			}
-		}
 	}
 }
 
 // MARK: - Cover contents
-extension OpenWebViewButton {
+private extension FullScreenCoverModifier {
 	func buildCoverContents() -> some View {
 		ZStack {
 			webView
@@ -60,7 +50,7 @@ extension OpenWebViewButton {
 }
 
 // MARK: Views
-private extension OpenWebViewButton {
+private extension FullScreenCoverModifier {
 	var loader: some View {
 		Loader(
 			loaderName: viewModel.loader,
