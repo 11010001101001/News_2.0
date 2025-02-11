@@ -31,4 +31,5 @@ struct Errors {
     static let undefinedError = Texts.Errors.undefinedError()
 	static let imageLoadingError = Texts.Errors.imageLoadingError()
     static let noConnection = Texts.Errors.noConnection()
+	static let loadingFailed = Texts.Errors.loadingFailed()
 }

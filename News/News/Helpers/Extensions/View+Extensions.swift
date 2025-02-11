@@ -70,7 +70,7 @@ extension View {
 		execute: Action
 	) -> some View {
 		isEnabled ?
-		self.modifier(AnswerNegative(execute: execute)).any() :
+		self.modifier(AnswerNegative()).any() :
 		self.modifier(OnTap(execute: nil, completion: execute)).any()
 	}
 

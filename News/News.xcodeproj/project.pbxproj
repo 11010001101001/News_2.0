@@ -125,6 +125,8 @@
 		DAC06D2E2CE8FEB700337E32 /* ConditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */; };
 		DAC13F612D4DF3D800E0AED8 /* AppIconSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13F602D4DF3D800E0AED8 /* AppIconSettingsCell.swift */; };
 		DAC13F632D4DFA8900E0AED8 /* AppIconConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13F622D4DFA8900E0AED8 /* AppIconConfiguration.swift */; };
+		DAC83CB72D5A873D00C59A86 /* FullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83CB62D5A873D00C59A86 /* FullScreenCover.swift */; };
+		DAC83CB92D5A8A5000C59A86 /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83CB82D5A8A5000C59A86 /* LoadingResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,6 +277,8 @@
 		DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalView.swift; sourceTree = "<group>"; };
 		DAC13F602D4DF3D800E0AED8 /* AppIconSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCell.swift; sourceTree = "<group>"; };
 		DAC13F622D4DFA8900E0AED8 /* AppIconConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconConfiguration.swift; sourceTree = "<group>"; };
+		DAC83CB62D5A873D00C59A86 /* FullScreenCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCover.swift; sourceTree = "<group>"; };
+		DAC83CB82D5A8A5000C59A86 /* LoadingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +328,7 @@
 				DA32E2112D4D5D97000BB54D /* DesignedText.swift */,
 				DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */,
 				DA9861F12D49626600F1BEE4 /* CustomScrollView.swift */,
+				DAC83CB62D5A873D00C59A86 /* FullScreenCover.swift */,
 				C41587032BC67DED00C6BD2C /* Buttons */,
 			);
 			path = Views;
@@ -760,6 +765,7 @@
 				C4956AE22C37381B00E1F100 /* CachedImage.swift */,
 				C4F827092C3CB6A600C27450 /* SettingsTip.swift */,
 				C4BC8D0C2BB2FA3900A0AFC8 /* SettingsModel.swift */,
+				DAC83CB82D5A8A5000C59A86 /* LoadingResult.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -1024,6 +1030,7 @@
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
 				DAC13F612D4DF3D800E0AED8 /* AppIconSettingsCell.swift in Sources */,
 				C4AA48DF2BC5827F00D45D3F /* ViewModel.swift in Sources */,
+				DAC83CB72D5A873D00C59A86 /* FullScreenCover.swift in Sources */,
 				C45116A02BB965300003250E /* Loader.swift in Sources */,
 				DA8888D12CE8A6770036B198 /* VerStack.swift in Sources */,
 				DA9861F22D49626600F1BEE4 /* CustomScrollView.swift in Sources */,
@@ -1056,6 +1063,7 @@
 				C4F8270A2C3CB6A700C27450 /* SettingsTip.swift in Sources */,
 				C49C849C2BB437F200571CD4 /* Image+AverageColor.swift in Sources */,
 				C490ED652BC6027C00AE977C /* Constants.swift in Sources */,
+				DAC83CB92D5A8A5000C59A86 /* LoadingResult.swift in Sources */,
 				C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */,
 				C4BC8D4D2BB3443800A0AFC8 /* Errors.swift in Sources */,
 				DA8888D52CE8A7210036B198 /* HorStack.swift in Sources */,

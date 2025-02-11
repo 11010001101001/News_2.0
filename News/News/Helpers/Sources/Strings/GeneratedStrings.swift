@@ -51,6 +51,9 @@ public enum Texts {
     /// invalidUrl
     public static func invalidUrl() -> String { Texts.tr("Strings", "errors.invalidUrl", fallback: "invalidUrl")
     }
+    /// Loading failed
+    public static func loadingFailed() -> String { Texts.tr("Strings", "errors.loadingFailed", fallback: "Loading failed")
+    }
     /// mappingError
     public static func mappingError() -> String { Texts.tr("Strings", "errors.mappingError", fallback: "mappingError")
     }
@@ -118,6 +121,11 @@ public enum Texts {
     public enum Main {
       /// News
       public static func title() -> String { Texts.tr("Strings", "screen.main.title", fallback: "News")
+      }
+    }
+    public enum More {
+      /// More
+      public static func title() -> String { Texts.tr("Strings", "screen.more.title", fallback: "More")
       }
     }
     public enum Settings {
