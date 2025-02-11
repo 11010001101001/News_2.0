@@ -26,7 +26,6 @@
 		C45116A62BB9690B0003250E /* hourglass.json in Resources */ = {isa = PBXBuildFile; fileRef = C45116A52BB9690B0003250E /* hourglass.json */; };
 		C45734AD2BBCFDD4005CA143 /* ActivityVcWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */; };
 		C475AEA22BCD6C1300189AA4 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475AEA12BCD6C1300189AA4 /* WebView.swift */; };
-		C475AEA42BCD6D4B00189AA4 /* OpenWebViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C475AEA32BCD6D4B00189AA4 /* OpenWebViewButton.swift */; };
 		C478DEAF2BC5DFC600C089D7 /* ViewModel+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */; };
 		C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift in Sources */ = {isa = PBXBuildFile; fileRef = C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift */; };
 		C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */; };
@@ -121,6 +120,7 @@
 		DA8888D12CE8A6770036B198 /* VerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D02CE8A6770036B198 /* VerStack.swift */; };
 		DA8888D52CE8A7210036B198 /* HorStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8888D42CE8A7210036B198 /* HorStack.swift */; };
 		DA9861F22D49626600F1BEE4 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9861F12D49626600F1BEE4 /* CustomScrollView.swift */; };
+		DAA7AF232D5B0A5C00EC883A /* FullScreenCoverModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7AF222D5B0A5C00EC883A /* FullScreenCoverModifier.swift */; };
 		DAC06D2B2CE8DA3E00337E32 /* AdditionalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC06D2A2CE8DA3E00337E32 /* AdditionalInfoCell.swift */; };
 		DAC06D2E2CE8FEB700337E32 /* ConditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */; };
 		DAC13F612D4DF3D800E0AED8 /* AppIconSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13F602D4DF3D800E0AED8 /* AppIconSettingsCell.swift */; };
@@ -187,7 +187,6 @@
 		C45116A52BB9690B0003250E /* hourglass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hourglass.json; sourceTree = "<group>"; };
 		C45734AC2BBCFDD4005CA143 /* ActivityVcWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVcWrapper.swift; sourceTree = "<group>"; };
 		C475AEA12BCD6C1300189AA4 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
-		C475AEA32BCD6D4B00189AA4 /* OpenWebViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWebViewButton.swift; sourceTree = "<group>"; };
 		C478DEAE2BC5DFC600C089D7 /* ViewModel+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+Notifications.swift"; sourceTree = "<group>"; };
 		C478DEB02BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+CheckIsRead.swift"; sourceTree = "<group>"; };
 		C47BBB592BBE422C009CBE8A /* LoaderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderConfiguration.swift; sourceTree = "<group>"; };
@@ -273,6 +272,7 @@
 		DA8888D02CE8A6770036B198 /* VerStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerStack.swift; sourceTree = "<group>"; };
 		DA8888D42CE8A7210036B198 /* HorStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorStack.swift; sourceTree = "<group>"; };
 		DA9861F12D49626600F1BEE4 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
+		DAA7AF222D5B0A5C00EC883A /* FullScreenCoverModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverModifier.swift; sourceTree = "<group>"; };
 		DAC06D2A2CE8DA3E00337E32 /* AdditionalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoCell.swift; sourceTree = "<group>"; };
 		DAC06D2D2CE8FEB700337E32 /* ConditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalView.swift; sourceTree = "<group>"; };
 		DAC13F602D4DF3D800E0AED8 /* AppIconSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCell.swift; sourceTree = "<group>"; };
@@ -340,7 +340,6 @@
 				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
 				C41586FF2BC67D4B00C6BD2C /* ShareButton.swift */,
 				C41587042BC67E1F00C6BD2C /* OpenLinkButton.swift */,
-				C475AEA32BCD6D4B00189AA4 /* OpenWebViewButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -693,6 +692,7 @@
 				DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */,
 				DA5FDE612C7793D8002CD19B /* OnTap.swift */,
 				C4A5F5852D52B05100717C50 /* InnerShadowAnimator.swift */,
+				DAA7AF222D5B0A5C00EC883A /* FullScreenCoverModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1020,12 +1020,12 @@
 			files = (
 				C4BC8D572BB35EB200A0AFC8 /* CGFloat+Extensions.swift in Sources */,
 				DAC06D2E2CE8FEB700337E32 /* ConditionalView.swift in Sources */,
-				C475AEA42BCD6D4B00189AA4 /* OpenWebViewButton.swift in Sources */,
 				C41587052BC67E1F00C6BD2C /* OpenLinkButton.swift in Sources */,
 				C49C849E2BB455CE00571CD4 /* View+Extensions.swift in Sources */,
 				C4BC8D4F2BB348C600A0AFC8 /* String+Extensions.swift in Sources */,
 				C4BC8D382BB3089900A0AFC8 /* CommonInfo.swift in Sources */,
 				DA5FDE632C7793D8002CD19B /* OnTap.swift in Sources */,
+				DAA7AF232D5B0A5C00EC883A /* FullScreenCoverModifier.swift in Sources */,
 				C4BC8D4B2BB318B500A0AFC8 /* VibrateManager.swift in Sources */,
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
 				DAC13F612D4DF3D800E0AED8 /* AppIconSettingsCell.swift in Sources */,
