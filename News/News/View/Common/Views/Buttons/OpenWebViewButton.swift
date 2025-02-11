@@ -13,6 +13,7 @@ struct OpenWebViewButton: View {
 
 	@State private var rotating = false
 	@State private var webViewPresented: Bool
+	@State private var opacity = 1.0
 
 	private let data: ButtonMetaData
 
@@ -38,7 +39,10 @@ struct OpenWebViewButton: View {
 		)
 		.fullScreenCover(isPresented: $webViewPresented) {
 			FullScreenCover(title: Texts.Screen.More.title()) {
-				buildCoverContents()
+				VerStack {
+					progressView
+					buildCoverContents()
+				}
 			}
 		}
 	}
@@ -77,5 +81,20 @@ private extension OpenWebViewButton {
 			.frame(height: Constants.imageHeight)
 			.onAppear { rotating.toggle() }
 			.opacity(webViewModel.loadingState == .error ? 1 : 0)
+	}
+
+	var progressView: some View {
+		ProgressView(value: webViewModel.progress)
+			.tint(LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor)
+			.animation(.smooth, value: webViewModel.progress)
+			.onChange(of: webViewModel.progress) { _, progress in
+				guard progress == 1.0 else { return }
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+					withAnimation {
+						opacity = .leastNonzeroMagnitude
+					}
+				}
+			}
+			.opacity(opacity)
 	}
 }
