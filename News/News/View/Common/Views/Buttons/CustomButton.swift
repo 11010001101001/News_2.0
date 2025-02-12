@@ -40,6 +40,7 @@ struct CustomButton: View {
 					)
 				}
 			)
+			.modifier(InnerShadowProvider(width: 1))
 			.buttonStyle(.bordered)
 			.clipShape(.capsule(style: .continuous))
 			.controlSize(.regular)
@@ -68,13 +69,13 @@ struct CustomButton: View {
 				EmptyView()
 			} else {
 				DesignedText(text: title ?? .empty)
-					.foregroundStyle(.blue)
+					.foregroundStyle(.white)
 			}
 		}
 	}
 
 	private var iconView: some View {
-		iconName == nil ? nil : Image(systemName: iconName!)
+		iconName == nil ? nil : Image(systemName: iconName!).foregroundStyle(.white)
 	}
 }
 

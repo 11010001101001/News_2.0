@@ -33,7 +33,7 @@ struct ErrorView: View {
 			.padding(Constants.padding)
 		}
 		.card()
-		.gloss(isBorderHighlighted: true)
+		.gloss(color: .red, isBorderHighlighted: true)
 		.ignoresSafeArea()
 	}
 }
@@ -44,7 +44,7 @@ private extension ErrorView {
 		ConditionalView(title != nil) {
 			DesignedText(text: title ?? .empty)
 				.labelStyle(.titleOnly)
-				.foregroundStyle(.blue)
+				.foregroundStyle(.white)
 				.multilineTextAlignment(.center)
 				.font(.headline)
 				.fixedSize(horizontal: false, vertical: true)

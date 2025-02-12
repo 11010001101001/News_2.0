@@ -10,6 +10,7 @@ import Lottie
 
 struct SettingsList: View {
 	@ObservedObject private var viewModel: ViewModel
+	@Environment(\.dismiss) var dismiss
 
 	init(viewModel: ViewModel) {
 		self.viewModel = viewModel
@@ -50,6 +51,15 @@ struct SettingsList: View {
 		.indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
 		.toolbarRole(.editor)
 		.toolbar {
+			ToolbarItem(placement: .topBarLeading) {
+				Button {
+					dismiss()
+				} label: {
+					Image(systemName: "chevron.backward")
+				}
+				.tint(.primary)
+			}
+
 			ToolbarItem(placement: .principal) {
 				DesignedText(text: Texts.Screen.Settings.title())
 					.font(.title)
@@ -57,6 +67,8 @@ struct SettingsList: View {
 		}
 		.scrollIndicators(.automatic)
 		.tabViewStyle(.page)
+		.navigationBarBackButtonHidden(true)
+		.navigationBarTitleDisplayMode(.inline)
 	}
 }
 
