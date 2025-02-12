@@ -18,7 +18,7 @@
 
 👀 Quick peek
 
-![Unknown](https://github.com/user-attachments/assets/614c02cd-fecc-4c5a-8be3-85aec1beb305)
+![Unknown](https://github.com/user-attachments/assets/83388d42-bc2c-4eaf-bb07-d24d720ba348)
 
 ## ☕️
 - **TON**: UQCQclFDQnQkHI4bJETisvn4QAZevjMWx5mjC3AErZaXvhlU
