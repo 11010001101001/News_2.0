@@ -75,7 +75,10 @@ private extension FullScreenCoverModifier {
 
 	var progressView: some View {
 		ProgressView(value: webViewModel.progress)
-			.tint(LoaderConfiguration(rawValue: viewModel.loader)?.shadowColor)
+			.scaleEffect(.init(width: 1.0, height: 0.3))
+			.tint(.white)
+			.offset(y: 1)
+			.gloss(color: viewModel.loaderShadowColor)
 			.animation(.smooth, value: webViewModel.progress)
 			.onChange(of: webViewModel.progress) { _, progress in
 				guard progress == 1.0 else { return }

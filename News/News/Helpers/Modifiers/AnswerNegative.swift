@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AnswerNegative: ViewModifier {
+	let execute: Action
 	@State private var left = false
 	@State private var right = false
 	@State private var isInitial = false
@@ -25,10 +26,11 @@ struct AnswerNegative: ViewModifier {
 				completion: {
 					withAnimation { right.toggle() }
 					completion: {
+						execute?()
 						withAnimation(
 							.interpolatingSpring(
 								stiffness: 1000,
-								damping: 9
+								damping: 6
 							)
 						) {
 							isInitial.toggle()
@@ -44,5 +46,5 @@ struct AnswerNegative: ViewModifier {
 #Preview {
 	Circle()
 		.frame(width: 100, height: 100, alignment: .center)
-		.modifier(AnswerNegative())
+		.modifier(AnswerNegative(execute: {}))
 }
