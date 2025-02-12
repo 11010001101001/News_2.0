@@ -10,6 +10,7 @@ import UIKit
 
 struct TopicDetail: View {
 	@ObservedObject private var viewModel: ViewModel
+	@Environment(\.dismiss) var dismiss
 
 	@State private var webViewPresented = false
 
@@ -34,11 +35,22 @@ struct TopicDetail: View {
 		}
 		.toolbarRole(.editor)
 		.toolbar {
+			ToolbarItem(placement: .topBarLeading) {
+				Button {
+					dismiss()
+				} label: {
+					Image(systemName: "chevron.backward")
+				}
+				.tint(.primary)
+			}
+
 			ToolbarItem(placement: .principal) {
 				DesignedText(text: Texts.Screen.Details.title())
 					.font(.title)
 			}
 		}
+		.navigationBarBackButtonHidden(true)
+		.navigationBarTitleDisplayMode(.inline)
 	}
 }
 
