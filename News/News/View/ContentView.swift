@@ -29,6 +29,7 @@ struct ContentView: View {
 							SettingsList(viewModel: viewModel)
 						} label: {
 							Image(systemName: getSettingsImageSystemName())
+								.foregroundStyle(.white)
 						}
 					}
 

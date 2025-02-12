@@ -64,6 +64,7 @@ private extension TopicDetail {
 	var buttons: some View {
 		HorStack(spacing: Constants.padding / 2) {
 			shareButton
+				.padding(.leading, Constants.padding / 2)
 			linkButton
 			Spacer()
 		}
@@ -78,7 +79,6 @@ private extension TopicDetail {
 				iconName: "square.and.arrow.up"
 			)
 		)
-		.modifier(InnerShadowProvider(width: 2))
 	}
 
 	var linkButton: some View {
@@ -97,7 +97,6 @@ private extension TopicDetail {
 				url: article.url.orEmpty
 			)
 		)
-		.modifier(InnerShadowProvider(width: 2))
 	}
 }
 
