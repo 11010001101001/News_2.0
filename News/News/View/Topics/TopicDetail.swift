@@ -78,6 +78,7 @@ private extension TopicDetail {
 				iconName: "square.and.arrow.up"
 			)
 		)
+		.modifier(InnerShadowProvider(width: 2))
 	}
 
 	var linkButton: some View {
@@ -96,6 +97,7 @@ private extension TopicDetail {
 				url: article.url.orEmpty
 			)
 		)
+		.modifier(InnerShadowProvider(width: 2))
 	}
 }
 

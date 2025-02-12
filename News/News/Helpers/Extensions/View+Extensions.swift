@@ -43,7 +43,7 @@ extension View {
 		execute: Action
 	) -> some View {
 		isEnabled ?
-		self.modifier(AnswerNegative()).any() :
+		self.modifier(AnswerNegative(execute: execute)).any() :
 		self.modifier(OnTap(execute: nil, completion: execute)).any()
 	}
 
@@ -64,7 +64,7 @@ extension View {
 			self.opacity(opacity).any()
 		case (false, true):
 			if isShadowEnabled {
-				self.modifier(InnerShadowAnimator()).any()
+				self.modifier(InnerShadowProvider()).any()
 			} else {
 				self.any()
 			}
@@ -77,7 +77,7 @@ extension View {
 	) -> some View {
 		let isEnabled = viewModel.checkIsEnabled(id.lowercased())
 		guard isEnabled else { return self.any() }
-		return self.modifier(InnerShadowAnimator(isAnimationEnabled: true)).any()
+		return self.modifier(InnerShadowProvider(isAnimationEnabled: true)).any()
 	}
 
 	func gloss(

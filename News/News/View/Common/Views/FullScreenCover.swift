@@ -29,10 +29,12 @@ struct FullScreenCover<Content: View>: View {
 					}
 
 					ToolbarItem(placement: .topBarTrailing) {
-						Image(systemName: "xmark.circle")
-							.onTapGesture {
-								dismiss()
-							}
+						Button {
+							dismiss()
+						} label: {
+							Image(systemName: "chevron.down")
+						}
+						.tint(.primary)
 					}
 				}
 				.navigationBarTitleDisplayMode(.inline)

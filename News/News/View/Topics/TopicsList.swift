@@ -67,7 +67,7 @@ private extension TopicsList {
 			Color.red
 				.clipShape(.rect(cornerRadius: Constants.cornerRadius))
 				.gloss(color: .red)
-				.frame(width: 170, height: 1)
+				.frame(width: 150, height: 1)
 				.opacity(enderOpacity)
 				.padding(.top, -Constants.padding)
 				.onAppear {
