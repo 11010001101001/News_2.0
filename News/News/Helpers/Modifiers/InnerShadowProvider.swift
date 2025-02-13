@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct InnerShadowProvider<S: Shape>: ViewModifier {
-	@State private var radius: CGFloat = .zero
-
+	private let radius: CGFloat = 2
 	private let shape: S
 	private let colors: [Color]
 	private let width: CGFloat
@@ -22,7 +21,6 @@ struct InnerShadowProvider<S: Shape>: ViewModifier {
 		self.shape = shape
 		self.colors = colors
 		self.width = width
-		radius = 2.0
 	}
 
 	func body(content: Content) -> some View {
