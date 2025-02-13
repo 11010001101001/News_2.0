@@ -33,7 +33,7 @@ struct ErrorView: View {
 			.padding(Constants.padding)
 		}
 		.card()
-		.gloss(color: .red, isBorderHighlighted: true)
+		.gloss(numberOfLayers: 1)
 		.ignoresSafeArea()
 	}
 }

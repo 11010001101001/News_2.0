@@ -52,12 +52,7 @@ struct SettingsList: View {
 		.toolbarRole(.editor)
 		.toolbar {
 			ToolbarItem(placement: .topBarLeading) {
-				Button {
-					dismiss()
-				} label: {
-					Image(systemName: "chevron.backward")
-				}
-				.tint(.primary)
+				NavButton(type: .back, action: { dismiss() })
 			}
 
 			ToolbarItem(placement: .principal) {

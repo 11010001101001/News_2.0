@@ -30,7 +30,7 @@ struct AnswerNegative: ViewModifier {
 						withAnimation(
 							.interpolatingSpring(
 								stiffness: 1000,
-								damping: 8
+								damping: 10
 							)
 						) {
 							isInitial.toggle()

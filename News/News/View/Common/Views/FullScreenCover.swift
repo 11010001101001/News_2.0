@@ -29,12 +29,7 @@ struct FullScreenCover<Content: View>: View {
 					}
 
 					ToolbarItem(placement: .topBarTrailing) {
-						Button {
-							dismiss()
-						} label: {
-							Image(systemName: "chevron.down")
-						}
-						.tint(.primary)
+						NavButton(type: .close, action: { dismiss() })
 					}
 				}
 				.navigationBarTitleDisplayMode(.inline)

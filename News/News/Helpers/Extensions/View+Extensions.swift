@@ -77,7 +77,7 @@ extension View {
 	) -> some View {
 		let isEnabled = viewModel.checkIsEnabled(id.lowercased())
 		guard isEnabled else { return self.any() }
-		return self.modifier(InnerShadowProvider(isAnimationEnabled: true)).any()
+		return self.modifier(InnerShadowProvider()).any()
 	}
 
 	func gloss(

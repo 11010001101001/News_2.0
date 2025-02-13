@@ -111,6 +111,7 @@
 		C4F8270D2C3CB6BB00C27450 /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F8270B2C3CB6BB00C27450 /* InfoCell.swift */; };
 		C4F8270E2C3CB6BB00C27450 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F8270C2C3CB6BB00C27450 /* LinkCell.swift */; };
 		DA09D40E2D50045700FC95B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA09D40D2D50045700FC95B9 /* LaunchScreen.storyboard */; };
+		DA2F86E02D5E91B7006F7B06 /* NavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F86DF2D5E91B7006F7B06 /* NavButton.swift */; };
 		DA32E2122D4D5D97000BB54D /* DesignedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA32E2112D4D5D97000BB54D /* DesignedText.swift */; };
 		DA5FDE622C7793D8002CD19B /* AnswerNegative.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */; };
 		DA5FDE632C7793D8002CD19B /* OnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FDE612C7793D8002CD19B /* OnTap.swift */; };
@@ -263,6 +264,7 @@
 		C4F8270B2C3CB6BB00C27450 /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		C4F8270C2C3CB6BB00C27450 /* LinkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		DA09D40D2D50045700FC95B9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA2F86DF2D5E91B7006F7B06 /* NavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavButton.swift; sourceTree = "<group>"; };
 		DA32E2112D4D5D97000BB54D /* DesignedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignedText.swift; sourceTree = "<group>"; };
 		DA5FDE602C7793D8002CD19B /* AnswerNegative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerNegative.swift; sourceTree = "<group>"; };
 		DA5FDE612C7793D8002CD19B /* OnTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnTap.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 			children = (
 				C4BC8D582BB35FEE00A0AFC8 /* CustomButton.swift */,
 				C41586FF2BC67D4B00C6BD2C /* ShareButton.swift */,
+				DA2F86DF2D5E91B7006F7B06 /* NavButton.swift */,
 				C41587042BC67E1F00C6BD2C /* OpenLinkButton.swift */,
 			);
 			path = Buttons;
@@ -1085,6 +1088,7 @@
 				C4BC8D592BB35FEE00A0AFC8 /* CustomButton.swift in Sources */,
 				C4956AE72C37506400E1F100 /* Image+Extensions.swift in Sources */,
 				C4BC8D552BB35CC300A0AFC8 /* Aliases.swift in Sources */,
+				DA2F86E02D5E91B7006F7B06 /* NavButton.swift in Sources */,
 				C4BC8D402BB3162D00A0AFC8 /* TopicDetail.swift in Sources */,
 				C4BC8D0D2BB2FA3900A0AFC8 /* SettingsModel.swift in Sources */,
 				DAC13F632D4DFA8900E0AED8 /* AppIconConfiguration.swift in Sources */,
