@@ -79,20 +79,22 @@ private extension CustomScrollView {
 private extension CustomScrollView {
 	func refreshData() {
 		guard !isLoading else { return }
-		withAnimation(.bouncy(duration: 0.3)) {
-			radius = 20.0
-			circleColor = viewModel.loaderShadowColor
-			circleSize = Constants.refreshControlSize
-			isLoading = true
-			viewModel.impactOccured(.rigid)
-			viewModel.refresh { hideRefreshControl() }
+		Task {
+			withAnimation(.bouncy(duration: 0.3)) {
+				radius = 20.0
+				circleColor = viewModel.loaderShadowColor
+				circleSize = Constants.refreshControlSize
+				isLoading = true
+				viewModel.impactOccured(.rigid)
+				viewModel.refresh { hideRefreshControl() }
+			}
 		}
 	}
 
 	func hideRefreshControl() {
 		Task {
 			isLoading = false
-			withAnimation(.bouncy(duration: 0.2)) {
+			withAnimation(.bouncy(duration: 0.3)) {
 				circleSize = .zero
 			} completion: {
 				radius = .zero

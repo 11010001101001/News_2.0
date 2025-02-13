@@ -78,7 +78,7 @@ private extension FullScreenCoverModifier {
 			.scaleEffect(.init(width: 1.0, height: 0.3))
 			.tint(.white)
 			.offset(y: 1)
-			.gloss(color: viewModel.loaderShadowColor)
+			.gloss(color: viewModel.loaderShadowColor, numberOfLayers: 7)
 			.animation(.smooth, value: webViewModel.progress)
 			.onChange(of: webViewModel.progress) { _, progress in
 				guard progress == 1.0 else { return }

@@ -25,12 +25,7 @@ struct ContentView: View {
 			TopicsList(viewModel: viewModel)
 				.toolbar {
 					ToolbarItem(placement: .topBarLeading) {
-						NavigationLink {
-							SettingsList(viewModel: viewModel)
-						} label: {
-							Image(systemName: getSettingsImageSystemName())
-								.foregroundStyle(.white)
-						}
+						NavButton(type: .settings(isDefault: viewModel.isDefaultSettings), viewModel: viewModel)
 					}
 
 					ToolbarItem(placement: .principal) {
@@ -39,8 +34,7 @@ struct ContentView: View {
 					}
 
 					ToolbarItem(placement: .topBarTrailing) {
-						Image(systemName: getMarkAllReadImageSystemName())
-							.onTapGesture { viewModel.markAsReadOrUnread() }
+						NavButton(type: .markAsRead(isAllRead: viewModel.isAllRead), action: viewModel.markAsReadOrUnread)
 					}
 				}
 				.navigationBarTitleDisplayMode(.inline)
@@ -100,14 +94,6 @@ private extension ContentView {
 		}
 
 		viewModel.redrawContentViewLoader()
-	}
-
-	func getSettingsImageSystemName() -> String {
-		viewModel.isDefaultSettings ? "gearshape" : "gearshape.fill"
-	}
-
-	func getMarkAllReadImageSystemName() -> String {
-		viewModel.isAllRead ? "checkmark.seal.fill" : "checkmark.seal"
 	}
 }
 

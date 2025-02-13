@@ -37,6 +37,13 @@ struct TopicCell: View {
 		.card()
         .markAsReadOrHighlight(viewModel, article)
 		.padding([.bottom, .horizontal], Constants.padding)
+		.drawingGroup()
+	}
+}
+
+extension TopicCell: Equatable {
+	static func == (lhs: TopicCell, rhs: TopicCell) -> Bool {
+		lhs.article.key == rhs.article.key
 	}
 }
 

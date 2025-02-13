@@ -38,4 +38,5 @@ struct SettingsCell: View, ImageProvider {
 
 #Preview {
 	SettingsCell(viewModel: ViewModel(), id: Category.business.rawValue)
+		.modifier(InnerShadowProvider())
 }

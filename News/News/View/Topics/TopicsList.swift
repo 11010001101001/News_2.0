@@ -56,7 +56,7 @@ private extension TopicsList {
 			NavigationLink {
 				TopicDetail(viewModel: viewModel, article: article)
 			} label: {
-				TopicCell(viewModel: viewModel, article: article)
+				TopicCell(viewModel: viewModel, article: article).equatable()
 			}
 		}
 	}
