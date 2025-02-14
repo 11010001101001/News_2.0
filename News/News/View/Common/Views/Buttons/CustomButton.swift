@@ -40,6 +40,7 @@ struct CustomButton: View {
 					)
 				}
 			)
+			.modifier(InnerShadowProvider(width: 2))
 			.buttonStyle(.bordered)
 			.clipShape(.capsule(style: .continuous))
 			.scaleEffect(scale)

@@ -13,6 +13,7 @@ struct TopicDetail: View {
 	@Environment(\.dismiss) var dismiss
 
 	@State private var webViewPresented = false
+	@State private var buttonsOpacity: CGFloat = .zero
 
 	private let article: Article
 
@@ -30,6 +31,14 @@ struct TopicDetail: View {
 			.ignoresSafeArea(edges: .bottom)
 			VerStack(alignment: .center) {
 				CachedAsyncImage(article: article, viewModel: viewModel)
+					.onAppear {
+						Task {
+							try await Task.sleep(for: .seconds(1))
+							withAnimation(.smooth) {
+								buttonsOpacity = 1.0
+							}
+						}
+					}
 				Spacer()
 			}
 		}
@@ -75,6 +84,7 @@ private extension TopicDetail {
 			linkButton
 			Spacer()
 		}
+		.opacity(buttonsOpacity)
 	}
 
 	var shareButton: some View {
