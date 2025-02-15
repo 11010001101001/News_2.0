@@ -34,7 +34,7 @@ struct TopicDetail: View {
 					.onAppear {
 						Task {
 							try await Task.sleep(for: .seconds(1))
-							withAnimation(.smooth) {
+							withAnimation(.bouncy(duration: 0.2)) {
 								buttonsOpacity = 1.0
 							}
 						}

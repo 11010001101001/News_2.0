@@ -13,7 +13,6 @@ struct CustomScrollView<Content: View>: View {
 
 	@State private var isLoading = false
 	@State private var radius: CGFloat = .zero
-	@State private var circleColor: Color = .rowBackground
 	@State private var circleSize: CGFloat = .zero
 	@State private var initialOffset: CGFloat = .zero
 
@@ -41,8 +40,8 @@ struct CustomScrollView<Content: View>: View {
 private extension CustomScrollView {
 	var customRefreshControl: some View {
 		Circle()
-			.fill(circleColor)
-			.gloss(color: circleColor, radius: radius)
+			.fill(.rowBackground)
+			.gloss(isEnabled: isLoading, radius: radius, isBorderHighlighted: true)
 			.padding(.top, Constants.padding)
 			.frame(width: circleSize, height: circleSize)
 	}
@@ -80,13 +79,13 @@ private extension CustomScrollView {
 	func refreshData() {
 		guard !isLoading else { return }
 		Task {
-			withAnimation(.bouncy(duration: 0.3)) {
-				radius = 20.0
-				circleColor = viewModel.loaderShadowColor
+			isLoading = true
+			viewModel.impactOccured(.light)
+			viewModel.refresh { hideRefreshControl() }
+
+			withAnimation(.bouncy(duration: 0.2, extraBounce: 0.25)) {
+				radius = 15.0
 				circleSize = Constants.refreshControlSize
-				isLoading = true
-				viewModel.impactOccured(.rigid)
-				viewModel.refresh { hideRefreshControl() }
 			}
 		}
 	}
@@ -94,11 +93,9 @@ private extension CustomScrollView {
 	func hideRefreshControl() {
 		Task {
 			isLoading = false
-			withAnimation(.bouncy(duration: 0.3)) {
+			withAnimation(.bouncy(duration: 0.2, extraBounce: 0.2)) {
 				circleSize = .zero
-			} completion: {
 				radius = .zero
-				circleColor = .rowBackground
 			}
 		}
 	}
