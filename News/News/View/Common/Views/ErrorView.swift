@@ -12,6 +12,7 @@ struct ErrorView: View {
 	@ObservedObject private var viewModel: ViewModel
 	private var title: String?
 	private let action: Action
+	private let startDate = Date()
 
 	init(
 		viewModel: ViewModel,
@@ -24,17 +25,20 @@ struct ErrorView: View {
 	}
 
 	var body: some View {
-		VerStack(alignment: .center) {
-			Group {
-				errorTitle
-				errorImage
-				reloadButton
+		TimelineView(.animation) { _ in
+			VerStack(alignment: .center) {
+				Group {
+					errorTitle
+					errorImage
+					reloadButton
+				}
+				.padding(Constants.padding)
 			}
-			.padding(Constants.padding)
+			.background { noiseShader }
+			.card()
+			.gloss(numberOfLayers: 1)
+			.ignoresSafeArea()
 		}
-		.card()
-		.gloss(numberOfLayers: 1)
-		.ignoresSafeArea()
 	}
 }
 
@@ -56,6 +60,7 @@ private extension ErrorView {
 		Image(uiImage: .errorCat)
 			.resizable()
 			.frame(width: 150, height: 150)
+			.gloss(numberOfLayers: 1)
 			.scaledToFill()
 			.padding(.horizontal)
 	}
@@ -66,6 +71,12 @@ private extension ErrorView {
 			action: action,
 			title: Texts.Actions.reload()
 		)
+	}
+
+	var noiseShader: some View {
+		Rectangle()
+			.opacity(0.5)
+			.colorEffect(ShaderLibrary.noise(.float(startDate.timeIntervalSinceNow)))
 	}
 }
 
