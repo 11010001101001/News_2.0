@@ -83,7 +83,7 @@ private extension CustomScrollView {
 			viewModel.impactOccured(.light)
 			viewModel.refresh { hideRefreshControl() }
 
-			withAnimation(.bouncy(duration: 0.2, extraBounce: 0.2)) {
+			withAnimation(.bouncy(duration: 0.2, extraBounce: 0.25)) {
 				radius = 15.0
 				circleSize = Constants.refreshControlSize
 			}

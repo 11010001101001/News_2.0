@@ -12,6 +12,7 @@ struct InnerShadowProvider<S: Shape>: ViewModifier {
 	private let shape: S
 	private let colors: [Color]
 	private let width: CGFloat
+	private let startDate = Date()
 
 	init(
 		shape: S = .rect(cornerRadius: Constants.cornerRadius),
@@ -27,6 +28,17 @@ struct InnerShadowProvider<S: Shape>: ViewModifier {
 		content
 			.overlay(
 				ZStack {
+					TimelineView(.animation) { _ in
+						ForEach(0..<2) { _ in
+							shape
+								.stroke(AngularGradient(colors: [.indigo], center: .center), lineWidth: width)
+								.applyShader(startDate)
+								.padding(.all, 3)
+								.blur(radius: radius * 7)
+								.mask(shape)
+						}
+					}
+
 					shape
 						.stroke(AngularGradient(colors: colors, center: .center), lineWidth: width)
 						.offset(x: 2, y: -1.5)
@@ -56,5 +68,24 @@ struct InnerShadowProvider<S: Shape>: ViewModifier {
 					}
 				}
 			)
+	}
+}
+
+private extension View {
+	func applyShader(_ startDate: Date) -> some View {
+		self
+			.visualEffect { content, proxy in
+				content
+					.distortionEffect(
+						ShaderLibrary.complexWave(
+							.float(startDate.timeIntervalSinceNow),
+							.float2(proxy.size),
+							.float(0.3),
+							.float(3),
+							.float(4)
+						),
+						maxSampleOffset: .zero
+					)
+			}
 	}
 }
