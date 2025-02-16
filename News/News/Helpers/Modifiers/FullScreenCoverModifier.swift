@@ -11,7 +11,6 @@ struct FullScreenCoverModifier: ViewModifier {
 	@ObservedObject private var viewModel: ViewModel
 	@ObservedObject var webViewModel = WebViewModel()
 
-	@State private var rotating = false
 	@Binding private var webViewPresented: Bool
 	@State private var opacity = 1.0
 
@@ -66,10 +65,7 @@ private extension FullScreenCoverModifier {
 
 	var error: some View {
 		ErrorView(viewModel: viewModel, title: Errors.loadingFailed, action: nil)
-			.applyNice3DRotation(rotating: rotating)
-			.commonScaleAffect(state: rotating)
 			.frame(height: Constants.imageHeight)
-			.onAppear { rotating.toggle() }
 			.opacity(webViewModel.loadingState == .error ? 1 : 0)
 	}
 

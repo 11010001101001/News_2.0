@@ -11,6 +11,9 @@ struct CachedAsyncImage: View {
 	private let article: Article
 
 	@ObservedObject private var viewModel: ViewModel
+
+	@State private var origin: CGPoint = .zero
+	@State private var counter: Int = 0
 	@State private var rotating = false
 	@State private var scale: CGFloat = .zero
 	@State private var coords = CGFloat.randomCoordinates
@@ -47,15 +50,7 @@ extension CachedAsyncImage {
 		if let cachedImage {
 			cachedImage
 				.makeRounded(height: Constants.imageHeight)
-				.applyRotationAndScale(rotating, scale, coords)
-				.onAppear {
-					withAnimation(.easeInOut(duration: 30).repeatForever(autoreverses: true)) {
-						rotating.toggle()
-					}
-					withAnimation(.smooth(duration: 0.3, extraBounce: 0.4)) {
-						scale = 1.0
-					}
-				}
+				.applyRotationAndScale($rotating, $scale, coords, $origin, $counter)
 		} else {
 			asyncImage
 		}
@@ -77,16 +72,8 @@ extension CachedAsyncImage {
 
 	var error: some View {
 		ErrorView(viewModel: viewModel, title: Errors.imageLoadingError, action: nil)
-			.applyRotationAndScale(rotating, scale, coords)
+			.applyRotationAndScale($rotating, $scale, coords, $origin, $counter)
 			.frame(height: Constants.imageHeight)
-			.onAppear {
-				withAnimation(.easeInOut(duration: 30).repeatForever(autoreverses: true)) {
-					rotating.toggle()
-				}
-				withAnimation(.smooth(duration: 0.3, extraBounce: 0.4)) {
-					scale = 1.0
-				}
-			}
 	}
 
 	var loader: some View {
@@ -110,19 +97,32 @@ private extension CachedAsyncImage {
 private extension View {
 	// swiftlint:disable large_tuple
 	func applyRotationAndScale(
-		_ rotating: Bool,
-		_ scale: CGFloat,
-		_ coords: (x: CGFloat, y: CGFloat, z: CGFloat)
+		_ rotating: Binding<Bool>,
+		_ scale: Binding<CGFloat>,
+		_ coords: (x: CGFloat, y: CGFloat, z: CGFloat),
+		_ origin: Binding<CGPoint>,
+		_ counter: Binding<Int>
 	) -> some View {
 		self
 			.rotation3DEffect(
-				Angle(degrees: rotating ? -10 : 10),
+				Angle(degrees: rotating.wrappedValue ? -4 : 4),
 				axis: coords,
-				anchor: .center,
-				anchorZ: 0.5,
-				perspective: rotating ? 1 : -1
+				anchor: .center
 			)
-			.scaleEffect(scale)
+			.scaleEffect(scale.wrappedValue)
+			.onAppear {
+				withAnimation(.smooth(duration: 30).repeatForever(autoreverses: true)) {
+					rotating.wrappedValue.toggle()
+				}
+				withAnimation(.smooth(duration: 0.2, extraBounce: 0.3)) {
+					scale.wrappedValue = 1.0
+				}
+			}
+			.modifier(RippleEffect(at: origin.wrappedValue, trigger: counter.wrappedValue))
+			.onTapGesture { location in
+				origin.wrappedValue = location
+				counter.wrappedValue += 1
+			}
 	}
 	// swiftlint:enable large_tuple
 }

@@ -82,7 +82,7 @@ private extension View {
 							.float2(proxy.size),
 							.float(0.3),
 							.float(3),
-							.float(4)
+							.float(6)
 						),
 						maxSampleOffset: .zero
 					)

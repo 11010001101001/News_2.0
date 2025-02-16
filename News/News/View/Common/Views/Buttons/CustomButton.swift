@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CustomButton: View {
 	@ObservedObject private var viewModel: ViewModel
-	@State private var scale: CGFloat = 1.0
 
 	private let action: Action
 	private var title: String?
@@ -40,25 +39,15 @@ struct CustomButton: View {
 					)
 				}
 			)
-			.modifier(InnerShadowProvider(width: 2))
 			.buttonStyle(.bordered)
 			.clipShape(.capsule(style: .continuous))
-			.scaleEffect(scale)
 		}
 	}
 
 	private var buttonAction: Action {
 		{
 			viewModel.impactOccured(.light)
-			withAnimation(.easeInOut(duration: .zero)) {
-				scale = 0.90
-			} completion: {
-				withAnimation(.easeInOut(duration: 0.15)) {
-					scale = 1.0
-				} completion: {
-					action?()
-				}
-			}
+			action?()
 		}
 	}
 

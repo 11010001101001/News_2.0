@@ -58,6 +58,16 @@ private extension TopicsList {
 			} label: {
 				TopicCell(viewModel: viewModel, article: article).equatable()
 			}
+			.scrollTransition(
+				topLeading: .identity,
+				bottomTrailing: .interactive,
+				transition: { content, phase in
+					content
+						.hueRotation(.degrees(360 * phase.value))
+						.scaleEffect(phase.isIdentity ? 1 : 0.95)
+						.blur(radius: phase.isIdentity ? 0 : 1)
+				}
+			)
 		}
 	}
 

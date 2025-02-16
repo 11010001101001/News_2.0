@@ -37,7 +37,6 @@ struct TopicCell: View {
 		.card()
         .markAsReadOrHighlight(viewModel, article)
 		.padding([.bottom, .horizontal], Constants.padding)
-		.drawingGroup()
 	}
 }
 
