@@ -9,25 +9,6 @@ import Foundation
 import SwiftUI
 
 extension View {
-	func commonScaleAffect(state: Bool) -> some View {
-		return self
-			.scaleEffect((state ? 1.0 : .zero) ?? .zero)
-			.animation(.smooth(duration: 0.3, extraBounce: 0.4), value: state)
-	}
-
-	func applyNice3DRotation(rotating: Bool, duration: CGFloat? = 30.0) -> some View {
-		return self
-			.rotation3DEffect(
-				Angle(degrees: rotating ? -10 : 10),
-				axis: rotating ? CGFloat.randomCoordinates : CGFloat.randomCoordinates,
-				anchor: .center,
-				anchorZ: 0.5,
-				perspective: rotating ? 1 : -1
-			)
-			.animation(.easeInOut(duration: duration ?? .zero).repeatForever(autoreverses: true),
-					   value: rotating)
-	}
-
 	func card() -> some View {
 		self
 			.background(.rowBackground)

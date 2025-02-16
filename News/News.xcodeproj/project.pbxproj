@@ -129,6 +129,9 @@
 		DAC13F632D4DFA8900E0AED8 /* AppIconConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC13F622D4DFA8900E0AED8 /* AppIconConfiguration.swift */; };
 		DAC83CB72D5A873D00C59A86 /* FullScreenCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83CB62D5A873D00C59A86 /* FullScreenCover.swift */; };
 		DAC83CB92D5A8A5000C59A86 /* LoadingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC83CB82D5A8A5000C59A86 /* LoadingResult.swift */; };
+		DAE710092D627352001CF575 /* ButtonTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE710082D627352001CF575 /* ButtonTransition.swift */; };
+		DAE7100C2D6296AC001CF575 /* RippleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE7100B2D6296AC001CF575 /* RippleModifier.swift */; };
+		DAE7100E2D6296E0001CF575 /* RippleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE7100D2D6296E0001CF575 /* RippleEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +286,9 @@
 		DAC13F622D4DFA8900E0AED8 /* AppIconConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconConfiguration.swift; sourceTree = "<group>"; };
 		DAC83CB62D5A873D00C59A86 /* FullScreenCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCover.swift; sourceTree = "<group>"; };
 		DAC83CB82D5A8A5000C59A86 /* LoadingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingResult.swift; sourceTree = "<group>"; };
+		DAE710082D627352001CF575 /* ButtonTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTransition.swift; sourceTree = "<group>"; };
+		DAE7100B2D6296AC001CF575 /* RippleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleModifier.swift; sourceTree = "<group>"; };
+		DAE7100D2D6296E0001CF575 /* RippleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,6 +649,7 @@
 				C4BC8D542BB35CC300A0AFC8 /* Aliases.swift */,
 				C490ED642BC6027C00AE977C /* Constants.swift */,
 				DA7A0C2C2CEA7A080061D585 /* Sources */,
+				DAE7100A2D627358001CF575 /* Transitions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -698,6 +705,8 @@
 				DA5FDE612C7793D8002CD19B /* OnTap.swift */,
 				C4A5F5852D52B05100717C50 /* InnerShadowProvider.swift */,
 				DAA7AF222D5B0A5C00EC883A /* FullScreenCoverModifier.swift */,
+				DAE7100B2D6296AC001CF575 /* RippleModifier.swift */,
+				DAE7100D2D6296E0001CF575 /* RippleEffect.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -774,6 +783,14 @@
 				DAC83CB82D5A8A5000C59A86 /* LoadingResult.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		DAE7100A2D627358001CF575 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				DAE710082D627352001CF575 /* ButtonTransition.swift */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1034,6 +1051,7 @@
 				DA5FDE632C7793D8002CD19B /* OnTap.swift in Sources */,
 				DAA7AF232D5B0A5C00EC883A /* FullScreenCoverModifier.swift in Sources */,
 				C4BC8D4B2BB318B500A0AFC8 /* VibrateManager.swift in Sources */,
+				DAE7100E2D6296E0001CF575 /* RippleEffect.swift in Sources */,
 				C4F676EC2BB5A36A002F3BCE /* ViewModel+Loading.swift in Sources */,
 				DAC13F612D4DF3D800E0AED8 /* AppIconSettingsCell.swift in Sources */,
 				C4AA48DF2BC5827F00D45D3F /* ViewModel.swift in Sources */,
@@ -1041,6 +1059,7 @@
 				C45116A02BB965300003250E /* Loader.swift in Sources */,
 				DA8888D12CE8A6770036B198 /* VerStack.swift in Sources */,
 				DA9861F22D49626600F1BEE4 /* CustomScrollView.swift in Sources */,
+				DAE710092D627352001CF575 /* ButtonTransition.swift in Sources */,
 				C4AA48E82BC597C600D45D3F /* NotificationManager.swift in Sources */,
 				C4A5F5862D52B05100717C50 /* InnerShadowProvider.swift in Sources */,
 				C4BC8D532BB35C9900A0AFC8 /* ErrorView.swift in Sources */,
@@ -1073,6 +1092,7 @@
 				DAC83CB92D5A8A5000C59A86 /* LoadingResult.swift in Sources */,
 				C47BBB5A2BBE422C009CBE8A /* LoaderConfiguration.swift in Sources */,
 				C4BC8D4D2BB3443800A0AFC8 /* Errors.swift in Sources */,
+				DAE7100C2D6296AC001CF575 /* RippleModifier.swift in Sources */,
 				DA8888D52CE8A7210036B198 /* HorStack.swift in Sources */,
 				C4B40FA42C376493004CD2D5 /* ViewModel+Cache.swift in Sources */,
 				C478DEB12BC5E00F00C089D7 /* ViewModel+CheckIsRead.swift in Sources */,
